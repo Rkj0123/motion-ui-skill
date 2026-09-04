@@ -24,6 +24,11 @@ Ask four questions before choosing a duration or spring:
 - `EASE_IN_OUT`: objects already on screen moving between positions.
 - `SPRING_PRESS`: fast, weighted feedback for pressable surfaces.
 - `SPRING_LAYOUT`: shared surfaces and indicators that preserve spatial continuity.
+- `SPRING_BOUNCE`: lively playful bounce for badges, celebration checks, stars, and micro-pops.
+- `SPRING_GENTLE`: gentle, natural spring for spacious card expansions and drawer reveals.
+- `SPRING_SNAPPY`: snappy, high-velocity spring for fast toggles, segmented pills, and tabs.
+- `SPRING_FLOAT`: soft floating physics for tooltips, hover cards, and ambient elevation.
+- `SPRING_GLIDE`: critically damped slider handles with zero overshoot.
 
 ## Timing
 
@@ -36,6 +41,17 @@ Ask four questions before choosing a duration or spring:
 | Marketing demo | Flexible | Clarity matters more than speed |
 
 Under 300ms is the default for interface motion. Longer motion belongs to explanatory demos, deliberate gestures, and large spatial changes.
+
+## Comprehensive Guides Suite
+
+For specialized engineering topics, consult the dedicated companion guides:
+- [Design System Architecture & Checklist](./design-system-checklist.md): Tokens, WCAG contrast, typography, and component health.
+- [Motion Engineering Guide](./motion-engineering.md): Deep dive into `motion/react`, physics springs, `layoutId`, and gestures.
+- [Motion Performance & 60/120 FPS](./motion-performance.md): Compositor properties, avoiding layout thrashing, and layer budgets.
+- [Baseline UI Craft & Anti-Slop](./baseline-ui-craft.md): Design engineering principles, optical alignment, and micro-interactions.
+- [The 12 Canonical Interaction Transitions](./interaction-transitions.md): Transitions.dev interaction patterns and token specs.
+- [Universal Mobile-First Interaction Patterns](./universal-mobile-patterns.md): Touch ergonomics, haptic feedback semantics, and swipe gestures.
+- [Enterprise Dashboard Architecture](./enterprise-dashboard-patterns.md): High-density data grids, kanban boards, faceted query builders, and timelines.
 
 ## Recipes
 
@@ -87,3 +103,4 @@ const visible = {
   transform: "translateY(0px)",
 };
 ```
+

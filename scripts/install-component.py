@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Motion UI - Component Installer & Resolver
-Allows AI agents and developers to search, inspect, and install any of the 82
+Allows AI agents and developers to search, inspect, and install any of the 95
 animated UI components and their dependencies directly into any React/Next.js codebase.
 """
 

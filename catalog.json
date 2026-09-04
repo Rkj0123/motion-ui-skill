@@ -2381,6 +2381,292 @@
       ],
       "preview_files": [],
       "doc_path": "references/blocks/not-found.md"
+    },
+    "timeline": {
+      "slug": "timeline",
+      "name": "Timeline",
+      "category": "motion",
+      "description": "Interactive chronological milestone and audit tracker with animated progress lines, status badges, and expandable step disclosures.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/timeline.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/timeline.md"
+    },
+    "kanban": {
+      "slug": "kanban",
+      "name": "Kanban Board",
+      "category": "blocks",
+      "description": "Interactive drag-and-drop task workflow board with spring layoutId reordering, column drop zones, WIP counters, and priority tags.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/kanban.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/kanban.md"
+    },
+    "filter-builder": {
+      "slug": "filter-builder",
+      "name": "Filter Builder",
+      "category": "blocks",
+      "description": "Faceted stepped query filter builder with dynamic attribute selectors, operator dropdowns, AND/OR logic toggles, and animated chip tags.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/filter-builder.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/filter-builder.md"
+    },
+    "cascader": {
+      "slug": "cascader",
+      "name": "Cascader",
+      "category": "motion",
+      "description": "Multi-level cascading drill-down selector with sliding column transitions, breadcrumb trails, instant global search, and keyboard navigation.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/cascader.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/cascader.md"
+    },
+    "rating": {
+      "slug": "rating",
+      "name": "Rating",
+      "category": "motion",
+      "description": "Interactive star rating component with half-star fractional hover detection, spring bounce micro-interactions on click, and keyboard accessibility.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/rating.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/rating.md"
+    },
+    "avatar-group": {
+      "slug": "avatar-group",
+      "name": "Avatar Group",
+      "category": "motion",
+      "description": "Interactive stacked avatar pile where hovering an avatar springs it forward while adjacent neighbors fan out with distance falloff.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/avatar-group.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/avatar-group.md"
+    },
+    "success-check": {
+      "slug": "success-check",
+      "name": "Success Check",
+      "category": "motion",
+      "description": "Celebration confirmation micro-interaction featuring an expanding circle halo, spring pop-in, SVG path draw checkmark, and haptic feedback.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/success-check.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/success-check.md"
+    },
+    "hover-card": {
+      "slug": "hover-card",
+      "name": "Hover Card",
+      "category": "motion",
+      "description": "Rich contextual hover card popover with open/close delay buffering, spring entrance, and collision avoidance.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/hover-card.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/hover-card.md"
+    },
+    "kbd": {
+      "slug": "kbd",
+      "name": "Keyboard Keycap",
+      "category": "motion",
+      "description": "Hardware-styled keyboard shortcut cap with OS auto-detection (macOS \u2318 vs Windows Ctrl), key combination joins, and tactile spring press feedback.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/kbd.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/kbd.md"
+    },
+    "password-input": {
+      "slug": "password-input",
+      "name": "Password Input",
+      "category": "motion",
+      "description": "Smart password field with show/hide toggle, animated multi-segment strength meter, and live criteria validation checklist.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/password-input.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/password-input.md"
+    },
+    "spotlight-card": {
+      "slug": "spotlight-card",
+      "name": "Spotlight Card",
+      "category": "motion",
+      "description": "Interactive craft card with mouse-tracking radial spotlight glow, rotating border beam highlight, and subtle depth elevation.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/spotlight-card.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/spotlight-card.md"
+    },
+    "glow-button": {
+      "slug": "glow-button",
+      "name": "Glow Button",
+      "category": "motion",
+      "description": "Premium CTA button featuring an iridescent glowing perimeter gradient, magnetic pointer attraction, and tactile spring feedback.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/glow-button.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/glow-button.md"
+    },
+    "action-sheet": {
+      "slug": "action-sheet",
+      "name": "Action Sheet",
+      "category": "blocks",
+      "description": "Universal mobile action sheet menu with drag gesture dismissal, rubber-band resistance, haptic feedback, and desktop center modal fallback.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/action-sheet.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/action-sheet.md"
     }
   }
 }
