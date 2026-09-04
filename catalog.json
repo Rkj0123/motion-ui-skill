@@ -2667,6 +2667,1105 @@
       ],
       "preview_files": [],
       "doc_path": "references/motion/action-sheet.md"
+    },
+    "stepper": {
+      "slug": "stepper",
+      "name": "Stepper",
+      "category": "motion",
+      "description": "Multi-step wizard progress indicator with animated connecting lines, completed checkmarks, and active status indicators.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/stepper.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/stepper.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "number-field": {
+      "slug": "number-field",
+      "name": "Number Field",
+      "category": "motion",
+      "description": "Precision numeric stepper input with increment/decrement hold acceleration, rolling number animation, and min/max limits.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/number-field.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/number-field.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "segmented-control": {
+      "slug": "segmented-control",
+      "name": "Segmented Control",
+      "category": "motion",
+      "description": "iOS / macOS-style segmented pill selector with continuous sliding layoutId spring indicator and haptic touch.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/segmented-control.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/segmented-control.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "breadcrumb": {
+      "slug": "breadcrumb",
+      "name": "Breadcrumb",
+      "category": "motion",
+      "description": "Accessible hierarchical navigation trail with animated item insertions, collapsed dropdown menu, and spring hover highlights.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/breadcrumb.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/breadcrumb.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "pagination": {
+      "slug": "pagination",
+      "name": "Pagination",
+      "category": "motion",
+      "description": "Accessible multi-page navigation bar with sliding active page pill, ellipsis jumps, and previous/next page triggers.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/pagination.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/pagination.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "collapsible": {
+      "slug": "collapsible",
+      "name": "Collapsible",
+      "category": "motion",
+      "description": "Interactive disclosure panel with smooth spring height animation, rotating trigger icon, and zero layout shift.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/collapsible.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/collapsible.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "toggle-group": {
+      "slug": "toggle-group",
+      "name": "Toggle Group",
+      "category": "motion",
+      "description": "Multi-item selection toggle bar supporting single and multiple choice modes with sliding layout springs.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/toggle-group.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/toggle-group.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "chip": {
+      "slug": "chip",
+      "name": "Chip",
+      "category": "motion",
+      "description": "Interactive filter chip and badge with removable dismissal animation, selection toggle, and status dot.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/chip.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/chip.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "copy-button": {
+      "slug": "copy-button",
+      "name": "Copy Button",
+      "category": "motion",
+      "description": "One-click clipboard copy button with spring checkmark morph, haptic confirmation, and tooltip feedback.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/copy-button.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/copy-button.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "progress-ring": {
+      "slug": "progress-ring",
+      "name": "Progress Ring",
+      "category": "motion",
+      "description": "Circular animated SVG progress gauge with spring stroke dashoffset, customizable gradient stroke, and center label.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/progress-ring.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/progress-ring.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "split-text": {
+      "slug": "split-text",
+      "name": "Split Text",
+      "category": "motion",
+      "description": "High-performance typography reveal that splits sentences into characters or words with staggered spring entrances.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/split-text.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/split-text.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "haptic-pressable": {
+      "slug": "haptic-pressable",
+      "name": "Haptic Pressable",
+      "category": "motion",
+      "description": "Universal touch-first interactive wrapper with physical spring compression, semantic vibration feedback, and hover guards.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/haptic-pressable.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/haptic-pressable.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "confetti": {
+      "slug": "confetti",
+      "name": "Confetti",
+      "category": "motion",
+      "description": "Hardware-accelerated celebratory particle burst with realistic air-resistance physics, rotations, and color palettes.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/confetti.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/confetti.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "segmented-progress": {
+      "slug": "segmented-progress",
+      "name": "Segmented Progress",
+      "category": "motion",
+      "description": "Instagram / WhatsApp Stories-style segmented progress bar with auto-advancing timers, pause on hold, and step jumps.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/segmented-progress.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/segmented-progress.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "aspect-ratio": {
+      "slug": "aspect-ratio",
+      "name": "Aspect Ratio",
+      "category": "motion",
+      "description": "Adaptive aspect ratio container with smooth geometry transitions when switching ratios and zero cumulative layout shift.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/aspect-ratio.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/aspect-ratio.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "event-calendar": {
+      "slug": "event-calendar",
+      "name": "Event Calendar",
+      "category": "blocks",
+      "description": "Full-featured interactive scheduling calendar with month/week views, animated day cells, event pills, and popover creation.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/event-calendar.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/event-calendar.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "gantt": {
+      "slug": "gantt",
+      "name": "Gantt Timeline Chart",
+      "category": "blocks",
+      "description": "Enterprise project management timeline with draggable milestone bars, percentage progress fills, and dependency connections.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/gantt.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/gantt.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "tree-view": {
+      "slug": "tree-view",
+      "name": "Tree View",
+      "category": "motion",
+      "description": "Hierarchical nested folder tree with animated node collapse/expand, file type icons, selection highlights, and keyboard navigation.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/tree-view.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/tree-view.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "sortable-list": {
+      "slug": "sortable-list",
+      "name": "Sortable List",
+      "category": "motion",
+      "description": "Accessible drag-to-reorder list with drag handle controls, shadow elevation, layout spring realignment, and drop callbacks.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/sortable-list.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/sortable-list.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "date-range-picker": {
+      "slug": "date-range-picker",
+      "name": "Date Range Picker",
+      "category": "motion",
+      "description": "Interactive calendar popover for selecting start and end date ranges with preset shortcuts, month navigation, and spring micro-interactions.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/date-range-picker.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/date-range-picker.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "icon-stack": {
+      "slug": "icon-stack",
+      "name": "Icon Stack",
+      "category": "motion",
+      "description": "Overlapping icon and avatar cluster with hover fan-out expansion, spring elevation, and automated tooltip reveals.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/icon-stack.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/icon-stack.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "phone-input": {
+      "slug": "phone-input",
+      "name": "Phone Input",
+      "category": "motion",
+      "description": "International phone number input with search-filtered country selector dropdown, flags, dial codes, and spring transitions.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/phone-input.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/phone-input.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "resizable-panel": {
+      "slug": "resizable-panel",
+      "name": "Resizable Panel",
+      "category": "blocks",
+      "description": "Accessible multi-direction split container with smooth pointer dragging, keyboard ratio controls, and boundary snapping.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/resizable-panel.tsx"
+      ],
+      "util_files": [
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/resizable-panel.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "speed-dial": {
+      "slug": "speed-dial",
+      "name": "Speed Dial",
+      "category": "motion",
+      "description": "Mobile-first floating action button (FAB) that blossoms outwards with staggered action items, 45-degree icon morph, and haptic feedback.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/speed-dial.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/speed-dial.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "color-picker": {
+      "slug": "color-picker",
+      "name": "Color Picker",
+      "category": "motion",
+      "description": "Interactive hex/rgb color selector with preset swatches, native eyedropper API integration, spring popover, and one-click copy.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/color-picker.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/color-picker.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "audio-player": {
+      "slug": "audio-player",
+      "name": "Audio Player",
+      "category": "blocks",
+      "description": "Interactive sound player with animated equalizer waveforms, spring play/pause morphs, volume controls, and scrubbing trackbar.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/audio-player.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/audio-player.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "metric-card": {
+      "slug": "metric-card",
+      "name": "Metric Card",
+      "category": "blocks",
+      "description": "KPI stat card with animated SVG sparkline charts, positive/negative delta badges, and full multi-style preset support.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/metric-card.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/styles.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/metric-card.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "reorder-grid": {
+      "slug": "reorder-grid",
+      "name": "Reorder Grid",
+      "category": "blocks",
+      "description": "Drag-and-drop sortable grid driven by Motion's native Reorder primitives with spring elevation and haptic feedback.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/reorder-grid.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/reorder-grid.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "magnet-dock": {
+      "slug": "magnet-dock",
+      "name": "Magnet Dock",
+      "category": "motion",
+      "description": "Interactive application dock whose icons magnify continuously based on pointer proximity using spring physics and motion values.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/magnet-dock.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/magnet-dock.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "page-transition": {
+      "slug": "page-transition",
+      "name": "Page Transition",
+      "category": "motion",
+      "description": "Composable page and view transition container supporting fade, slide, scale, push, and 3D flip modes with AnimatePresence.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/page-transition.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/page-transition.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "card-resize": {
+      "slug": "card-resize",
+      "name": "Card Resize (Morph)",
+      "category": "motion",
+      "description": "Expanding card container that morphs seamlessly from a compact card to an expanded modal dialog using shared layoutId physics.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/card-resize.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/card-resize.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "error-shake": {
+      "slug": "error-shake",
+      "name": "Error Shake",
+      "category": "motion",
+      "description": "Damped oscillation shake wrapper with haptic error vibration feedback and configurable intensity for form validations.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/error-shake.tsx"
+      ],
+      "util_files": [
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/error-shake.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "text-swap": {
+      "slug": "text-swap",
+      "name": "Text Swap",
+      "category": "motion",
+      "description": "Slot-machine vertical ticker transition that rolls text or numbers with subtle blur and spring velocity handoffs.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/text-swap.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/text-swap.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "frame": {
+      "slug": "frame",
+      "name": "Frame",
+      "category": "blocks",
+      "description": "Interactive browser/device mockup frame with viewport size toggles (desktop, tablet, mobile) and smooth layout resizing.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/frame.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/frame.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
+    },
+    "autocomplete": {
+      "slug": "autocomplete",
+      "name": "Autocomplete",
+      "category": "motion",
+      "description": "Searchable combobox with debounced substring highlighting, keyboard arrow navigation, clear trigger, and spring panel reveal.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/autocomplete.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-haptic.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/autocomplete.md",
+      "styles": [
+        "minimal",
+        "origin",
+        "enterprise",
+        "glow",
+        "ios",
+        "brutalist"
+      ]
     }
-  }
+  },
+  "styles": [
+    {
+      "slug": "minimal",
+      "name": "Minimal",
+      "description": "Clean monochrome, flat surfaces, crisp 1px borders, subtle transitions (shadcn/ui style)"
+    },
+    {
+      "slug": "origin",
+      "name": "Origin (High-Craft)",
+      "description": "High-craft, micro-elevation, subtle specular inner borders, dark luxury (Coss / Cal.com style)"
+    },
+    {
+      "slug": "enterprise",
+      "name": "Enterprise (Dense ReUI)",
+      "description": "High information density, compact spacing, sharp geometry, data grids (KeenThemes ReUI style)"
+    },
+    {
+      "slug": "glow",
+      "name": "Luminous Glow",
+      "description": "Luminous radial halos, spotlight cursor highlights, cyan/purple beams (ibelick style)"
+    },
+    {
+      "slug": "ios",
+      "name": "iOS Liquid",
+      "description": "Fluid squircle curves, translucent blurred glass, bouncy springs, haptics (Expo / Apple style)"
+    },
+    {
+      "slug": "brutalist",
+      "name": "Neo-Brutalist",
+      "description": "Bold 2px outlines, high-contrast flat fills, hard 4px offset drop-shadows (Neo-brutalist style)"
+    }
+  ]
 }

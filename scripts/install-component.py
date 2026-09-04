@@ -134,6 +134,20 @@ def install_component(catalog, slug, dest_dir, include_previews=False):
         
     print(f"\n📖 Complete Guide & Examples: {item['doc_path']}\n")
 
+def list_styles():
+    styles = [
+        ("minimal", "Clean monochrome, flat surfaces, crisp 1px borders, subtle transitions (shadcn/ui style)"),
+        ("origin", "High-craft, micro-elevation, subtle specular inner borders, dark luxury (Coss / Cal.com style)"),
+        ("enterprise", "High information density, compact spacing, sharp geometry, data grids (KeenThemes ReUI style)"),
+        ("glow", "Luminous radial halos, spotlight cursor highlights, cyan/purple beams (ibelick style)"),
+        ("ios", "Fluid squircle curves, translucent blurred glass, bouncy springs, haptics (Expo / Apple style)"),
+        ("brutalist", "Bold 2px outlines, high-contrast flat fills, hard 4px offset drop-shadows (Neo-brutalist)"),
+    ]
+    print("\n🎨 Motion UI Aesthetic Style Presets:\n")
+    for name, desc in styles:
+        print(f"  • {name:<12} - {desc}")
+    print("\nAgents can apply styles via prop `stylePreset='<name>'` or import tokens from `@/lib/styles`.\n")
+
 def main():
     parser = argparse.ArgumentParser(description="Motion UI Component Resolver & Installer")
     parser.add_argument("slug", nargs="?", help="Component slug to inspect or install")
@@ -143,11 +157,15 @@ def main():
     parser.add_argument("--search", "-s", help="Search components by keyword")
     parser.add_argument("--info", "-i", action="store_true", help="Show detailed information about a component")
     parser.add_argument("--with-previews", action="store_true", help="Also copy preview and demo files")
+    parser.add_argument("--style", choices=["minimal", "origin", "enterprise", "glow", "ios", "brutalist"], help="Apply a specific style preset aesthetic")
+    parser.add_argument("--list-styles", action="store_true", help="List all available aesthetic style presets")
 
     args = parser.parse_args()
     catalog = load_catalog()
 
-    if args.list:
+    if args.list_styles:
+        list_styles()
+    elif args.list:
         list_components(catalog, category=args.category)
     elif args.search:
         search_components(catalog, args.search)
@@ -156,6 +174,13 @@ def main():
             info_component(catalog, args.slug)
         else:
             install_component(catalog, args.slug, args.dest, include_previews=args.with_previews)
+            if args.style:
+                # Also copy lib/styles.ts if requested
+                styles_src = SKILL_ROOT / "lib/styles.ts"
+                styles_dest = Path(args.dest).resolve() / "lib/styles.ts"
+                styles_dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(styles_src, styles_dest)
+                print(f"🎨 Applied style preset '{args.style}'. Bundled lib/styles.ts into destination.")
     else:
         parser.print_help()
 
