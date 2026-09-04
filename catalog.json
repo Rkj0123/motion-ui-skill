@@ -1,0 +1,2386 @@
+{
+  "name": "motion-ui",
+  "description": "Comprehensive animated component library for React and Next.js built with Motion and Tailwind CSS.",
+  "repository": "https://github.com/Rkj0123/motion-ui-skill",
+  "categories": [
+    {
+      "slug": "motion",
+      "name": "Motion Components",
+      "description": "Interactive, animated primitives including buttons, inputs, tabs, modals, bottom sheets, sliders, accordions, and loaders."
+    },
+    {
+      "slug": "agents",
+      "name": "AI Agent Interfaces",
+      "description": "Specialized UI surfaces for conversational agents: message bubbles, scrollers, prompt inputs, approval cards, code blocks, diffs, and activity streams."
+    },
+    {
+      "slug": "blocks",
+      "name": "Blocks & Widgets",
+      "description": "Complex composable animated UI widgets: dynamic island, command palette, multi-chain swap, prediction market, availability scheduler, and folder views."
+    }
+  ],
+  "components": {
+    "tilt-card": {
+      "slug": "tilt-card",
+      "name": "Tilt Card",
+      "category": "motion",
+      "description": "3D perspective tilt on hover with cursor-tracked glare.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/tilt-card.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/tilt-card.preview.tsx"
+      ],
+      "doc_path": "references/motion/tilt-card.md"
+    },
+    "button": {
+      "slug": "button",
+      "name": "Button",
+      "category": "motion",
+      "description": "Spring-pressed Button plus StatefulButton, MagneticButton, and MetallicButton variants.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx"
+      ],
+      "util_files": [
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/button.md"
+    },
+    "tabs": {
+      "slug": "tabs",
+      "name": "Tabs",
+      "category": "motion",
+      "description": "Pill, segment or underline tabs with a spring layoutId indicator.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/tabs.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/tabs.preview.tsx"
+      ],
+      "doc_path": "references/motion/tabs.md"
+    },
+    "marquee": {
+      "slug": "marquee",
+      "name": "Marquee",
+      "category": "motion",
+      "description": "Infinite horizontal or vertical scroll with pause-on-hover.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/marquee.tsx"
+      ],
+      "util_files": [
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/marquee.preview.tsx"
+      ],
+      "doc_path": "references/motion/marquee.md"
+    },
+    "adaptive-stepper": {
+      "slug": "adaptive-stepper",
+      "name": "Adaptive Stepper",
+      "category": "motion",
+      "description": "Composable numeric stepper whose fixed footprint adapts at its minimum and maximum while the value rolls between steps.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/adaptive-stepper.tsx"
+      ],
+      "util_files": [
+        "components/motion/liquid.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/adaptive-stepper.preview.tsx"
+      ],
+      "doc_path": "references/motion/adaptive-stepper.md"
+    },
+    "expandable-control": {
+      "slug": "expandable-control",
+      "name": "Expandable Control",
+      "category": "motion",
+      "description": "Click-to-expand button and chip controls that reveal a label or trailing action through spring layout continuity.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/expandable-control.tsx"
+      ],
+      "util_files": [
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/expandable-control.preview.tsx"
+      ],
+      "doc_path": "references/motion/expandable-control.md"
+    },
+    "input": {
+      "slug": "input",
+      "name": "Input",
+      "category": "motion",
+      "description": "Text input with label, left/right icons, optional stable error row, error shake and success check draw.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/input.tsx"
+      ],
+      "util_files": [
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/input.preview.tsx"
+      ],
+      "doc_path": "references/motion/input.md"
+    },
+    "select": {
+      "slug": "select",
+      "name": "Select",
+      "category": "motion",
+      "description": "Composable select primitives whose panel bouncily unfolds out of the trigger and separates, plus a Morph variant where the trigger grows into the panel via shared layout.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/select.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/select.preview.tsx"
+      ],
+      "doc_path": "references/motion/select.md"
+    },
+    "switch": {
+      "slug": "switch",
+      "name": "Switch",
+      "category": "motion",
+      "description": "Toggle with a spring-driven thumb and press feedback.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/switch.tsx"
+      ],
+      "util_files": [
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/switch.preview.tsx"
+      ],
+      "doc_path": "references/motion/switch.md"
+    },
+    "expanding-arrow-button": {
+      "slug": "expanding-arrow-button",
+      "name": "Animated CTA Buttons",
+      "category": "motion",
+      "description": "Expressive call-to-action buttons with expanding, hold, and slide interactions.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/expanding-arrow-button.tsx",
+        "components/motion/hold-action-button.tsx",
+        "components/motion/slide-action-button.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/expanding-arrow-button.preview.tsx"
+      ],
+      "doc_path": "references/motion/expanding-arrow-button.md"
+    },
+    "combobox": {
+      "slug": "combobox",
+      "name": "Combobox",
+      "category": "motion",
+      "description": "Searchable combobox with a morphing portal, grouped filtering, keyboard navigation, and controlled or uncontrolled state.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/combobox.tsx"
+      ],
+      "util_files": [
+        "components/motion/combobox/content.tsx",
+        "components/motion/combobox/context.tsx",
+        "components/motion/combobox/list.tsx",
+        "components/motion/combobox/trigger.tsx",
+        "components/motion/combobox/use-active-option.ts",
+        "components/motion/popover-position.ts",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/combobox.preview.tsx"
+      ],
+      "doc_path": "references/motion/combobox.md"
+    },
+    "multi-select": {
+      "slug": "multi-select",
+      "name": "Multi Select",
+      "category": "motion",
+      "description": "Composable multi-select primitives with searchable options, removable animated tokens, and a morphing collision-aware panel.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/multi-select/content.tsx",
+        "components/motion/multi-select/context.tsx",
+        "components/motion/multi-select/index.tsx",
+        "components/motion/multi-select/list.tsx",
+        "components/motion/multi-select/trigger.tsx"
+      ],
+      "util_files": [
+        "components/motion/combobox/use-active-option.ts",
+        "components/motion/popover-position.ts",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/multi-select.preview.tsx"
+      ],
+      "doc_path": "references/motion/multi-select.md"
+    },
+    "checkbox": {
+      "slug": "checkbox",
+      "name": "Checkbox",
+      "category": "motion",
+      "description": "Form choice control with a draw-on checkmark, spring press feedback and indeterminate state support.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/checkbox.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/checkbox.preview.tsx"
+      ],
+      "doc_path": "references/motion/checkbox.md"
+    },
+    "radio": {
+      "slug": "radio",
+      "name": "Radio Group",
+      "category": "motion",
+      "description": "Single-select choice control with a gliding layoutId indicator dot and spring press feedback.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/radio.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/radio.preview.tsx"
+      ],
+      "doc_path": "references/motion/radio.md"
+    },
+    "bottom-sheet": {
+      "slug": "bottom-sheet",
+      "name": "Bottom Sheet",
+      "category": "motion",
+      "description": "Vaul-inspired draggable bottom sheet with snap points, inertia and glass surface.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/bottom-sheet.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/presence-gate.tsx",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/bottom-sheet.preview.tsx"
+      ],
+      "doc_path": "references/motion/bottom-sheet.md"
+    },
+    "pull-to-refresh": {
+      "slug": "pull-to-refresh",
+      "name": "Pull to Refresh",
+      "category": "motion",
+      "description": "Native-feeling pull-to-refresh container with drag resistance, threshold feedback and async refresh handling.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/pull-to-refresh.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/pull-to-refresh.preview.tsx"
+      ],
+      "doc_path": "references/motion/pull-to-refresh.md"
+    },
+    "bounce-sidebar": {
+      "slug": "bounce-sidebar",
+      "name": "Bounce Sidebar",
+      "category": "motion",
+      "description": "A vertical sidebar whose active dot jumps between destinations on a curved, spring-loaded path.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/bounce-sidebar.tsx"
+      ],
+      "util_files": [
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/bounce-sidebar.preview.tsx"
+      ],
+      "doc_path": "references/motion/bounce-sidebar.md"
+    },
+    "shared-layout-bg": {
+      "slug": "shared-layout-bg",
+      "name": "Shared Layout Background",
+      "category": "motion",
+      "description": "A pill that glides between hovered items via motion's shared layout, with blur enter/exit.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/shared-layout-bg.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/shared-layout-bg.preview.tsx"
+      ],
+      "doc_path": "references/motion/shared-layout-bg.md"
+    },
+    "animated-sidebar": {
+      "slug": "animated-sidebar",
+      "name": "Animated Sidebar",
+      "category": "motion",
+      "description": "A composable application sidebar with morphing nested navigation that folds into an animated icon rail on desktop and becomes a focus-managed sheet on mobile.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/animated-sidebar.tsx"
+      ],
+      "util_files": [
+        "components/motion/shared-layout-bg.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/animated-sidebar.preview.tsx"
+      ],
+      "doc_path": "references/motion/animated-sidebar.md"
+    },
+    "preview-rail": {
+      "slug": "preview-rail",
+      "name": "Preview Rail",
+      "category": "motion",
+      "description": "Codex app-inspired navigation rail with compact ticks that form a hover pyramid and reveal a floating destination preview.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/preview-rail.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/preview-rail.preview.tsx"
+      ],
+      "doc_path": "references/motion/preview-rail.md"
+    },
+    "file-tree": {
+      "slug": "file-tree",
+      "name": "File Tree",
+      "category": "motion",
+      "description": "Composable file and folder primitives with springing branches, a gliding selection, and complete keyboard navigation.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/file-tree.tsx"
+      ],
+      "util_files": [
+        "components/motion/shared-layout-bg.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/file-tree.preview.tsx"
+      ],
+      "doc_path": "references/motion/file-tree.md"
+    },
+    "tooltip": {
+      "slug": "tooltip",
+      "name": "Tooltip",
+      "category": "motion",
+      "description": "Hover or focus tooltip with blur enter/exit and spring spawn.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/tooltip.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/tooltip.preview.tsx"
+      ],
+      "doc_path": "references/motion/tooltip.md"
+    },
+    "dock": {
+      "slug": "dock",
+      "name": "Dock",
+      "category": "motion",
+      "description": "macOS-style dock with grouped actions and a gliding active pill.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/dock.tsx"
+      ],
+      "util_files": [
+        "components/app/icons.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/dock.preview.tsx"
+      ],
+      "doc_path": "references/motion/dock.md"
+    },
+    "context-menu": {
+      "slug": "context-menu",
+      "name": "Animated Context Menu",
+      "category": "motion",
+      "description": "Composable context-menu primitives with a pointer-origin clip morph, a gliding active row, checkbox and radio choices, keyboard navigation, typeahead, and long-press support.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/context-menu.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/context-menu.preview.tsx"
+      ],
+      "doc_path": "references/motion/context-menu.md"
+    },
+    "morphing-modal": {
+      "slug": "morphing-modal",
+      "name": "Morphing Modal",
+      "category": "motion",
+      "description": "Family-app-style modal. A single panel that morphs its height as you navigate between inner views, with blur cross-fade on content.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/morphing-modal.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/presence-gate.tsx",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/morphing-modal.preview.tsx"
+      ],
+      "doc_path": "references/motion/morphing-modal.md"
+    },
+    "popover": {
+      "slug": "popover",
+      "name": "Popover",
+      "category": "motion",
+      "description": "Gooey popover whose panel oozes out of the trigger through an SVG goo filter \u2014 a liquid neck that stretches and pinches \u2014 with crisp content fading in on top, plus a Morph variant that clip-morphs open from the trigger corner. Click or hover trigger, controlled or uncontrolled.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/popover.tsx"
+      ],
+      "util_files": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/popover-position.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/popover.preview.tsx"
+      ],
+      "doc_path": "references/motion/popover.md"
+    },
+    "center-morph-modal": {
+      "slug": "center-morph-modal",
+      "name": "Center Morph Modal",
+      "category": "motion",
+      "description": "A composable modal whose full-size surface unfolds from its exact center toward every edge, then folds back the same way with an inset close control.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/center-morph-modal.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/presence-gate.tsx",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/center-morph-modal.preview.tsx"
+      ],
+      "doc_path": "references/motion/center-morph-modal.md"
+    },
+    "text-animation": {
+      "slug": "text-animation",
+      "name": "Text Animation",
+      "category": "motion",
+      "description": "Animated text primitives for spring reveals, chromatic sweeps, shimmer loading states, letter-cascade swaps and character scrambles.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/chromatic-text-reveal.tsx",
+        "components/motion/text-cascade.tsx",
+        "components/motion/text-reveal.tsx",
+        "components/motion/text-scramble.tsx",
+        "components/motion/text-shimmer.tsx"
+      ],
+      "util_files": [
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/text-shimmer.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/text-animation.preview.tsx"
+      ],
+      "doc_path": "references/motion/text-animation.md"
+    },
+    "number": {
+      "slug": "number",
+      "name": "Number Animation",
+      "category": "motion",
+      "description": "Animated number primitives for count-up values, rolling tickers, and fixed-slot digit swaps.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/animated-number.tsx",
+        "components/motion/digit-swap.tsx",
+        "components/motion/number-ticker.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/number.preview.tsx"
+      ],
+      "doc_path": "references/motion/number.md"
+    },
+    "animated-badge": {
+      "slug": "animated-badge",
+      "name": "Animated Badge",
+      "category": "motion",
+      "description": "Status badge with animated state icons, pulse feedback and compact size variants.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/animated-badge.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/animated-badge.preview.tsx"
+      ],
+      "doc_path": "references/motion/animated-badge.md"
+    },
+    "action-swap": {
+      "slug": "action-swap",
+      "name": "Action Swap",
+      "category": "motion",
+      "description": "CTA button and slot primitives for swapping text and icons with blur motion.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/action-swap.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/action-swap.preview.tsx"
+      ],
+      "doc_path": "references/motion/action-swap.md"
+    },
+    "bouncy-accordion": {
+      "slug": "bouncy-accordion",
+      "name": "Bouncy Accordion",
+      "category": "motion",
+      "description": "Single-open accordion with weighted spring layout, icon rows and reduced-motion-safe content reveals.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/bouncy-accordion.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/bouncy-accordion.preview.tsx"
+      ],
+      "doc_path": "references/motion/bouncy-accordion.md"
+    },
+    "animated-toast-stack": {
+      "slug": "animated-toast-stack",
+      "name": "Animated Toast Stack",
+      "category": "motion",
+      "description": "Stacked toasts with status morphs, swipe dismissal, actions and layout-aware motion.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/animated-toast-stack.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/animated-toast-stack.preview.tsx"
+      ],
+      "doc_path": "references/motion/animated-toast-stack.md"
+    },
+    "theme-toggle": {
+      "slug": "theme-toggle",
+      "name": "Theme Toggle",
+      "category": "motion",
+      "description": "Theme toggle button that repaints the whole page through the View Transition API \u2014 a rectangle or circle clip-path reveal, or slats that open across the screen like a shutter.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "next-themes",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/theme-toggle.tsx"
+      ],
+      "util_files": [
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/theme-toggle.preview.tsx"
+      ],
+      "doc_path": "references/motion/theme-toggle.md"
+    },
+    "drawer": {
+      "slug": "drawer",
+      "name": "Drawer",
+      "category": "motion",
+      "description": "Side panel that slides in from the left or right with a spring, backdrop blur, body scroll lock and esc-to-close.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/drawer.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/presence-gate.tsx",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/drawer.preview.tsx"
+      ],
+      "doc_path": "references/motion/drawer.md"
+    },
+    "message-bubble": {
+      "slug": "message-bubble",
+      "name": "Message Bubble",
+      "category": "agents",
+      "description": "A focused conversational surface with visual tones, independent alignment, grouped messages, expandable content, and interactive link or button support.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/message-bubble.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/citations.tsx",
+        "components/agents/message-context.tsx",
+        "components/agents/message-scroller.tsx",
+        "components/agents/message.tsx",
+        "components/agents/prompt-input.tsx",
+        "components/agents/streaming-response.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/popover-position.ts",
+        "components/motion/preview-rail.tsx",
+        "components/motion/select.tsx",
+        "components/previews/agents/chat-preview.tsx",
+        "lib/ease.ts",
+        "lib/favicon.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-favicon.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/message-bubble.preview.tsx"
+      ],
+      "doc_path": "references/agents/message-bubble.md"
+    },
+    "range-slider": {
+      "slug": "range-slider",
+      "name": "Range Slider",
+      "category": "motion",
+      "description": "Slider with tick dots and a vertical-bar thumb that bounces as it lands on each step. Drag or keyboard, reduced-motion safe.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/range-slider.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-slider.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/range-slider.preview.tsx"
+      ],
+      "doc_path": "references/motion/range-slider.md"
+    },
+    "scroll-animation": {
+      "slug": "scroll-animation",
+      "name": "Scroll Animation",
+      "category": "motion",
+      "description": "Scroll-driven motion: a Lenis smooth-scroll provider and a reading-progress indicator that reads from it.",
+      "dependencies": [
+        "clsx",
+        "lenis",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/parallax.tsx",
+        "components/motion/scroll-progress.tsx",
+        "components/motion/scroll-reveal.tsx",
+        "components/motion/scroll-to.tsx",
+        "components/motion/smooth-scroll.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/scroll-animation.md"
+    },
+    "shader-background": {
+      "slug": "shader-background",
+      "name": "Shader Background",
+      "category": "motion",
+      "description": "Canvas shader backgrounds (mesh gradient, grain, warp, waves, voronoi, dot orbit and more) with a single typed variant prop. Reduced-motion freezes animated variants.",
+      "dependencies": [
+        "@paper-design/shaders-react",
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/shader-background.tsx"
+      ],
+      "util_files": [
+        "components/motion/tabs.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/shader-background.preview.tsx"
+      ],
+      "doc_path": "references/motion/shader-background.md"
+    },
+    "wheel-picker": {
+      "slug": "wheel-picker",
+      "name": "Wheel Picker",
+      "category": "motion",
+      "description": "iOS-style picker wheel: a 3D drum on native momentum scroll that snaps to the nearest notch, with wheel, drag and keyboard control. Composes side by side for date and time pickers, reduced-motion safe.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/wheel-picker.tsx"
+      ],
+      "util_files": [
+        "components/motion/switch.tsx",
+        "lib/tick-sound.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/wheel-picker.preview.tsx"
+      ],
+      "doc_path": "references/motion/wheel-picker.md"
+    },
+    "table": {
+      "slug": "table",
+      "name": "Table",
+      "category": "motion",
+      "description": "Virtualized data table that stays smooth at 10k+ rows, with sortable headers, row selection, column resize and reorder, and a sticky header. Minimal, reduced-motion-safe motion.",
+      "dependencies": [
+        "@tanstack/react-virtual",
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/table/index.tsx"
+      ],
+      "util_files": [
+        "components/motion/checkbox.tsx",
+        "components/motion/table/editable-cell.tsx",
+        "components/motion/table/row-handle.tsx",
+        "components/motion/table/skeleton-rows.tsx",
+        "components/motion/table/table-header.tsx",
+        "components/motion/table/table-menu.tsx",
+        "components/motion/table/types.ts",
+        "components/motion/table/use-column-reorder.ts",
+        "components/motion/table/use-column-resize.ts",
+        "components/motion/table/use-column-sort.ts",
+        "components/motion/table/use-row-selection.ts",
+        "components/motion/table/utils.ts",
+        "lib/ease.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/table.preview.tsx"
+      ],
+      "doc_path": "references/motion/table.md"
+    },
+    "cylinder-carousel": {
+      "slug": "cylinder-carousel",
+      "name": "Cylinder Carousel",
+      "category": "motion",
+      "description": "A carousel whose items line the inside of a cylinder, receding into the center and growing toward the edges. Drag, scroll or arrow-key to roll it, with a springy glide and snap. Reduced-motion drops the glide.",
+      "dependencies": [
+        "@paper-design/shaders-react",
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/cylinder-carousel.tsx"
+      ],
+      "util_files": [
+        "components/motion/shader-background.tsx",
+        "components/motion/tabs.tsx",
+        "lib/ease.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/cylinder-carousel.preview.tsx"
+      ],
+      "doc_path": "references/motion/cylinder-carousel.md"
+    },
+    "loader": {
+      "slug": "loader",
+      "name": "Loader",
+      "category": "motion",
+      "description": "Loading indicator with seventeen variants: spinner, dots, bars, dot-matrix, dither, morph, comet, scramble, metaballs, newton, helix, percent, and five terminal-style ascii spinners. Scales from one size prop, uses currentColor, and reduced-motion swaps every transform for a calm opacity pulse.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/loader.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/motion/loader.preview.tsx"
+      ],
+      "doc_path": "references/motion/loader.md"
+    },
+    "message": {
+      "slug": "message",
+      "name": "Message",
+      "category": "agents",
+      "description": "Composable conversation primitives for message rows, grouped bubbles, avatars, metadata, live markers, and a mount-only trailing-edge pop-up for newly sent rows.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/message.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/citations.tsx",
+        "components/agents/message-bubble.tsx",
+        "components/agents/message-context.tsx",
+        "components/agents/message-scroller.tsx",
+        "components/agents/prompt-input.tsx",
+        "components/agents/streaming-response.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/popover-position.ts",
+        "components/motion/preview-rail.tsx",
+        "components/motion/select.tsx",
+        "components/previews/agents/chat-preview.tsx",
+        "lib/ease.ts",
+        "lib/favicon.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-favicon.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/message.preview.tsx"
+      ],
+      "doc_path": "references/agents/message.md"
+    },
+    "todo-list": {
+      "slug": "todo-list",
+      "name": "Todo List",
+      "category": "agents",
+      "description": "A collapsible agent task plan with morphing status marks, a completion count, compact metadata, and smooth list updates.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/todo-list.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-disclosure.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/todo-list.preview.tsx"
+      ],
+      "doc_path": "references/agents/todo-list.md"
+    },
+    "prompt-input": {
+      "slug": "prompt-input",
+      "name": "Prompt Input",
+      "category": "agents",
+      "description": "An auto-growing agent composer with prompt actions, model selection, keyboard submission, and animated send and stop states.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/prompt-input.tsx"
+      ],
+      "util_files": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/popover-position.ts",
+        "components/motion/select.tsx",
+        "lib/ease.ts",
+        "lib/favicon.ts",
+        "lib/hooks/use-favicon.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/prompt-input.preview.tsx"
+      ],
+      "doc_path": "references/agents/prompt-input.md"
+    },
+    "message-scroller": {
+      "slug": "message-scroller",
+      "name": "Message Scroller",
+      "category": "agents",
+      "description": "A reader-aware conversation viewport that follows streamed output at the live edge and releases control when the reader moves away.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/message-scroller.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/citations.tsx",
+        "components/agents/message-bubble.tsx",
+        "components/agents/message-context.tsx",
+        "components/agents/message.tsx",
+        "components/agents/prompt-input.tsx",
+        "components/agents/streaming-response.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/popover-position.ts",
+        "components/motion/preview-rail.tsx",
+        "components/motion/select.tsx",
+        "components/previews/agents/chat-preview.tsx",
+        "lib/ease.ts",
+        "lib/favicon.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-favicon.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/message-scroller.preview.tsx"
+      ],
+      "doc_path": "references/agents/message-scroller.md"
+    },
+    "code-block": {
+      "slug": "code-block",
+      "name": "Code Block",
+      "category": "agents",
+      "description": "A syntax-highlighted code surface with stable streaming updates, line numbers, focused lines, smooth following, and copy feedback.",
+      "dependencies": [
+        "ai",
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "shiki",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/code-block.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-code.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/code-block.preview.tsx"
+      ],
+      "doc_path": "references/agents/code-block.md"
+    },
+    "approval-card": {
+      "slug": "approval-card",
+      "name": "Approval Card",
+      "category": "agents",
+      "description": "A human-in-the-loop decision surface for approvals, single or multiple-choice questions, custom responses, and multi-step review flows.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/approval-card/index.tsx",
+        "components/agents/approval-card/types.ts"
+      ],
+      "util_files": [
+        "components/agents/agent-disclosure.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/radio.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/agents/approval-card.md"
+    },
+    "file-diff": {
+      "slug": "file-diff",
+      "name": "File Diff",
+      "category": "agents",
+      "description": "A syntax-highlighted file change disclosure with progressive rows, line numbers, live change counts, smooth following, and completion collapse.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "shiki",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/file-diff.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/tool-result.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/previews/agents/use-tool-result-demo.ts",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/file-diff.preview.tsx"
+      ],
+      "doc_path": "references/agents/file-diff.md"
+    },
+    "streaming-response": {
+      "slug": "streaming-response",
+      "name": "Streaming Response",
+      "category": "agents",
+      "description": "A stable response surface with completion actions, rendered content, and an expandable source summary.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/streaming-response.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/citations.tsx",
+        "lib/ease.ts",
+        "lib/favicon.ts",
+        "lib/hooks/use-favicon.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/streaming-response.preview.tsx"
+      ],
+      "doc_path": "references/agents/streaming-response.md"
+    },
+    "image-generation": {
+      "slug": "image-generation",
+      "name": "Image Generation",
+      "category": "agents",
+      "description": "A stable generated-image surface that moves from queued work through progressive refinement to a completed result without layout shift.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/image-generation.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/image-generation.preview.tsx"
+      ],
+      "doc_path": "references/agents/image-generation.md"
+    },
+    "agent-activity": {
+      "slug": "agent-activity",
+      "name": "Agent Activity",
+      "category": "agents",
+      "description": "One adaptive activity stream for reasoning, searches, tool calls, structured execution traces, or a chronological mix.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/agent-activity/index.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/text-shimmer.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/agent-activity.preview.tsx"
+      ],
+      "doc_path": "references/agents/agent-activity.md"
+    },
+    "loading-states": {
+      "slug": "loading-states",
+      "name": "Agent Loading States",
+      "category": "agents",
+      "description": "Three thoughtful loading states for AI interfaces: shimmering status text, live agent progress, and cycling reasoning phrases.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/loading-states/agent-progress.tsx",
+        "components/agents/loading-states/index.ts",
+        "components/agents/loading-states/reasoning-text.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx"
+      ],
+      "util_files": [
+        "components/motion/loader.tsx",
+        "components/motion/text-scramble.tsx",
+        "components/motion/text-shimmer.tsx",
+        "lib/ease.ts",
+        "lib/text-shimmer.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/agents/loading-states.md"
+    },
+    "tool-approval": {
+      "slug": "tool-approval",
+      "name": "Tool Approval",
+      "category": "agents",
+      "description": "A human-in-the-loop permission card for reviewing tool details, allowing once, remembering access, or denying execution.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "shiki",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/tool-approval.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/tool-approval.preview.tsx"
+      ],
+      "doc_path": "references/agents/tool-approval.md"
+    },
+    "citations": {
+      "slug": "citations",
+      "name": "Citations",
+      "category": "agents",
+      "description": "Inline citation markers paired with a collapsible, progressively rendered reference collection for grounded agent responses.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/citations.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-disclosure.tsx",
+        "lib/ease.ts",
+        "lib/favicon.ts",
+        "lib/hooks/use-favicon.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/citations.preview.tsx"
+      ],
+      "doc_path": "references/agents/citations.md"
+    },
+    "tool-result": {
+      "slug": "tool-result",
+      "name": "Tool Result",
+      "category": "agents",
+      "description": "A lightweight execution disclosure for syntax-highlighted terminal output and request responses that collapses into a compact completed state.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "shiki",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/tool-result.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/agents/tool-result.md"
+    },
+    "ai-sidebar": {
+      "slug": "ai-sidebar",
+      "name": "AI Sidebar",
+      "category": "agents",
+      "description": "A collapsible AI workspace sidebar for folders, projects, files, and bookmarks with keyboard navigation, optimistic moves, inline rename, and overflow-aware labels.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/ai-sidebar.tsx"
+      ],
+      "util_files": [
+        "components/motion/animated-sidebar.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/popover-position.ts",
+        "components/motion/shared-layout-bg.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-touch-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/ai-sidebar.preview.tsx"
+      ],
+      "doc_path": "references/agents/ai-sidebar.md"
+    },
+    "infinite-masonry": {
+      "slug": "infinite-masonry",
+      "name": "Infinite Masonry",
+      "category": "blocks",
+      "description": "Responsive virtualized masonry that measures variable-height cards and loads more data as the user nears the end.",
+      "dependencies": [
+        "@tanstack/react-virtual",
+        "clsx",
+        "lucide-react",
+        "motion",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/infinite-masonry.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/infinite-masonry.preview.tsx"
+      ],
+      "doc_path": "references/blocks/infinite-masonry.md"
+    },
+    "chat-app": {
+      "slug": "chat-app",
+      "name": "Chat App",
+      "category": "agents",
+      "description": "A complete agent conversation workspace composing navigation, messages, streaming, planning, approvals, tools, code, diffs, generated media, sources, and prompt input.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "shiki",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/agents/agent-activity/index.tsx",
+        "components/agents/ai-sidebar.tsx",
+        "components/agents/approval-card/index.tsx",
+        "components/agents/chat-app.tsx",
+        "components/agents/code-block.tsx",
+        "components/agents/file-diff.tsx",
+        "components/agents/image-generation.tsx",
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/agents/message-bubble.tsx",
+        "components/agents/message-scroller.tsx",
+        "components/agents/message.tsx",
+        "components/agents/prompt-input.tsx",
+        "components/agents/streaming-response.tsx",
+        "components/agents/todo-list.tsx",
+        "components/agents/tool-approval.tsx",
+        "components/agents/tool-result.tsx"
+      ],
+      "util_files": [
+        "components/agents/agent-activity/activity-row.tsx",
+        "components/agents/agent-activity/types.ts",
+        "components/agents/agent-code.tsx",
+        "components/agents/agent-disclosure.tsx",
+        "components/agents/approval-card/types.ts",
+        "components/agents/citations.tsx",
+        "components/agents/loading-states/agent-progress.tsx",
+        "components/agents/loading-states/index.ts",
+        "components/agents/loading-states/reasoning-text.tsx",
+        "components/agents/message-context.tsx",
+        "components/motion/action-swap-roll.tsx",
+        "components/motion/action-swap.tsx",
+        "components/motion/animated-sidebar.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/loader.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/popover-position.ts",
+        "components/motion/preview-rail.tsx",
+        "components/motion/radio.tsx",
+        "components/motion/select.tsx",
+        "components/motion/shared-layout-bg.tsx",
+        "components/motion/text-scramble.tsx",
+        "components/motion/text-shimmer.tsx",
+        "components/previews/agents/chat-app-usage.tsx",
+        "lib/ease.ts",
+        "lib/favicon.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-favicon.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/hooks/use-touch-capable.ts",
+        "lib/text-shimmer.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/agents/chat-app.preview.tsx"
+      ],
+      "doc_path": "references/agents/chat-app.md"
+    },
+    "notification-stack": {
+      "slug": "notification-stack",
+      "name": "Notification Stack",
+      "category": "blocks",
+      "description": "Compact notification cards that spring from a stacked summary into a readable list on hover, focus or tap.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/notification-stack.tsx"
+      ],
+      "util_files": [
+        "components/motion/action-swap.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/notification-stack.preview.tsx"
+      ],
+      "doc_path": "references/blocks/notification-stack.md"
+    },
+    "project-folder": {
+      "slug": "project-folder",
+      "name": "Project Folder",
+      "category": "blocks",
+      "description": "An interactive project folder that opens its file fan on hover or focus, expands into a focus-managed overlay, then retraces the complete path when closed.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/project-folder.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/project-folder.preview.tsx"
+      ],
+      "doc_path": "references/blocks/project-folder.md"
+    },
+    "availability-scheduler": {
+      "slug": "availability-scheduler",
+      "name": "Availability Scheduler",
+      "category": "blocks",
+      "description": "Weekly availability editor where each day springs between available and unavailable, time ranges add and remove with blur-slide motion, times pick from a scrollable dropdown, and a copy menu clones hours to other days.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/availability-scheduler/index.tsx"
+      ],
+      "util_files": [
+        "components/motion/availability-scheduler/copy-menu.tsx",
+        "components/motion/availability-scheduler/day-row.tsx",
+        "components/motion/availability-scheduler/icon-button.tsx",
+        "components/motion/availability-scheduler/time-select.tsx",
+        "components/motion/availability-scheduler/types.ts",
+        "components/motion/checkbox.tsx",
+        "components/motion/popover-morph.tsx",
+        "components/motion/popover-position.ts",
+        "components/motion/select.tsx",
+        "components/motion/switch.tsx",
+        "components/motion/tooltip.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/availability-scheduler.preview.tsx"
+      ],
+      "doc_path": "references/blocks/availability-scheduler.md"
+    },
+    "card-folder": {
+      "slug": "card-folder",
+      "name": "Card Folder",
+      "category": "blocks",
+      "description": "A landscape card tucked into a stitched purse pocket that lifts forward as the purse compresses into its bottom seam, with controlled open and card-detail visibility plus a separate overflow action.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/card-folder.tsx"
+      ],
+      "util_files": [
+        "components/motion/digit-swap.tsx",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/card-folder.preview.tsx"
+      ],
+      "doc_path": "references/blocks/card-folder.md"
+    },
+    "knockout-bracket": {
+      "slug": "knockout-bracket",
+      "name": "Fixtures",
+      "category": "blocks",
+      "description": "Animated tournament fixtures in two styles: a knockout bracket that pages through rounds, and a wheel that wraps the same tree around the champion. Both read the same array of rounds, so one dataset draws either.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/knockout-bracket.tsx",
+        "components/motion/knockout-wheel.tsx"
+      ],
+      "util_files": [
+        "components/motion/tooltip.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/knockout-bracket.preview.tsx"
+      ],
+      "doc_path": "references/blocks/knockout-bracket.md"
+    },
+    "swap": {
+      "slug": "swap",
+      "name": "Multi-chain Swap",
+      "category": "blocks",
+      "description": "Cross-chain swap widget with chain + token selectors, morphing views, animated flip and quote.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/swap.tsx"
+      ],
+      "util_files": [
+        "components/motion/swap/constants.ts",
+        "components/motion/swap/controls.tsx",
+        "components/motion/swap/data.ts",
+        "components/motion/swap/field.tsx",
+        "components/motion/swap/quote-row.tsx",
+        "components/motion/swap/token-badges.tsx",
+        "components/motion/swap/token-picker.tsx",
+        "components/motion/swap/types.ts",
+        "components/motion/swap/utils.ts",
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/swap.preview.tsx"
+      ],
+      "doc_path": "references/blocks/swap.md"
+    },
+    "command-palette": {
+      "slug": "command-palette",
+      "name": "Command Palette",
+      "category": "blocks",
+      "description": "\u2318K palette with fuzzy filter, spring-animated active row and glass surface.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/command-palette.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-on-open.ts",
+        "lib/hooks/use-row-cursor.ts",
+        "lib/hooks/use-touch-capable.ts",
+        "lib/presence-gate.tsx",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/command-palette.preview.tsx"
+      ],
+      "doc_path": "references/blocks/command-palette.md"
+    },
+    "expandable-action-bar": {
+      "slug": "expandable-action-bar",
+      "name": "Expandable Action Bar",
+      "category": "blocks",
+      "description": "Compact icon actions that expand into labeled controls on hover or focus with shared layout motion.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/expandable-action-bar.tsx"
+      ],
+      "util_files": [
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/expandable-action-bar.preview.tsx"
+      ],
+      "doc_path": "references/blocks/expandable-action-bar.md"
+    },
+    "dynamic-island": {
+      "slug": "dynamic-island",
+      "name": "Dynamic Island",
+      "category": "blocks",
+      "description": "iOS-style island pill that morphs between live activity views with bouncy shell resize and blur crossfades.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/dynamic-island.tsx"
+      ],
+      "util_files": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/number-ticker.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/dynamic-island.preview.tsx"
+      ],
+      "doc_path": "references/blocks/dynamic-island.md"
+    },
+    "morphing-search": {
+      "slug": "morphing-search",
+      "name": "Morphing Search",
+      "category": "blocks",
+      "description": "Search field or compact icon that morphs into a glass results surface, whether opened by click or keyboard shortcut.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/morphing-search.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-on-open.ts",
+        "lib/hooks/use-row-cursor.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/morphing-search.preview.tsx"
+      ],
+      "doc_path": "references/blocks/morphing-search.md"
+    },
+    "overflow-actions": {
+      "slug": "overflow-actions",
+      "name": "Overflow Actions",
+      "category": "blocks",
+      "description": "Connected pill rail for primary actions that springs open to reveal extra controls.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/overflow-actions.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/overflow-actions.preview.tsx"
+      ],
+      "doc_path": "references/blocks/overflow-actions.md"
+    },
+    "expandable-tabs": {
+      "slug": "expandable-tabs",
+      "name": "Expandable Tabs",
+      "category": "blocks",
+      "description": "Icon tab bar where the active tab expands to a labelled pill, with a panel above that morphs height and slides content direction-aware on switch.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/expandable-tabs.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/expandable-tabs.preview.tsx"
+      ],
+      "doc_path": "references/blocks/expandable-tabs.md"
+    },
+    "swipeable-list": {
+      "slug": "swipeable-list",
+      "name": "Swipeable List",
+      "category": "blocks",
+      "description": "Mobile-style list rows that swipe left or right to reveal contextual action buttons.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/swipeable-list.tsx"
+      ],
+      "util_files": [
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/swipeable-list.preview.tsx"
+      ],
+      "doc_path": "references/blocks/swipeable-list.md"
+    },
+    "morphing-tabs": {
+      "slug": "morphing-tabs",
+      "name": "Morphing Tabs",
+      "category": "blocks",
+      "description": "Reorderable tabs whose selected item grows into a white content surface, with the active shape gliding as tabs move and a shared morph between rooms.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/morphing-tabs.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/morphing-tabs.preview.tsx"
+      ],
+      "doc_path": "references/blocks/morphing-tabs.md"
+    },
+    "file-upload": {
+      "slug": "file-upload",
+      "name": "File Upload",
+      "category": "blocks",
+      "description": "Two file upload patterns: an attachment workspace for mixed files, links, audio and media, plus a progress queue with retry and removal.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "react-dom",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/attachment-upload.tsx",
+        "components/motion/file-upload.tsx"
+      ],
+      "util_files": [
+        "components/motion/tooltip.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-gesture.ts",
+        "lib/hooks/use-tap-gesture.ts",
+        "lib/presence-gate.tsx",
+        "lib/touch.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/file-upload.preview.tsx"
+      ],
+      "doc_path": "references/blocks/file-upload.md"
+    },
+    "prediction-market": {
+      "slug": "prediction-market",
+      "name": "Prediction Market",
+      "category": "blocks",
+      "description": "Prediction market trade ticket with buy/sell modes, outcome prices, rolling amount entry, quick add chips and trade states.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/prediction-market.tsx"
+      ],
+      "util_files": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/number-ticker.tsx",
+        "components/motion/tabs.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/prediction-market.preview.tsx"
+      ],
+      "doc_path": "references/blocks/prediction-market.md"
+    },
+    "wallet-card": {
+      "slug": "wallet-card",
+      "name": "Wallet Card",
+      "category": "blocks",
+      "description": "Wallet overview card with an account switcher and search that morph open from their triggers, a cascading balance with a live change pill and privacy toggle, copy-address, and Send / Deposit / Swap / Buy actions.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/wallet-card/index.tsx"
+      ],
+      "util_files": [
+        "components/motion/action-swap.tsx",
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "components/motion/wallet-card/account-avatar.tsx",
+        "components/motion/wallet-card/account-switcher.tsx",
+        "components/motion/wallet-card/actions.tsx",
+        "components/motion/wallet-card/balance-delta.tsx",
+        "components/motion/wallet-card/constants.ts",
+        "components/motion/wallet-card/copy-button.tsx",
+        "components/motion/wallet-card/search-bar.tsx",
+        "components/motion/wallet-card/types.ts",
+        "components/motion/wallet-card/utils.ts",
+        "lib/ease.ts",
+        "lib/hooks/use-dismiss.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/wallet-card.preview.tsx"
+      ],
+      "doc_path": "references/blocks/wallet-card.md"
+    },
+    "otp-input": {
+      "slug": "otp-input",
+      "name": "OTP Input",
+      "category": "blocks",
+      "description": "One-time-code input with a gliding focus ring, digits that roll in per slot, error shake and a success check draw.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/otp-input.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/otp-input.preview.tsx"
+      ],
+      "doc_path": "references/blocks/otp-input.md"
+    },
+    "bloom-menu": {
+      "slug": "bloom-menu",
+      "name": "Bloom Menu",
+      "category": "blocks",
+      "description": "A button that morphs open into a menu and blooms iris-out from the center, the grid revealing in every direction with radially staggered items.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/bloom-menu.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/bloom-menu.preview.tsx"
+      ],
+      "doc_path": "references/blocks/bloom-menu.md"
+    },
+    "signup-form": {
+      "slug": "signup-form",
+      "name": "Sign Up Form",
+      "category": "blocks",
+      "description": "Composed sign-up form that flags a field only once it is left, then clears the moment it is fixed, with a length-weighted strength meter, password reveal and an animated submit lifecycle.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/signup-form.tsx"
+      ],
+      "util_files": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/checkbox.tsx",
+        "components/motion/input.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/signup-form.preview.tsx"
+      ],
+      "doc_path": "references/blocks/signup-form.md"
+    },
+    "feedback-widget": {
+      "slug": "feedback-widget",
+      "name": "Feedback Widget",
+      "category": "blocks",
+      "description": "Corner trigger that morphs open into a feedback popup with message entry and animated sending, success and retry states.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/feedback-widget.tsx"
+      ],
+      "util_files": [
+        "components/motion/button/base.tsx",
+        "components/motion/button/index.tsx",
+        "components/motion/button/magnetic.tsx",
+        "components/motion/button/metallic.tsx",
+        "components/motion/button/stateful.tsx",
+        "components/motion/magnetic.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/previews/blocks/feedback-widget.preview.tsx"
+      ],
+      "doc_path": "references/blocks/feedback-widget.md"
+    },
+    "not-found": {
+      "slug": "not-found",
+      "name": "404 / Not Found",
+      "category": "blocks",
+      "description": "Animated 404 pages in five styles: glitch scramble, magnetic digits, cursor spotlight, a fanning card stack and a typed terminal.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/not-found/glitch.tsx",
+        "components/motion/not-found/index.tsx",
+        "components/motion/not-found/magnetic.tsx",
+        "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/spotlight.tsx",
+        "components/motion/not-found/stacked.tsx",
+        "components/motion/not-found/terminal.tsx"
+      ],
+      "util_files": [
+        "components/motion/magnetic.tsx",
+        "components/motion/text-reveal.tsx",
+        "lib/ease.ts",
+        "lib/hooks/use-hover-capable.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/blocks/not-found.md"
+    }
+  }
+}

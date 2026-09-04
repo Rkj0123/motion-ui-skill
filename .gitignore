@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+*.log
+__pycache__/
+.env
+.env.local
+dist/
+build/
+.agents/skills/ponytail*
+.agents/rules/
+.agents/hooks.json
+Problem_Solution.md
