@@ -288,8 +288,3 @@ export function RangeSliderRulerPreview() {
 | `aria-label` | `string` | — | No | — |
 | `formatValueText` | `((value: number) => string)` | — | No | Announced instead of the raw number — pass one when the value carries a unit or a suffix ("72.5 kg", "35%"); a bare number needs no valueText. |
 
-## Source
-
-- Registry detail: https://github.com/Rkj0123/motion-ui-skill
-- Raw source: https://github.com/Rkj0123/motion-ui-skill
-- GitHub: https://github.com/starc007/ui-components

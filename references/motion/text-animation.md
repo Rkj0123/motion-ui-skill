@@ -283,8 +283,3 @@ export function TextCascadePreview() {
 | `text` | `string` | — | Yes | Current text. Changing it cascades the letters to the new value. |
 | `className` | `string` | — | No | — |
 
-## Source
-
-- Registry detail: https://github.com/Rkj0123/motion-ui-skill
-- Raw source: https://github.com/Rkj0123/motion-ui-skill
-- GitHub: https://github.com/starc007/ui-components

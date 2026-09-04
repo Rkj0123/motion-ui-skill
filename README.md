@@ -7,7 +7,7 @@
 ![Next.js](https://img.shields.io/badge/Next.js-14%20%2F%2015-000000?style=for-the-badge&logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3%20%2F%20v4-38bdf8?style=for-the-badge&logo=tailwindcss)
 ![Motion](https://img.shields.io/badge/Motion-Framer%20Motion-f43f5e?style=for-the-badge)
-![Offline](https://img.shields.io/badge/Offline-100%25%20Self--Contained-10b981?style=for-the-badge)
+![Local](https://img.shields.io/badge/Skill-Local--First-10b981?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
 <p align="center">
@@ -28,7 +28,7 @@
 3. **Blocks & Widgets (23)**: Rich, composable application widgets such as Apple-style dynamic islands, ⌘K command palettes, knockout tournament fixtures, weekly availability schedulers, cross-chain swaps, prediction market tickets, and morphing tab views.
 
 ### 🌟 Key Highlights
-- **100% Self-Contained & Offline-First**: Every single component source file (`.tsx`), shared utility (`lib/`), and markdown documentation guide exists directly in this repository. Zero reliance on external registries, APIs, or internet connectivity.
+- **Local-First**: Every bundled component source file (`.tsx`), shared utility (`lib/`), and markdown guide exists directly in this repository. No remote registry is needed to discover or copy the bundled components. Components that render consumer-provided images or URLs still require the consumer's chosen asset host.
 - **Physics-Based Animation**: Powered by Motion (`motion/react` or `framer-motion`) using calibrated spring configurations (`SPRING_PRESS`, `SPRING_PANEL`, `SPRING_LAYOUT`, `SPRING_MOUSE`).
 - **Accessible & Reduced-Motion Safe**: Every component natively respects `prefers-reduced-motion` and suppresses phantom touch `:hover` states on mobile via pointer capability detection.
 - **Copy-Paste & Drop-In Ready**: Drop files directly into your project's `components/` and `lib/` folders, or use the included CLI installer.
@@ -47,13 +47,29 @@ This repository is pre-configured with workspace skill discovery:
   ```
 - Antigravity automatically detects the skill and activates it whenever you ask for UI components, animations, or agent interfaces.
 
-#### B. Skills CLI (`skills.dev` / `npx skills`)
+#### B. Codex app or Codex CLI
+Recommended project-scoped install:
+```bash
+npx skills add Rkj0123/motion-ui-skill --skill motion-ui --agent codex --copy -y
+```
+This creates `.agents/skills/motion-ui` in the current project. For a global install visible in every project:
+```bash
+npx skills add Rkj0123/motion-ui-skill --skill motion-ui --agent codex --global --copy -y
+```
+Verify the project install:
+```bash
+npx skills list --json
+```
+The complete Codex guide is [`references/codex-install.md`](./references/codex-install.md).
+
+#### C. Skills CLI (`npx skills`)
 Install directly using the universal skills CLI:
 ```bash
-npx skills add Rkj0123/motion-ui-skill --skill motion-ui
+npx skills add Rkj0123/motion-ui-skill --skill motion-ui --copy -y
 ```
+Use `--agent <agent>` to target a specific supported agent and `--global` for user-level installation.
 
-#### C. Claude Code
+#### D. Claude Code
 Add to your local project or global configuration:
 ```bash
 # Add to workspace skills
@@ -61,13 +77,16 @@ mkdir -p .claude/skills
 git clone https://github.com/Rkj0123/motion-ui-skill.git .claude/skills/motion-ui
 ```
 
-#### D. Cursor, Windsurf & Copilot
+#### E. Cursor, Windsurf & Copilot
 Add this repository as a submodule or copy it into your project:
 ```bash
 git submodule add https://github.com/Rkj0123/motion-ui-skill.git .skills/motion-ui
 ```
 Reference `SKILL.md` in your `.cursorrules` or prompt:
 > "Consult `.skills/motion-ui/SKILL.md` and `catalog.json` for UI components and animation patterns."
+
+#### F. Ask an AI agent to install it
+Copy [`prompts/install-motion-ui.md`](./prompts/install-motion-ui.md) into any agent that can run terminal commands. It installs the skill project-scoped, verifies the path, and leaves application files unchanged.
 
 ---
 
@@ -107,8 +126,8 @@ This automatically:
 Ensure your target React or Next.js project has the base dependencies installed:
 
 ```bash
-npm install motion clsx tailwind-merge lucide-react
-# or: pnpm add motion clsx tailwind-merge lucide-react
+npm install motion@^13.1.0 clsx tailwind-merge lucide-react
+# or: pnpm add motion@^13.1.0 clsx tailwind-merge lucide-react
 ```
 
 ### Tailwind Configuration
@@ -132,7 +151,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Bottom Sheet** | `bottom-sheet` | Vaul-inspired draggable bottom sheet with snap points, inertia and glass surface. | `motion`, `react-dom` | [`components/motion/bottom-sheet.tsx`](components/motion/bottom-sheet.tsx) | [Guide](references/motion/bottom-sheet.md) |
 | **Bounce Sidebar** | `bounce-sidebar` | A vertical sidebar whose active dot jumps between destinations on a curved, spring-loaded path. | `motion` | [`components/motion/bounce-sidebar.tsx`](components/motion/bounce-sidebar.tsx) | [Guide](references/motion/bounce-sidebar.md) |
 | **Bouncy Accordion** | `bouncy-accordion` | Single-open accordion with weighted spring layout, icon rows and reduced-motion-safe content reveals. | `lucide-react`, `motion` | [`components/motion/bouncy-accordion.tsx`](components/motion/bouncy-accordion.tsx) | [Guide](references/motion/bouncy-accordion.md) |
-| **Button** | `button` | Spring-pressed Button plus StatefulButton, MagneticButton, and MetallicButton variants. | `lucide-react`, `motion` | [`components/motion/button/base.tsx`](components/motion/button/base.tsx) | [Guide](references/motion/button.md) |
+| **Button** | `button` | Spring-pressed Button plus StatefulButton, MagneticButton, and MetallicButton variants. | `lucide-react`, `motion` | [`components/motion/button/index.tsx`](components/motion/button/index.tsx) | [Guide](references/motion/button.md) |
 | **Center Morph Modal** | `center-morph-modal` | A composable modal whose full-size surface unfolds from its exact center toward every edge, then folds back the same way with an inset close control. | `lucide-react`, `motion`, `react-dom` | [`components/motion/center-morph-modal.tsx`](components/motion/center-morph-modal.tsx) | [Guide](references/motion/center-morph-modal.md) |
 | **Checkbox** | `checkbox` | Form choice control with a draw-on checkmark, spring press feedback and indeterminate state support. | `motion` | [`components/motion/checkbox.tsx`](components/motion/checkbox.tsx) | [Guide](references/motion/checkbox.md) |
 | **Combobox** | `combobox` | Searchable combobox with a morphing portal, grouped filtering, keyboard navigation, and controlled or uncontrolled state. | `lucide-react`, `motion`, `react-dom` | [`components/motion/combobox.tsx`](components/motion/combobox.tsx) | [Guide](references/motion/combobox.md) |
@@ -145,21 +164,21 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Loader** | `loader` | Loading indicator with seventeen variants: spinner, dots, bars, dot-matrix, dither, morph, comet, scramble, metaballs, newton, helix, percent, and five terminal-style ascii spinners. Scales from one size prop, uses currentColor, and reduced-motion swaps every transform for a calm opacity pulse. | `motion` | [`components/motion/loader.tsx`](components/motion/loader.tsx) | [Guide](references/motion/loader.md) |
 | **Marquee** | `marquee` | Infinite horizontal or vertical scroll with pause-on-hover. | None (core) | [`components/motion/marquee.tsx`](components/motion/marquee.tsx) | [Guide](references/motion/marquee.md) |
 | **Morphing Modal** | `morphing-modal` | Family-app-style modal. A single panel that morphs its height as you navigate between inner views, with blur cross-fade on content. | `lucide-react`, `motion` | [`components/motion/morphing-modal.tsx`](components/motion/morphing-modal.tsx) | [Guide](references/motion/morphing-modal.md) |
-| **Multi Select** | `multi-select` | Composable multi-select primitives with searchable options, removable animated tokens, and a morphing collision-aware panel. | `lucide-react`, `motion`, `react-dom` | [`components/motion/multi-select/content.tsx`](components/motion/multi-select/content.tsx) | [Guide](references/motion/multi-select.md) |
+| **Multi Select** | `multi-select` | Composable multi-select primitives with searchable options, removable animated tokens, and a morphing collision-aware panel. | `lucide-react`, `motion`, `react-dom` | [`components/motion/multi-select/index.tsx`](components/motion/multi-select/index.tsx) | [Guide](references/motion/multi-select.md) |
 | **Number Animation** | `number` | Animated number primitives for count-up values, rolling tickers, and fixed-slot digit swaps. | `motion` | [`components/motion/animated-number.tsx`](components/motion/animated-number.tsx) | [Guide](references/motion/number.md) |
 | **Popover** | `popover` | Gooey popover whose panel oozes out of the trigger through an SVG goo filter — a liquid neck that stretches and pinches — with crisp content fading in on top, plus a Morph variant that clip-morphs open from the trigger corner. Click or hover trigger, controlled or uncontrolled. | `lucide-react`, `motion`, `react-dom` | [`components/motion/popover.tsx`](components/motion/popover.tsx) | [Guide](references/motion/popover.md) |
 | **Preview Rail** | `preview-rail` | Codex app-inspired navigation rail with compact ticks that form a hover pyramid and reveal a floating destination preview. | `motion` | [`components/motion/preview-rail.tsx`](components/motion/preview-rail.tsx) | [Guide](references/motion/preview-rail.md) |
 | **Pull to Refresh** | `pull-to-refresh` | Native-feeling pull-to-refresh container with drag resistance, threshold feedback and async refresh handling. | `lucide-react`, `motion` | [`components/motion/pull-to-refresh.tsx`](components/motion/pull-to-refresh.tsx) | [Guide](references/motion/pull-to-refresh.md) |
 | **Radio Group** | `radio` | Single-select choice control with a gliding layoutId indicator dot and spring press feedback. | `motion` | [`components/motion/radio.tsx`](components/motion/radio.tsx) | [Guide](references/motion/radio.md) |
 | **Range Slider** | `range-slider` | Slider with tick dots and a vertical-bar thumb that bounces as it lands on each step. Drag or keyboard, reduced-motion safe. | `motion` | [`components/motion/range-slider.tsx`](components/motion/range-slider.tsx) | [Guide](references/motion/range-slider.md) |
-| **Scroll Animation** | `scroll-animation` | Scroll-driven motion: a Lenis smooth-scroll provider and a reading-progress indicator that reads from it. | `lenis`, `motion` | [`components/motion/parallax.tsx`](components/motion/parallax.tsx) | [Guide](references/motion/scroll-animation.md) |
+| **Scroll Animation** | `scroll-animation` | Scroll-driven motion: a Lenis smooth-scroll provider and a reading-progress indicator that reads from it. | `lenis`, `motion` | [`components/motion/smooth-scroll.tsx`](components/motion/smooth-scroll.tsx) | [Guide](references/motion/scroll-animation.md) |
 | **Select** | `select` | Composable select primitives whose panel bouncily unfolds out of the trigger and separates, plus a Morph variant where the trigger grows into the panel via shared layout. | `lucide-react`, `motion` | [`components/motion/select.tsx`](components/motion/select.tsx) | [Guide](references/motion/select.md) |
 | **Shader Background** | `shader-background` | Canvas shader backgrounds (mesh gradient, grain, warp, waves, voronoi, dot orbit and more) with a single typed variant prop. Reduced-motion freezes animated variants. | `@paper-design/shaders-react`, `motion` | [`components/motion/shader-background.tsx`](components/motion/shader-background.tsx) | [Guide](references/motion/shader-background.md) |
 | **Shared Layout Background** | `shared-layout-bg` | A pill that glides between hovered items via motion's shared layout, with blur enter/exit. | `lucide-react`, `motion` | [`components/motion/shared-layout-bg.tsx`](components/motion/shared-layout-bg.tsx) | [Guide](references/motion/shared-layout-bg.md) |
 | **Switch** | `switch` | Toggle with a spring-driven thumb and press feedback. | `motion` | [`components/motion/switch.tsx`](components/motion/switch.tsx) | [Guide](references/motion/switch.md) |
 | **Table** | `table` | Virtualized data table that stays smooth at 10k+ rows, with sortable headers, row selection, column resize and reorder, and a sticky header. Minimal, reduced-motion-safe motion. | `@tanstack/react-virtual`, `lucide-react`, `motion`, `react-dom` | [`components/motion/table/index.tsx`](components/motion/table/index.tsx) | [Guide](references/motion/table.md) |
 | **Tabs** | `tabs` | Pill, segment or underline tabs with a spring layoutId indicator. | `motion` | [`components/motion/tabs.tsx`](components/motion/tabs.tsx) | [Guide](references/motion/tabs.md) |
-| **Text Animation** | `text-animation` | Animated text primitives for spring reveals, chromatic sweeps, shimmer loading states, letter-cascade swaps and character scrambles. | `motion` | [`components/motion/chromatic-text-reveal.tsx`](components/motion/chromatic-text-reveal.tsx) | [Guide](references/motion/text-animation.md) |
+| **Text Animation** | `text-animation` | Animated text primitives for spring reveals, chromatic sweeps, shimmer loading states, letter-cascade swaps and character scrambles. | `motion` | [`components/motion/text-reveal.tsx`](components/motion/text-reveal.tsx) | [Guide](references/motion/text-animation.md) |
 | **Theme Toggle** | `theme-toggle` | Theme toggle button that repaints the whole page through the View Transition API — a rectangle or circle clip-path reveal, or slats that open across the screen like a shutter. | `lucide-react`, `motion`, `next-themes` | [`components/motion/theme-toggle.tsx`](components/motion/theme-toggle.tsx) | [Guide](references/motion/theme-toggle.md) |
 | **Tilt Card** | `tilt-card` | 3D perspective tilt on hover with cursor-tracked glare. | `motion` | [`components/motion/tilt-card.tsx`](components/motion/tilt-card.tsx) | [Guide](references/motion/tilt-card.md) |
 | **Tooltip** | `tooltip` | Hover or focus tooltip with blur enter/exit and spring spawn. | `lucide-react`, `motion`, `react-dom` | [`components/motion/tooltip.tsx`](components/motion/tooltip.tsx) | [Guide](references/motion/tooltip.md) |
@@ -173,9 +192,9 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **AI Sidebar** | `ai-sidebar` | A collapsible AI workspace sidebar for folders, projects, files, and bookmarks with keyboard navigation, optimistic moves, inline rename, and overflow-aware labels. | `lucide-react`, `motion`, `react-dom` | [`components/agents/ai-sidebar.tsx`](components/agents/ai-sidebar.tsx) | [Guide](references/agents/ai-sidebar.md) |
 | **Agent Activity** | `agent-activity` | One adaptive activity stream for reasoning, searches, tool calls, structured execution traces, or a chronological mix. | `lucide-react`, `motion` | [`components/agents/agent-activity/index.tsx`](components/agents/agent-activity/index.tsx) | [Guide](references/agents/agent-activity.md) |
-| **Agent Loading States** | `loading-states` | Three thoughtful loading states for AI interfaces: shimmering status text, live agent progress, and cycling reasoning phrases. | `motion` | [`components/agents/loading-states/agent-progress.tsx`](components/agents/loading-states/agent-progress.tsx) | [Guide](references/agents/loading-states.md) |
+| **Agent Loading States** | `loading-states` | Three thoughtful loading states for AI interfaces: shimmering status text, live agent progress, and cycling reasoning phrases. | `motion` | [`components/agents/loading-states/index.ts`](components/agents/loading-states/index.ts) | [Guide](references/agents/loading-states.md) |
 | **Approval Card** | `approval-card` | A human-in-the-loop decision surface for approvals, single or multiple-choice questions, custom responses, and multi-step review flows. | `lucide-react`, `motion` | [`components/agents/approval-card/index.tsx`](components/agents/approval-card/index.tsx) | [Guide](references/agents/approval-card.md) |
-| **Chat App** | `chat-app` | A complete agent conversation workspace composing navigation, messages, streaming, planning, approvals, tools, code, diffs, generated media, sources, and prompt input. | `lucide-react`, `motion`, `react-dom`, `shiki` | [`components/agents/agent-activity/index.tsx`](components/agents/agent-activity/index.tsx) | [Guide](references/agents/chat-app.md) |
+| **Chat App** | `chat-app` | A complete agent conversation workspace composing navigation, messages, streaming, planning, approvals, tools, code, diffs, generated media, sources, and prompt input. | `lucide-react`, `motion`, `react-dom`, `shiki` | [`components/agents/chat-app.tsx`](components/agents/chat-app.tsx) | [Guide](references/agents/chat-app.md) |
 | **Citations** | `citations` | Inline citation markers paired with a collapsible, progressively rendered reference collection for grounded agent responses. | `lucide-react`, `motion` | [`components/agents/citations.tsx`](components/agents/citations.tsx) | [Guide](references/agents/citations.md) |
 | **Code Block** | `code-block` | A syntax-highlighted code surface with stable streaming updates, line numbers, focused lines, smooth following, and copy feedback. | `ai`, `lucide-react`, `motion`, `shiki` | [`components/agents/code-block.tsx`](components/agents/code-block.tsx) | [Guide](references/agents/code-block.md) |
 | **File Diff** | `file-diff` | A syntax-highlighted file change disclosure with progressive rows, line numbers, live change counts, smooth following, and completion collapse. | `lucide-react`, `motion`, `shiki` | [`components/agents/file-diff.tsx`](components/agents/file-diff.tsx) | [Guide](references/agents/file-diff.md) |
@@ -195,7 +214,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 
 | Component | Slug | Description | Dependencies | Primary File | Docs |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **404 / Not Found** | `not-found` | Animated 404 pages in five styles: glitch scramble, magnetic digits, cursor spotlight, a fanning card stack and a typed terminal. | `motion` | [`components/motion/not-found/glitch.tsx`](components/motion/not-found/glitch.tsx) | [Guide](references/blocks/not-found.md) |
+| **404 / Not Found** | `not-found` | Animated 404 pages in five styles: glitch scramble, magnetic digits, cursor spotlight, a fanning card stack and a typed terminal. | `motion` | [`components/motion/not-found/index.tsx`](components/motion/not-found/index.tsx) | [Guide](references/blocks/not-found.md) |
 | **Availability Scheduler** | `availability-scheduler` | Weekly availability editor where each day springs between available and unavailable, time ranges add and remove with blur-slide motion, times pick from a scrollable dropdown, and a copy menu clones hours to other days. | `lucide-react`, `motion`, `react-dom` | [`components/motion/availability-scheduler/index.tsx`](components/motion/availability-scheduler/index.tsx) | [Guide](references/blocks/availability-scheduler.md) |
 | **Bloom Menu** | `bloom-menu` | A button that morphs open into a menu and blooms iris-out from the center, the grid revealing in every direction with radially staggered items. | `lucide-react`, `motion` | [`components/motion/bloom-menu.tsx`](components/motion/bloom-menu.tsx) | [Guide](references/blocks/bloom-menu.md) |
 | **Card Folder** | `card-folder` | A landscape card tucked into a stitched purse pocket that lifts forward as the purse compresses into its bottom seam, with controlled open and card-detail visibility plus a separate overflow action. | `lucide-react`, `motion` | [`components/motion/card-folder.tsx`](components/motion/card-folder.tsx) | [Guide](references/blocks/card-folder.md) |
@@ -204,7 +223,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Expandable Action Bar** | `expandable-action-bar` | Compact icon actions that expand into labeled controls on hover or focus with shared layout motion. | `lucide-react`, `motion` | [`components/motion/expandable-action-bar.tsx`](components/motion/expandable-action-bar.tsx) | [Guide](references/blocks/expandable-action-bar.md) |
 | **Expandable Tabs** | `expandable-tabs` | Icon tab bar where the active tab expands to a labelled pill, with a panel above that morphs height and slides content direction-aware on switch. | `lucide-react`, `motion` | [`components/motion/expandable-tabs.tsx`](components/motion/expandable-tabs.tsx) | [Guide](references/blocks/expandable-tabs.md) |
 | **Feedback Widget** | `feedback-widget` | Corner trigger that morphs open into a feedback popup with message entry and animated sending, success and retry states. | `lucide-react`, `motion` | [`components/motion/feedback-widget.tsx`](components/motion/feedback-widget.tsx) | [Guide](references/blocks/feedback-widget.md) |
-| **File Upload** | `file-upload` | Two file upload patterns: an attachment workspace for mixed files, links, audio and media, plus a progress queue with retry and removal. | `lucide-react`, `motion`, `react-dom` | [`components/motion/attachment-upload.tsx`](components/motion/attachment-upload.tsx) | [Guide](references/blocks/file-upload.md) |
+| **File Upload** | `file-upload` | Two file upload patterns: an attachment workspace for mixed files, links, audio and media, plus a progress queue with retry and removal. | `lucide-react`, `motion`, `react-dom` | [`components/motion/file-upload.tsx`](components/motion/file-upload.tsx) | [Guide](references/blocks/file-upload.md) |
 | **Fixtures** | `knockout-bracket` | Animated tournament fixtures in two styles: a knockout bracket that pages through rounds, and a wheel that wraps the same tree around the champion. Both read the same array of rounds, so one dataset draws either. | `lucide-react`, `motion`, `react-dom` | [`components/motion/knockout-bracket.tsx`](components/motion/knockout-bracket.tsx) | [Guide](references/blocks/knockout-bracket.md) |
 | **Infinite Masonry** | `infinite-masonry` | Responsive virtualized masonry that measures variable-height cards and loads more data as the user nears the end. | `@tanstack/react-virtual`, `lucide-react`, `motion`, `next` | [`components/motion/infinite-masonry.tsx`](components/motion/infinite-masonry.tsx) | [Guide](references/blocks/infinite-masonry.md) |
 | **Morphing Search** | `morphing-search` | Search field or compact icon that morphs into a glass results surface, whether opened by click or keyboard shortcut. | `lucide-react`, `motion`, `react-dom` | [`components/motion/morphing-search.tsx`](components/motion/morphing-search.tsx) | [Guide](references/blocks/morphing-search.md) |
@@ -255,17 +274,29 @@ For full animation principles and accessibility patterns, see [`references/guide
 
 ---
 
+## Validate the package
+
+Run the dependency-free integrity gate before publishing a change:
+
+```bash
+python scripts/verify_skill.py
+```
+
+It checks the 82-component catalog, all referenced files, the single skill entrypoint, primary file paths, and the source-reference exclusion rule.
+
+---
+
 ## Directory Structure
 
 ```text
 motion-ui-skill/
 ├── README.md                      # Comprehensive guide & installation instructions
 ├── SKILL.md                       # Main agent skill definition with catalog & instructions
+├── agents/openai.yaml             # Codex skill-list metadata and default prompt
 ├── catalog.json                   # Machine-readable metadata for all 82 components
 ├── components/                    # Production TypeScript/React source code
-│   ├── motion/                    # 42 interactive motion components
+│   ├── motion/                    # 42 motion components plus composed blocks
 │   ├── agents/                    # 17 conversational agent surfaces
-│   ├── blocks/                    # 23 composed application widgets
 │   └── previews/                  # Component preview & demo implementations
 ├── lib/                           # Foundation tokens, easing physics, and utility hooks
 │   ├── ease.ts                    # Easing curves and spring physics constants
@@ -277,12 +308,13 @@ motion-ui-skill/
 │   ├── motion/                    # 42 component guides with props & examples
 │   ├── agents/                    # 17 agent component guides
 │   ├── blocks/                    # 23 block guides
-│   └── guides/                    # Motion patterns, timing & accessibility guide
+│   ├── guides/                    # Motion patterns, timing & accessibility guide
+│   └── codex-install.md            # Codex app and CLI installation guide
+├── prompts/
+│   └── install-motion-ui.md        # Copy-paste prompt for AI-agent installation
 ├── scripts/
-│   └── install-component.py       # Standalone CLI tool to install components into projects
-└── skills/
-    └── motion-ui/
-        └── SKILL.md               # Mirrored skill definition for package managers
+│   ├── install-component.py       # Standalone CLI tool to install components into projects
+│   └── verify_skill.py            # Dependency-free package integrity gate
 ```
 
 ---

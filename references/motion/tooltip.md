@@ -80,8 +80,3 @@ export function TooltipPreview() {
 | `className` | `string` | — | No | — |
 | `wrapperClassName` | `string` | — | No | Classes for the outer wrapper span. Use to fix baseline / fill parent. |
 
-## Source
-
-- Registry detail: https://github.com/Rkj0123/motion-ui-skill
-- Raw source: https://github.com/Rkj0123/motion-ui-skill
-- GitHub: https://github.com/starc007/ui-components

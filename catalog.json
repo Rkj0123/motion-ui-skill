@@ -57,8 +57,8 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/motion/button/base.tsx",
         "components/motion/button/index.tsx",
+        "components/motion/button/base.tsx",
         "components/motion/button/magnetic.tsx",
         "components/motion/button/metallic.tsx",
         "components/motion/button/stateful.tsx"
@@ -305,11 +305,11 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/motion/multi-select/content.tsx",
-        "components/motion/multi-select/context.tsx",
         "components/motion/multi-select/index.tsx",
-        "components/motion/multi-select/list.tsx",
-        "components/motion/multi-select/trigger.tsx"
+        "components/motion/multi-select/context.tsx",
+        "components/motion/multi-select/trigger.tsx",
+        "components/motion/multi-select/content.tsx",
+        "components/motion/multi-select/list.tsx"
       ],
       "util_files": [
         "components/motion/combobox/use-active-option.ts",
@@ -723,11 +723,11 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/motion/chromatic-text-reveal.tsx",
-        "components/motion/text-cascade.tsx",
         "components/motion/text-reveal.tsx",
-        "components/motion/text-scramble.tsx",
-        "components/motion/text-shimmer.tsx"
+        "components/motion/chromatic-text-reveal.tsx",
+        "components/motion/text-shimmer.tsx",
+        "components/motion/text-cascade.tsx",
+        "components/motion/text-scramble.tsx"
       ],
       "util_files": [
         "components/motion/action-swap.tsx",
@@ -1000,11 +1000,11 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/motion/parallax.tsx",
+        "components/motion/smooth-scroll.tsx",
         "components/motion/scroll-progress.tsx",
-        "components/motion/scroll-reveal.tsx",
+        "components/motion/parallax.tsx",
         "components/motion/scroll-to.tsx",
-        "components/motion/smooth-scroll.tsx"
+        "components/motion/scroll-reveal.tsx"
       ],
       "util_files": [
         "lib/ease.ts",
@@ -1505,10 +1505,10 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/agents/loading-states/agent-progress.tsx",
         "components/agents/loading-states/index.ts",
-        "components/agents/loading-states/reasoning-text.tsx",
-        "components/agents/loading-states/thinking-shimmer.tsx"
+        "components/agents/loading-states/thinking-shimmer.tsx",
+        "components/agents/loading-states/agent-progress.tsx",
+        "components/agents/loading-states/reasoning-text.tsx"
       ],
       "util_files": [
         "components/motion/loader.tsx",
@@ -1673,10 +1673,10 @@
         "tailwind-merge"
       ],
       "component_files": [
+        "components/agents/chat-app.tsx",
         "components/agents/agent-activity/index.tsx",
         "components/agents/ai-sidebar.tsx",
         "components/agents/approval-card/index.tsx",
-        "components/agents/chat-app.tsx",
         "components/agents/code-block.tsx",
         "components/agents/file-diff.tsx",
         "components/agents/image-generation.tsx",
@@ -2152,8 +2152,8 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/motion/attachment-upload.tsx",
-        "components/motion/file-upload.tsx"
+        "components/motion/file-upload.tsx",
+        "components/motion/attachment-upload.tsx"
       ],
       "util_files": [
         "components/motion/tooltip.tsx",
@@ -2364,10 +2364,10 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/motion/not-found/glitch.tsx",
         "components/motion/not-found/index.tsx",
-        "components/motion/not-found/magnetic.tsx",
         "components/motion/not-found/shared.tsx",
+        "components/motion/not-found/glitch.tsx",
+        "components/motion/not-found/magnetic.tsx",
         "components/motion/not-found/spotlight.tsx",
         "components/motion/not-found/stacked.tsx",
         "components/motion/not-found/terminal.tsx"

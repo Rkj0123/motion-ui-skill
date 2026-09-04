@@ -74,8 +74,3 @@ export function CheckboxPreview() {
 | `aria-label` | `string` | — | No | — |
 | `aria-describedby` | `string` | — | No | Associates an external message (e.g. a form error) with the control. |
 
-## Source
-
-- Registry detail: https://github.com/Rkj0123/motion-ui-skill
-- Raw source: https://github.com/Rkj0123/motion-ui-skill
-- GitHub: https://github.com/starc007/ui-components

@@ -228,8 +228,3 @@ function Recovery({ onBack }: { onBack: () => void }) {
 | `placement` | `"bottom" \| "center"` | `bottom` | No | "bottom" anchors to the viewport bottom (mobile-like). "center" centers vertically. |
 | `className` | `string` | — | No | — |
 
-## Source
-
-- Registry detail: https://github.com/Rkj0123/motion-ui-skill
-- Raw source: https://github.com/Rkj0123/motion-ui-skill
-- GitHub: https://github.com/starc007/ui-components

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Motion UI"
+  short_description: "Build polished, accessible web UI"
+  brand_color: "#6366F1"
+  default_prompt: "Use $motion-ui to build a polished, accessible web interface with the smallest suitable component set."
+
+policy:
+  allow_implicit_invocation: true

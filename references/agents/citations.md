@@ -157,8 +157,3 @@ export function CitationsPreview() {
 | `idPrefix` | `string` | — | No | — |
 | `className` | `string` | — | No | — |
 
-## Source
-
-- Registry detail: https://github.com/Rkj0123/motion-ui-skill
-- Raw source: https://github.com/Rkj0123/motion-ui-skill
-- GitHub: https://github.com/starc007/ui-components

@@ -212,8 +212,3 @@ export function AnimatedToastStackPreview() {
 | `icons` | `Partial<Record<ToastStatus, ReactNode>>` | — | No | — |
 | `renderToast` | `((toast: AnimatedToast) => ReactNode)` | — | No | — |
 
-## Source
-
-- Registry detail: https://github.com/Rkj0123/motion-ui-skill
-- Raw source: https://github.com/Rkj0123/motion-ui-skill
-- GitHub: https://github.com/starc007/ui-components

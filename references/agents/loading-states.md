@@ -184,8 +184,3 @@ export function AgentProgressPreview() {
 | `running` | `boolean` | `true` | No | Whether the internal timer should advance. Ignored when elapsedSeconds is provided. |
 | `className` | `string` | — | No | — |
 
-## Source
-
-- Registry detail: https://github.com/Rkj0123/motion-ui-skill
-- Raw source: https://github.com/Rkj0123/motion-ui-skill
-- GitHub: https://github.com/starc007/ui-components
