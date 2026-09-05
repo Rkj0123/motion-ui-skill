@@ -43,7 +43,7 @@ export function Frame({
   };
 
   return (
-    <div className={cn("flex flex-col items-center w-full py-4", className)} {...props}>
+    <motion.div className={cn("flex flex-col items-center w-full py-4", className)} {...props}>
       {/* Top Device Switcher Controls */}
       <div className="flex items-center gap-1.5 p-1 rounded-xl border border-border bg-card/80 backdrop-blur-md mb-4 shadow-sm">
         <button
@@ -111,6 +111,6 @@ export function Frame({
           {children}
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

@@ -35,7 +35,7 @@ export function Stepper({
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div
+    <motion.div
       role="navigation"
       aria-label="Progress Stepper"
       className={cn(
@@ -122,6 +122,6 @@ export function Stepper({
           </React.Fragment>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

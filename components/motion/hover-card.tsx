@@ -4,9 +4,8 @@ import {
   AnimatePresence,
   motion,
   useReducedMotion,
-  type HTMLMotionProps,
 } from "motion/react";
-import React, { useRef, useState, type ReactNode } from "react";
+import React, { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { SPRING_FLOAT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
@@ -30,12 +29,19 @@ export function HoverCard({
   className,
 }: HoverCardProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const openTimer = useRef<NodeJS.Timeout | null>(null);
-  const closeTimer = useRef<NodeJS.Timeout | null>(null);
+  const openTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const shouldReduceMotion = useReducedMotion();
+  const tooltipId = useId();
+
+  useEffect(() => () => {
+    if (openTimer.current) clearTimeout(openTimer.current);
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  }, []);
 
   const handleMouseEnter = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
+    if (openTimer.current) clearTimeout(openTimer.current);
     openTimer.current = setTimeout(() => setIsOpen(true), openDelay);
   };
 
@@ -45,7 +51,11 @@ export function HoverCard({
   };
 
   const handleFocus = () => setIsOpen(true);
-  const handleBlur = () => setIsOpen(false);
+  const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      setIsOpen(false);
+    }
+  };
 
   // Positioning classes
   const sideClasses = {
@@ -70,7 +80,11 @@ export function HoverCard({
       onBlur={handleBlur}
     >
       {/* Trigger */}
-      <div className="inline-block cursor-pointer focus:outline-none">
+      <div
+        tabIndex={0}
+        aria-describedby={isOpen ? tooltipId : undefined}
+        className="inline-block cursor-pointer focus:outline-none"
+      >
         {children}
       </div>
 
@@ -78,6 +92,7 @@ export function HoverCard({
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id={tooltipId}
             role="tooltip"
             initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.96, y: side === "bottom" ? -4 : 4 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}

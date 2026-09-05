@@ -39,6 +39,14 @@ export function SortableList({
     triggerHaptic("selection");
   };
 
+  const moveByKeyboard = (index: number, offset: number) => {
+    const nextIndex = index + offset;
+    if (nextIndex < 0 || nextIndex >= items.length) return;
+    const next = [...items];
+    [next[index], next[nextIndex]] = [next[nextIndex], next[index]];
+    handleReorder(next);
+  };
+
   return (
     <Reorder.Group
       axis="y"
@@ -46,13 +54,20 @@ export function SortableList({
       onReorder={handleReorder}
       className={cn("flex flex-col gap-2 p-1 select-none", className)}
     >
-      {items.map((item) => {
+      {items.map((item, index) => {
         const isDragging = activeId === item.id;
 
         return (
           <Reorder.Item
             key={item.id}
             value={item}
+            tabIndex={0}
+            onKeyDown={(event) => {
+              const offset = event.key === "ArrowDown" ? 1 : event.key === "ArrowUp" ? -1 : 0;
+              if (!offset) return;
+              event.preventDefault();
+              moveByKeyboard(index, offset);
+            }}
             onDragStart={() => {
               setActiveId(item.id);
               triggerHaptic("medium");

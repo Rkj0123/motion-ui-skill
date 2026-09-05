@@ -41,7 +41,7 @@ function DockIcon({
   baseSize?: number;
   distance?: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLButtonElement>(null);
   const shouldReduceMotion = useReducedMotion();
 
   const distanceCalc = useTransform(mouseX, (val: number) => {
@@ -62,11 +62,13 @@ function DockIcon({
   });
 
   return (
-    <motion.div
+    <motion.button
+      type="button"
       ref={ref}
+      aria-label={item.label}
       style={shouldReduceMotion ? { width: baseSize, height: baseSize } : { width, height: width }}
       onClick={item.onClick}
-      className="relative flex items-center justify-center rounded-2xl bg-card border border-border shadow-md cursor-pointer hover:border-primary/50 transition-colors group aspect-square select-none"
+      className="relative flex items-center justify-center rounded-2xl bg-card border border-border shadow-md cursor-pointer hover:border-primary/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring group aspect-square select-none"
     >
       <div className="flex items-center justify-center text-foreground pointer-events-none">
         {item.icon}
@@ -76,7 +78,7 @@ function DockIcon({
       <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-foreground px-2 py-0.5 text-[10px] font-semibold text-background opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
         {item.label}
       </span>
-    </motion.div>
+    </motion.button>
   );
 }
 

@@ -85,7 +85,7 @@ export function Pagination({
   const pages = generatePages();
 
   return (
-    <nav
+    <motion.nav
       role="navigation"
       aria-label="Pagination"
       className={cn("flex items-center justify-center gap-1", className)}
@@ -158,6 +158,6 @@ export function Pagination({
       >
         <ChevronRight className="size-4" />
       </motion.button>
-    </nav>
+    </motion.nav>
   );
 }

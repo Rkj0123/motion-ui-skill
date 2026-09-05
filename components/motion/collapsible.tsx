@@ -11,7 +11,7 @@ import React, { useId, useState, type ReactNode } from "react";
 import { EASE_OUT, SPRING_LAYOUT, SPRING_PRESS } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
-export interface CollapsibleProps extends Omit<HTMLMotionProps<"div">, "children"> {
+export interface CollapsibleProps extends Omit<HTMLMotionProps<"div">, "children" | "title"> {
   title: ReactNode;
   children: ReactNode;
   defaultOpen?: boolean;
@@ -46,7 +46,7 @@ export function Collapsible({
   };
 
   return (
-    <div
+    <motion.div
       className={cn(
         "rounded-2xl border border-border bg-card overflow-hidden transition-colors",
         disabled && "opacity-50",
@@ -103,6 +103,6 @@ export function Collapsible({
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

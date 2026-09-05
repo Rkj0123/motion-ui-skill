@@ -56,7 +56,7 @@ export const STYLE_PRESETS: Record<StylePreset, StyleTokens> = {
     buttonSecondary: "rounded-xl border border-border/80 bg-card/80 text-foreground font-medium shadow-sm hover:bg-muted/70 active:scale-[0.98] transition-all",
     buttonGhost: "rounded-xl text-muted-foreground hover:text-foreground hover:bg-muted/60 font-medium transition-all",
     input: "rounded-xl border border-border/80 bg-card/70 px-3.5 py-2 text-sm text-foreground placeholder:text-muted-foreground/80 shadow-inner focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all",
-    badge: "rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary shadow-xs",
+    badge: "rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]",
     panel: "rounded-2xl border border-border/80 bg-card/95 p-4 shadow-xl ring-1 ring-white/10 backdrop-blur-md",
     radius: "rounded-xl",
     spring: SPRING_SNAPPY,
@@ -64,7 +64,7 @@ export const STYLE_PRESETS: Record<StylePreset, StyleTokens> = {
   enterprise: {
     name: "Enterprise (Dense ReUI)",
     description: "High data-density, compact spacing, clear semantic contrast, sharp geometry, and functional clarity.",
-    card: "rounded-lg border border-border bg-card p-4 shadow-xs",
+    card: "rounded-lg border border-border bg-card p-4 shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]",
     buttonPrimary: "rounded-md bg-primary text-primary-foreground text-xs font-semibold px-3 py-1.5 hover:bg-primary/90 transition-colors",
     buttonSecondary: "rounded-md border border-border bg-secondary text-secondary-foreground text-xs font-medium px-3 py-1.5 hover:bg-muted transition-colors",
     buttonGhost: "rounded-md text-foreground text-xs hover:bg-muted px-2.5 py-1.5 transition-colors",
@@ -109,7 +109,7 @@ export const STYLE_PRESETS: Record<StylePreset, StyleTokens> = {
     buttonGhost: "rounded-none text-foreground font-bold hover:bg-foreground hover:text-background px-3 py-2 transition-colors",
     input: "rounded-none border-2 border-foreground bg-background px-3 py-2 text-sm font-medium text-foreground placeholder:text-muted-foreground shadow-[2px_2px_0px_0px_currentColor] focus:outline-none focus:shadow-[4px_4px_0px_0px_currentColor]",
     badge: "rounded-none border-2 border-foreground bg-yellow-300 text-black px-2 py-0.5 text-xs font-black uppercase tracking-wider",
-    panel: "rounded-none border-3 border-foreground bg-background p-5 shadow-[6px_6px_0px_0px_currentColor]",
+    panel: "rounded-none border-[3px] border-foreground bg-background p-5 shadow-[6px_6px_0px_0px_currentColor]",
     radius: "rounded-none",
     spring: SPRING_PRESS,
   },
@@ -120,5 +120,5 @@ export const STYLE_PRESETS: Record<StylePreset, StyleTokens> = {
  * Defaults to "origin" (high-craft) if unspecified.
  */
 export function getStylePreset(preset?: StylePreset): StyleTokens {
-  return STYLE_PRESETS[preset || "origin"];
+  return STYLE_PRESETS[preset || "origin"] || STYLE_PRESETS.origin;
 }

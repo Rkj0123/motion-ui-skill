@@ -50,8 +50,14 @@ export function Confetti({
   const triggerHaptic = useHaptic();
 
   useEffect(() => {
-    if (!trigger || shouldReduceMotion) {
+    if (!trigger) {
       setParticles([]);
+      return;
+    }
+
+    if (shouldReduceMotion) {
+      setParticles([]);
+      onComplete?.();
       return;
     }
 

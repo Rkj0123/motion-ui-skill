@@ -2650,7 +2650,6 @@
       "description": "Universal mobile action sheet menu with drag gesture dismissal, rubber-band resistance, haptic feedback, and desktop center modal fallback.",
       "dependencies": [
         "clsx",
-        "lucide-react",
         "motion",
         "react",
         "react-dom",
@@ -3435,7 +3434,7 @@
       "slug": "audio-player",
       "name": "Audio Player",
       "category": "blocks",
-      "description": "Interactive sound player with animated equalizer waveforms, spring play/pause morphs, volume controls, and scrubbing trackbar.",
+      "description": "Interactive audio player with animated equalizer waveforms, spring play/pause morphs, volume controls, and scrubbing trackbar.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -3531,7 +3530,6 @@
       "description": "Interactive application dock whose icons magnify continuously based on pointer proximity using spring physics and motion values.",
       "dependencies": [
         "clsx",
-        "lucide-react",
         "motion",
         "react",
         "tailwind-merge"
@@ -3707,7 +3705,7 @@
       "slug": "autocomplete",
       "name": "Autocomplete",
       "category": "motion",
-      "description": "Searchable combobox with debounced substring highlighting, keyboard arrow navigation, clear trigger, and spring panel reveal.",
+      "description": "Searchable combobox with substring highlighting, keyboard arrow navigation, clear trigger, and spring panel reveal.",
       "dependencies": [
         "clsx",
         "lucide-react",

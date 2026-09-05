@@ -7,7 +7,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SPRING_PRESS, SPRING_SWAP } from "@/lib/ease";
 import { useHaptic } from "@/lib/hooks/use-haptic";
 import { cn } from "@/lib/utils";
@@ -41,14 +41,21 @@ export function NumberField({
   const [direction, setDirection] = useState<"up" | "down">("up");
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isControlled = controlledValue !== undefined;
   const currentVal = isControlled ? controlledValue : internalVal;
+  const valueRef = useRef(currentVal);
 
-  const updateValue = (next: number, dir: "up" | "down") => {
+  useEffect(() => {
+    valueRef.current = currentVal;
+  }, [currentVal]);
+
+  const updateValue = (dir: "up" | "down") => {
+    const next = valueRef.current + (dir === "up" ? step : -step);
     const clamped = Math.min(max, Math.max(min, next));
-    if (clamped !== currentVal) {
+    if (clamped !== valueRef.current) {
+      valueRef.current = clamped;
       setDirection(dir);
       if (!isControlled) setInternalVal(clamped);
       onChange?.(clamped);
@@ -56,8 +63,8 @@ export function NumberField({
     }
   };
 
-  const handleIncrement = () => updateValue(currentVal + step, "up");
-  const handleDecrement = () => updateValue(currentVal - step, "down");
+  const handleIncrement = () => updateValue("up");
+  const handleDecrement = () => updateValue("down");
 
   const startHold = (action: () => void) => {
     action();
@@ -77,6 +84,10 @@ export function NumberField({
     }
   };
 
+  useEffect(() => () => {
+    if (intervalRef.current) clearTimeout(intervalRef.current);
+  }, []);
+
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowUp") {
       e.preventDefault();
@@ -88,7 +99,7 @@ export function NumberField({
   };
 
   return (
-    <div
+    <motion.div
       role="group"
       aria-label="Number stepper"
       onKeyDown={handleKeyDown}
@@ -105,7 +116,11 @@ export function NumberField({
         disabled={currentVal <= min}
         onPointerDown={() => startHold(handleDecrement)}
         onPointerUp={stopHold}
+        onPointerCancel={stopHold}
         onPointerLeave={stopHold}
+        onClick={(event) => {
+          if (event.detail === 0) handleDecrement();
+        }}
         whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
         transition={SPRING_PRESS}
         aria-label="Decrease value"
@@ -146,7 +161,11 @@ export function NumberField({
         disabled={currentVal >= max}
         onPointerDown={() => startHold(handleIncrement)}
         onPointerUp={stopHold}
+        onPointerCancel={stopHold}
         onPointerLeave={stopHold}
+        onClick={(event) => {
+          if (event.detail === 0) handleIncrement();
+        }}
         whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
         transition={SPRING_PRESS}
         aria-label="Increase value"
@@ -154,6 +173,6 @@ export function NumberField({
       >
         <Plus className="size-3.5" />
       </motion.button>
-    </div>
+    </motion.div>
   );
 }

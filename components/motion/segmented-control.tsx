@@ -5,7 +5,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useId, useState, type ReactNode } from "react";
+import React, { useId, useRef, useState, type ReactNode } from "react";
 import { SPRING_LAYOUT, SPRING_PRESS } from "@/lib/ease";
 import { useHaptic } from "@/lib/hooks/use-haptic";
 import { cn } from "@/lib/utils";
@@ -48,6 +48,7 @@ export function SegmentedControl({
     defaultValue || (items.length > 0 ? items[0].value : "")
   );
   const layoutId = useId();
+  const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
 
@@ -62,20 +63,22 @@ export function SegmentedControl({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
-    let nextIndex = -1;
-    if (e.key === "ArrowRight") {
-      nextIndex = (index + 1) % items.length;
-    } else if (e.key === "ArrowLeft") {
-      nextIndex = (index - 1 + items.length) % items.length;
+    if (!items.length || (e.key !== "ArrowRight" && e.key !== "ArrowLeft")) return;
+    const direction = e.key === "ArrowRight" ? 1 : -1;
+    let nextIndex = index;
+    for (let i = 0; i < items.length; i += 1) {
+      nextIndex = (nextIndex + direction + items.length) % items.length;
+      if (!items[nextIndex].disabled) break;
     }
-    if (nextIndex !== -1 && !items[nextIndex].disabled) {
+    if (!items[nextIndex].disabled && nextIndex !== index) {
       e.preventDefault();
       handleSelect(items[nextIndex].value);
+      requestAnimationFrame(() => buttonRefs.current[nextIndex]?.focus());
     }
   };
 
   return (
-    <div
+    <motion.div
       role="tablist"
       aria-label="Segmented options"
       className={cn(
@@ -91,6 +94,7 @@ export function SegmentedControl({
         return (
           <motion.button
             key={item.value}
+            ref={(element) => { buttonRefs.current[idx] = element; }}
             role="tab"
             aria-selected={isSelected}
             tabIndex={isSelected ? 0 : -1}
@@ -121,6 +125,6 @@ export function SegmentedControl({
           </motion.button>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

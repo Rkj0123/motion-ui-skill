@@ -34,9 +34,10 @@ interface TreeItemProps {
   level: number;
   selectedId?: string;
   onSelect?: (node: TreeNode) => void;
+  focusable?: boolean;
 }
 
-function TreeItem({ node, level, selectedId, onSelect }: TreeItemProps) {
+function TreeItem({ node, level, selectedId, onSelect, focusable = false }: TreeItemProps) {
   const hasChildren = Boolean(node.children && node.children.length > 0);
   const [isOpen, setIsOpen] = useState(level === 0);
   const shouldReduceMotion = useReducedMotion();
@@ -49,15 +50,50 @@ function TreeItem({ node, level, selectedId, onSelect }: TreeItemProps) {
     onSelect?.(node);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleClick();
+      return;
+    }
+    if (event.key === "ArrowRight" && hasChildren && !isOpen) {
+      event.preventDefault();
+      setIsOpen(true);
+      return;
+    }
+    if (event.key === "ArrowLeft" && hasChildren && isOpen) {
+      event.preventDefault();
+      setIsOpen(false);
+      return;
+    }
+    if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+    const tree = event.currentTarget.closest('[role="tree"]');
+    const items = tree
+      ? Array.from(tree.querySelectorAll<HTMLElement>('[role="treeitem"]'))
+      : [];
+    const currentIndex = items.indexOf(event.currentTarget);
+    const nextIndex = event.key === "ArrowDown" ? currentIndex + 1 : currentIndex - 1;
+    if (items[nextIndex]) {
+      event.preventDefault();
+      items[nextIndex].focus();
+    }
+  };
+
   return (
     <div className="select-none">
       <motion.div
+        role="treeitem"
+        tabIndex={isSelected || focusable ? 0 : -1}
+        aria-selected={isSelected}
+        aria-expanded={hasChildren ? isOpen : undefined}
+        aria-level={level + 1}
         onClick={handleClick}
+        onKeyDown={handleKeyDown}
         whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
         transition={SPRING_PRESS}
         style={{ paddingLeft: `${level * 16 + 8}px` }}
         className={cn(
-          "flex items-center gap-2 rounded-xl py-1.5 pr-2.5 text-xs font-medium transition-colors cursor-pointer",
+          "flex items-center gap-2 rounded-xl py-1.5 pr-2.5 text-xs font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
           isSelected
             ? "bg-primary/10 text-primary font-semibold"
             : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
@@ -92,6 +128,7 @@ function TreeItem({ node, level, selectedId, onSelect }: TreeItemProps) {
       <AnimatePresence initial={false}>
         {hasChildren && isOpen && (
           <motion.div
+            role="group"
             initial={{ opacity: 0, height: 0 }}
             animate={{
               opacity: 1,
@@ -134,18 +171,20 @@ export function TreeView({ data, selectedId, onSelect, className }: TreeViewProp
   return (
     <div
       role="tree"
+      aria-label="Tree"
       className={cn(
         "flex flex-col gap-0.5 rounded-2xl border border-border bg-card p-2 shadow-sm",
         className
       )}
     >
-      {data.map((node) => (
+      {data.map((node, index) => (
         <TreeItem
           key={node.id}
           node={node}
           level={0}
           selectedId={selectedId}
           onSelect={onSelect}
+          focusable={!selectedId && index === 0}
         />
       ))}
     </div>

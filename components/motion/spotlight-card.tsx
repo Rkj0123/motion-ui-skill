@@ -72,7 +72,7 @@ export function SpotlightCard({
       {showBorderBeam && !shouldReduceMotion && (
         <div className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden">
           <div
-            className="absolute -inset-[100%] animate-[spin_8s_linear_infinite] opacity-0 group-hover:opacity-40 transition-opacity duration-500"
+            className="absolute -inset-[100%] animate-none opacity-0 group-hover:animate-[spin_8s_linear_infinite] group-hover:opacity-40 transition-opacity duration-500"
             style={{
               background:
                 "conic-gradient(from 0deg, transparent 0 340deg, var(--primary) 360deg)",

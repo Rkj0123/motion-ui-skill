@@ -33,7 +33,7 @@ export interface FilterRule {
   value: string;
 }
 
-export interface FilterBuilderProps extends Omit<HTMLMotionProps<"div">, "children"> {
+export interface FilterBuilderProps extends Omit<HTMLMotionProps<"div">, "children" | "onChange"> {
   fields: FilterField[];
   initialRules?: FilterRule[];
   conjunction?: "AND" | "OR";
@@ -125,7 +125,7 @@ export function FilterBuilder({
   };
 
   return (
-    <div
+    <motion.div
       className={cn(
         "flex flex-col gap-3 rounded-2xl border border-border bg-card p-4 shadow-sm",
         className
@@ -178,6 +178,7 @@ export function FilterBuilder({
         <AnimatePresence mode="popLayout">
           {rules.map((rule, idx) => {
             const field = fields.find((f) => f.id === rule.fieldId) || fields[0];
+            if (!field) return null;
             const availableOps = OPERATORS_BY_TYPE[field.type];
 
             return (
@@ -277,6 +278,6 @@ export function FilterBuilder({
         <Plus className="size-3.5" />
         <span>Add Filter Rule</span>
       </motion.button>
-    </div>
+    </motion.div>
   );
 }

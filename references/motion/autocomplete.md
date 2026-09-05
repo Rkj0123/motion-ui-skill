@@ -1,6 +1,6 @@
 ---
 title: "Autocomplete"
-description: "Searchable combobox with debounced substring highlighting, keyboard arrow navigation, clear trigger, and spring panel reveal."
+description: "Searchable combobox with substring highlighting, keyboard arrow navigation, clear trigger, and spring panel reveal."
 category: "Components"
 publishedAt: "2026-09-05"
 updatedAt: "2026-09-05"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Autocomplete
 
-> Searchable combobox with debounced substring highlighting, keyboard arrow navigation, clear trigger, and spring panel reveal. Inspired by shadcn/ui and KeenThemes ReUI.
+> Searchable combobox with substring highlighting, keyboard arrow navigation, clear trigger, and spring panel reveal. Inspired by shadcn/ui and KeenThemes ReUI.
 
 ## Install
 

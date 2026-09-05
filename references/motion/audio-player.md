@@ -1,6 +1,6 @@
 ---
 title: "Audio Player"
-description: "Interactive sound player with animated equalizer waveforms, spring play/pause morphs, volume controls, and scrubbing trackbar."
+description: "Interactive audio player with animated equalizer waveforms, spring play/pause morphs, volume controls, and scrubbing trackbar."
 category: "Components"
 publishedAt: "2026-09-05"
 updatedAt: "2026-09-05"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Audio Player
 
-> Interactive sound player with animated equalizer waveforms, spring play/pause morphs, volume controls, and scrubbing trackbar. Inspired by Origin UI (Coss) and KeenThemes ReUI.
+> Interactive audio player with animated equalizer waveforms, spring play/pause morphs, volume controls, and scrubbing trackbar. When `src` is omitted, it uses a visual timer demo. Inspired by Origin UI (Coss) and KeenThemes ReUI.
 
 ## Install
 

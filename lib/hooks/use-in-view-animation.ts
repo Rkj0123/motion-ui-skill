@@ -1,12 +1,14 @@
 "use client";
 
-import { useInView, useReducedMotion } from "motion/react";
+import { useInView, useReducedMotion, type UseInViewOptions } from "motion/react";
 import { useRef, type RefObject } from "react";
+
+type InViewMargin = NonNullable<UseInViewOptions["margin"]>;
 
 export interface UseInViewAnimationOptions {
   once?: boolean;
   amount?: "some" | "all" | number;
-  margin?: string;
+  margin?: InViewMargin;
 }
 
 /**

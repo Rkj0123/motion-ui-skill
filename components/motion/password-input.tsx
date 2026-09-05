@@ -6,7 +6,7 @@ import {
   motion,
   useReducedMotion,
 } from "motion/react";
-import React, { useState } from "react";
+import React, { useId, useState } from "react";
 import { EASE_OUT, SPRING_BOUNCE, SPRING_PRESS, SPRING_SWAP } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
@@ -43,6 +43,7 @@ export function PasswordInput({
   const [internalValue, setInternalValue] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const strengthStatusId = useId();
 
   const password = controlledValue !== undefined ? controlledValue : internalValue;
 
@@ -79,7 +80,7 @@ export function PasswordInput({
           type={showPassword ? "text" : "password"}
           value={password}
           onChange={handleChange}
-          aria-describedby="password-strength-status"
+          aria-describedby={showStrengthMeter && password.length > 0 ? strengthStatusId : undefined}
           className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 pr-10 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1"
           {...props}
         />
@@ -108,11 +109,10 @@ export function PasswordInput({
               <motion.div
                 key={i}
                 initial={false}
-                animate={{
-                  opacity: i < score ? 1 : 0.2,
-                  scaleY: i < score ? 1 : 0.8,
-                }}
-                transition={{ duration: 0.2 }}
+                animate={shouldReduceMotion
+                  ? { opacity: i < score ? 1 : 0.2 }
+                  : { opacity: i < score ? 1 : 0.2, scaleY: i < score ? 1 : 0.8 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
                 className={cn(
                   "h-full flex-1 rounded-full transition-colors",
                   i < score ? meta.color.split(" ")[0] : "bg-muted"
@@ -122,7 +122,7 @@ export function PasswordInput({
           </div>
 
           <div
-            id="password-strength-status"
+            id={strengthStatusId}
             className="flex items-center justify-between text-xs text-muted-foreground"
           >
             <span>Password strength</span>
@@ -135,9 +135,10 @@ export function PasswordInput({
 
       {/* Live Criteria Checklist */}
       {showCriteria && password.length > 0 && !isComplete && (
-        <motion.ul
-          initial={{ opacity: 0, height: 0 }}
+          <motion.ul
+          initial={shouldReduceMotion ? false : { opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
+          transition={shouldReduceMotion ? { duration: 0 } : undefined}
           exit={{ opacity: 0, height: 0 }}
           className="space-y-1 pt-1 text-xs text-muted-foreground"
         >

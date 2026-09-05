@@ -53,6 +53,12 @@ export function Chip({
     onDismiss();
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.target !== e.currentTarget || (e.key !== "Enter" && e.key !== " ")) return;
+    e.preventDefault();
+    handleSelect();
+  };
+
   return (
     <motion.div
       layout
@@ -62,9 +68,13 @@ export function Chip({
       whileTap={shouldReduceMotion || disabled || !onSelect ? undefined : { scale: 0.95 }}
       transition={SPRING_BOUNCE}
       onClick={handleSelect}
+      onKeyDown={handleKeyDown}
+      role={onSelect ? "button" : undefined}
+      tabIndex={onSelect && !disabled ? 0 : undefined}
+      aria-pressed={onSelect ? selected : undefined}
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-full border font-medium transition-colors select-none",
-        size === "sm" ? "h-6 px-2.5 text-[11px]" : "h-7.5 px-3 text-xs",
+        "inline-flex items-center gap-1.5 rounded-full border font-medium transition-colors select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        size === "sm" ? "h-6 px-2.5 text-[11px]" : "h-[1.875rem] px-3 text-xs",
         onSelect && !disabled && "cursor-pointer",
         selected
           ? "border-primary bg-primary text-primary-foreground shadow-sm shadow-primary/20"
@@ -82,7 +92,7 @@ export function Chip({
       {badge !== undefined && (
         <span
           className={cn(
-            "rounded-full px-1.5 py-0.2 text-[10px] font-semibold tabular-nums",
+            "rounded-full px-1.5 py-[0.125rem] text-[10px] font-semibold tabular-nums",
             selected
               ? "bg-primary-foreground/20 text-primary-foreground"
               : "bg-background text-muted-foreground border border-border"

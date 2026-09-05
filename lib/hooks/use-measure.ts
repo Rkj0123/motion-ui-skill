@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type RefObject } from "react";
+import { useCallback, useEffect, useState, type RefCallback } from "react";
 
 export interface Dimensions {
   width: number;
@@ -11,14 +11,14 @@ export interface Dimensions {
  * Measure DOM element dimensions using ResizeObserver without layout thrashing.
  */
 export function useMeasure<T extends HTMLElement = HTMLElement>(): [
-  RefObject<T | null>,
+  RefCallback<T>,
   Dimensions
 ] {
-  const ref = useRef<T | null>(null);
+  const [element, setElement] = useState<T | null>(null);
   const [bounds, setBounds] = useState<Dimensions>({ width: 0, height: 0 });
+  const ref = useCallback<RefCallback<T>>((next) => setElement(next), []);
 
   useEffect(() => {
-    const element = ref.current;
     if (!element || typeof ResizeObserver === "undefined") return;
 
     const observer = new ResizeObserver(([entry]) => {
@@ -33,7 +33,7 @@ export function useMeasure<T extends HTMLElement = HTMLElement>(): [
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, []);
+  }, [element]);
 
   return [ref, bounds];
 }

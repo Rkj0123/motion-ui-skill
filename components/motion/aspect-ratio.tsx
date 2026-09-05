@@ -27,7 +27,7 @@ export function AspectRatio({
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div
+    <motion.div
       style={{ position: "relative", width: "100%", paddingBottom: `${(1 / ratio) * 100}%` }}
       className={cn("overflow-hidden rounded-2xl bg-muted/40", className)}
       {...props}
@@ -36,7 +36,7 @@ export function AspectRatio({
       {showSkeleton && !isLoaded && (
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-muted/60 animate-pulse"
+          className={cn("absolute inset-0 bg-muted/60", !shouldReduceMotion && "animate-pulse")}
         />
       )}
 
@@ -50,6 +50,6 @@ export function AspectRatio({
       >
         {children}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

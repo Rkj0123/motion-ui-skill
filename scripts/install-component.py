@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Motion UI - Component Installer & Resolver
-Allows AI agents and developers to search, inspect, and install any of the 95
-animated UI components and their dependencies directly into any React/Next.js codebase.
+Allows AI agents and developers to search, inspect, and install any catalogued
+animated UI component and its dependencies directly into any React/Next.js codebase.
 """
 
 import os
@@ -92,7 +92,31 @@ def info_component(catalog, slug):
         print(f"  - {f}")
     print()
 
-def install_component(catalog, slug, dest_dir, include_previews=False):
+def safe_path(root, relative):
+    path = Path(relative)
+    root = root.resolve()
+    if path.is_absolute() or ".." in path.parts:
+        raise ValueError(f"Path must stay relative to {root}: {relative}")
+
+    candidate = root
+    for part in path.parts:
+        candidate /= part
+        if candidate.is_symlink():
+            raise ValueError(f"Symlinks are not allowed in install paths: {relative}")
+
+    target = candidate.resolve()
+    if target != root and root not in target.parents:
+        raise ValueError(f"Path escapes {root}: {relative}")
+
+    current = target
+    while current != root:
+        if current.is_symlink():
+            raise ValueError(f"Symlinks are not allowed in install paths: {relative}")
+        current = current.parent
+    return target
+
+
+def install_component(catalog, slug, dest_dir, include_previews=False, style=None):
     components = catalog.get("components", {})
     if slug not in components:
         print(f"Error: Component '{slug}' not found in catalog.", file=sys.stderr)
@@ -104,17 +128,36 @@ def install_component(catalog, slug, dest_dir, include_previews=False):
     files_to_copy = list(item.get("component_files", [])) + list(item.get("util_files", []))
     if include_previews:
         files_to_copy += list(item.get("preview_files", []))
+    if style:
+        files_to_copy += ["lib/styles.ts", "lib/ease.ts"]
 
     print(f"🚀 Installing '{item['name']}' into: {dest}\n")
-    copied = 0
+    plan = []
+    errors = []
+    optional = set(item.get("preview_files", [])) if include_previews else set()
     for rel_path in files_to_copy:
-        src_file = SKILL_ROOT / rel_path
-        target_file = dest / rel_path
-        
-        if not src_file.exists():
-            print(f"  ⚠️ Warning: Source file {src_file} missing, skipping.")
+        try:
+            src_file = safe_path(SKILL_ROOT, rel_path)
+            target_file = safe_path(dest, rel_path)
+        except ValueError as exc:
+            errors.append(str(exc))
             continue
-            
+
+        if not src_file.is_file():
+            if rel_path in optional:
+                print(f"  ⚠️ Warning: Source file {src_file} missing, skipping.")
+            else:
+                errors.append(f"Required source file missing: {src_file}")
+            continue
+        plan.append((rel_path, src_file, target_file))
+
+    if errors:
+        for error in errors:
+            print(f"Error: {error}", file=sys.stderr)
+        sys.exit(1)
+
+    copied = 0
+    for rel_path, src_file, target_file in plan:
         target_file.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src_file, target_file)
         print(f"  ✓ Copied: {rel_path}")
@@ -146,7 +189,7 @@ def list_styles():
     print("\n🎨 Motion UI Aesthetic Style Presets:\n")
     for name, desc in styles:
         print(f"  • {name:<12} - {desc}")
-    print("\nAgents can apply styles via prop `stylePreset='<name>'` or import tokens from `@/lib/styles`.\n")
+    print("\nUse `stylePreset='<name>'` on components that support it, or import tokens from `@/lib/styles`.\n")
 
 def main():
     parser = argparse.ArgumentParser(description="Motion UI Component Resolver & Installer")
@@ -157,7 +200,7 @@ def main():
     parser.add_argument("--search", "-s", help="Search components by keyword")
     parser.add_argument("--info", "-i", action="store_true", help="Show detailed information about a component")
     parser.add_argument("--with-previews", action="store_true", help="Also copy preview and demo files")
-    parser.add_argument("--style", choices=["minimal", "origin", "enterprise", "glow", "ios", "brutalist"], help="Apply a specific style preset aesthetic")
+    parser.add_argument("--style", choices=["minimal", "origin", "enterprise", "glow", "ios", "brutalist"], help="Also copy the shared style token helper for the selected preset")
     parser.add_argument("--list-styles", action="store_true", help="List all available aesthetic style presets")
 
     args = parser.parse_args()
@@ -173,14 +216,15 @@ def main():
         if args.info:
             info_component(catalog, args.slug)
         else:
-            install_component(catalog, args.slug, args.dest, include_previews=args.with_previews)
+            install_component(
+                catalog,
+                args.slug,
+                args.dest,
+                include_previews=args.with_previews,
+                style=args.style,
+            )
             if args.style:
-                # Also copy lib/styles.ts if requested
-                styles_src = SKILL_ROOT / "lib/styles.ts"
-                styles_dest = Path(args.dest).resolve() / "lib/styles.ts"
-                styles_dest.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(styles_src, styles_dest)
-                print(f"🎨 Applied style preset '{args.style}'. Bundled lib/styles.ts into destination.")
+                print(f"🎨 Included style preset tokens for '{args.style}'. Use stylePreset on supported components or getStylePreset() for custom wrappers.")
     else:
         parser.print_help()
 

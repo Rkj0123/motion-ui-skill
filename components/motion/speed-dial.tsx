@@ -59,7 +59,7 @@ export function SpeedDial({
   };
 
   return (
-    <div className={cn("relative inline-flex items-center justify-center", className)} {...props}>
+    <motion.div className={cn("relative inline-flex items-center justify-center", className)} {...props}>
       {/* Actions Stack */}
       <AnimatePresence>
         {isOpen && (
@@ -130,15 +130,15 @@ export function SpeedDial({
         transition={SPRING_PRESS}
         aria-expanded={isOpen}
         aria-label="Toggle speed dial"
-        className="relative z-50 size-13 rounded-full bg-primary text-primary-foreground shadow-xl flex items-center justify-center hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        className="relative z-50 size-[3.25rem] rounded-full bg-primary text-primary-foreground shadow-xl flex items-center justify-center hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       >
         <motion.div
-          animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={SPRING_BOUNCE}
+          animate={shouldReduceMotion ? { rotate: 0 } : { rotate: isOpen ? 45 : 0 }}
+          transition={shouldReduceMotion ? { duration: 0 } : SPRING_BOUNCE}
         >
           {icon || <Plus className="size-6" />}
         </motion.div>
       </motion.button>
-    </div>
+    </motion.div>
   );
 }

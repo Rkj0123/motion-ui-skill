@@ -7,7 +7,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SPRING_PANEL, SPRING_PRESS } from "@/lib/ease";
 import { useDismiss } from "@/lib/hooks/use-dismiss";
 import { useHaptic } from "@/lib/hooks/use-haptic";
@@ -45,13 +45,20 @@ export function ColorPicker({
   const [color, setColor] = useState(value);
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
 
-  const popoverRef = useDismiss<HTMLDivElement>({
-    isOpen,
-    onDismiss: () => setIsOpen(false),
-  });
+  const popoverRef = useRef<HTMLDivElement>(null);
+  useDismiss(isOpen, () => setIsOpen(false), popoverRef);
+
+  useEffect(() => {
+    setColor(value);
+  }, [value]);
+
+  useEffect(() => () => {
+    if (resetTimer.current) clearTimeout(resetTimer.current);
+  }, []);
 
   const handleColorChange = (newColor: string) => {
     setColor(newColor);
@@ -59,11 +66,17 @@ export function ColorPicker({
     triggerHaptic("selection");
   };
 
-  const copyHex = () => {
-    navigator.clipboard?.writeText(color);
-    setCopied(true);
-    triggerHaptic("success");
-    setTimeout(() => setCopied(false), 1500);
+  const copyHex = async () => {
+    if (typeof navigator === "undefined" || !navigator.clipboard) return;
+    try {
+      await navigator.clipboard.writeText(color);
+      setCopied(true);
+      triggerHaptic("success");
+      if (resetTimer.current) clearTimeout(resetTimer.current);
+      resetTimer.current = setTimeout(() => setCopied(false), 1500);
+    } catch {
+      // Clipboard access can be denied by the browser.
+    }
   };
 
   const openEyedropper = async () => {
@@ -80,7 +93,7 @@ export function ColorPicker({
   };
 
   return (
-    <div className={cn("relative inline-block", className)} {...props}>
+    <motion.div className={cn("relative inline-block", className)} {...props}>
       {/* Trigger Button */}
       <motion.button
         type="button"
@@ -90,7 +103,7 @@ export function ColorPicker({
         className="flex items-center gap-2 rounded-xl border border-border bg-card p-1.5 pr-3 text-xs font-medium text-foreground shadow-sm hover:bg-muted/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <span
-          className="size-6 rounded-lg border border-border/80 shadow-xs"
+          className="size-6 rounded-lg border border-border/80 shadow-[0_1px_2px_0_rgb(0_0_0_/_0.05)]"
           style={{ backgroundColor: color }}
         />
         <span className="font-mono text-xs uppercase">{color}</span>
@@ -132,8 +145,9 @@ export function ColorPicker({
                   <button
                     key={preset}
                     type="button"
+                    aria-label={`Select color ${preset}`}
                     onClick={() => handleColorChange(preset)}
-                    className="relative size-7 rounded-lg border border-border/60 transition-transform hover:scale-110 focus-visible:outline-none"
+                    className="relative size-7 rounded-lg border border-border/60 transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     style={{ backgroundColor: preset }}
                   >
                     {isSelected && (
@@ -187,6 +201,6 @@ export function ColorPicker({
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

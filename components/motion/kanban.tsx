@@ -95,14 +95,14 @@ export function KanbanBoard({
   };
 
   return (
-    <div
+    <motion.div
       className={cn(
         "flex w-full items-start gap-4 overflow-x-auto pb-4 pt-1",
         className
       )}
       {...props}
     >
-      {columns.map((column) => {
+      {columns.map((column, columnIndex) => {
         const isOverLimit = column.limit && column.cards.length > column.limit;
 
         return (
@@ -161,23 +161,36 @@ export function KanbanBoard({
                 {column.cards.map((card) => (
                   <motion.div
                     key={card.id}
-                    layoutId={card.id}
-                    layout
+                    layoutId={shouldReduceMotion ? undefined : card.id}
+                    layout={!shouldReduceMotion}
                     draggable
-                    onDragStart={(e) => {
-                      // @ts-ignore
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Move ${card.title}`}
+                    onDragStartCapture={(e) => {
                       e.dataTransfer.setData("text/plain", card.id);
                       setActiveDragId(card.id);
                     }}
-                    onDragEnd={() => setActiveDragId(null)}
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    onDragEndCapture={() => setActiveDragId(null)}
+                    onKeyDown={(e) => {
+                      const destination = e.key === "ArrowRight"
+                        ? columns[columnIndex + 1]
+                        : e.key === "ArrowLeft"
+                        ? columns[columnIndex - 1]
+                        : undefined;
+                      if (destination) {
+                        e.preventDefault();
+                        moveCard(card.id, destination.id);
+                      }
+                    }}
+                    initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.15 } }}
+                    exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.9, transition: { duration: 0.15 } }}
                     whileHover={shouldReduceMotion ? undefined : { y: -2 }}
                     whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                     transition={SPRING_LAYOUT}
                     className={cn(
-                      "cursor-grab active:cursor-grabbing rounded-xl border border-border bg-background p-3.5 shadow-sm transition-shadow hover:shadow-md",
+                      "cursor-grab active:cursor-grabbing rounded-xl border border-border bg-background p-3.5 shadow-sm transition-shadow hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                       activeDragId === card.id && "opacity-40 border-primary/50"
                     )}
                   >
@@ -237,6 +250,6 @@ export function KanbanBoard({
           </div>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

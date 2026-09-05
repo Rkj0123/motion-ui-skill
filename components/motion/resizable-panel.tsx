@@ -1,7 +1,7 @@
 "use client";
 
 import { GripVertical, GripHorizontal } from "lucide-react";
-import { motion, useReducedMotion, type HTMLMotionProps } from "motion/react";
+import { motion, type HTMLMotionProps } from "motion/react";
 import React, { useState, useRef, useCallback } from "react";
 import { useHaptic } from "@/lib/hooks/use-haptic";
 import { cn } from "@/lib/utils";
@@ -28,7 +28,8 @@ export function ResizablePanelGroup({
   className,
   ...props
 }: ResizablePanelGroupProps) {
-  const [size, setSize] = useState<number>(defaultSize);
+  const clampSize = (value: number) => Math.min(Math.max(value, minSize), maxSize);
+  const [size, setSize] = useState<number>(() => clampSize(defaultSize));
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerHaptic = useHaptic();
@@ -37,7 +38,11 @@ export function ResizablePanelGroup({
     e.preventDefault();
     setIsDragging(true);
     triggerHaptic("light");
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    try {
+      (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    } catch {
+      // Pointer capture is not available on every custom target.
+    }
   };
 
   const handlePointerMove = useCallback(
@@ -54,7 +59,7 @@ export function ResizablePanelGroup({
         newPercent = (offset / rect.height) * 100;
       }
 
-      const clamped = Math.min(Math.max(newPercent, minSize), maxSize);
+      const clamped = clampSize(newPercent);
       setSize(clamped);
       onResize?.(clamped);
     },
@@ -76,7 +81,7 @@ export function ResizablePanelGroup({
   const isHorizontal = direction === "horizontal";
 
   return (
-    <div
+    <motion.div
       ref={containerRef}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
@@ -102,6 +107,7 @@ export function ResizablePanelGroup({
       {/* Resize Handle */}
       <div
         role="separator"
+        aria-orientation={isHorizontal ? "vertical" : "horizontal"}
         aria-valuenow={Math.round(size)}
         aria-valuemin={minSize}
         aria-valuemax={maxSize}
@@ -119,7 +125,7 @@ export function ResizablePanelGroup({
           }
         }}
         className={cn(
-          "relative flex items-center justify-center transition-colors bg-border hover:bg-primary/50 focus-visible:bg-primary focus-visible:outline-none",
+            "relative flex touch-none items-center justify-center transition-colors bg-border hover:bg-primary/50 focus-visible:bg-primary focus-visible:outline-none",
           isHorizontal
             ? "w-1.5 cursor-col-resize hover:w-2"
             : "h-1.5 cursor-row-resize hover:h-2",
@@ -149,6 +155,6 @@ export function ResizablePanelGroup({
       >
         {panelB}
       </div>
-    </div>
+    </motion.div>
   );
 }

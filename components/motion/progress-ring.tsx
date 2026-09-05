@@ -63,7 +63,7 @@ export function ProgressRing({
   );
 
   return (
-    <div
+    <motion.div
       role="progressbar"
       aria-valuenow={clamped}
       aria-valuemin={0}
@@ -110,6 +110,6 @@ export function ProgressRing({
           <span>{Math.round(clamped)}%</span>
         ) : null}
       </div>
-    </div>
+    </motion.div>
   );
 }

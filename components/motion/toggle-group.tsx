@@ -87,7 +87,7 @@ export function ToggleGroup({
   };
 
   return (
-    <div
+    <motion.div
       role="group"
       className={cn(
         "inline-flex items-center gap-1 rounded-xl p-1",
@@ -123,6 +123,6 @@ export function ToggleGroup({
           </motion.button>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

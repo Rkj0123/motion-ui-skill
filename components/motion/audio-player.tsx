@@ -31,11 +31,24 @@ export function AudioPlayer({
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
+  const [duration, setDuration] = useState(durationSeconds);
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
+    if (src) {
+      const audio = audioRef.current;
+      if (!audio) return;
+      if (isPlaying) {
+        void audio.play().catch(() => setIsPlaying(false));
+      } else {
+        audio.pause();
+      }
+      return;
+    }
+
     if (isPlaying) {
       timerRef.current = setInterval(() => {
         setCurrentTime((prev) => {
@@ -52,11 +65,21 @@ export function AudioPlayer({
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPlaying, durationSeconds]);
+  }, [isPlaying, src, durationSeconds]);
+
+  useEffect(() => {
+    if (audioRef.current) audioRef.current.muted = isMuted;
+  }, [isMuted, src]);
+
+  useEffect(() => {
+    setDuration(durationSeconds);
+    setCurrentTime(0);
+    setIsPlaying(false);
+  }, [src, durationSeconds]);
 
   const togglePlay = () => {
     triggerHaptic(isPlaying ? "light" : "medium");
-    setIsPlaying(!isPlaying);
+    setIsPlaying((playing) => !playing);
   };
 
   const formatTime = (secs: number) => {
@@ -65,7 +88,7 @@ export function AudioPlayer({
     return `${m}:${s < 10 ? "0" : ""}${s}`;
   };
 
-  const progress = (currentTime / durationSeconds) * 100;
+  const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   // Waveform bars simulation
   const waveformBars = [
@@ -73,7 +96,7 @@ export function AudioPlayer({
   ];
 
   return (
-    <div
+    <motion.div
       className={cn(
         "relative w-full max-w-sm rounded-2xl border border-border bg-card p-4 shadow-sm",
         className
@@ -90,6 +113,7 @@ export function AudioPlayer({
         </div>
         <button
           type="button"
+          aria-label={isMuted ? "Unmute audio" : "Mute audio"}
           onClick={() => {
             triggerHaptic("selection");
             setIsMuted(!isMuted);
@@ -99,6 +123,22 @@ export function AudioPlayer({
           {isMuted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
         </button>
       </div>
+
+      {src && (
+        <audio
+          ref={audioRef}
+          src={src}
+          preload="metadata"
+          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration || durationSeconds)}
+          onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+          onEnded={() => {
+            setIsPlaying(false);
+            setCurrentTime(0);
+          }}
+          className="sr-only"
+          aria-label={title}
+        />
+      )}
 
       {/* Waveform graphic */}
       <div className="flex items-center justify-between gap-1 h-10 px-1 my-2">
@@ -134,13 +174,31 @@ export function AudioPlayer({
       {/* Progress scrub bar */}
       <div className="space-y-1 pt-1">
         <div
+          role="slider"
+          aria-label="Seek audio"
+          aria-valuemin={0}
+          aria-valuemax={duration}
+          aria-valuenow={currentTime}
+          tabIndex={0}
           className="relative h-1.5 w-full bg-muted rounded-full overflow-hidden cursor-pointer"
           onClick={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
             const pct = Math.max(0, Math.min(1, clickX / rect.width));
-            setCurrentTime(pct * durationSeconds);
+            const nextTime = pct * duration;
+            setCurrentTime(nextTime);
+            if (audioRef.current && src) audioRef.current.currentTime = nextTime;
             triggerHaptic("selection");
+          }}
+          onKeyDown={(e) => {
+            if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+            e.preventDefault();
+            const nextTime = Math.max(
+              0,
+              Math.min(duration, currentTime + (e.key === "ArrowRight" ? 5 : -5))
+            );
+            setCurrentTime(nextTime);
+            if (audioRef.current && src) audioRef.current.currentTime = nextTime;
           }}
         >
           <div
@@ -150,7 +208,7 @@ export function AudioPlayer({
         </div>
         <div className="flex justify-between text-[10px] font-mono text-muted-foreground">
           <span>{formatTime(currentTime)}</span>
-          <span>{formatTime(durationSeconds)}</span>
+          <span>{formatTime(duration)}</span>
         </div>
       </div>
 
@@ -158,8 +216,10 @@ export function AudioPlayer({
       <div className="flex items-center justify-center gap-3 pt-2">
         <button
           type="button"
+          aria-label="Restart audio"
           onClick={() => {
             setCurrentTime(0);
+            if (audioRef.current && src) audioRef.current.currentTime = 0;
             triggerHaptic("selection");
           }}
           className="rounded-full p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors"
@@ -169,6 +229,7 @@ export function AudioPlayer({
 
         <motion.button
           type="button"
+          aria-label={isPlaying ? "Pause audio" : "Play audio"}
           onClick={togglePlay}
           whileTap={shouldReduceMotion ? undefined : { scale: 0.92 }}
           transition={SPRING_PRESS}
@@ -200,6 +261,6 @@ export function AudioPlayer({
           </AnimatePresence>
         </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 }

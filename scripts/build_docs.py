@@ -33,6 +33,11 @@ motion_items.sort(key=lambda x: x["name"].lower())
 agents_items.sort(key=lambda x: x["name"].lower())
 blocks_items.sort(key=lambda x: x["name"].lower())
 
+guide_counts = {}
+for item in comps.values():
+    guide_dir = Path(item["doc_path"]).parts[1]
+    guide_counts[guide_dir] = guide_counts.get(guide_dir, 0) + 1
+
 motion_table = "\n".join([
     "| Component | Slug | Description | Dependencies | Primary File | Docs |",
     "| :--- | :--- | :--- | :--- | :--- | :--- |",
@@ -120,15 +125,15 @@ Every component respects user accessibility preferences (`prefers-reduced-motion
 
 ## How AI Agents Should Select & Apply Component Styles
 
-Agents should adapt component styling to match user preferences or target project aesthetics:
+Shared tokens support six aesthetics. `MetricCard` accepts `stylePreset` directly; other components can use `getStylePreset` for custom wrappers until they expose that prop:
 
 1. **Detect Aesthetic Preference**:
-   - For Clean/Monochrome/Vercel $\rightarrow$ use **`minimal`**
-   - For High-Craft/Stripe/Cal.com $\rightarrow$ use **`origin`**
-   - For Data-Dense/Admin/ERP/ReUI $\rightarrow$ use **`enterprise`**
-   - For Web3/AI/Spotlight/Luminous $\rightarrow$ use **`glow`**
-   - For Mobile/Touch/iOS/Expo $\rightarrow$ use **`ios`**
-   - For Retro/Bold/High-Contrast $\rightarrow$ use **`brutalist`**
+   - For Clean/Monochrome/Vercel → use **`minimal`**
+   - For High-Craft/Stripe/Cal.com → use **`origin`**
+   - For Data-Dense/Admin/ERP/ReUI → use **`enterprise`**
+   - For Web3/AI/Spotlight/Luminous → use **`glow`**
+   - For Mobile/Touch/iOS/Expo → use **`ios`**
+   - For Retro/Bold/High-Contrast → use **`brutalist`**
 
 2. **Apply via Component Prop**:
    Pass `stylePreset` to components supporting multi-style:
@@ -149,9 +154,10 @@ Agents should adapt component styling to match user preferences or target projec
    // <div className={{tokens.card}}> ... </div>
    ```
 
-4. **Install with CLI Style Flag**:
+4. **Include the Shared Tokens with the CLI**:
    ```bash
    python scripts/install-component.py <slug> --style <minimal|origin|enterprise|glow|ios|brutalist> --dest ./src
+   # The flag copies lib/styles.ts; it does not rewrite component class names.
    ```
 
 Read [`references/guides/style-presets.md`](./references/guides/style-presets.md) for full token matrices and migration recipes.
@@ -164,8 +170,8 @@ When the user asks for any animated component, UI widget, micro-interaction, or 
 
 1. **Locate the Component**: Find the matching component from the {total_count} components listed in the catalog below or in [`catalog.json`](./catalog.json).
 2. **Read Component Source & Docs**:
-   - Inspect the component file in `components/<category>/<slug>.tsx`
-   - Read props, variants, and copy-paste examples in `references/<category>/<slug>.md`
+   - Inspect the `Primary File` path in the matching catalog entry.
+   - Read the `doc_path` file from that same catalog entry for props, variants, and examples.
 3. **Copy or Generate Files**:
    - Provide the complete TypeScript component code directly into the user's project (e.g. `@/components/...`).
    - If missing, also supply the shared utility files from [`lib/`](./lib) (`lib/ease.ts`, `lib/styles.ts`, `lib/utils.ts`, `lib/hooks/...`).
@@ -262,7 +268,7 @@ readme_md = f"""# Motion UI Skill
 
 ## Multi-Style Selection for AI Agents & Developers
 
-Components can be styled in 6 distinct design aesthetics:
+Shared tokens support 6 distinct design aesthetics. `MetricCard` accepts `stylePreset` directly; other components can use `getStylePreset` for custom wrappers:
 
 | Style Preset | Border & Geometry | Surface & Lighting | Target Aesthetic |
 | :--- | :--- | :--- | :--- |
@@ -277,8 +283,9 @@ Components can be styled in 6 distinct design aesthetics:
 # List available style presets:
 python scripts/install-component.py --list-styles
 
-# Install component with a specific style:
+# Install component and include the shared style tokens:
 python scripts/install-component.py metric-card --style origin --dest ./src
+# The flag copies lib/styles.ts; it does not rewrite component class names.
 ```
 
 Read [`references/guides/style-presets.md`](./references/guides/style-presets.md) for complete token documentation.
@@ -340,8 +347,9 @@ python scripts/install-component.py spotlight-card --style glow --dest ./src
 ```
 This automatically:
 1. Copies the component file to `./src/components/motion/spotlight-card.tsx`.
-2. Copies all required utilities (`lib/ease.ts`, `lib/styles.ts`, `lib/utils.ts`, `lib/hooks/...`) to `./src/lib/`.
-3. Outputs the exact `npm install` command for any missing dependencies.
+2. Copies all required utilities (`lib/ease.ts`, `lib/utils.ts`, `lib/hooks/...`) to `./src/lib/`.
+3. With `--style`, also copies `lib/styles.ts` and its `lib/ease.ts` dependency.
+4. Outputs the exact `npm install` command for any missing dependencies.
 
 ---
 
@@ -435,13 +443,15 @@ export const SPRING_PANEL = {{
 
 ## Validate the package
 
-Run the dependency-free integrity gate before publishing a change:
+Run the dependency-free integrity gate, release checks, and catalog evaluation before publishing a change:
 
 ```bash
 python scripts/verify_skill.py
+python scripts/test_release.py
+python evals/catalog_eval.py
 ```
 
-It checks the {total_count}-component catalog, all referenced files, the single skill entrypoint, primary file paths, and the source-reference exclusion rule.
+The checks cover the {total_count}-component catalog, referenced files, installer safety, generated docs, dependency coverage, and the source-reference exclusion rule.
 
 ---
 
@@ -463,17 +473,20 @@ motion-ui-skill/
 │   ├── utils.ts                   # cn() utility
 │   └── hooks/                     # Custom hooks (use-haptic, use-dismiss, use-measure, etc.)
 ├── references/                    # Offline-first detailed markdown component documentation
-│   ├── motion/                    # {len(motion_items)} component guides with props & examples
+│   ├── motion/                    # {guide_counts.get("motion", 0)} component guides with props & examples
 │   ├── agents/                    # {len(agents_items)} agent component guides
-│   ├── blocks/                    # {len(blocks_items)} block guides
+│   ├── blocks/                    # {guide_counts.get("blocks", 0)} block guides
 │   ├── guides/                    # Complete suite of 9 motion & design system guides
 │   └── codex-install.md            # Codex app and CLI installation guide
 ├── prompts/
 │   └── install-motion-ui.md        # Copy-paste prompt for AI-agent installation
+├── evals/
+│   └── catalog_eval.py              # Dependency-free catalog coverage evaluation
 └── scripts/
     ├── install-component.py       # Standalone CLI tool to install components into projects
     ├── build_docs.py              # Script to synchronize SKILL.md and README.md from catalog
-    └── verify_skill.py            # Dependency-free package integrity gate
+    ├── verify_skill.py            # Dependency-free package integrity gate
+    └── test_release.py            # Installer and release regression checks
 ```
 
 ---

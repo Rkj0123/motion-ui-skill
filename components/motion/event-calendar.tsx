@@ -91,7 +91,7 @@ export function EventCalendar({
   const padZero = (n: number) => (n < 10 ? `0${n}` : `${n}`);
 
   return (
-    <div
+    <motion.div
       className={cn(
         "flex w-full flex-col rounded-2xl border border-border bg-card p-4 shadow-sm",
         className
@@ -169,36 +169,44 @@ export function EventCalendar({
             return (
               <div
                 key={dateString}
-                onClick={() => onDateClick?.(new Date(currentYear, currentMonth, dayNum))}
-                className="group relative flex min-h-20 flex-col rounded-xl border border-border/50 bg-background/50 p-1.5 transition-colors hover:border-border hover:bg-background cursor-pointer"
+                role="group"
+                aria-label={`${MONTH_NAMES[currentMonth]} ${dayNum}, ${currentYear}`}
+                className="group relative flex min-h-20 flex-col rounded-xl border border-border/50 bg-background/50 p-1.5 transition-colors hover:border-border hover:bg-background"
               >
-                <div className="flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => onDateClick?.(new Date(currentYear, currentMonth, dayNum))}
+                  aria-label={`Select ${MONTH_NAMES[currentMonth]} ${dayNum}, ${currentYear}`}
+                  className="flex w-full items-center justify-between rounded-md text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
                   <span className="text-xs font-medium text-foreground tabular-nums">
                     {dayNum}
                   </span>
                   {dayEvents.length > 0 && (
                     <span className="size-1.5 rounded-full bg-primary" />
                   )}
-                </div>
+                </button>
 
                 {/* Event Chips */}
                 <div className="mt-1 flex flex-col gap-1 overflow-hidden">
                   {dayEvents.slice(0, 2).map((ev) => (
-                    <motion.div
+                    <motion.button
                       key={ev.id}
+                      type="button"
+                      aria-label={`${ev.title}${ev.time ? ` at ${ev.time}` : ""}`}
                       onClick={(e) => {
                         e.stopPropagation();
                         onEventClick?.(ev);
                       }}
                       whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
                       className={cn(
-                        "truncate rounded-md border px-1.5 py-0.5 text-[10px] font-medium leading-tight transition-all",
+                        "w-full text-left truncate rounded-md border px-1.5 py-0.5 text-[10px] font-medium leading-tight transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                         COLOR_CLASSES[ev.color || "blue"]
                       )}
                     >
                       {ev.time && <span className="font-semibold mr-1">{ev.time}</span>}
                       <span>{ev.title}</span>
-                    </motion.div>
+                    </motion.button>
                   ))}
                   {dayEvents.length > 2 && (
                     <span className="text-[9px] font-semibold text-muted-foreground pl-1">
@@ -211,6 +219,6 @@ export function EventCalendar({
           })}
         </motion.div>
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

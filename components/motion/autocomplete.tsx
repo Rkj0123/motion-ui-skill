@@ -7,7 +7,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { SPRING_PANEL } from "@/lib/ease";
 import { useDismiss } from "@/lib/hooks/use-dismiss";
 import { useHaptic } from "@/lib/hooks/use-haptic";
@@ -44,10 +44,8 @@ export function Autocomplete({
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
 
-  const containerRef = useDismiss<HTMLDivElement>({
-    isOpen,
-    onDismiss: () => setIsOpen(false),
-  });
+  const containerRef = useRef<HTMLDivElement>(null);
+  useDismiss(isOpen, () => setIsOpen(false), containerRef);
 
   const filteredItems = items.filter((item) =>
     item.label.toLowerCase().includes(query.toLowerCase())
@@ -84,8 +82,9 @@ export function Autocomplete({
     if (!match.trim()) return text;
     const regex = new RegExp(`(${match.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi");
     const parts = text.split(regex);
+    const normalizedMatch = match.toLowerCase();
     return parts.map((part, i) =>
-      regex.test(part) ? (
+      part.toLowerCase() === normalizedMatch ? (
         <span key={i} className="font-semibold text-primary underline underline-offset-2">
           {part}
         </span>
@@ -96,7 +95,7 @@ export function Autocomplete({
   };
 
   return (
-    <div ref={containerRef} className={cn("relative w-full max-w-sm", className)} {...props}>
+    <motion.div ref={containerRef} className={cn("relative w-full max-w-sm", className)} {...props}>
       {/* Search Input Box */}
       <div className="relative flex items-center rounded-xl border border-border bg-card shadow-sm focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
         <Search className="absolute left-3 size-4 text-muted-foreground pointer-events-none" />
@@ -116,7 +115,7 @@ export function Autocomplete({
         />
 
         {loading ? (
-          <Loader2 className="absolute right-3 size-4 animate-spin text-muted-foreground" />
+          <Loader2 className={cn("absolute right-3 size-4 text-muted-foreground", !shouldReduceMotion && "animate-spin")} />
         ) : query ? (
           <button
             type="button"
@@ -179,6 +178,6 @@ export function Autocomplete({
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

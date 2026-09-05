@@ -5,7 +5,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { EASE_OUT, SPRING_BOUNCE, SPRING_PRESS } from "@/lib/ease";
 import { useHaptic } from "@/lib/hooks/use-haptic";
 import { cn } from "@/lib/utils";
@@ -40,13 +40,17 @@ export function SuccessCheck({
   const [isPlaying, setIsPlaying] = useState(trigger);
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
+  const replayTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentSize = SIZE_MAP[size];
+
+  useEffect(() => () => {
+    if (replayTimer.current) clearTimeout(replayTimer.current);
+  }, []);
 
   useEffect(() => {
     if (trigger) {
       setIsPlaying(true);
       triggerHaptic("success");
-      onComplete?.();
 
       if (autoReset) {
         const timer = setTimeout(() => setIsPlaying(false), resetDelay);
@@ -59,18 +63,25 @@ export function SuccessCheck({
 
   const handleManualReplay = () => {
     setIsPlaying(false);
-    setTimeout(() => {
+    if (replayTimer.current) clearTimeout(replayTimer.current);
+    replayTimer.current = setTimeout(() => {
       setIsPlaying(true);
       triggerHaptic("success");
-      onComplete?.();
     }, 50);
   };
 
   return (
-    <div
-      role="status"
+    <motion.div
+      role="button"
+      tabIndex={0}
       aria-label="Action succeeded"
       onClick={handleManualReplay}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          handleManualReplay();
+        }
+      }}
       className={cn(
         "relative inline-flex items-center justify-center cursor-pointer select-none",
         currentSize.box,
@@ -89,14 +100,15 @@ export function SuccessCheck({
       )}
 
       {/* Outer Circle Container */}
-      <motion.div
+        <motion.div
         initial={shouldReduceMotion ? false : { scale: 0, rotate: -30 }}
-        animate={
-          isPlaying
-            ? { scale: 1, rotate: 0 }
-            : { scale: 0, opacity: 0 }
-        }
-        transition={SPRING_BOUNCE}
+        animate={shouldReduceMotion
+          ? (isPlaying ? { opacity: 1 } : { opacity: 0 })
+          : (isPlaying ? { scale: 1, rotate: 0 } : { scale: 0, opacity: 0 })}
+        transition={shouldReduceMotion ? { duration: 0 } : SPRING_BOUNCE}
+        onAnimationComplete={() => {
+          if (isPlaying) onComplete?.();
+        }}
         className="relative flex size-full items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg shadow-emerald-500/25 dark:shadow-emerald-500/10"
       >
         {/* SVG Drawing Checkmark */}
@@ -125,6 +137,6 @@ export function SuccessCheck({
           />
         </svg>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

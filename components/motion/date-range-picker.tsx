@@ -7,7 +7,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SPRING_PANEL, SPRING_PRESS } from "@/lib/ease";
 import { useDismiss } from "@/lib/hooks/use-dismiss";
 import { useHaptic } from "@/lib/hooks/use-haptic";
@@ -43,10 +43,12 @@ export function DateRangePicker({
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
 
-  const popoverRef = useDismiss<HTMLDivElement>({
-    isOpen,
-    onDismiss: () => setIsOpen(false),
-  });
+  const popoverRef = useRef<HTMLDivElement>(null);
+  useDismiss(isOpen, () => setIsOpen(false), popoverRef);
+
+  useEffect(() => {
+    setRange(value || {});
+  }, [value]);
 
   const formatDate = (d?: Date) =>
     d ? d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "";
@@ -67,7 +69,9 @@ export function DateRangePicker({
     triggerHaptic("selection");
 
     if (!range.from || (range.from && range.to)) {
-      setRange({ from: clicked, to: undefined });
+      const nextRange = { from: clicked, to: undefined };
+      setRange(nextRange);
+      onChange?.(nextRange);
     } else if (range.from && !range.to) {
       if (clicked < range.from) {
         setRange({ from: clicked, to: range.from });
@@ -92,7 +96,7 @@ export function DateRangePicker({
   ).getDay();
 
   return (
-    <div className={cn("relative inline-block", className)} {...props}>
+    <motion.div className={cn("relative inline-block", className)} {...props}>
       {/* Trigger Button */}
       <motion.button
         type="button"
@@ -152,6 +156,7 @@ export function DateRangePicker({
                 <div className="flex items-center gap-1">
                   <button
                     type="button"
+                    aria-label="Previous month"
                     onClick={() => setViewDate(new Date(viewDate.getFullYear(), viewDate.getMonth() - 1, 1))}
                     className="p-1 text-muted-foreground hover:text-foreground rounded"
                   >
@@ -159,6 +164,7 @@ export function DateRangePicker({
                   </button>
                   <button
                     type="button"
+                    aria-label="Next month"
                     onClick={() => setViewDate(new Date(viewDate.getFullYear(), viewDate.getMonth() + 1, 1))}
                     className="p-1 text-muted-foreground hover:text-foreground rounded"
                   >
@@ -207,6 +213,6 @@ export function DateRangePicker({
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

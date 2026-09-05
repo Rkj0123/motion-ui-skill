@@ -43,7 +43,7 @@ export function Gantt({
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div
+    <motion.div
       className={cn(
         "flex w-full flex-col rounded-2xl border border-border bg-card p-4 shadow-sm overflow-hidden",
         className
@@ -74,12 +74,22 @@ export function Gantt({
           return (
             <div
               key={task.id}
+              role={onTaskClick ? "button" : undefined}
+              tabIndex={onTaskClick ? 0 : undefined}
+              aria-label={onTaskClick ? `Open task ${task.name}` : undefined}
               onMouseEnter={() => setHoveredTask(task.id)}
               onMouseLeave={() => setHoveredTask(null)}
               onClick={() => onTaskClick?.(task)}
+              onKeyDown={(event) => {
+                if (onTaskClick && (event.key === "Enter" || event.key === " ")) {
+                  event.preventDefault();
+                  onTaskClick(task);
+                }
+              }}
               className={cn(
                 "group flex items-center rounded-xl p-1.5 transition-colors cursor-pointer",
-                isHovered ? "bg-muted/50" : "hover:bg-muted/30"
+                isHovered ? "bg-muted/50" : "hover:bg-muted/30",
+                onTaskClick && "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               )}
             >
               {/* Task Title */}
@@ -95,15 +105,13 @@ export function Gantt({
               </div>
 
               {/* Timeline Bar Track */}
-              <div className="relative flex flex-1 h-7 items-center bg-muted/20 rounded-lg overflow-hidden">
-                {/* Vertical grid lines */}
-                {Array.from({ length: totalDays }).map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute inset-y-0 border-r border-border/30"
-                    style={{ left: `${(i / totalDays) * 100}%` }}
-                  />
-                ))}
+              <div
+                className="relative flex flex-1 h-7 items-center bg-muted/20 rounded-lg overflow-hidden"
+                style={{
+                  backgroundImage: "linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px)",
+                  backgroundSize: `calc(100% / ${Math.max(totalDays, 1)}) 100%`,
+                }}
+              >
 
                 {/* Progress Task Bar */}
                 {task.isMilestone ? (
@@ -143,6 +151,6 @@ export function Gantt({
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }

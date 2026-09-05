@@ -1,6 +1,6 @@
 ---
 title: "Multi-Style Presets & Aesthetic Themes Guide"
-description: "Architecture and guidelines for AI agents to select, switch, and apply distinct design aesthetics across all components."
+description: "Architecture and guidelines for AI agents to select, switch, and apply shared design tokens across components."
 category: "Design Systems"
 publishedAt: "2026-09-05"
 updatedAt: "2026-09-05"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Multi-Style Presets & Aesthetic Themes
 
-> Architecture and guidelines for AI agents to select, switch, and apply distinct design aesthetics across all components in this skill.
+> Architecture and guidelines for AI agents to select, switch, and apply shared design tokens across components in this skill.
 
 Modern web and mobile applications span dramatically different visual aesthetics. Rather than forcing a single rigid look, the Motion UI Skill equips agents with **6 Canonical Style Presets**:
 
@@ -49,7 +49,7 @@ const tokens = getStylePreset("origin");
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **`minimal`** | `border-border`, `rounded-xl` | Flat `bg-card`, monochrome | `shadow-none` / `shadow-sm` | `SPRING_PRESS` (stiff) | Minimalist SaaS, developer tools |
 | **`origin`** | `border-border/70`, `rounded-2xl`, `ring-1 ring-white/5` | Gradient `from-card to-card/90`, glass | Refined micro-shadows | `SPRING_SNAPPY` (velocity) | Cal.com, Stripe, high-craft web apps |
-| **`enterprise`** | `border-border`, `rounded-md`, compact | High contrast, clear cells | Minimal `shadow-xs` | `SPRING_PRESS` (subtle) | ReUI dashboards, ERP, CRM, data grids |
+| **`enterprise`** | `border-border`, `rounded-md`, compact | High contrast, clear cells | Minimal shadow | `SPRING_PRESS` (subtle) | ReUI dashboards, ERP, CRM, data grids |
 | **`glow`** | `border-border/60`, `rounded-2xl` | Radial gradient spotlights, cyan/indigo | `shadow-2xl`, glow blooms | `SPRING_GENTLE` (smooth) | Web3, AI platforms, luxury landing pages |
 | **`ios`** | `border-white/10`, `rounded-3xl` | Translucent glass `backdrop-blur-2xl` | Diffuse ambient soft shadows | `SPRING_BOUNCE` (playful) | Expo mobile apps, consumer iOS PWAs |
 | **`brutalist`** | `border-2 border-foreground`, `rounded-none` | High contrast flat fills, saturated accents | Hard offset `shadow-[4px_4px_0px_0px_currentColor]` | Snappy step transitions | Creative studios, modern editorial, web zines |
@@ -75,7 +75,7 @@ When generating UI code or answering user prompts, follow these decision heurist
 - Default for heavy data tables / Gantt / Kanban: **`enterprise`**.
 
 ### Step 3: Implement with Style Preset Props or Utility Tokens
-Many components in this skill accept a `stylePreset` prop directly:
+`MetricCard` accepts a `stylePreset` prop directly. Other components can consume the shared tokens in a wrapper:
 
 ```tsx
 <MetricCard
@@ -104,8 +104,10 @@ export function CustomCard({ stylePreset = "origin", children }: { stylePreset?:
 
 The CLI component installer supports explicit style selection:
 
+The selected value is reported for the agent and the shared `lib/styles.ts` helper is copied; component class names are not rewritten automatically.
+
 ```bash
-# Install component with a specific style preset
+# Install a component and include the shared style tokens
 python scripts/install-component.py metric-card --style origin --dest ./src
 
 # List all available styles and tokens

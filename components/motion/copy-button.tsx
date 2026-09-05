@@ -7,7 +7,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SPRING_BOUNCE, SPRING_PRESS, SPRING_SWAP } from "@/lib/ease";
 import { useHaptic } from "@/lib/hooks/use-haptic";
 import { cn } from "@/lib/utils";
@@ -31,18 +31,23 @@ export function CopyButton({
   ...props
 }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
+
+  useEffect(() => () => {
+    if (resetTimer.current) clearTimeout(resetTimer.current);
+  }, []);
 
   const handleCopy = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     try {
-      if (typeof navigator !== "undefined" && navigator.clipboard) {
-        await navigator.clipboard.writeText(textToCopy);
-      }
+      if (typeof navigator === "undefined" || !navigator.clipboard) return;
+      await navigator.clipboard.writeText(textToCopy);
       setCopied(true);
       triggerHaptic("success");
-      setTimeout(() => setCopied(false), timeout);
+      if (resetTimer.current) clearTimeout(resetTimer.current);
+      resetTimer.current = setTimeout(() => setCopied(false), timeout);
     } catch {
       // Fallback
     }

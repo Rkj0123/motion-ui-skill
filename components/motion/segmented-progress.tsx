@@ -62,7 +62,7 @@ export function SegmentedProgress({
   ]);
 
   return (
-    <div
+    <motion.div
       role="progressbar"
       aria-valuenow={currentIndex + 1}
       aria-valuemin={1}
@@ -80,9 +80,18 @@ export function SegmentedProgress({
         return (
           <div
             key={idx}
+            role={onSegmentClick ? "button" : undefined}
+            tabIndex={onSegmentClick ? 0 : undefined}
+            aria-label={onSegmentClick ? `Go to segment ${idx + 1}` : undefined}
             onClick={() => onSegmentClick?.(idx)}
+            onKeyDown={(event) => {
+              if (onSegmentClick && (event.key === "Enter" || event.key === " ")) {
+                event.preventDefault();
+                onSegmentClick(idx);
+              }
+            }}
             className={cn(
-              "relative h-1 flex-1 overflow-hidden rounded-full bg-muted/60 transition-all",
+              "relative h-1 flex-1 overflow-hidden rounded-full bg-muted/60 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
               onSegmentClick && "cursor-pointer hover:h-1.5"
             )}
           >
@@ -108,6 +117,6 @@ export function SegmentedProgress({
           </div>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

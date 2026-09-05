@@ -54,7 +54,7 @@ export function AvatarGroup({
   const excessCount = avatars.length - max;
 
   return (
-    <div
+    <motion.div
       role="group"
       aria-label="User avatar group"
       className={cn("inline-flex items-center isolate py-2 px-3", className)}
@@ -149,6 +149,6 @@ export function AvatarGroup({
           +{excessCount}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

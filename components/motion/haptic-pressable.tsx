@@ -5,7 +5,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SPRING_PRESS } from "@/lib/ease";
 import { useHaptic, type HapticType } from "@/lib/hooks/use-haptic";
 import { cn } from "@/lib/utils";
@@ -31,8 +31,14 @@ export function HapticPressable({
   ...props
 }: HapticPressableProps) {
   const [ripples, setRipples] = useState<Array<{ id: number; x: number; y: number }>>([]);
+  const nextRippleId = useRef(0);
+  const rippleTimers = useRef(new Set<ReturnType<typeof setTimeout>>());
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
+
+  useEffect(() => () => {
+    rippleTimers.current.forEach(clearTimeout);
+  }, []);
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (disabled) return;
@@ -42,11 +48,13 @@ export function HapticPressable({
       const rect = e.currentTarget.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      const id = Date.now();
+      const id = ++nextRippleId.current;
       setRipples((prev) => [...prev, { id, x, y }]);
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setRipples((prev) => prev.filter((r) => r.id !== id));
+        rippleTimers.current.delete(timer);
       }, 600);
+      rippleTimers.current.add(timer);
     }
 
     onPointerDown?.(e);
@@ -66,7 +74,7 @@ export function HapticPressable({
     <motion.div
       role="button"
       tabIndex={disabled ? -1 : 0}
-      disabled={disabled}
+      aria-disabled={disabled || undefined}
       onPointerDown={handlePointerDown}
       onKeyDown={handleKeyDown}
       onClick={disabled ? undefined : onClick}

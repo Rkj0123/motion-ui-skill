@@ -30,7 +30,7 @@ export function SplitText({
   const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion) {
-    return <span className={className}>{text}</span>;
+    return <motion.span className={className} {...props}>{text}</motion.span>;
   }
 
   const words = text.split(" ");
@@ -61,7 +61,7 @@ export function SplitText({
   let globalIndex = 0;
 
   return (
-    <span
+    <motion.span
       className={cn("inline-flex flex-wrap items-baseline select-none", className)}
       {...props}
     >
@@ -110,6 +110,6 @@ export function SplitText({
           </span>
         );
       })}
-    </span>
+    </motion.span>
   );
 }

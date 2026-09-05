@@ -6,7 +6,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { SPRING_BOUNCE, SPRING_PRESS } from "@/lib/ease";
 import { useHaptic } from "@/lib/hooks/use-haptic";
 import { cn } from "@/lib/utils";
@@ -43,6 +43,7 @@ export function Rating({
 }: RatingProps) {
   const [uncontrolledVal, setUncontrolledVal] = useState(defaultValue);
   const [hoverVal, setHoverVal] = useState<number | null>(null);
+  const starRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
 
@@ -78,28 +79,31 @@ export function Rating({
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (readOnly || disabled) return;
     const step = allowHalf ? 0.5 : 1;
+    let next: number | null = null;
     if (e.key === "ArrowRight" || e.key === "ArrowUp") {
       e.preventDefault();
-      const next = Math.min(max, currentVal + step);
-      if (!isControlled) setUncontrolledVal(next);
-      onChange?.(next);
-      triggerHaptic("selection");
+      next = Math.min(max, currentVal + step);
     } else if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
       e.preventDefault();
-      const next = Math.max(0, currentVal - step);
+      next = Math.max(0, currentVal - step);
+    }
+    if (next !== null) {
       if (!isControlled) setUncontrolledVal(next);
       onChange?.(next);
       triggerHaptic("selection");
+      requestAnimationFrame(() => {
+        starRefs.current[Math.min(max - 1, Math.max(0, Math.ceil(next) - 1))]?.focus();
+      });
     }
   };
 
+  const selectedIndex = Math.min(max - 1, Math.max(0, Math.ceil(currentVal) - 1));
+
   return (
-    <div
+    <motion.div
       role="radiogroup"
-      tabIndex={readOnly || disabled ? -1 : 0}
-      onKeyDown={handleKeyDown}
       onPointerLeave={() => setHoverVal(null)}
-      aria-label={`Rating: ${currentVal} of ${max} stars`}
+      aria-label="Rating"
       className={cn(
         "inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg p-1",
         disabled && "opacity-50 cursor-not-allowed",
@@ -119,10 +123,15 @@ export function Rating({
           <motion.button
             key={idx}
             type="button"
-            tabIndex={-1}
+            ref={(element) => { starRefs.current[idx] = element; }}
+            role="radio"
+            aria-checked={currentVal === starNumber || (allowHalf && currentVal === starNumber - 0.5)}
+            aria-label={`${starNumber} star${starNumber === 1 ? "" : "s"}`}
+            tabIndex={readOnly || disabled ? -1 : idx === selectedIndex ? 0 : -1}
             disabled={disabled || readOnly}
             onClick={(e) => handleClick(e, idx)}
             onPointerMove={(e) => handlePointerMove(e, idx)}
+            onKeyDown={handleKeyDown}
             whileTap={shouldReduceMotion || readOnly || disabled ? undefined : { scale: 0.85 }}
             whileHover={shouldReduceMotion || readOnly || disabled ? undefined : { scale: 1.15 }}
             transition={SPRING_BOUNCE}
@@ -157,6 +166,6 @@ export function Rating({
           {activeVal.toFixed(1)}
         </span>
       )}
-    </div>
+    </motion.div>
   );
 }

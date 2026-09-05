@@ -9,6 +9,13 @@ export const EASE_DRAWER = [0.32, 0.72, 0, 1] as const;
 /** CSS string form of EASE_OUT for inline style transitions. */
 export const EASE_OUT_CSS = "cubic-bezier(0.16, 1, 0.3, 1)";
 
+export type SpringConfig = Readonly<{
+  type: "spring";
+  stiffness: number;
+  damping: number;
+  mass: number;
+}>;
+
 /** Press feedback on buttons and other tappable surfaces. */
 export const SPRING_PRESS = {
   type: "spring",
@@ -99,4 +106,3 @@ export const EASE_DECELERATE_CSS = "cubic-bezier(0.05, 0.7, 0.1, 1)";
 /** Acceleration curve for dismissed elements that exit without lingering. */
 export const EASE_ACCELERATE = [0.3, 0, 0.8, 0.15] as const;
 export const EASE_ACCELERATE_CSS = "cubic-bezier(0.3, 0, 0.8, 0.15)";
-

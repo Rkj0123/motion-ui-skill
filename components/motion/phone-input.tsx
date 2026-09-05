@@ -7,7 +7,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { SPRING_PANEL } from "@/lib/ease";
 import { useDismiss } from "@/lib/hooks/use-dismiss";
 import { useHaptic } from "@/lib/hooks/use-haptic";
@@ -51,8 +51,9 @@ export function PhoneInput({
   className,
   ...props
 }: PhoneInputProps) {
+  const availableCountries = countries.length > 0 ? countries : DEFAULT_COUNTRIES;
   const [selectedCountry, setSelectedCountry] = useState<CountryCode>(
-    countries.find((c) => c.country === defaultCountry) || countries[0]
+    availableCountries.find((c) => c.country === defaultCountry) || availableCountries[0]
   );
   const [phone, setPhone] = useState(value);
   const [isOpen, setIsOpen] = useState(false);
@@ -61,12 +62,14 @@ export function PhoneInput({
   const shouldReduceMotion = useReducedMotion();
   const triggerHaptic = useHaptic();
 
-  const menuRef = useDismiss<HTMLDivElement>({
-    isOpen,
-    onDismiss: () => setIsOpen(false),
-  });
+  const menuRef = useRef<HTMLDivElement>(null);
+  useDismiss(isOpen, () => setIsOpen(false), menuRef);
 
-  const filteredCountries = countries.filter(
+  useEffect(() => {
+    setPhone(value);
+  }, [value]);
+
+  const filteredCountries = availableCountries.filter(
     (c) =>
       c.country.toLowerCase().includes(search.toLowerCase()) ||
       c.code.includes(search)
@@ -88,7 +91,7 @@ export function PhoneInput({
   };
 
   return (
-    <div className={cn("relative w-full", className)} {...props}>
+    <motion.div className={cn("relative w-full", className)} {...props}>
       <div
         className={cn(
           "flex items-center rounded-xl border border-border bg-card shadow-sm transition-all focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20",
@@ -173,6 +176,6 @@ export function PhoneInput({
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }

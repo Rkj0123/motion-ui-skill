@@ -27,7 +27,7 @@ export function TextSwap({
   const yOffset = direction === "up" ? 20 : -20;
 
   return (
-    <span
+    <motion.span
       className={cn("relative inline-flex overflow-hidden align-baseline", className)}
       {...props}
     >
@@ -51,6 +51,6 @@ export function TextSwap({
           {text}
         </motion.span>
       </AnimatePresence>
-    </span>
+    </motion.span>
   );
 }

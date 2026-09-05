@@ -37,14 +37,15 @@ export function MetricCard({
   const tokens = getStylePreset(stylePreset);
 
   // Generate SVG path from sparklineData
-  const min = Math.min(...sparklineData);
-  const max = Math.max(...sparklineData);
+  const data = sparklineData.length > 0 ? sparklineData : [0];
+  const min = Math.min(...data);
+  const max = Math.max(...data);
   const range = max - min || 1;
   const width = 120;
   const height = 40;
 
-  const points = sparklineData.map((val, idx) => {
-    const x = (idx / (sparklineData.length - 1)) * width;
+  const points = data.map((val, idx) => {
+    const x = data.length === 1 ? width / 2 : (idx / (data.length - 1)) * width;
     const y = height - ((val - min) / range) * (height - 8) - 4;
     return `${x},${y}`;
   });

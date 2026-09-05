@@ -15,7 +15,7 @@ import {
   useReducedMotion,
   type HTMLMotionProps,
 } from "motion/react";
-import React, { useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { EASE_OUT, SPRING_LAYOUT, SPRING_PRESS } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
@@ -37,17 +37,21 @@ export interface CascaderProps extends Omit<HTMLMotionProps<"div">, "onChange"> 
 
 export function Cascader({
   options,
-  value: initialValue = [],
+  value: controlledValue = [],
   onChange,
   placeholder = "Select category...",
   searchable = true,
   className,
   ...props
 }: CascaderProps) {
-  const [selectedPath, setSelectedPath] = useState<string[]>(initialValue);
+  const [selectedPath, setSelectedPath] = useState<string[]>(controlledValue);
   const [activeTierPath, setActiveTierPath] = useState<CascaderOption[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    setSelectedPath(controlledValue);
+  }, [controlledValue]);
 
   // Find options for current view level
   const currentLevelOptions = useMemo(() => {
@@ -66,7 +70,7 @@ export function Cascader({
       for (const opt of opts) {
         const nextTrail = [...currentTrail, opt.value];
         const nextLabels = [...labelTrail, opt.label];
-        if (opt.label.toLowerCase().includes(q)) {
+        if (!opt.disabled && !opt.children?.length && opt.label.toLowerCase().includes(q)) {
           results.push({
             path: nextTrail,
             option: opt,
@@ -105,7 +109,7 @@ export function Cascader({
   };
 
   return (
-    <div
+    <motion.div
       className={cn(
         "flex w-80 flex-col rounded-2xl border border-border bg-card shadow-sm overflow-hidden",
         className
@@ -184,6 +188,7 @@ export function Cascader({
                 key={res.path.join("-")}
                 type="button"
                 onClick={() => {
+                  if (res.option.disabled) return;
                   setSelectedPath(res.path);
                   onChange?.(res.path, res.option);
                   setSearchQuery("");
@@ -263,6 +268,6 @@ export function Cascader({
           Selected: <span className="font-semibold text-foreground">{selectedPath.join(" / ")}</span>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

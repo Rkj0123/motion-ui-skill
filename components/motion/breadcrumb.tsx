@@ -47,7 +47,7 @@ export function Breadcrumb({
   }
 
   return (
-    <nav
+    <motion.nav
       aria-label="Breadcrumb"
       className={cn("flex items-center text-xs font-medium", className)}
       {...props}
@@ -117,6 +117,6 @@ export function Breadcrumb({
           );
         })}
       </ol>
-    </nav>
+    </motion.nav>
   );
 }

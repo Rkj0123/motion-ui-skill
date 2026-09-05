@@ -40,7 +40,7 @@ export interface TimelineProps extends Omit<HTMLMotionProps<"div">, "children"> 
 
 const STATUS_ICONS: Record<TimelineItemStatus, ReactNode> = {
   completed: <Check className="size-3.5 stroke-[2.5]" />,
-  current: <Loader2 className="size-3.5 animate-spin" />,
+  current: <Loader2 className="size-3.5" />,
   upcoming: <Clock className="size-3.5" />,
   failed: <AlertCircle className="size-3.5" />,
 };
@@ -97,7 +97,7 @@ export function Timeline({
   };
 
   return (
-    <div
+    <motion.div
       role="list"
       aria-label="Process timeline"
       className={cn(
@@ -150,6 +150,8 @@ export function Timeline({
               ) : item.icon ? (
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 React.createElement(item.icon as any, { className: "size-4" })
+              ) : item.status === "current" && !shouldReduceMotion ? (
+                <Loader2 className="size-3.5 animate-spin" />
               ) : (
                 STATUS_ICONS[item.status]
               )}
@@ -229,6 +231,6 @@ export function Timeline({
           </div>
         );
       })}
-    </div>
+    </motion.div>
   );
 }
