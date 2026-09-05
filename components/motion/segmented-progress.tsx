@@ -63,16 +63,21 @@ export function SegmentedProgress({
 
   return (
     <motion.div
-      role="progressbar"
-      aria-valuenow={currentIndex + 1}
-      aria-valuemin={1}
-      aria-valuemax={segmentsCount}
       onPointerDown={() => setIsPaused(true)}
       onPointerUp={() => setIsPaused(false)}
       onPointerLeave={() => setIsPaused(false)}
       className={cn("flex w-full items-center gap-1.5 py-2", className)}
       {...props}
     >
+      <div
+        role="progressbar"
+        aria-label="Story progress"
+        aria-valuenow={currentIndex + 1}
+        aria-valuemin={1}
+        aria-valuemax={segmentsCount}
+        className="sr-only"
+      />
+      <div role="group" aria-label="Story segments" className="flex w-full items-center gap-1.5">
       {Array.from({ length: segmentsCount }).map((_, idx) => {
         const isCompleted = idx < currentIndex;
         const isCurrent = idx === currentIndex;
@@ -117,6 +122,7 @@ export function SegmentedProgress({
           </div>
         );
       })}
+      </div>
     </motion.div>
   );
 }

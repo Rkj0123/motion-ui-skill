@@ -11,7 +11,7 @@ import {
   motion,
   useReducedMotion,
 } from "motion/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { EASE_OUT, SPRING_LAYOUT, SPRING_PRESS } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 
@@ -37,11 +37,19 @@ interface TreeItemProps {
   focusable?: boolean;
 }
 
+function containsNode(node: TreeNode, id?: string): boolean {
+  return Boolean(id && (node.id === id || node.children?.some((child) => containsNode(child, id))));
+}
+
 function TreeItem({ node, level, selectedId, onSelect, focusable = false }: TreeItemProps) {
   const hasChildren = Boolean(node.children && node.children.length > 0);
-  const [isOpen, setIsOpen] = useState(level === 0);
+  const [isOpen, setIsOpen] = useState(() => level === 0 || containsNode(node, selectedId));
   const shouldReduceMotion = useReducedMotion();
   const isSelected = selectedId === node.id;
+
+  useEffect(() => {
+    if (selectedId && containsNode(node, selectedId)) setIsOpen(true);
+  }, [node, selectedId]);
 
   const handleClick = () => {
     if (hasChildren) {

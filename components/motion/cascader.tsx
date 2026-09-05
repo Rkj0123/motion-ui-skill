@@ -37,21 +37,27 @@ export interface CascaderProps extends Omit<HTMLMotionProps<"div">, "onChange"> 
 
 export function Cascader({
   options,
-  value: controlledValue = [],
+  value: controlledValue,
   onChange,
   placeholder = "Select category...",
   searchable = true,
   className,
   ...props
 }: CascaderProps) {
-  const [selectedPath, setSelectedPath] = useState<string[]>(controlledValue);
+  const [selectedPath, setSelectedPath] = useState<string[]>(controlledValue ?? []);
   const [activeTierPath, setActiveTierPath] = useState<CascaderOption[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    setSelectedPath(controlledValue);
-  }, [controlledValue]);
+    if (
+      controlledValue !== undefined &&
+      (controlledValue.length !== selectedPath.length ||
+        controlledValue.some((value, index) => value !== selectedPath[index]))
+    ) {
+      setSelectedPath(controlledValue);
+    }
+  }, [controlledValue, selectedPath]);
 
   // Find options for current view level
   const currentLevelOptions = useMemo(() => {

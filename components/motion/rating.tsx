@@ -135,7 +135,7 @@ export function Rating({
             whileTap={shouldReduceMotion || readOnly || disabled ? undefined : { scale: 0.85 }}
             whileHover={shouldReduceMotion || readOnly || disabled ? undefined : { scale: 1.15 }}
             transition={SPRING_BOUNCE}
-            className="relative p-0.5 rounded focus:outline-none cursor-pointer disabled:cursor-not-allowed"
+            className="relative p-0.5 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer disabled:cursor-not-allowed"
           >
             {/* Background Empty Star */}
             <Star

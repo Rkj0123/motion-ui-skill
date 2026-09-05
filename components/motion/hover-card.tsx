@@ -50,7 +50,11 @@ export function HoverCard({
     closeTimer.current = setTimeout(() => setIsOpen(false), closeDelay);
   };
 
-  const handleFocus = () => setIsOpen(true);
+  const handleFocus = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    if (openTimer.current) clearTimeout(openTimer.current);
+    setIsOpen(true);
+  };
   const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {
     if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
       setIsOpen(false);
@@ -83,7 +87,7 @@ export function HoverCard({
       <div
         tabIndex={0}
         aria-describedby={isOpen ? tooltipId : undefined}
-        className="inline-block cursor-pointer focus:outline-none"
+        className="inline-block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         {children}
       </div>
