@@ -19,6 +19,37 @@
 
 ---
 
+## 🎬 See the Difference in 10 Seconds (Before vs. After)
+
+> **Proof of Impact**: Watch what happens when an AI agent builds with vs. without **Motion UI Skill**.
+> Below is a real-time 10-second side-by-side recording of the exact same flight booking application (**Flighter**):
+> - **Left (localhost:8090)**: Standard app created *without* the skill — static styling, flat inputs, abrupt state snaps, zero micro-interactions.
+> - **Right (localhost:8092)**: Revamped *with* Motion UI Skill — calibrated spring physics, 6 interchangeable design presets, interactive aircraft cabin seat map, and dynamic celebration confetti.
+
+<div align="center">
+  <a href="./assets/motion-ui-comparison.mp4">
+    <img src="./assets/motion-ui-comparison.gif" alt="Motion UI Skill Side-by-Side Comparison Demo" width="100%" style="border-radius: 12px; box-shadow: 0 12px 36px rgba(0,0,0,0.5);" />
+  </a>
+  <br/>
+  <p align="center">
+    <b>Side-by-Side 10-Second Head-to-Head Comparison</b><br/>
+    <b>Left:</b> Standard generic application (localhost:8090 — created without skill)<br/>
+    <b>Right:</b> Revamped with Motion UI Skill (localhost:8092 — 130+ physics components, 6 style presets, interactive seat map & celebrations)<br/>
+    <a href="./assets/motion-ui-comparison.mp4">▶️ <b>Click here to view / download high-definition 1080p MP4</b></a>
+  </p>
+</div>
+
+| Feature Dimension | ❌ Without Skill (Port 8090) | ✨ Revamped with Motion UI Skill (Port 8092) |
+| :--- | :--- | :--- |
+| **Aesthetic Presets** | Fixed, monochromatic flat design | **6 instant style presets** (`origin`, `glow`, `ios`, `minimal`, `brutalist`, `enterprise`) |
+| **Spring Physics** | Rigid CSS transitions with abrupt state snaps | **Calibrated spring tokens** (`SPRING_PRESS`, `SPRING_BOUNCE`), 180° rotation rebound |
+| **Component Depth** | Plain inputs and basic dropdowns | **Spotlight cards**, tactile press buttons, animated route swaps, live indicator badges |
+| **Interactive Modals** | Generic prompt dialogs and static grids | **Fluid bottom-sheet seat map**, dynamic seat selection with glowing pulse & live total calculations |
+| **Delight & Feedback** | Cold text submission | **3D perspective boarding pass** with barcode & full-screen particle confetti celebration |
+| **Developer Velocity** | Hours spent writing custom CSS & easing curves | **Single-prompt drop-in** with 130 offline-first components and shared utilities |
+
+---
+
 ## Overview
 
 **Motion UI Skill** is a production-ready, fully self-contained collection of **130 interactive, animated UI components** across three distinct categories:
