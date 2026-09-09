@@ -22,9 +22,12 @@
 ## 🎬 Side-by-Side Comparison (Before vs. After)
 
 <div align="center">
-  <video src="assets/motion-ui-comparison.mp4" poster="assets/comparison-preview.png" controls autoplay loop muted playsinline width="100%">
-    <img src="assets/motion-ui-comparison.gif" width="100%" alt="Motion UI Skill Side-by-Side Comparison Demo" />
-  </video>
+  <a href="assets/motion-ui-comparison.mp4">
+    <img src="assets/motion-ui-comparison.gif" width="100%" alt="Motion UI Skill Side-by-Side Comparison (Before vs After)" />
+  </a>
+  <p align="center">
+    <a href="assets/motion-ui-comparison.mp4">▶️ <b>Watch High-Definition 1080p Video (MP4)</b></a>
+  </p>
 </div>
 
 ---
