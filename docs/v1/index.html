@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flighter — Flight Search & Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand" onclick="resetSearch()">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+          </svg>
+        </div>
+        <span class="brand-name">Flighter</span>
+        <span class="brand-badge">Demo</span>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Currency Selector -->
+        <div class="currency-selector">
+          <label for="currency-select" class="sr-only">Currency</label>
+          <select id="currency-select" onchange="changeCurrency(this.value)">
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="INR" selected>INR (₹)</option>
+          </select>
+        </div>
+
+        <!-- My Bookings Button -->
+        <button class="btn btn-outline" id="my-bookings-btn" onclick="openBookingsDrawer()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span>My Bookings</span>
+          <span class="badge" id="bookings-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section & Search Form -->
+  <section class="hero-section">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-header">
+        <h1 class="hero-title">Where do you want to fly next?</h1>
+        <p class="hero-subtitle">Search real-time demo fares across 500+ global and domestic routes</p>
+      </div>
+
+      <!-- Search Card -->
+      <div class="search-card">
+        <!-- Trip Type & Class Bar -->
+        <div class="search-meta-bar">
+          <div class="trip-types">
+            <label class="radio-label">
+              <input type="radio" name="tripType" value="one-way" checked onchange="toggleTripType('one-way')">
+              <span>One Way</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="tripType" value="round-trip" onchange="toggleTripType('round-trip')">
+              <span>Round Trip</span>
+            </label>
+          </div>
+
+          <div class="search-selectors">
+            <!-- Cabin Class -->
+            <div class="pill-select">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
+              <select id="cabin-class">
+                <option value="economy">Economy</option>
+                <option value="premium">Premium Economy</option>
+                <option value="business">Business Class</option>
+              </select>
+            </div>
+
+            <!-- Passengers Dropdown -->
+            <div class="passenger-dropdown-wrapper">
+              <button type="button" class="pill-button" id="passenger-btn" onclick="togglePassengerMenu()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <span id="passenger-label">1 Passenger</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+
+              <div class="passenger-popover" id="passenger-popover">
+                <div class="passenger-row">
+                  <div>
+                    <div class="font-bold">Adults</div>
+                    <div class="text-muted text-xs">Ages 12+</div>
+                  </div>
+                  <div class="stepper">
+                    <button type="button" onclick="updatePassengers('adults', -1)">-</button>
+                    <span id="adults-count">1</span>
+                    <button type="button" onclick="updatePassengers('adults', 1)">+</button>
+                  </div>
+                </div>
+                <div class="passenger-row">
+                  <div>
+                    <div class="font-bold">Children</div>
+                    <div class="text-muted text-xs">Ages 2-11</div>
+                  </div>
+                  <div class="stepper">
+                    <button type="button" onclick="updatePassengers('children', -1)">-</button>
+                    <span id="children-count">0</span>
+                    <button type="button" onclick="updatePassengers('children', 1)">+</button>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-sm btn-primary w-full" onclick="togglePassengerMenu(false)">Done</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Search Fields -->
+        <form id="flight-search-form" onsubmit="handleSearch(event)">
+          <div class="search-grid">
+            <!-- Origin -->
+            <div class="input-group">
+              <label for="origin-input">From</label>
+              <div class="input-with-icon">
+                <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 12h20M13 5l7 7-7 7"/>
+                </svg>
+                <input type="text" id="origin-input" list="airports-list" placeholder="City or airport (e.g. DEL, New Delhi)" autocomplete="off" required value="DEL">
+              </div>
+            </div>
+
+            <!-- Swap button -->
+            <button type="button" class="btn-swap" onclick="swapAirports()" title="Swap origin & destination">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/>
+              </svg>
+            </button>
+
+            <!-- Destination -->
+            <div class="input-group">
+              <label for="destination-input">To</label>
+              <div class="input-with-icon">
+                <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 12H2M11 19l-7-7 7-7"/>
+                </svg>
+                <input type="text" id="destination-input" list="airports-list" placeholder="City or airport (e.g. BOM, Mumbai)" autocomplete="off" required value="BOM">
+              </div>
+            </div>
+
+            <!-- Departure Date -->
+            <div class="input-group">
+              <label for="departure-date">Depart</label>
+              <div class="input-with-icon">
+                <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+                </svg>
+                <input type="date" id="departure-date" required>
+              </div>
+            </div>
+
+            <!-- Return Date (conditional) -->
+            <div class="input-group" id="return-date-group" style="display: none;">
+              <label for="return-date">Return</label>
+              <div class="input-with-icon">
+                <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+                </svg>
+                <input type="date" id="return-date">
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="search-btn-wrapper">
+              <button type="submit" class="btn btn-search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                </svg>
+                <span>Find Flights</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Datalist for airport suggestions -->
+        <datalist id="airports-list">
+          <option value="DEL">DEL — Indira Gandhi Intl, New Delhi, India</option>
+          <option value="BOM">BOM — Chhatrapati Shivaji Intl, Mumbai, India</option>
+          <option value="BLR">BLR — Kempegowda Intl, Bengaluru, India</option>
+          <option value="DXB">DXB — Dubai International, United Arab Emirates</option>
+          <option value="LHR">LHR — Heathrow Airport, London, UK</option>
+          <option value="JFK">JFK — John F. Kennedy Intl, New York, USA</option>
+          <option value="SFO">SFO — San Francisco Intl, California, USA</option>
+          <option value="SIN">SIN — Changi Airport, Singapore</option>
+          <option value="HND">HND — Haneda Airport, Tokyo, Japan</option>
+          <option value="CDG">CDG — Charles de Gaulle, Paris, France</option>
+          <option value="SYD">SYD — Kingsford Smith, Sydney, Australia</option>
+          <option value="FRA">FRA — Frankfurt Airport, Germany</option>
+        </datalist>
+
+        <!-- Popular Routes Chips -->
+        <div class="popular-routes">
+          <span class="routes-label">Popular routes:</span>
+          <div class="chips-list">
+            <button type="button" class="chip" onclick="quickFillRoute('DEL', 'BOM')">DEL ➔ BOM</button>
+            <button type="button" class="chip" onclick="quickFillRoute('JFK', 'LHR')">JFK ➔ LHR</button>
+            <button type="button" class="chip" onclick="quickFillRoute('BLR', 'DEL')">BLR ➔ DEL</button>
+            <button type="button" class="chip" onclick="quickFillRoute('SFO', 'HND')">SFO ➔ HND</button>
+            <button type="button" class="chip" onclick="quickFillRoute('DXB', 'LHR')">DXB ➔ LHR</button>
+            <button type="button" class="chip" onclick="quickFillRoute('SIN', 'SYD')">SIN ➔ SYD</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Flight Results Area -->
+  <main class="container main-content" id="results-area">
+    <div class="results-layout">
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar" id="filter-sidebar">
+        <div class="filter-header">
+          <h3>Filters</h3>
+          <button class="btn-text" onclick="resetFilters()">Reset All</button>
+        </div>
+
+        <!-- Stops Filter -->
+        <div class="filter-box">
+          <h4>Stops</h4>
+          <label class="checkbox-label">
+            <input type="checkbox" name="stopsFilter" value="0" checked onchange="applyFilters()">
+            <span>Direct only</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="stopsFilter" value="1" checked onchange="applyFilters()">
+            <span>1 Stop</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="stopsFilter" value="2" checked onchange="applyFilters()">
+            <span>2+ Stops</span>
+          </label>
+        </div>
+
+        <!-- Airlines Filter -->
+        <div class="filter-box">
+          <h4>Airlines</h4>
+          <div id="airline-filters-list">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Departure Time Filter -->
+        <div class="filter-box">
+          <h4>Departure Time</h4>
+          <div class="time-chips">
+            <button type="button" class="time-chip" data-time="morning" onclick="toggleTimeFilter(this, 'morning')">
+              🌅 06:00 - 12:00
+            </button>
+            <button type="button" class="time-chip" data-time="afternoon" onclick="toggleTimeFilter(this, 'afternoon')">
+              ☀️ 12:00 - 18:00
+            </button>
+            <button type="button" class="time-chip" data-time="evening" onclick="toggleTimeFilter(this, 'evening')">
+              🌙 18:00 - 24:00
+            </button>
+            <button type="button" class="time-chip" data-time="early" onclick="toggleTimeFilter(this, 'early')">
+              🌌 00:00 - 06:00
+            </button>
+          </div>
+        </div>
+
+        <!-- Max Price Filter -->
+        <div class="filter-box">
+          <div class="filter-box-title-row">
+            <h4>Max Price</h4>
+            <span id="price-slider-val" class="price-val">₹50,000</span>
+          </div>
+          <input type="range" id="price-range" min="1000" max="100000" step="500" value="100000" oninput="onPriceSliderChange(this.value)">
+        </div>
+      </aside>
+
+      <!-- Results Column -->
+      <section class="results-column">
+        <!-- Results Top Bar -->
+        <div class="results-toolbar">
+          <div class="results-count-title">
+            <h2 id="results-headline">Flights for your route</h2>
+            <p id="results-subheadline" class="text-muted text-sm">Showing available demo flights</p>
+          </div>
+
+          <!-- Sort Bar -->
+          <div class="sort-tabs">
+            <button class="sort-tab active" data-sort="best" onclick="changeSort('best')">
+              <span class="sort-name">Best</span>
+              <span class="sort-hint" id="sort-best-hint">Recommended</span>
+            </button>
+            <button class="sort-tab" data-sort="cheapest" onclick="changeSort('cheapest')">
+              <span class="sort-name">Cheapest</span>
+              <span class="sort-hint" id="sort-cheapest-hint">Lowest fare</span>
+            </button>
+            <button class="sort-tab" data-sort="fastest" onclick="changeSort('fastest')">
+              <span class="sort-name">Fastest</span>
+              <span class="sort-hint" id="sort-fastest-hint">Shortest time</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Flight Cards Container -->
+        <div id="flights-container" class="flight-cards-container">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Seat Selection Modal -->
+  <div class="modal-backdrop" id="seat-modal" style="display: none;">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Select Your Seat</h3>
+          <p class="text-sm text-muted" id="seat-flight-meta">Flight SW-204 • New Delhi (DEL) ➔ Mumbai (BOM)</p>
+        </div>
+        <button class="modal-close" onclick="closeSeatModal()">&times;</button>
+      </div>
+
+      <div class="modal-body seat-selection-body">
+        <div class="seat-instruction-banner">
+          <span id="seat-selection-prompt">Select 1 seat for traveler 1</span>
+          <div class="seat-legend">
+            <div class="legend-item"><span class="legend-box available"></span> Available</div>
+            <div class="legend-item"><span class="legend-box selected"></span> Selected</div>
+            <div class="legend-item"><span class="legend-box occupied"></span> Occupied</div>
+            <div class="legend-item"><span class="legend-box extra-legroom"></span> Extra Legroom (+₹500)</div>
+          </div>
+        </div>
+
+        <!-- Airplane Visual Layout -->
+        <div class="airplane-container">
+          <div class="plane-nose"></div>
+          <div class="cockpit-window"></div>
+          <div class="cabin-label">Business Class</div>
+          <div class="cabin-section business-section" id="business-cabin">
+            <!-- Business seats -->
+          </div>
+          <div class="cabin-divider"><span>Economy Class</span></div>
+          <div class="cabin-section economy-section" id="economy-cabin">
+            <!-- Economy seats -->
+          </div>
+          <div class="plane-tail"></div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="seat-selection-summary">
+          <span>Selected: <strong id="selected-seats-badge">None</strong></span>
+          <span class="text-muted text-sm" id="seat-addon-price">+₹0</span>
+        </div>
+        <button class="btn btn-primary" id="confirm-seats-btn" onclick="proceedToPassengerModal()">
+          Continue to Passenger Info
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Passenger & Payment Modal -->
+  <div class="modal-backdrop" id="passenger-modal" style="display: none;">
+    <div class="modal-card modal-md">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Passenger Details</h3>
+          <p class="text-sm text-muted">Complete booking info for your flight</p>
+        </div>
+        <button class="modal-close" onclick="closePassengerModal()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="passenger-form" onsubmit="handleBookingSubmission(event)">
+          <!-- Dynamic passenger fields -->
+          <div id="passenger-fields-container"></div>
+
+          <!-- Contact info -->
+          <div class="form-section-title">Contact Information</div>
+          <div class="form-row">
+            <div class="input-group">
+              <label for="contact-email">Email for E-Ticket</label>
+              <input type="email" id="contact-email" required placeholder="traveler@example.com" value="alex.walker@gmail.com">
+            </div>
+            <div class="input-group">
+              <label for="contact-phone">Phone Number</label>
+              <input type="tel" id="contact-phone" required placeholder="+91 9876543210" value="+91 98765 43210">
+            </div>
+          </div>
+
+          <!-- Baggage Selection -->
+          <div class="form-section-title">Add-ons</div>
+          <div class="addon-option">
+            <label class="checkbox-label flex-between">
+              <div class="addon-info">
+                <span class="font-bold">Standard Check-in Baggage (15kg included)</span>
+                <span class="text-xs text-muted block">Cabin bag (7kg) + 1 Check-in piece</span>
+              </div>
+              <span class="text-emerald font-bold">Free</span>
+            </label>
+          </div>
+          <div class="addon-option">
+            <label class="checkbox-label flex-between">
+              <div class="addon-info">
+                <span class="font-bold">Extra Baggage (+10kg)</span>
+                <span class="text-xs text-muted block">Priority baggage delivery at carousel</span>
+              </div>
+              <input type="checkbox" id="extra-baggage-checkbox" onchange="updateBookingTotalSummary()">
+            </label>
+          </div>
+
+          <!-- Price Summary Breakdown -->
+          <div class="price-breakdown-card">
+            <div class="breakdown-row">
+              <span>Base Airfare (<span id="summary-pax-count">1</span> pax)</span>
+              <span id="summary-base-fare">₹0</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Seat Selection</span>
+              <span id="summary-seat-fee">₹0</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Baggage Add-on</span>
+              <span id="summary-baggage-fee">₹0</span>
+            </div>
+            <div class="breakdown-row">
+              <span>Taxes & Aviation Fees (12%)</span>
+              <span id="summary-taxes">₹0</span>
+            </div>
+            <div class="breakdown-total">
+              <span>Total Amount</span>
+              <span id="summary-total-fare">₹0</span>
+            </div>
+          </div>
+
+          <div class="modal-footer-inside">
+            <button type="button" class="btn btn-secondary" onclick="closePassengerModal()">Back</button>
+            <button type="submit" class="btn btn-primary btn-book-final">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+              <span>Confirm & Book Flight</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- E-Ticket Confirmation Modal -->
+  <div class="modal-backdrop" id="ticket-modal" style="display: none;">
+    <div class="modal-card modal-ticket">
+      <div class="modal-header no-border">
+        <div class="success-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>Booking Confirmed!</span>
+        </div>
+        <button class="modal-close" onclick="closeTicketModal()">&times;</button>
+      </div>
+
+      <!-- Printable Boarding Pass Card -->
+      <div class="boarding-pass" id="printable-boarding-pass">
+        <!-- Pass Top -->
+        <div class="pass-top">
+          <div class="pass-airline">
+            <span class="pass-airline-name" id="ticket-airline">SkyWings</span>
+            <span class="pass-flight-no" id="ticket-flight-no">SW-204</span>
+          </div>
+          <div class="pass-class-badge" id="ticket-class">ECONOMY</div>
+        </div>
+
+        <!-- Route Big Display -->
+        <div class="pass-route-row">
+          <div class="pass-origin">
+            <div class="pass-city" id="ticket-origin-city">New Delhi</div>
+            <div class="pass-code" id="ticket-origin-code">DEL</div>
+            <div class="pass-time" id="ticket-dep-time">08:15 AM</div>
+          </div>
+
+          <div class="pass-flight-graphic">
+            <div class="pass-duration" id="ticket-duration">2h 15m</div>
+            <div class="flight-line-dot">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+              </svg>
+            </div>
+            <div class="pass-stops-text" id="ticket-stops">Non-stop</div>
+          </div>
+
+          <div class="pass-dest">
+            <div class="pass-city" id="ticket-dest-city">Mumbai</div>
+            <div class="pass-code" id="ticket-dest-code">BOM</div>
+            <div class="pass-time" id="ticket-arr-time">10:30 AM</div>
+          </div>
+        </div>
+
+        <!-- Pass Info Grid -->
+        <div class="pass-grid">
+          <div class="pass-item">
+            <span class="label">PASSENGER(S)</span>
+            <span class="val" id="ticket-passenger-name">Alex Walker</span>
+          </div>
+          <div class="pass-item">
+            <span class="label">BOOKING REF (PNR)</span>
+            <span class="val text-primary font-bold" id="ticket-pnr">FL-98213</span>
+          </div>
+          <div class="pass-item">
+            <span class="label">DATE</span>
+            <span class="val" id="ticket-date">Tomorrow</span>
+          </div>
+          <div class="pass-item">
+            <span class="label">SEAT(S)</span>
+            <span class="val" id="ticket-seats">14A</span>
+          </div>
+          <div class="pass-item">
+            <span class="label">GATE</span>
+            <span class="val" id="ticket-gate">T3 • Gate B12</span>
+          </div>
+          <div class="pass-item">
+            <span class="label">TOTAL FARE PAID</span>
+            <span class="val text-emerald font-bold" id="ticket-fare-paid">₹5,490</span>
+          </div>
+        </div>
+
+        <!-- Barcode Stub -->
+        <div class="pass-stub">
+          <div class="barcode">
+            <div class="barcode-bars"></div>
+            <span class="barcode-number" id="ticket-barcode-num">0084 9283 1849 2049</span>
+          </div>
+          <div class="pass-notice">
+            <span>Show this digital boarding pass at the security checkpoint.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer modal-actions-split">
+        <button class="btn btn-outline" onclick="window.print()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/>
+          </svg>
+          <span>Print / Save PDF</span>
+        </button>
+        <button class="btn btn-primary" onclick="closeTicketModal(); openBookingsDrawer();">
+          View in My Bookings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- My Bookings Drawer -->
+  <div class="drawer-backdrop" id="bookings-drawer" style="display: none;" onclick="if(event.target === this) closeBookingsDrawer()">
+    <div class="drawer-card">
+      <div class="drawer-header">
+        <div>
+          <h3>My Bookings</h3>
+          <p class="text-sm text-muted">Manage your saved flight reservations</p>
+        </div>
+        <button class="modal-close" onclick="closeBookingsDrawer()">&times;</button>
+      </div>
+
+      <div class="drawer-body" id="saved-bookings-list">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast"></div>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <strong>Flighter Demo App</strong> — Modern Flight Booking Experience
+      </div>
+      <div class="footer-right">
+        <span>Running on Port 8090</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

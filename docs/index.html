@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion UI Skill — Interactive Live Comparison Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #07090e;
+      color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Playground Navbar */
+    .playground-nav {
+      height: 60px;
+      background: rgba(13, 17, 26, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      gap: 16px;
+      z-index: 50;
+      flex-shrink: 0;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #3b82f6, #6366f1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    /* Mode Switcher Tabs */
+    .view-switcher {
+      display: flex;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3px;
+      border-radius: 10px;
+      gap: 4px;
+    }
+    .view-btn {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .view-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .view-btn.active {
+      background: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+    }
+
+    /* Actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .action-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .action-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .action-link.github-btn {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+    }
+    .action-link.github-btn:hover {
+      background: rgba(56, 189, 248, 0.25);
+    }
+
+    /* Main Content */
+    .viewport-container {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Split View */
+    .split-layout {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 12px;
+      position: relative;
+    }
+
+    .pane-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .pane-card.v2 {
+      border: 1.5px solid rgba(56, 189, 248, 0.35);
+      box-shadow: 0 10px 40px rgba(56, 189, 248, 0.12);
+    }
+
+    .pane-header {
+      height: 38px;
+      background: #0f172a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px;
+      flex-shrink: 0;
+    }
+    .window-dots {
+      display: flex;
+      gap: 5px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+
+    .pane-title {
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge-v1 {
+      color: #f87171;
+      font-size: 10px;
+      background: rgba(239, 68, 68, 0.15);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .badge-v2 {
+      color: #38bdf8;
+      font-size: 10px;
+      background: rgba(56, 189, 248, 0.15);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .pane-actions a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .pane-actions a:hover { color: #ffffff; }
+
+    iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #ffffff;
+    }
+
+    /* Single App View (v1 or v2 full screen) */
+    .single-layout {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    .single-layout iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .split-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+      .brand-title span:last-child {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="playground-nav">
+    <div class="brand-section">
+      <div class="brand-logo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </svg>
+      </div>
+      <div class="brand-title">
+        <span>Motion UI Skill</span>
+        <span class="brand-badge">Live Playground</span>
+      </div>
+    </div>
+
+    <!-- Center View Mode Tabs -->
+    <div class="view-switcher">
+      <button type="button" class="view-btn active" id="btn-mode-split" onclick="switchView('split')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18"/></svg>
+        <span>Side-by-Side</span>
+      </button>
+      <button type="button" class="view-btn" id="btn-mode-v2" onclick="switchView('v2')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>Flighter v2 (Revamped)</span>
+      </button>
+      <button type="button" class="view-btn" id="btn-mode-v1" onclick="switchView('v1')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+        <span>Flighter v1 (Without Skill)</span>
+      </button>
+    </div>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <a href="./v1/index.html" target="_blank" class="action-link" title="Open Flighter v1 in separate tab">Open v1 ↗</a>
+      <a href="./v2/index.html" target="_blank" class="action-link" title="Open Flighter v2 in separate tab">Open v2 ↗</a>
+      <a href="https://github.com/Rkj0123/motion-ui-skill" class="action-link github-btn">GitHub Repo ★</a>
+    </div>
+  </header>
+
+  <!-- Viewport Area -->
+  <main class="viewport-container">
+    <!-- Split View (Default) -->
+    <div class="split-layout" id="split-view">
+      <!-- Left: v1 -->
+      <div class="pane-card v1">
+        <div class="pane-header">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="pane-title">
+            <span>Flighter v1</span>
+            <span class="badge-v1">Without Skill (Generic)</span>
+          </div>
+          <div class="pane-actions">
+            <a href="./v1/index.html" target="_blank">Full Screen ↗</a>
+          </div>
+        </div>
+        <iframe id="iframe-v1" src="./v1/index.html"></iframe>
+      </div>
+
+      <!-- Right: v2 -->
+      <div class="pane-card v2">
+        <div class="pane-header">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="pane-title">
+            <span>Flighter v2</span>
+            <span class="badge-v2">✨ Powered by Motion UI Skill</span>
+          </div>
+          <div class="pane-actions">
+            <a href="./v2/index.html" target="_blank">Full Screen ↗</a>
+          </div>
+        </div>
+        <iframe id="iframe-v2" src="./v2/index.html"></iframe>
+      </div>
+    </div>
+
+    <!-- Single View (Full Screen v1 or v2) -->
+    <div class="single-layout" id="single-view">
+      <iframe id="single-iframe" src="about:blank"></iframe>
+    </div>
+  </main>
+
+  <script>
+    function switchView(mode) {
+      document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+      const splitView = document.getElementById('split-view');
+      const singleView = document.getElementById('single-view');
+      const singleIframe = document.getElementById('single-iframe');
+
+      if (mode === 'split') {
+        document.getElementById('btn-mode-split').classList.add('active');
+        splitView.style.display = 'grid';
+        singleView.style.display = 'none';
+        singleIframe.src = 'about:blank';
+      } else if (mode === 'v2') {
+        document.getElementById('btn-mode-v2').classList.add('active');
+        splitView.style.display = 'none';
+        singleView.style.display = 'block';
+        singleIframe.src = './v2/';
+      } else if (mode === 'v1') {
+        document.getElementById('btn-mode-v1').classList.add('active');
+        splitView.style.display = 'none';
+        singleView.style.display = 'block';
+        singleIframe.src = './v1/';
+      }
+    }
+  </script>
+</body>
+</html>

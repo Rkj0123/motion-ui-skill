@@ -19,6 +19,22 @@
 
 ---
 
+## 🎬 Side-by-Side Comparison (Before vs. After)
+
+<div align="center">
+  <a href="assets/motion-ui-comparison.mp4">
+    <img src="assets/motion-ui-comparison.gif" width="100%" alt="Motion UI Skill Side-by-Side Comparison (Before vs After)" />
+  </a>
+  <br/><br/>
+  <p align="center">
+    <a href="https://rkj0123.github.io/motion-ui-skill/">
+      <img src="https://img.shields.io/badge/🚀_Live_Playground-Try_Both_Versions_in_Browser-2563eb?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Try Both Versions in Browser" />
+    </a>
+  </p>
+</div>
+
+---
+
 ## Overview
 
 **Motion UI Skill** is a production-ready, fully self-contained collection of **130 interactive, animated UI components** across three distinct categories:
