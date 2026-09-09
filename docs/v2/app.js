@@ -75,7 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- ANIMATED THEME SWITCH & VIEW TRANSITION ---
 function initTheme() {
-  const saved = localStorage.getItem('flighter_v2_theme') || 'light';
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramTheme = urlParams.get('theme');
+  const saved = paramTheme || localStorage.getItem('flighter_v2_theme') || 'light';
   applyTheme(saved, false);
 }
 
@@ -135,7 +137,9 @@ function applyTheme(themeName, notify = false) {
 
 // --- STYLE PRESET SWITCHER (Motion UI Architecture) ---
 function initPreset() {
-  const saved = localStorage.getItem('flighter_v2_style_preset') || 'origin';
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramPreset = urlParams.get('preset');
+  const saved = paramPreset || localStorage.getItem('flighter_v2_style_preset') || 'origin';
   switchStylePreset(saved, false);
 }
 
@@ -375,7 +379,9 @@ function handleSearch(e) {
   document.getElementById('results-subheadline').textContent = `${state.flights.length} flights tracked for ${depDate}`;
 
   applyFilters();
-  document.getElementById('results-area').scrollIntoView({ behavior: 'smooth' });
+  if (e && e.isTrusted) {
+    document.getElementById('results-area').scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 function executeInitialSearch() {
