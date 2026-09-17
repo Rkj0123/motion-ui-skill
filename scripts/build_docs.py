@@ -71,6 +71,10 @@ description: >-
   Production-ready animated UI component library for React and Next.js built with Motion (Framer Motion)
   and Tailwind CSS. Includes {total_count} interactive components across 4 categories: Motion Primitives ({len(motion_items)} components), AI Agent Surfaces ({len(agents_items)} components), Blocks & Widgets ({len(blocks_items)} components), and Craft & Surface Components ({len(craft_items)} components: tactile 3D buttons, neumorphic controls, device mockups, background gradients & patterns, calendar widgets, data tables, editorial typography, and interactive cards). Supports 6 aesthetic style presets (minimal, origin, enterprise, glow, ios, brutalist).
   Includes local Codex installation instructions, comprehensive design system guides, and an AI-agent install prompt.
+license: MIT
+metadata:
+  author: Rkj0123
+  version: "2.0.0"
 ---
 
 # Motion UI Skill
