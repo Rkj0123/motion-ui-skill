@@ -1,4 +1,10 @@
-import { IconProps } from "@/types/types";
+import type React from "react";
+
+export type IconProps = React.SVGProps<SVGSVGElement> & {
+  size?: number | string;
+  color?: string;
+};
+
 
 export const Linkedin = ({
   size = 14,

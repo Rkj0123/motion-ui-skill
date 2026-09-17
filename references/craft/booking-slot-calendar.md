@@ -32,7 +32,7 @@ python scripts/install-component.py booking-slot-calendar --dest ./src
 ```tsx
 "use client";
 
-import { BookingSlotCalendar } from "@/components/calender/booking-slot-calendar";
+import { BookingSlotCalendar } from "@/components/calendar/booking-slot-calendar";
 
 export function BookingSlotCalendarDemo() {
   return (

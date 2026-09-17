@@ -52,6 +52,7 @@ export const MagazineCoverCard = forwardRef<
     return (
       <button
         ref={ref}
+        type="button"
         data-slot="magazine-cover-card"
         onClick={onClick}
         className={cn(

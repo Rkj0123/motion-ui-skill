@@ -32,7 +32,7 @@ python scripts/install-component.py week-strip-calendar --dest ./src
 ```tsx
 "use client";
 
-import { WeekStripCalendar } from "@/components/calender/week-strip-calendar";
+import { WeekStripCalendar } from "@/components/calendar/week-strip-calendar";
 
 export function WeekStripCalendarDemo() {
   return (

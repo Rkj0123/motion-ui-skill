@@ -26,10 +26,10 @@ export const TeamMemberCard = forwardRef<
     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 
     <div className="absolute top-3 right-3 flex translate-y-1 gap-1.5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-      <button className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg border border-white/30 bg-white/20 text-white backdrop-blur-md transition-colors hover:bg-white/30">
+      <button type="button" className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg border border-white/30 bg-white/20 text-white backdrop-blur-md transition-colors hover:bg-white/30">
         <Github size={13} />
       </button>
-      <button className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg border border-white/30 bg-white/20 text-white backdrop-blur-md transition-colors hover:bg-white/30">
+      <button type="button" className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg border border-white/30 bg-white/20 text-white backdrop-blur-md transition-colors hover:bg-white/30">
         <Mail size={13} />
       </button>
     </div>

@@ -91,3 +91,30 @@ Craft components incorporate physical, skeuomorphic cues without visual clutter:
 ## 5. Integration with Multi-Style Presets
 
 Craft components fit into the `origin` and `minimal` style presets of Motion UI, offering developers pre-built editorial layouts, device mockups, and physical tactile buttons that complement standard motion primitives.
+
+---
+
+## 6. Next.js Image Domain Configuration
+
+Several craft showcase components utilize `next/image` to render high-fidelity mockups, avatars, and editorial media. When using these components in a Next.js application, configure `next.config.js` or `next.config.mjs` to permit the required remote image hostnames:
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "cursor.com" },
+      { protocol: "https", hostname: "flagcdn.com" },
+      { protocol: "https", hostname: "ditherit.com" },
+      { protocol: "https", hostname: "lucide.dev" },
+      { protocol: "https", hostname: "www.producthunt.com" },
+    ],
+  },
+};
+
+module.exports = nextConfig;
+```
+
+For pure React or Vite setups, replace `next/image` imports with standard HTML `<img>` elements or local asset paths.
+

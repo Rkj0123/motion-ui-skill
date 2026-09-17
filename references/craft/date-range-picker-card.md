@@ -32,7 +32,7 @@ python scripts/install-component.py date-range-picker-card --dest ./src
 ```tsx
 "use client";
 
-import { DateRangePickerCard } from "@/components/calender/date-range-picker-card";
+import { DateRangePickerCard } from "@/components/calendar/date-range-picker-card";
 
 export function DateRangePickerCardDemo() {
   return (

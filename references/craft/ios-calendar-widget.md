@@ -1,15 +1,15 @@
 ---
-title: "Ios Calender"
+title: "Ios Calendar Widget"
 description: "Today's date in the classic iOS calendar tile — red weekday, big day number, month underneath. Updates live, no refresh needed."
 category: "Components"
 publishedAt: "2026-07-09"
 updatedAt: "2026-09-17"
-documentation: "references/craft/ios-calender.md"
-markdown: "references/craft/ios-calender.md"
+documentation: "references/craft/ios-calendar-widget.md"
+markdown: "references/craft/ios-calendar-widget.md"
 license: "MIT"
 ---
 
-# Ios Calender
+# Ios Calendar Widget
 
 > Today's date in the classic iOS calendar tile — red weekday, big day number, month underneath. Updates live, no refresh needed.
 
@@ -17,7 +17,7 @@ license: "MIT"
 
 ```bash
 # Install via motion-ui skill CLI:
-python scripts/install-component.py ios-calender --dest ./src
+python scripts/install-component.py ios-calendar-widget --dest ./src
 ```
 
 ## Dependencies
@@ -31,12 +31,12 @@ python scripts/install-component.py ios-calender --dest ./src
 ```tsx
 "use client";
 
-import { IosCalenderWidget } from "@/components/widgets/ios-calender-widget";
+import { IosCalendarWidget } from "@/components/widgets/ios-calendar-widget";
 
-export function IosCalenderWidgetDemo() {
+export function IosCalendarWidgetDemo() {
   return (
     <div className="flex items-center justify-center p-6">
-      <IosCalenderWidget />
+      <IosCalendarWidget />
     </div>
   );
 }
@@ -44,7 +44,7 @@ export function IosCalenderWidgetDemo() {
 
 ## API Reference
 
-### IosCalenderWidget
+### IosCalendarWidget
 
 | Prop | Type | Default | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |

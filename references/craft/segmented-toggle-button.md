@@ -1,5 +1,5 @@
 ---
-title: "Segmented Control"
+title: "Segmented Toggle Button"
 description: "iOS segmented control — sliding white pill between Day, Week, and Month. Pass your own options array for view modes or filters."
 category: "Components"
 publishedAt: "2026-07-09"
@@ -9,7 +9,7 @@ markdown: "references/craft/segmented-toggle-button.md"
 license: "MIT"
 ---
 
-# Segmented Control
+# Segmented Toggle Button
 
 > iOS segmented control — sliding white pill between Day, Week, and Month. Pass your own options array for view modes or filters.
 

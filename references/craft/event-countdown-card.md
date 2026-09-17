@@ -31,7 +31,7 @@ python scripts/install-component.py event-countdown-card --dest ./src
 ```tsx
 "use client";
 
-import { EventCountdownCard } from "@/components/calender/event-countdown-card";
+import { EventCountdownCard } from "@/components/calendar/event-countdown-card";
 
 export function EventCountdownCardDemo() {
   return (

@@ -32,7 +32,7 @@ python scripts/install-component.py month-picker-calendar --dest ./src
 ```tsx
 "use client";
 
-import { MonthPickerCalendar } from "@/components/calender/month-picker-calendar";
+import { MonthPickerCalendar } from "@/components/calendar/month-picker-calendar";
 
 export function MonthPickerCalendarDemo() {
   return (

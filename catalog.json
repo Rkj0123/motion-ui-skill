@@ -4169,7 +4169,7 @@
     },
     "segmented-toggle-button": {
       "slug": "segmented-toggle-button",
-      "name": "Segmented Control",
+      "name": "Segmented Toggle Button",
       "category": "craft",
       "description": "iOS segmented control \u2014 sliding white pill between Day, Week, and Month. Pass your own options array for view modes or filters.",
       "dependencies": [
@@ -4453,26 +4453,6 @@
       ],
       "preview_files": [],
       "doc_path": "references/craft/ios-digital-clock.md"
-    },
-    "ios-calender": {
-      "slug": "ios-calender",
-      "name": "Ios Calender",
-      "category": "craft",
-      "description": "Today's date in the classic iOS calendar tile \u2014 red weekday, big day number, month underneath. Updates live, no refresh needed.",
-      "dependencies": [
-        "clsx",
-        "react",
-        "tailwind-merge"
-      ],
-      "component_files": [
-        "components/widgets/ios-calender-widget.tsx"
-      ],
-      "util_files": [
-        "lib/cn.ts",
-        "lib/utils.ts"
-      ],
-      "preview_files": [],
-      "doc_path": "references/craft/ios-calender.md"
     },
     "stopwatch": {
       "slug": "stopwatch",
@@ -4882,7 +4862,7 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/calender/month-picker-calendar.tsx"
+        "components/calendar/month-picker-calendar.tsx"
       ],
       "util_files": [
         "lib/cn.ts",
@@ -4903,7 +4883,7 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/calender/week-strip-calendar.tsx"
+        "components/calendar/week-strip-calendar.tsx"
       ],
       "util_files": [
         "lib/cn.ts",
@@ -4924,7 +4904,7 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/calender/date-range-picker-card.tsx"
+        "components/calendar/date-range-picker-card.tsx"
       ],
       "util_files": [
         "lib/cn.ts",
@@ -5095,7 +5075,7 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/calender/event-countdown-card.tsx"
+        "components/calendar/event-countdown-card.tsx"
       ],
       "util_files": [
         "lib/cn.ts",
@@ -5116,7 +5096,7 @@
         "tailwind-merge"
       ],
       "component_files": [
-        "components/calender/booking-slot-calendar.tsx"
+        "components/calendar/booking-slot-calendar.tsx"
       ],
       "util_files": [
         "lib/cn.ts",
@@ -6906,7 +6886,9 @@
         "lib/cn.ts",
         "lib/utils.ts"
       ],
-      "preview_files": [],
+      "preview_files": [
+        "components/underlines/annotated-text-showcase.tsx"
+      ],
       "doc_path": "references/craft/annotated-text.md"
     },
     "otp-boxed-input": {
@@ -8045,6 +8027,62 @@
       ],
       "preview_files": [],
       "doc_path": "references/craft/fine-grain-pattern.md"
+    },
+    "ios-calendar-widget": {
+      "slug": "ios-calendar-widget",
+      "name": "Ios Calendar Widget",
+      "category": "craft",
+      "description": "Today's date in the classic iOS calendar tile \u2014 red weekday, big day number, month underneath. Updates live, no refresh needed.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/ios-calendar-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/ios-calendar-widget.md"
+    },
+    "copy-email": {
+      "slug": "copy-email",
+      "name": "Copy Email Button",
+      "category": "craft",
+      "description": "One-click copy maintainer email address with inline tooltip feedback (\"Click to copy\" / \"Copied\") and zero mailbox popup.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/contact/copy-email.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/copy-email.md"
+    },
+    "page-loader-overlay": {
+      "slug": "page-loader-overlay",
+      "name": "Page Loader Overlay",
+      "category": "craft",
+      "description": "Full-screen page loader overlay with an ink spinner, subtle backdrop, and polite accessibility announcements.",
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "component_files": [
+        "components/system/loaders/page-loader-overlay.tsx"
+      ],
+      "util_files": [],
+      "preview_files": [],
+      "doc_path": "references/craft/page-loader-overlay.md"
     }
   },
   "styles": [

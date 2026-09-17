@@ -12,12 +12,13 @@ import { cn } from "@/lib/cn";
 const IOS_RED = "#FF3B30";
 const IOS_LABEL = "#8E8E93";
 
-export type IosCalenderWidgetProps = Readonly<ComponentPropsWithoutRef<"div">>;
+export type IosCalendarWidgetProps = Readonly<ComponentPropsWithoutRef<"div">>;
+export type IosCalenderWidgetProps = IosCalendarWidgetProps;
 
 // iOS-style calendar tile: weekday on top, day + month at the bottom.
-export const IosCalenderWidget = forwardRef<
+export const IosCalendarWidget = forwardRef<
   HTMLDivElement,
-  IosCalenderWidgetProps
+  IosCalendarWidgetProps
 >(({ className, ...props }, ref) => {
   // Start as null so the first paint matches SSR; date only changes once per minute.
   const [now, setNow] = useState<Date | null>(null);
@@ -38,7 +39,7 @@ export const IosCalenderWidget = forwardRef<
   return (
     <div
       ref={ref}
-      data-slot="ios-calender-widget"
+      data-slot="ios-calendar-widget"
       className={cn(
         "flex h-44 w-44 flex-col overflow-hidden rounded-[22px] border border-neutral-100 bg-white px-4 pt-4 pb-3.5 font-sans shadow-lg shadow-black/5 select-none",
         className,
@@ -82,4 +83,5 @@ export const IosCalenderWidget = forwardRef<
   );
 });
 
-IosCalenderWidget.displayName = "IosCalenderWidget";
+IosCalendarWidget.displayName = "IosCalendarWidget";
+export const IosCalenderWidget = IosCalendarWidget;

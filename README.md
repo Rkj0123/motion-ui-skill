@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Motion UI Banner](https://img.shields.io/badge/Components-337%20Total-6366f1?style=for-the-badge)
+![Motion UI Banner](https://img.shields.io/badge/Components-339%20Total-6366f1?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-18%20%2F%2019-61dafb?style=for-the-badge&logo=react)
 ![Next.js](https://img.shields.io/badge/Next.js-14%20%2F%2015-000000?style=for-the-badge&logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3%20%2F%20v4-38bdf8?style=for-the-badge&logo=tailwindcss)
@@ -11,7 +11,7 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
 <p align="center">
-  <b>Comprehensive Library of 337 Animated React & Next.js UI Components</b><br/>
+  <b>Comprehensive Library of 339 Animated React & Next.js UI Components</b><br/>
   Built with Motion and Tailwind CSS. Designed as an offline-first AI Agent Skill & Developer Toolkit with 6 aesthetic style presets.
 </p>
 
@@ -21,12 +21,12 @@
 
 ## Overview
 
-**Motion UI Skill** is a production-ready, fully self-contained collection of **337 interactive, animated UI components** across four distinct categories:
+**Motion UI Skill** is a production-ready, fully self-contained collection of **339 interactive, animated UI components** across four distinct categories:
 
 1. **Motion Components (80)**: Micro-interactions, spring-loaded buttons, morphing inputs, bouncily unfolding selects, bottom sheets, virtualized tables, 3D cylinder carousels, 17 loader variants, cascaders, ratings, avatar groups, celebration success checks, rich hover cards, keyboard keycaps, smart password fields, spotlight cards, glow buttons, chronological timelines, steppers, segmented controls, breadcrumbs, pagination, collapsibles, chips, copy buttons, progress rings, tree views, sortable lists, date range pickers, icon stacks, phone inputs, speed dials, color pickers, magnet docks, page transitions, card resizes, error shakes, text swaps, and autocompletes.
 2. **AI Agent Surfaces (17)**: Complete modern conversational agent interfaces including message bubbles, viewport scrollers, expandable prompt composers, human-in-the-loop approval cards, streaming responses, diff viewers, syntax-highlighted code blocks, and adaptive activity streams.
 3. **Blocks & Widgets (33)**: Rich, composable application widgets such as drag-and-drop kanban workflow boards, faceted query filter builders, universal mobile action sheets, Apple-style dynamic islands, ⌘K command palettes, knockout tournament fixtures, weekly availability schedulers, cross-chain swaps, prediction market tickets, morphing tab views, event calendars, gantt timeline charts, resizable split panels, audio players, metric stat cards with sparklines, reorder grids, and browser frame mockups.
-4. **Craft & Surface Components (207)**: Tactile 3D buttons, neumorphic soft UI controls, high-fidelity Apple device mockups (iPhone, MacBook, iPad, Watch, iPod), background gradients & geometric patterns, booking calendars, customer and transaction tables, editorial typography cards, social cards, and interactive widgets.
+4. **Craft & Surface Components (209)**: Tactile 3D buttons, neumorphic soft UI controls, high-fidelity Apple device mockups (iPhone, MacBook, iPad, Watch, iPod), background gradients & geometric patterns, booking calendars, customer and transaction tables, editorial typography cards, social cards, and interactive widgets.
 
 ### 🌟 Key Highlights
 - **Local-First**: Every bundled component source file (`.tsx`), shared utility (`lib/`), and markdown guide exists directly in this repository. No remote registry is needed to discover or copy the bundled components.
@@ -92,7 +92,7 @@ npx skills add Rkj0123/motion-ui-skill --skill motion-ui --agent codex --global 
 
 A standalone Python resolver and installer is included in `scripts/install-component.py`:
 
-#### List all 337 components:
+#### List all 339 components:
 ```bash
 python scripts/install-component.py --list
 ```
@@ -139,7 +139,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 
 ---
 
-## Component Catalog (337 Components)
+## Component Catalog (339 Components)
 
 ### 1. Motion Components (80)
 
@@ -292,7 +292,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 
 ---
 
-### 4. Craft & Surface Components (207)
+### 4. Craft & Surface Components (209)
 
 | Component | Slug | Description | Dependencies | Primary File | Docs |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -316,7 +316,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Battery Face** | `battery-face` | Battery level as a character — arc ring, percentage, hours left, and a face that actually looks sad when you're running low. | `lucide-react` | [`components/widgets/battery-face-widget.tsx`](components/widgets/battery-face-widget.tsx) | [Guide](references/craft/battery-face.md) |
 | **Blob Profile** | `blob-profile` | Profile card with an organic blob-shaped photo frame, name, verified check, and handle. Stands out from every circular-avatar layout on the web. | `lucide-react`, `next` | [`components/widgets/blob-profile.tsx`](components/widgets/blob-profile.tsx) | [Guide](references/craft/blob-profile.md) |
 | **Bluetooth Face** | `bluetooth-face` | A teal mascot face that reacts when Bluetooth connects or drops. Toggle on/off with an expression change — playful, but still reads as a real status widget. | `lucide-react` | [`components/widgets/bluetooth-face-widget.tsx`](components/widgets/bluetooth-face-widget.tsx) | [Guide](references/craft/bluetooth-face.md) |
-| **Booking Slot Calendar** | `booking-slot-calendar` | Appointment booking flow — week strip on top, time slots below. Unavailable slots are crossed out, tap to book. | `lucide-react` | [`components/calender/booking-slot-calendar.tsx`](components/calender/booking-slot-calendar.tsx) | [Guide](references/craft/booking-slot-calendar.md) |
+| **Booking Slot Calendar** | `booking-slot-calendar` | Appointment booking flow — week strip on top, time slots below. Unavailable slots are crossed out, tap to book. | `lucide-react` | [`components/calendar/booking-slot-calendar.tsx`](components/calendar/booking-slot-calendar.tsx) | [Guide](references/craft/booking-slot-calendar.md) |
 | **Bookmark Save** | `bookmark-save-button` | Save for later — bookmark icon fills amber and label swaps to Saved. Square-ish control for articles and products. | `lucide-react` | [`components/buttons/bookmark-save-button.tsx`](components/buttons/bookmark-save-button.tsx) | [Guide](references/craft/bookmark-save-button.md) |
 | **Cafe Menu Board** | `cafe-menu-board` | Dark chalkboard-style menu with cafe header, item notes, and amber price accents — hospitality and local brand sites. | `lucide-react` | [`components/text/cafe-menu-board-card.tsx`](components/text/cafe-menu-board-card.tsx) | [Guide](references/craft/cafe-menu-board.md) |
 | **Calendar Reminder Notification** | `calendar-reminder-notification` | Calendar reminder on the iOS grid — red app tile, event name, and time until it starts. | `lucide-react` | [`components/notifications/calendar-reminder-notification-banner.tsx`](components/notifications/calendar-reminder-notification-banner.tsx) | [Guide](references/craft/calendar-reminder-notification.md) |
@@ -330,6 +330,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Compass** | `compass` | A compass dial with labeled directions and a needle that follows device tilt. Pass a heading prop or let the browser handle orientation. | None (core) | [`components/widgets/compass-widget.tsx`](components/widgets/compass-widget.tsx) | [Guide](references/craft/compass.md) |
 | **Contact Form** | `contact-form` | Contact form with honeypot spam guard, character count, field validation, loading state, and success confirmation screen. | `lucide-react` | [`components/forms/contact-form.tsx`](components/forms/contact-form.tsx) | [Guide](references/craft/contact-form.md) |
 | **Contact Profile** | `contact-profile` | Museum placard contact directory — mono labels, serif name, and typographic rows without icon clutter. | `next` | [`components/profile/contact-profile-card.tsx`](components/profile/contact-profile-card.tsx) | [Guide](references/craft/contact-profile.md) |
+| **Copy Email Button** | `copy-email` | One-click copy maintainer email address with inline tooltip feedback ("Click to copy" / "Copied") and zero mailbox popup. | None (core) | [`components/contact/copy-email.tsx`](components/contact/copy-email.tsx) | [Guide](references/craft/copy-email.md) |
 | **Coral Glow** | `coral-glow-background` | Warm aurora wash in rose, peach, coral, and gold over a blush paper base — beauty, lifestyle, and invitation hero sections. | None (core) | [`components/background-gradient/coral-glow-background.tsx`](components/background-gradient/coral-glow-background.tsx) | [Guide](references/craft/coral-glow-background.md) |
 | **Craft Signup Form** | `craft-signup-form` | Registration form with name, email, password strength rules, confirm password match, and required terms acceptance. | `lucide-react`, `next` | [`components/forms/signup-form.tsx`](components/forms/signup-form.tsx) | [Guide](references/craft/craft-signup-form.md) |
 | **Credit Card Glass** | `credit-card-glass` | Glassmorphism payment card with chip, masked number, holder name, and expiry. Glow on hover — fintech landing pages eat this up. | None (core) | [`components/users/credit-card-glass.tsx`](components/users/credit-card-glass.tsx) | [Guide](references/craft/credit-card-glass.md) |
@@ -345,7 +346,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Dark Rose Noir** | `dark-rose-noir-background` | Elegant noir with restrained rose and crimson bloom accents — fashion, beauty, and premium dark branding. | None (core) | [`components/background-gradient/dark-rose-noir-background.tsx`](components/background-gradient/dark-rose-noir-background.tsx) | [Guide](references/craft/dark-rose-noir-background.md) |
 | **Dark Teal Depth** | `dark-teal-depth-background` | Deep oceanic black with layered teal and cyan depth blooms — fintech, dev tools, and refined SaaS dark themes. | None (core) | [`components/background-gradient/dark-teal-depth-background.tsx`](components/background-gradient/dark-teal-depth-background.tsx) | [Guide](references/craft/dark-teal-depth-background.md) |
 | **Date Field Input** | `date-field-input` | Custom calendar popover with month navigation, today shortcut, min/max limits, and styled day grid — no native browser picker. | `lucide-react` | [`components/inputs/date-field-input.tsx`](components/inputs/date-field-input.tsx) | [Guide](references/craft/date-field-input.md) |
-| **Date Range Picker Card** | `date-range-picker-card` | Travel-style date range picker — first tap sets check-in, second sets check-out, days between fill in. | `lucide-react` | [`components/calender/date-range-picker-card.tsx`](components/calender/date-range-picker-card.tsx) | [Guide](references/craft/date-range-picker-card.md) |
+| **Date Range Picker Card** | `date-range-picker-card` | Travel-style date range picker — first tap sets check-in, second sets check-out, days between fill in. | `lucide-react` | [`components/calendar/date-range-picker-card.tsx`](components/calendar/date-range-picker-card.tsx) | [Guide](references/craft/date-range-picker-card.md) |
 | **Delivery Notification** | `delivery-notification` | Shipping update — package icon, delivery status, ETA, and order number in a compact row. | `lucide-react` | [`components/notifications/delivery-notification-banner.tsx`](components/notifications/delivery-notification-banner.tsx) | [Guide](references/craft/delivery-notification.md) |
 | **Denim Product Editorial** | `denim-product-editorial` | Fashion editorial with two square photos, rotated callout labels, and uppercase product description. Lookbook energy for apparel and accessories. | `next` | [`components/text/denim-product-editorial-card.tsx`](components/text/denim-product-editorial-card.tsx) | [Guide](references/craft/denim-product-editorial.md) |
 | **Deploy Notification** | `deploy-notification` | Deploy alert on the iOS grid — Vercel triangle tile, short status line with project, branch, and duration. | `lucide-react` | [`components/notifications/deploy-notification-banner.tsx`](components/notifications/deploy-notification-banner.tsx) | [Guide](references/craft/deploy-notification.md) |
@@ -362,7 +363,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Editorial Staff Profile** | `editorial-staff-profile` | Numbered editorial roster row with serif name, uppercase role, and a square photo. Built for about pages and team indexes. | None (core) | [`components/profile/editorial-staff-profile-card.tsx`](components/profile/editorial-staff-profile-card.tsx) | [Guide](references/craft/editorial-staff-profile.md) |
 | **Electric Scooter** | `electric-scooter` | Ride summary with scooter photo, distance, average speed, and duration. Leaf icon included — built for micro-mobility or fitness stats. | `lucide-react`, `next` | [`components/widgets/electric-scooter-widget.tsx`](components/widgets/electric-scooter-widget.tsx) | [Guide](references/craft/electric-scooter.md) |
 | **Email Notification** | `email-notification` | Mail alert on the iOS grid — sender avatar, app name header, natural from: subject — preview body line. | `lucide-react`, `next` | [`components/notifications/email-notification-banner.tsx`](components/notifications/email-notification-banner.tsx) | [Guide](references/craft/email-notification.md) |
-| **Event Countdown Card** | `event-countdown-card` | Live countdown to an event — days, hours, and minutes update every minute. Editorial typography, no ticker gimmicks. | None (core) | [`components/calender/event-countdown-card.tsx`](components/calender/event-countdown-card.tsx) | [Guide](references/craft/event-countdown-card.md) |
+| **Event Countdown Card** | `event-countdown-card` | Live countdown to an event — days, hours, and minutes update every minute. Editorial typography, no ticker gimmicks. | None (core) | [`components/calendar/event-countdown-card.tsx`](components/calendar/event-countdown-card.tsx) | [Guide](references/craft/event-countdown-card.md) |
 | **Event Ticket** | `event-ticket` | Perforated event ticket with a cover-image date block and VIP pass details on the right. Concert, conference, or launch night — same component. | `lucide-react`, `next` | [`components/event/event-ticket-card.tsx`](components/event/event-ticket-card.tsx) | [Guide](references/craft/event-ticket.md) |
 | **Facebook Post** | `facebook-post` | Facebook feed post with reactions, comments, share counts, optional image, and the full action bar. Familiar layout, your content. | `lucide-react`, `next` | [`components/socials/facebook-post-card.tsx`](components/socials/facebook-post-card.tsx) | [Guide](references/craft/facebook-post.md) |
 | **File Menu** | `file-menu` | Folder icon you can right-click or tap to open a centered action menu — edit, duplicate, pin, move, delete. Keyboard-friendly item hints included. | `lucide-react` | [`components/dropdowns/file-menu-dropdown.tsx`](components/dropdowns/file-menu-dropdown.tsx) | [Guide](references/craft/file-menu.md) |
@@ -397,7 +398,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Ink Wash** | `ink-wash-background` | Minimal sumi-e ink clouds in soft stone gray on warm paper — galleries, studios, and calm editorial layouts. | None (core) | [`components/background-gradient/ink-wash-background.tsx`](components/background-gradient/ink-wash-background.tsx) | [Guide](references/craft/ink-wash-background.md) |
 | **Input Group Field** | `input-group-field` | Grouped input with prefix and suffix slots — URLs, currency, units. Wrapper border highlights on focus; inputs use border-only focus with ring-0. | None (core) | [`components/inputs/input-group-field.tsx`](components/inputs/input-group-field.tsx) | [Guide](references/craft/input-group-field.md) |
 | **Instagram Post** | `instagram-post` | Full Instagram post layout — header, square image, action icons, like count, caption, and timestamp. Looks native, props for your content. | `lucide-react`, `next` | [`components/socials/instagram-post-card.tsx`](components/socials/instagram-post-card.tsx) | [Guide](references/craft/instagram-post.md) |
-| **Ios Calender** | `ios-calender` | Today's date in the classic iOS calendar tile — red weekday, big day number, month underneath. Updates live, no refresh needed. | None (core) | [`components/widgets/ios-calender-widget.tsx`](components/widgets/ios-calender-widget.tsx) | [Guide](references/craft/ios-calender.md) |
+| **Ios Calendar Widget** | `ios-calendar-widget` | Today's date in the classic iOS calendar tile — red weekday, big day number, month underneath. Updates live, no refresh needed. | None (core) | [`components/widgets/ios-calendar-widget.tsx`](components/widgets/ios-calendar-widget.tsx) | [Guide](references/craft/ios-calendar-widget.md) |
 | **Ios Digital Clock** | `ios-digital-clock` | Live HH:MM in an iOS squircle with subtle tick marks around the edge. The kind of clock tile you'd find on a lock screen. | None (core) | [`components/widgets/ios-digital-clock-widget.tsx`](components/widgets/ios-digital-clock-widget.tsx) | [Guide](references/craft/ios-digital-clock.md) |
 | **Ios Earbuds** | `ios-earbuds` | AirPods-style widget showing device name and connection status. Small, familiar, and perfect beside other iOS-style controls. | None (core) | [`components/widgets/ios-earbuds-widget.tsx`](components/widgets/ios-earbuds-widget.tsx) | [Guide](references/craft/ios-earbuds.md) |
 | **Ios Map Location** | `ios-map-location` | Map pin widget with your city name — simple location card in the iOS family. Good for travel apps, weather screens, or profile headers. | None (core) | [`components/widgets/ios-map-location-widget.tsx`](components/widgets/ios-map-location-widget.tsx) | [Guide](references/craft/ios-map-location.md) |
@@ -414,7 +415,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Magazine Cover** | `magazine-cover` | Tall magazine cover with issue badge, category, title, author, and read time. Hover zoom on the cover image — editorial hero material. | `lucide-react`, `next` | [`components/text/magazine-cover-card.tsx`](components/text/magazine-cover-card.tsx) | [Guide](references/craft/magazine-cover.md) |
 | **Minimal Agenda** | `minimal-agenda` | Today's tasks with times — tap a row to mark it done with a strikethrough and checkmark. Clean enough for a daily planner sidebar. | `lucide-react` | [`components/widgets/minimal-agenda-widget.tsx`](components/widgets/minimal-agenda-widget.tsx) | [Guide](references/craft/minimal-agenda.md) |
 | **Mint Lagoon** | `mint-lagoon-background` | Cool aurora wash in emerald, teal, cyan, and mint over a fresh white base — wellness, spa, and clean product launches. | None (core) | [`components/background-gradient/mint-lagoon-background.tsx`](components/background-gradient/mint-lagoon-background.tsx) | [Guide](references/craft/mint-lagoon-background.md) |
-| **Month Picker Calendar** | `month-picker-calendar` | Full month picker with prev/next navigation — tap any day to select it, today gets a quiet ring. | `lucide-react` | [`components/calender/month-picker-calendar.tsx`](components/calender/month-picker-calendar.tsx) | [Guide](references/craft/month-picker-calendar.md) |
+| **Month Picker Calendar** | `month-picker-calendar` | Full month picker with prev/next navigation — tap any day to select it, today gets a quiet ring. | `lucide-react` | [`components/calendar/month-picker-calendar.tsx`](components/calendar/month-picker-calendar.tsx) | [Guide](references/craft/month-picker-calendar.md) |
 | **Museum Placard** | `museum-placard` | Gallery exhibition label that flips to reveal curator notes and acquisition details. Art portfolios and culture sites love this interaction. | None (core) | [`components/gallery/museum-placard-card.tsx`](components/gallery/museum-placard-card.tsx) | [Guide](references/craft/museum-placard.md) |
 | **Music Player** | `music-player` | Full dark player card with cover art, album info, progress scrubber with times, and transport controls. Not a bar — the whole now-playing screen. | `lucide-react`, `next` | [`components/audio/music-player-card.tsx`](components/audio/music-player-card.tsx) | [Guide](references/craft/music-player.md) |
 | **Music Playlist** | `music-playlist` | Playlist card with cover, header stats, and a track list where each row toggles play independently. One component, full playlist UI. | `lucide-react`, `next` | [`components/audio/music-playlist-card.tsx`](components/audio/music-playlist-card.tsx) | [Guide](references/craft/music-playlist.md) |
@@ -426,6 +427,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Orders Table** | `orders-table` | E-commerce orders table — sort by date, total, or status. The standard admin dashboard orders view. | `lucide-react` | [`components/table/orders-table.tsx`](components/table/orders-table.tsx) | [Guide](references/craft/orders-table.md) |
 | **Otp Boxed Input** | `otp-boxed-input` | Full email verification card with icon header, destination text, animated square cells, progress dots, shake-on-error, and resend countdown. | `lucide-react` | [`components/otp/otp-boxed-input.tsx`](components/otp/otp-boxed-input.tsx) | [Guide](references/craft/otp-boxed-input.md) |
 | **Otp Underline Input** | `otp-underline-input` | Editorial underline OTP with serif heading and animated focus rules. Same edge-case handling as boxed — typing, delete, paste, and one-time-code autocomplete. | None (core) | [`components/otp/otp-underline-input.tsx`](components/otp/otp-underline-input.tsx) | [Guide](references/craft/otp-underline-input.md) |
+| **Page Loader Overlay** | `page-loader-overlay` | Full-screen page loader overlay with an ink spinner, subtle backdrop, and polite accessibility announcements. | `lucide-react` | [`components/system/loaders/page-loader-overlay.tsx`](components/system/loaders/page-loader-overlay.tsx) | [Guide](references/craft/page-loader-overlay.md) |
 | **Paper Fold** | `paper-fold-background` | Tactile cardstock with a diagonal crease, soft highlight, and shadow — invitations, stationery, and craft portfolios. | None (core) | [`components/background-gradient/paper-fold-background.tsx`](components/background-gradient/paper-fold-background.tsx) | [Guide](references/craft/paper-fold-background.md) |
 | **Password Field Input** | `password-field-input` | Password input with show/hide toggle, hint text, and error state. Keeps autocomplete defaults and accessible visibility control. | `lucide-react` | [`components/inputs/password-field-input.tsx`](components/inputs/password-field-input.tsx) | [Guide](references/craft/password-field-input.md) |
 | **Payment Notification** | `payment-notification` | Payment received on the iOS grid — emerald tile, amount, and sender name. | `lucide-react` | [`components/notifications/payment-notification-banner.tsx`](components/notifications/payment-notification-banner.tsx) | [Guide](references/craft/payment-notification.md) |
@@ -449,7 +451,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Ride Pickup** | `ride-pickup` | Uber-style pickup card with brand, ETA, car illustration, and vehicle ID. The waiting-screen moment, ready to paste into a mobility app. | `lucide-react`, `next` | [`components/widgets/ride-pickup-widget.tsx`](components/widgets/ride-pickup-widget.tsx) | [Guide](references/craft/ride-pickup.md) |
 | **Sand Drift** | `sand-drift-background` | Layered desert dunes in stone and amber tones with fine grain — travel, hospitality, and calm wellness layouts. | None (core) | [`components/background-gradient/sand-drift-background.tsx`](components/background-gradient/sand-drift-background.tsx) | [Guide](references/craft/sand-drift-background.md) |
 | **Search Input** | `search-input` | Search field with leading icon and clear button. Controlled or uncontrolled value, hidden native cancel, and keyboard-friendly reset. | `lucide-react` | [`components/inputs/search-input.tsx`](components/inputs/search-input.tsx) | [Guide](references/craft/search-input.md) |
-| **Segmented Control** | `segmented-toggle-button` | iOS segmented control — sliding white pill between Day, Week, and Month. Pass your own options array for view modes or filters. | None (core) | [`components/buttons/segmented-toggle-button.tsx`](components/buttons/segmented-toggle-button.tsx) | [Guide](references/craft/segmented-toggle-button.md) |
+| **Segmented Toggle Button** | `segmented-toggle-button` | iOS segmented control — sliding white pill between Day, Week, and Month. Pass your own options array for view modes or filters. | None (core) | [`components/buttons/segmented-toggle-button.tsx`](components/buttons/segmented-toggle-button.tsx) | [Guide](references/craft/segmented-toggle-button.md) |
 | **Select Field Input** | `select-field-input` | Custom listbox select with styled dropdown, keyboard navigation, click-outside close, and hidden input for native form posts. | `lucide-react` | [`components/inputs/select-field-input.tsx`](components/inputs/select-field-input.tsx) | [Guide](references/craft/select-field-input.md) |
 | **Share Menu** | `share-menu` | Square icon trigger opens a horizontal brand rail — four social tiles in a row plus a full-width copy button. | `lucide-react` | [`components/dropdowns/share-menu-dropdown.tsx`](components/dropdowns/share-menu-dropdown.tsx) | [Guide](references/craft/share-menu.md) |
 | **Sheen Pill** | `sheen-pill-button` | Frosted pill with layered shade veil, light band, and rim wire — hover brightens the sheen and clears the fill. Pass width, height, and highlight to tune the frame. | None (core) | [`components/buttons/sheen-pill-button.tsx`](components/buttons/sheen-pill-button.tsx) | [Guide](references/craft/sheen-pill-button.md) |
@@ -500,7 +502,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Voice Assistant** | `voice-assistant` | Animated equalizer bars and a mic button that flip between idle and listening. Builds the voice-AI moment without building the whole assistant. | `lucide-react` | [`components/widgets/voice-assistant-widget.tsx`](components/widgets/voice-assistant-widget.tsx) | [Guide](references/craft/voice-assistant.md) |
 | **Wallet Pass** | `wallet-pass` | Flippable membership pass — gradient front with tier and expiry, QR grid on the back. Tap or hover to flip between sides. | `next` | [`components/wallet/wallet-pass-card.tsx`](components/wallet/wallet-pass-card.tsx) | [Guide](references/craft/wallet-pass.md) |
 | **Weather Snapshot** | `weather-snapshot` | Compact weather card with temperature, highs/lows, humidity, and wind — clear or rain variants. | `lucide-react` | [`components/others/weather-snapshot-card.tsx`](components/others/weather-snapshot-card.tsx) | [Guide](references/craft/weather-snapshot.md) |
-| **Week Strip Calendar** | `week-strip-calendar` | Horizontal week strip for booking and scheduling apps — arrow through weeks, tap a day to select. | `lucide-react` | [`components/calender/week-strip-calendar.tsx`](components/calender/week-strip-calendar.tsx) | [Guide](references/craft/week-strip-calendar.md) |
+| **Week Strip Calendar** | `week-strip-calendar` | Horizontal week strip for booking and scheduling apps — arrow through weeks, tap a day to select. | `lucide-react` | [`components/calendar/week-strip-calendar.tsx`](components/calendar/week-strip-calendar.tsx) | [Guide](references/craft/week-strip-calendar.md) |
 | **Wifi Toggle** | `wifi-toggle` | The toggle you'd expect on an iPhone — network name, on/off switch, that familiar iOS weight. Drop it into any control panel or settings screen. | `lucide-react` | [`components/widgets/wifi-toggle-widget.tsx`](components/widgets/wifi-toggle-widget.tsx) | [Guide](references/craft/wifi-toggle.md) |
 | **Workspace Switcher** | `workspace-switcher` | Rectangular org bar that expands inline — workspace list opens inside the same bordered box, not a floating panel. | `lucide-react` | [`components/dropdowns/workspace-switcher-dropdown.tsx`](components/dropdowns/workspace-switcher-dropdown.tsx) | [Guide](references/craft/workspace-switcher.md) |
 
@@ -571,7 +573,7 @@ python scripts/test_release.py
 python evals/catalog_eval.py
 ```
 
-The checks cover the 337-component catalog, referenced files, installer safety, generated docs, dependency coverage, and the source-reference exclusion rule.
+The checks cover the 339-component catalog, referenced files, installer safety, generated docs, dependency coverage, and the source-reference exclusion rule.
 
 ---
 
@@ -582,12 +584,12 @@ motion-ui-skill/
 ├── README.md                      # Comprehensive guide & installation instructions
 ├── SKILL.md                       # Main agent skill definition with catalog & instructions
 ├── agents/openai.yaml             # Codex skill-list metadata and default prompt
-├── catalog.json                   # Machine-readable metadata for all 337 components
+├── catalog.json                   # Machine-readable metadata for all 339 components
 ├── components/                    # Production TypeScript/React source code
 │   ├── motion/                    # 80 motion primitives and composed blocks
 │   ├── agents/                    # 17 conversational agent surfaces
 │   ├── previews/                  # Component preview & demo implementations
-│   └── [category]/                # 207 craft & surface component files across categories
+│   └── [category]/                # 209 craft & surface component files across categories
 ├── icons/                         # 21 custom brand and annotation icons
 ├── lib/                           # Foundation tokens, easing physics, and utility hooks
 │   ├── ease.ts                    # Easing curves and spring physics constants
@@ -599,7 +601,7 @@ motion-ui-skill/
 │   ├── motion/                    # 90 component guides with props & examples
 │   ├── agents/                    # 17 agent component guides
 │   ├── blocks/                    # 23 block guides
-│   ├── craft/                     # 207 craft and surface component guides
+│   ├── craft/                     # 209 craft and surface component guides
 │   ├── guides/                    # Complete suite of 10 motion & design system guides
 │   └── codex-install.md            # Codex app and CLI installation guide
 ├── prompts/
