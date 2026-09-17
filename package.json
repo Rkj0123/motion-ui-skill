@@ -1,12 +1,24 @@
 {
   "name": "motion-ui-skill",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "bin": {
     "create-motion-ui": "./bin/index.mjs",
     "motion-ui-skill": "./bin/index.mjs"
   },
+  "files": [
+    "bin",
+    "components",
+    "lib",
+    "references",
+    "scripts",
+    "catalog.json",
+    "SKILL.md",
+    "README.md",
+    "LICENSE",
+    "agents"
+  ],
   "scripts": {
     "test": "node test/test_installer.mjs",
     "promo:setup": "npm install",

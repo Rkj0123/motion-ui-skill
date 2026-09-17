@@ -117,7 +117,20 @@ function handleAdd(slug, args) {
 
   console.log(`\n🚀 Installing \x1b[36m${comp.name}\x1b[0m (${slug}) into: ${destDir}\n`);
 
+  const styleIdx = args.indexOf("--style");
+  const stylePreset = styleIdx !== -1 ? args[styleIdx + 1] : null;
+  const validStyles = ["minimal", "origin", "enterprise", "glow", "ios", "brutalist"];
+  if (stylePreset && !validStyles.includes(stylePreset)) {
+    console.error(`Error: Unknown style preset '${stylePreset}'. Valid presets: ${validStyles.join(", ")}`);
+    process.exit(1);
+  }
+
   const files = [...(comp.component_files || []), ...(comp.util_files || [])];
+  if (stylePreset) {
+    if (!files.includes("lib/styles.ts")) files.push("lib/styles.ts");
+    if (!files.includes("lib/ease.ts")) files.push("lib/ease.ts");
+  }
+
   for (const rel of files) {
     const src = join(SKILL_ROOT, rel);
     const dest = join(destDir, rel);
@@ -125,6 +138,10 @@ function handleAdd(slug, args) {
     mkdirSync(dirname(dest), { recursive: true });
     writeFileSync(dest, readFileSync(src));
     console.log(`  \x1b[32m✓\x1b[0m Copied ${rel}`);
+  }
+
+  if (stylePreset) {
+    console.log(`  \x1b[32m✓\x1b[0m Included style preset tokens for '${stylePreset}'`);
   }
 
   if (comp.dependencies?.length) {

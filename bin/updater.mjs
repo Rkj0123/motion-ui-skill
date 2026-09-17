@@ -6,17 +6,17 @@
  * Runs on skill activation with caching to prevent network latency.
  */
 
-import { existsSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, readFileSync, writeFileSync, rmSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import https from "https";
+import { tmpdir } from "os";
 import { execSync } from "child_process";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const SKILL_ROOT = join(__dirname, "..");
 
-const CACHE_FILE = join(SKILL_ROOT, ".last_update_check");
+const CACHE_FILE = join(tmpdir(), "motion-ui-update-cache.json");
 const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour cache
 const UPSTREAM_RAW_URL = "https://raw.githubusercontent.com/Rkj0123/motion-ui-skill/main/package.json";
 
@@ -45,7 +45,7 @@ export function getLocalVersion(skillRoot = SKILL_ROOT) {
     // Default fallback
   }
 
-  return "1.0.0";
+  return "2.0.0";
 }
 
 /**
@@ -66,43 +66,20 @@ export function compareSemver(v1, v2) {
 }
 
 /**
- * Fetch latest version from upstream GitHub with a strict timeout.
+ * Fetch latest version from upstream GitHub with a strict timeout using native fetch.
  */
-export function fetchUpstreamVersion(timeoutMs = 2500) {
-  return new Promise((resolve) => {
-    const req = https.get(
-      UPSTREAM_RAW_URL,
-      {
-        headers: { "User-Agent": "motion-ui-updater" },
-        timeout: timeoutMs,
-      },
-      (res) => {
-        if (res.statusCode !== 200) {
-          resolve(null);
-          return;
-        }
-        let data = "";
-        res.on("data", (chunk) => (data += chunk));
-        res.on("end", () => {
-          try {
-            const parsed = JSON.parse(data);
-            resolve(parsed.version || null);
-          } catch {
-            resolve(null);
-          }
-        });
-      }
-    );
-
-    req.on("timeout", () => {
-      req.destroy();
-      resolve(null);
+export async function fetchUpstreamVersion(timeoutMs = 2500) {
+  try {
+    const res = await fetch(UPSTREAM_RAW_URL, {
+      signal: AbortSignal.timeout(timeoutMs),
+      headers: { "User-Agent": "motion-ui-updater" },
     });
-
-    req.on("error", () => {
-      resolve(null);
-    });
-  });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.version || null;
+  } catch {
+    return null;
+  }
 }
 
 /**
@@ -145,26 +122,28 @@ export async function applyUpdate(skillRoot = SKILL_ROOT) {
     try {
       execSync("git pull --ff-only", { cwd: skillRoot, stdio: "pipe", timeout: 15000 });
       return { success: true, method: "git" };
-    } catch {
-      // Fallback if git fails
+    } catch (err) {
+      return {
+        success: false,
+        error: "git pull failed (local changes or diverged branch). Please update manually.",
+      };
     }
   }
 
   const archiveUrl = "https://codeload.github.com/Rkj0123/motion-ui-skill/tar.gz/main";
+  const tempTar = join(tmpdir(), `motion-ui-update-${Date.now()}.tar.gz`);
   try {
-    const tempTar = join(skillRoot, ".update.tar.gz");
-    execSync(`curl -sL "${archiveUrl}" -o "${tempTar}"`, { timeout: 15000 });
+    execSync(`curl -fsSL "${archiveUrl}" -o "${tempTar}"`, { timeout: 15000 });
     if (existsSync(tempTar)) {
       execSync(
         `tar -xzf "${tempTar}" --strip-components=1 -C "${skillRoot}" --exclude=".git"`,
         { timeout: 15000 }
       );
-      try {
-        execSync(`rm -f "${tempTar}"`);
-      } catch {}
+      rmSync(tempTar, { force: true });
       return { success: true, method: "tarball" };
     }
   } catch (err) {
+    rmSync(tempTar, { force: true });
     return { success: false, error: err.message };
   }
 
@@ -179,7 +158,7 @@ export async function checkAndAutoUpdate(options = {}) {
   const currentVersion = getLocalVersion(skillRoot);
 
   if (!force) {
-    const cached = readCache(join(skillRoot, ".last_update_check"));
+    const cached = readCache();
     if (cached && cached.latestVersion) {
       if (compareSemver(cached.latestVersion, currentVersion) <= 0) {
         if (!silent) console.log(`[motion-ui] v${currentVersion} (up to date, cached)`);
@@ -194,7 +173,7 @@ export async function checkAndAutoUpdate(options = {}) {
     return { updated: false, currentVersion, offline: true };
   }
 
-  writeCache(latestVersion, join(skillRoot, ".last_update_check"));
+  writeCache(latestVersion);
 
   if (compareSemver(latestVersion, currentVersion) > 0) {
     console.log(`\n🔄 [motion-ui] New version available: v${latestVersion} (installed: v${currentVersion})`);

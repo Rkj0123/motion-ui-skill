@@ -14,9 +14,9 @@ assert.strictEqual(compareSemver("1.0.0", "1.0.0"), 0);
 assert.strictEqual(compareSemver("2.0.0", "1.9.9"), 1);
 assert.strictEqual(compareSemver("v2.1.0", "2.0.5"), 1);
 
-// 2. Local version detection
+// 2. Local version detection: must match v2.0.0
 const ver = getLocalVersion();
-assert.ok(typeof ver === "string" && ver.length > 0, "Version should be non-empty string");
+assert.strictEqual(ver, "2.0.0", "Version should match package.json and SKILL.md v2.0.0");
 
 // 3. Cache read/write
 const tempDir = mkdtempSync(join(tmpdir(), "motion-ui-test-"));
@@ -59,6 +59,15 @@ try {
   assert.ok(existsSync(join(targetSkill, "catalog.json")), "catalog.json must be copied");
   assert.ok(existsSync(join(targetSkill, "lib", "styles.ts")), "lib/styles.ts must be copied");
   assert.ok(!existsSync(join(targetSkill, "node_modules")), "node_modules must not be copied");
+
+  // 7. Deduplication test
+  const dedupeTarget = join(tempDir, "dedupe-skill");
+  const copiedDirs = new Set();
+  copySkillPackage(dedupeTarget, { copiedDirs });
+  assert.ok(copiedDirs.has(dedupeTarget), "copiedDirs should record target path");
+  // Second call must be a no-op
+  copySkillPackage(dedupeTarget, { copiedDirs });
+  assert.strictEqual(copiedDirs.size, 1);
 } finally {
   rmSync(tempDir, { recursive: true, force: true });
 }

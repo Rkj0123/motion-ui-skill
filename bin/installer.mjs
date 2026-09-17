@@ -48,8 +48,16 @@ const SKILL_COPY_ITEMS = [
  * Safely copy the skill package into the target directory.
  */
 export function copySkillPackage(targetDir, options = {}) {
-  const { dryRun = false } = options;
+  const { dryRun = false, copiedDirs } = options;
   if (dryRun) return;
+
+  const resolvedTarget = resolve(targetDir);
+  if (copiedDirs) {
+    if (copiedDirs.has(resolvedTarget)) {
+      return;
+    }
+    copiedDirs.add(resolvedTarget);
+  }
 
   if (!existsSync(targetDir)) {
     mkdirSync(targetDir, { recursive: true });
@@ -415,10 +423,12 @@ export async function runInstaller(args = []) {
   console.log(c("bold", `  Installing Motion UI skill (${isGlobal ? "global" : "project-scoped"})...`));
   console.log();
 
+  const copiedDirs = new Set();
+  const installOpts = { dryRun: isDryRun, copiedDirs };
   const installedPaths = [];
   for (const tool of selected) {
     try {
-      const paths = isGlobal ? tool.installGlobal({ dryRun: isDryRun }) : tool.installProject(cwd, { dryRun: isDryRun });
+      const paths = isGlobal ? tool.installGlobal(installOpts) : tool.installProject(cwd, installOpts);
       for (const p of paths) {
         console.log(c("green", `  ✓ ${tool.name}`) + c("dim", ` → ${p}`));
         installedPaths.push(p);
