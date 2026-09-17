@@ -17,6 +17,11 @@
       "slug": "blocks",
       "name": "Blocks & Widgets",
       "description": "Complex composable animated UI widgets: dynamic island, command palette, multi-chain swap, prediction market, availability scheduler, and folder views."
+    },
+    {
+      "slug": "craft",
+      "name": "Craft & Surface Components",
+      "description": "Tactile 3D controls, neumorphic buttons, device mockups, background gradients & patterns, calendar widgets, data tables, editorial typography, and interactive cards."
     }
   ],
   "components": {
@@ -3732,6 +3737,4352 @@
         "ios",
         "brutalist"
       ]
+    },
+    "3d-button": {
+      "slug": "3d-button",
+      "name": "Tactile 3D",
+      "category": "craft",
+      "description": "Universal 3D button with tactile keycap shadows \u2014 pass any children (label, icon + label). Variants: solid, soft, muted. Sizes: sm, md, lg, icon. Press sinks the key in.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/three-d-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/3d-button.md"
+    },
+    "3d-icon-button": {
+      "slug": "3d-icon-button",
+      "name": "Tactile 3D Icon",
+      "category": "craft",
+      "description": "Square 3D icon button \u2014 pass any icon as children and a required label for accessibility. Same solid / soft / muted materials as ThreeDButton.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/three-d-icon-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/3d-icon-button.md"
+    },
+    "soft-ui-button": {
+      "slug": "soft-ui-button",
+      "name": "Neumorphic Soft UI",
+      "category": "craft",
+      "description": "Universal soft-UI / neumorphic button \u2014 even light and dark shadows. Pass any children. Press flips to an inset look.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/soft-ui-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/soft-ui-button.md"
+    },
+    "inset-button": {
+      "slug": "inset-button",
+      "name": "Recessed Inset",
+      "category": "craft",
+      "description": "Recessed inset button \u2014 looks pressed into the surface. Light or dark variant. Pass any children.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/inset-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/inset-button.md"
+    },
+    "soft-pill-button": {
+      "slug": "soft-pill-button",
+      "name": "Floating Pill",
+      "category": "craft",
+      "description": "Floating rounded pill with a soft drop shadow \u2014 light or dark. Pass any children. Nudges down slightly on press.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/soft-pill-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/soft-pill-button.md"
+    },
+    "depth-outline-button": {
+      "slug": "depth-outline-button",
+      "name": "Depth Outline",
+      "category": "craft",
+      "description": "Premium outline button with layered float depth, a soft top lip, and a press-in sink \u2014 secondary CTA that still feels tactile. Pass any children.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/depth-outline-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/depth-outline-button.md"
+    },
+    "sheen-pill-button": {
+      "slug": "sheen-pill-button",
+      "name": "Sheen Pill",
+      "category": "craft",
+      "description": "Frosted pill with layered shade veil, light band, and rim wire \u2014 hover brightens the sheen and clears the fill. Pass width, height, and highlight to tune the frame.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/sheen-pill-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/sheen-pill-button.md"
+    },
+    "prism-depth-button": {
+      "slug": "prism-depth-button",
+      "name": "Prism Depth",
+      "category": "craft",
+      "description": "Dark depth button with a cyan edge flare, rim glow, and layered core veil \u2014 pass any label as children.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/prism-depth-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/prism-depth-button.md"
+    },
+    "dimple-switch": {
+      "slug": "dimple-switch",
+      "name": "Dimple Switch",
+      "category": "craft",
+      "description": "Tactile switch with a dimpled knob, metallic track, and amber on-state fill. Hidden checkbox drives the slide \u2014 controlled or uncontrolled.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/dimple-switch.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dimple-switch.md"
+    },
+    "cinder-latch-button": {
+      "slug": "cinder-latch-button",
+      "name": "Cinder Latch",
+      "category": "craft",
+      "description": "Charcoal latch button with a warm ember under-glow, center groove, and face sheen \u2014 built for secure-action CTAs.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/cinder-latch-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/cinder-latch-button.md"
+    },
+    "slate-chip-switch": {
+      "slug": "slate-chip-switch",
+      "name": "Slate Chip Switch",
+      "category": "craft",
+      "description": "Smooth pill chip switch with a white thumb and sky on-state fill \u2014 a cleaner alternative to textured toggles.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/slate-chip-switch.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/slate-chip-switch.md"
+    },
+    "linen-tab-button": {
+      "slug": "linen-tab-button",
+      "name": "Linen Tab",
+      "category": "craft",
+      "description": "Woven linen tab with dashed stitch borders and a soft fold sheen \u2014 warm, editorial, and understated.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/linen-tab-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/linen-tab-button.md"
+    },
+    "slide-to-confirm-button": {
+      "slug": "slide-to-confirm-button",
+      "name": "Slide to Confirm",
+      "category": "craft",
+      "description": "Drag the knob across the track to commit an action \u2014 snaps back if you release early, locks green when confirmed. Great for irreversible or high-intent actions.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/slide-to-confirm-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/slide-to-confirm-button.md"
+    },
+    "hold-to-delete-button": {
+      "slug": "hold-to-delete-button",
+      "name": "Hold to Delete",
+      "category": "craft",
+      "description": "Press and hold as a fill sweeps across; release early to cancel, hold to the end to delete. Prevents accidental destructive taps.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/hold-to-delete-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/hold-to-delete-button.md"
+    },
+    "add-to-cart-button": {
+      "slug": "add-to-cart-button",
+      "name": "Add to Cart",
+      "category": "craft",
+      "description": "Raised 3D add-to-cart key that sinks in while adding, with gentle label crossfades, then pops back up in a solid emerald added state before resetting.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/add-to-cart-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/add-to-cart-button.md"
+    },
+    "like-button": {
+      "slug": "like-button",
+      "name": "Like Toggle",
+      "category": "craft",
+      "description": "Heart toggle that pops and scatters particles on the way up, with a live count. Pill fills rose when active \u2014 no glow, no gradient.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/like-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/like-button.md"
+    },
+    "craft-copy-button": {
+      "slug": "craft-copy-button",
+      "name": "Tactile Copy Button",
+      "category": "craft",
+      "description": "Copies text to the clipboard and cross-fades the copy icon into a check with a Copied label. Monospace value, resets on its own.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/copy-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/craft-copy-button.md"
+    },
+    "quantity-stepper-button": {
+      "slug": "quantity-stepper-button",
+      "name": "Quantity Stepper",
+      "category": "craft",
+      "description": "Inline minus / count / plus control for carts and forms. Clamps between min and max, disables at the edges.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/quantity-stepper-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/quantity-stepper-button.md"
+    },
+    "download-button": {
+      "slug": "download-button",
+      "name": "Download with States",
+      "category": "craft",
+      "description": "Raised 3D download key that sinks while downloading \u2014 arrow morphs to spinner to check \u2014 then pops back up as a solid emerald done state.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/download-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/download-button.md"
+    },
+    "follow-button": {
+      "slug": "follow-button",
+      "name": "Follow Toggle",
+      "category": "craft",
+      "description": "Social follow toggle \u2014 dark Follow pill becomes a quiet Following state with a user-check icon. Tap again to unfollow.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/follow-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/follow-button.md"
+    },
+    "bookmark-save-button": {
+      "slug": "bookmark-save-button",
+      "name": "Bookmark Save",
+      "category": "craft",
+      "description": "Save for later \u2014 bookmark icon fills amber and label swaps to Saved. Square-ish control for articles and products.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/bookmark-save-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/bookmark-save-button.md"
+    },
+    "segmented-toggle-button": {
+      "slug": "segmented-toggle-button",
+      "name": "Segmented Toggle Button",
+      "category": "craft",
+      "description": "iOS segmented control \u2014 sliding white pill between Day, Week, and Month. Pass your own options array for view modes or filters.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/buttons/segmented-toggle-button.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/segmented-toggle-button.md"
+    },
+    "analog-clock-roman": {
+      "slug": "analog-clock-roman",
+      "name": "Analog Clock \u2014 Roman",
+      "category": "craft",
+      "description": "A live analog clock dressed in roman numerals \u2014 classic dial, real moving hands. Swap the variant prop to match the mood of your layout.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/analog-clock-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/analog-clock-roman.md"
+    },
+    "analog-clock-minimal": {
+      "slug": "analog-clock-minimal",
+      "name": "Analog Clock \u2014 Minimal",
+      "category": "craft",
+      "description": "Ticks and hands on a quiet face, nothing else. When you want the time to sit in the background without shouting over your UI.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/analog-clock-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/analog-clock-minimal.md"
+    },
+    "analog-clock-numeric": {
+      "slug": "analog-clock-numeric",
+      "name": "Analog Clock \u2014 Numeric",
+      "category": "craft",
+      "description": "Arabic numerals and a live second hand on a clean analog dial. Readable from across the room, still far from a default system clock.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/analog-clock-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/analog-clock-numeric.md"
+    },
+    "wifi-toggle": {
+      "slug": "wifi-toggle",
+      "name": "Wifi Toggle",
+      "category": "craft",
+      "description": "The toggle you'd expect on an iPhone \u2014 network name, on/off switch, that familiar iOS weight. Drop it into any control panel or settings screen.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/wifi-toggle-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/wifi-toggle.md"
+    },
+    "voice-assistant": {
+      "slug": "voice-assistant",
+      "name": "Voice Assistant",
+      "category": "craft",
+      "description": "Animated equalizer bars and a mic button that flip between idle and listening. Builds the voice-AI moment without building the whole assistant.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/voice-assistant-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/voice-assistant.md"
+    },
+    "ios-earbuds": {
+      "slug": "ios-earbuds",
+      "name": "Ios Earbuds",
+      "category": "craft",
+      "description": "AirPods-style widget showing device name and connection status. Small, familiar, and perfect beside other iOS-style controls.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/ios-earbuds-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/ios-earbuds.md"
+    },
+    "recorder-face": {
+      "slug": "recorder-face",
+      "name": "Recorder Face",
+      "category": "craft",
+      "description": "A quirky record button with a mascot face, circular dial, and live timer. Tap to start and pause \u2014 feels like a tiny dedicated recorder app.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/recorder-face-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/recorder-face.md"
+    },
+    "battery-face": {
+      "slug": "battery-face",
+      "name": "Battery Face",
+      "category": "craft",
+      "description": "Battery level as a character \u2014 arc ring, percentage, hours left, and a face that actually looks sad when you're running low.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/battery-face-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/battery-face.md"
+    },
+    "compass": {
+      "slug": "compass",
+      "name": "Compass",
+      "category": "craft",
+      "description": "A compass dial with labeled directions and a needle that follows device tilt. Pass a heading prop or let the browser handle orientation.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/compass-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/compass.md"
+    },
+    "bluetooth-face": {
+      "slug": "bluetooth-face",
+      "name": "Bluetooth Face",
+      "category": "craft",
+      "description": "A teal mascot face that reacts when Bluetooth connects or drops. Toggle on/off with an expression change \u2014 playful, but still reads as a real status widget.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/bluetooth-face-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/bluetooth-face.md"
+    },
+    "torch-face": {
+      "slug": "torch-face",
+      "name": "Torch Face",
+      "category": "craft",
+      "description": "Yellow flashlight toggle with a face that lights up when the torch is on. Small detail, but the kind people notice on a control sheet.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/torch-face-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/torch-face.md"
+    },
+    "dnd-face": {
+      "slug": "dnd-face",
+      "name": "Dnd Face",
+      "category": "craft",
+      "description": "Focus mode as a purple moon mascot \u2014 tap to toggle DND and watch the expression shift. Makes a utilitarian setting feel a little human.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/dnd-face-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dnd-face.md"
+    },
+    "ios-digital-clock": {
+      "slug": "ios-digital-clock",
+      "name": "Ios Digital Clock",
+      "category": "craft",
+      "description": "Live HH:MM in an iOS squircle with subtle tick marks around the edge. The kind of clock tile you'd find on a lock screen.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/ios-digital-clock-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/ios-digital-clock.md"
+    },
+    "stopwatch": {
+      "slug": "stopwatch",
+      "name": "Stopwatch",
+      "category": "craft",
+      "description": "Millisecond-precision stopwatch with reset, play-pause, and stop in a compact white widget. Running state shown with a small indicator dot.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/stopwatch-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/stopwatch.md"
+    },
+    "ios-map-location": {
+      "slug": "ios-map-location",
+      "name": "Ios Map Location",
+      "category": "craft",
+      "description": "Map pin widget with your city name \u2014 simple location card in the iOS family. Good for travel apps, weather screens, or profile headers.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/ios-map-location-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/ios-map-location.md"
+    },
+    "focus-breath": {
+      "slug": "focus-breath",
+      "name": "Focus Breath",
+      "category": "craft",
+      "description": "A breathing guide that pulses between inhale and exhale every four seconds. One tap to start \u2014 useful in wellness or focus flows.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/focus-breath-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/focus-breath.md"
+    },
+    "blob-profile": {
+      "slug": "blob-profile",
+      "name": "Blob Profile",
+      "category": "craft",
+      "description": "Profile card with an organic blob-shaped photo frame, name, verified check, and handle. Stands out from every circular-avatar layout on the web.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/blob-profile.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/blob-profile.md"
+    },
+    "editorial-staff-profile": {
+      "slug": "editorial-staff-profile",
+      "name": "Editorial Staff Profile",
+      "category": "craft",
+      "description": "Numbered editorial roster row with serif name, uppercase role, and a square photo. Built for about pages and team indexes.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/profile/editorial-staff-profile-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/editorial-staff-profile.md"
+    },
+    "user-profile": {
+      "slug": "user-profile",
+      "name": "User Profile",
+      "category": "craft",
+      "description": "Author byline on warm editorial paper \u2014 square portrait, serif name, and text links. Built for personal sites and portfolio sidebars.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/profile/user-profile-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/user-profile.md"
+    },
+    "contact-profile": {
+      "slug": "contact-profile",
+      "name": "Contact Profile",
+      "category": "craft",
+      "description": "Museum placard contact directory \u2014 mono labels, serif name, and typographic rows without icon clutter.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/profile/contact-profile-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/contact-profile.md"
+    },
+    "team-member-profile-grid": {
+      "slug": "team-member-profile-grid",
+      "name": "Team Member Profile Grid",
+      "category": "craft",
+      "description": "Responsive team grid with vertical portrait cards \u2014 section header plus name, role, bio, and profile link per member.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/profile/team-member-profile-grid.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/team-member-profile-grid.md"
+    },
+    "mac-dock": {
+      "slug": "mac-dock",
+      "name": "Home",
+      "category": "craft",
+      "description": "Frosted macOS-style app dock with smooth hover lift, tooltips, and brand icons \u2014 Tailwind-only, no motion library.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/docks/mac-dock.tsx"
+      ],
+      "util_files": [
+        "components/docks/Icons.tsx",
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/mac-dock.md"
+    },
+    "app-dock": {
+      "slug": "app-dock",
+      "name": "App Dock",
+      "category": "craft",
+      "description": "Bottom app launcher dock matching MacDock shell, spacing, and hover lift \u2014 with active state and optional labels.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/docks/app-dock.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/app-dock.md"
+    },
+    "editor-tool-dock": {
+      "slug": "editor-tool-dock",
+      "name": "Editor Tool Dock",
+      "category": "craft",
+      "description": "Vertical editor tool dock using MacDock tile size, padding, and ease-smooth hover scale.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/docks/editor-tool-dock.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/editor-tool-dock.md"
+    },
+    "presence-dock": {
+      "slug": "presence-dock",
+      "name": "Presence Dock",
+      "category": "craft",
+      "description": "Collaborator presence dock with MacDock-sized avatar tiles and expandable member list.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/docks/presence-dock.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/presence-dock.md"
+    },
+    "spotlight-bar": {
+      "slug": "spotlight-bar",
+      "name": "Spotlight Bar",
+      "category": "craft",
+      "description": "Spotlight-style command search in the frosted dock shell \u2014 keyboard nav and suggestions.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/docks/spotlight-bar.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/spotlight-bar.md"
+    },
+    "step-count": {
+      "slug": "step-count",
+      "name": "Step Count",
+      "category": "craft",
+      "description": "Editorial step stat \u2014 light wide card, large number, goal in a quiet footer row. No progress bars or icons.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/step-count-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/step-count.md"
+    },
+    "pomodoro": {
+      "slug": "pomodoro",
+      "name": "Pomodoro",
+      "category": "craft",
+      "description": "Dark pomodoro timer \u2014 thin ring, split monospace time, tap to start or pause. Polished to match the DND card size and proportions.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/pomodoro-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/pomodoro.md"
+    },
+    "hydration": {
+      "slug": "hydration",
+      "name": "Hydration",
+      "category": "craft",
+      "description": "Tall bottle card \u2014 count at the top, water level rises inside a simple bottle outline. Tap to log a glass.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/hydration-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/hydration.md"
+    },
+    "sleep-score": {
+      "slug": "sleep-score",
+      "name": "Sleep Score",
+      "category": "craft",
+      "description": "Sleep score in the DND face layout \u2014 sleeping mascot at the bottom, score and quality above, duration tucked below.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/sleep-score-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/sleep-score.md"
+    },
+    "heart-rate": {
+      "slug": "heart-rate",
+      "name": "Heart Rate",
+      "category": "craft",
+      "description": "Heart rate in the DND face layout \u2014 mascot at the bottom, BPM above the dial, soft pulse on the ring.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/heart-rate-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/heart-rate.md"
+    },
+    "daily-activity-calendar": {
+      "slug": "daily-activity-calendar",
+      "name": "Daily Activity Calendar",
+      "category": "craft",
+      "description": "Month grid for the current month \u2014 today is highlighted in orange, with a short emerald streak on prior days. Pass activeDays or highlightDay to override.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/daily-activity-calendar-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/daily-activity-calendar.md"
+    },
+    "month-picker-calendar": {
+      "slug": "month-picker-calendar",
+      "name": "Month Picker Calendar",
+      "category": "craft",
+      "description": "Full month picker with prev/next navigation \u2014 tap any day to select it, today gets a quiet ring.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/calendar/month-picker-calendar.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/month-picker-calendar.md"
+    },
+    "week-strip-calendar": {
+      "slug": "week-strip-calendar",
+      "name": "Week Strip Calendar",
+      "category": "craft",
+      "description": "Horizontal week strip for booking and scheduling apps \u2014 arrow through weeks, tap a day to select.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/calendar/week-strip-calendar.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/week-strip-calendar.md"
+    },
+    "date-range-picker-card": {
+      "slug": "date-range-picker-card",
+      "name": "Date Range Picker Card",
+      "category": "craft",
+      "description": "Travel-style date range picker \u2014 first tap sets check-in, second sets check-out, days between fill in.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/calendar/date-range-picker-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/date-range-picker-card.md"
+    },
+    "team-members-table": {
+      "slug": "team-members-table",
+      "name": "Team Members Table",
+      "category": "craft",
+      "description": "Team members with profile photos, email, role, and status. Uses /profile-picture.png and /woman.png avatars.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/table/team-members-table.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/team-members-table.md"
+    },
+    "orders-table": {
+      "slug": "orders-table",
+      "name": "Orders Table",
+      "category": "craft",
+      "description": "E-commerce orders table \u2014 sort by date, total, or status. The standard admin dashboard orders view.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/table/orders-table.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/orders-table.md"
+    },
+    "users-select-table": {
+      "slug": "users-select-table",
+      "name": "Users Select Table",
+      "category": "craft",
+      "description": "Bulk-select users table with header checkbox and live selection count. Clean white admin pattern for permissions or exports.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/table/users-select-table.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/users-select-table.md"
+    },
+    "recent-transactions-table": {
+      "slug": "recent-transactions-table",
+      "name": "Recent Transactions Table",
+      "category": "craft",
+      "description": "Stripe-style transaction list with positive and negative amounts and simple pagination.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/table/recent-transactions-table.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/recent-transactions-table.md"
+    },
+    "tasks-table": {
+      "slug": "tasks-table",
+      "name": "Tasks Table",
+      "category": "craft",
+      "description": "Project tasks with checkboxes, assignee avatars, and due dates. Tap to mark complete.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/table/tasks-table.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/tasks-table.md"
+    },
+    "customers-table": {
+      "slug": "customers-table",
+      "name": "Customers Table",
+      "category": "craft",
+      "description": "SaaS customer list with plan, last active, and MRR. Common billing dashboard table.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/table/customers-table.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/customers-table.md"
+    },
+    "resource-links-panel": {
+      "slug": "resource-links-panel",
+      "name": "Resource Links Panel",
+      "category": "craft",
+      "description": "Resource link list with logo, name, description, and domain per row \u2014 same layout as the homepage Resources section. Copy and pass title + items.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/resources/resource-links-panel.tsx"
+      ],
+      "util_files": [
+        "icons/brands/producthunt.tsx",
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/resource-links-panel.md"
+    },
+    "event-countdown-card": {
+      "slug": "event-countdown-card",
+      "name": "Event Countdown Card",
+      "category": "craft",
+      "description": "Live countdown to an event \u2014 days, hours, and minutes update every minute. Editorial typography, no ticker gimmicks.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/calendar/event-countdown-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/event-countdown-card.md"
+    },
+    "booking-slot-calendar": {
+      "slug": "booking-slot-calendar",
+      "name": "Booking Slot Calendar",
+      "category": "craft",
+      "description": "Appointment booking flow \u2014 week strip on top, time slots below. Unavailable slots are crossed out, tap to book.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/calendar/booking-slot-calendar.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/booking-slot-calendar.md"
+    },
+    "audio-recorder": {
+      "slug": "audio-recorder",
+      "name": "Audio Recorder",
+      "category": "craft",
+      "description": "Dark recording card with title, date, animated red waveform, and elapsed time. Play and pause feel like a native voice memo app.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/audio-recorder-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/audio-recorder.md"
+    },
+    "flight-arrival": {
+      "slug": "flight-arrival",
+      "name": "Flight Arrival",
+      "category": "craft",
+      "description": "Countdown to landing with departure and arrival airports and a plane moving along a progress bar. Built for travel dashboards and trip widgets.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/flight-arrival-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/flight-arrival.md"
+    },
+    "minimal-agenda": {
+      "slug": "minimal-agenda",
+      "name": "Minimal Agenda",
+      "category": "craft",
+      "description": "Today's tasks with times \u2014 tap a row to mark it done with a strikethrough and checkmark. Clean enough for a daily planner sidebar.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/minimal-agenda-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/minimal-agenda.md"
+    },
+    "ride-pickup": {
+      "slug": "ride-pickup",
+      "name": "Ride Pickup",
+      "category": "craft",
+      "description": "Uber-style pickup card with brand, ETA, car illustration, and vehicle ID. The waiting-screen moment, ready to paste into a mobility app.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/ride-pickup-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/ride-pickup.md"
+    },
+    "electric-scooter": {
+      "slug": "electric-scooter",
+      "name": "Electric Scooter",
+      "category": "craft",
+      "description": "Ride summary with scooter photo, distance, average speed, and duration. Leaf icon included \u2014 built for micro-mobility or fitness stats.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/electric-scooter-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/electric-scooter.md"
+    },
+    "laptop": {
+      "slug": "laptop",
+      "name": "Apple Macbook",
+      "category": "craft",
+      "description": "Apple Macbook component.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/mockups/laptop-mockup-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/laptop.md"
+    },
+    "phone": {
+      "slug": "phone",
+      "name": "Apple iPhone",
+      "category": "craft",
+      "description": "iPhone 15 Pro frame with Dynamic Island and a full-screen preview slot. Pass variant for purple, orange, white, titanium, or cherry finishes. Use visibleRatio to crop from the top, and showDynamicIsland to toggle the island and camera.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/mockups/phone-mockup-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/phone.md"
+    },
+    "ipad": {
+      "slug": "ipad",
+      "name": "Apple iPad",
+      "category": "craft",
+      "description": "iPad Air frame with metallic bezel, top-edge buttons, and a full-screen preview slot. Pass variant for space gray, space black, silver, starlight, blue, purple, pink, or yellow finishes. Use visibleRatio to crop from the top, and showCamera to toggle the front camera dot.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/mockups/tablet-mockup-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/ipad.md"
+    },
+    "apple-watch": {
+      "slug": "apple-watch",
+      "name": "Apple Watch",
+      "category": "craft",
+      "description": "Apple Watch frame with sport band and a rounded display slot for your UI. Pass variant for black, silver, titanium, starlight, blue, gold, or rose finishes.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/mockups/apple-watch-mockup-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/apple-watch.md"
+    },
+    "browser": {
+      "slug": "browser",
+      "name": "Apple Browser",
+      "category": "craft",
+      "description": "Desktop browser chrome with traffic lights and a URL bar framing your website screenshot. Pass theme for light, dark, or transparent chrome.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/mockups/browser-mockup-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/browser.md"
+    },
+    "ipod": {
+      "slug": "ipod",
+      "name": "Apple iPod",
+      "category": "craft",
+      "description": "Classic iPod frame with a screen slot and click wheel \u2014 silver, black, white, pink, blue, green, or red finishes. Drop any UI into the screen area.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/mockups/apple-ipod-mockup-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/ipod.md"
+    },
+    "polaroid-image": {
+      "slug": "polaroid-image",
+      "name": "Polaroid Image",
+      "category": "craft",
+      "description": "Classic white polaroid with photo, caption, and date \u2014 slight tilt that straightens on hover. Nostalgic without feeling like a filter preset.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/gallery/polaroid-image-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/polaroid-image.md"
+    },
+    "notepad": {
+      "slug": "notepad",
+      "name": "Notepad",
+      "category": "craft",
+      "description": "Sticky notepad with an italic quote, author line, and checkbox task list. Bookmark ribbon on top \u2014 good for editorial or productivity layouts.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/text/notepad-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/notepad.md"
+    },
+    "thermal-receipt": {
+      "slug": "thermal-receipt",
+      "name": "Thermal Receipt",
+      "category": "craft",
+      "description": "Monospace receipt with line items, tax, total, perforated edges, and a QR footer. Reads like paper from a real register.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/others/thermal-receipt-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/thermal-receipt.md"
+    },
+    "weather-snapshot": {
+      "slug": "weather-snapshot",
+      "name": "Weather Snapshot",
+      "category": "craft",
+      "description": "Compact weather card with temperature, highs/lows, humidity, and wind \u2014 clear or rain variants.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/others/weather-snapshot-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/weather-snapshot.md"
+    },
+    "instagram-post": {
+      "slug": "instagram-post",
+      "name": "Instagram Post",
+      "category": "craft",
+      "description": "Full Instagram post layout \u2014 header, square image, action icons, like count, caption, and timestamp. Looks native, props for your content.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/socials/instagram-post-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/instagram-post.md"
+    },
+    "threads-post": {
+      "slug": "threads-post",
+      "name": "Threads Post",
+      "category": "craft",
+      "description": "Threads-style post with avatar thread line, text, optional image, and engagement counts. Like toggles on tap.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/socials/threads-post-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/threads-post.md"
+    },
+    "now-playing-bar": {
+      "slug": "now-playing-bar",
+      "name": "Now Playing Bar",
+      "category": "craft",
+      "description": "Compact dark player bar with artwork, track info, transport controls, and a scrubber. The footer bar every music app eventually needs.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/audio/now-playing-bar.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/now-playing-bar.md"
+    },
+    "twitter-post": {
+      "slug": "twitter-post",
+      "name": "Twitter Post",
+      "category": "craft",
+      "description": "Tweet card with avatar, handle, timestamp, hashtags, and full engagement row. For social embeds, mockups, or feed previews.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/socials/twitter-post-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/twitter-post.md"
+    },
+    "film-strip": {
+      "slug": "film-strip",
+      "name": "Film Strip",
+      "category": "craft",
+      "description": "Horizontal 35mm strip with sprocket holes and multiple frames. Roll label up top \u2014 great for photo galleries and vintage layouts.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/gallery/film-strip-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/film-strip.md"
+    },
+    "github-contribution": {
+      "slug": "github-contribution",
+      "name": "Github Contribution",
+      "category": "craft",
+      "description": "GitHub-style contribution heatmap with year selector, total count, and Less/More legend. Pulls real data when you pass a username.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/socials/github-contribution.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/github-contribution.md"
+    },
+    "apple-notification": {
+      "slug": "apple-notification",
+      "name": "Apple Notification",
+      "category": "craft",
+      "description": "Frosted iOS notification with app name, sender, message, and avatar \u2014 dismisses with animation and can be triggered again via button.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/notifications/apple-notification-banner.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/apple-notification.md"
+    },
+    "toast-notification": {
+      "slug": "toast-notification",
+      "name": "Toast Notification",
+      "category": "craft",
+      "description": "Light snackbar with check icon \u2014 message, undo action, slides up on dismiss. For save confirmations and quick feedback.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/notifications/toast-notification-banner.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/toast-notification.md"
+    },
+    "email-notification": {
+      "slug": "email-notification",
+      "name": "Email Notification",
+      "category": "craft",
+      "description": "Mail alert on the iOS grid \u2014 sender avatar, app name header, natural from: subject \u2014 preview body line.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/notifications/email-notification-banner.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/email-notification.md"
+    },
+    "system-alert": {
+      "slug": "system-alert",
+      "name": "System Alert",
+      "category": "craft",
+      "description": "Settings-style iOS alert \u2014 amber app tile, title: description in one natural line. For storage, limits, and warnings.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/notifications/system-alert-banner.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/system-alert.md"
+    },
+    "chat-bubble-notification": {
+      "slug": "chat-bubble-notification",
+      "name": "Chat Bubble Notification",
+      "category": "craft",
+      "description": "Messenger-style bubble \u2014 small avatar, sender name, rounded message bubble with a flat tail corner.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/notifications/chat-bubble-notification-banner.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/chat-bubble-notification.md"
+    },
+    "deploy-notification": {
+      "slug": "deploy-notification",
+      "name": "Deploy Notification",
+      "category": "craft",
+      "description": "Deploy alert on the iOS grid \u2014 Vercel triangle tile, short status line with project, branch, and duration.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/notifications/deploy-notification-banner.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/deploy-notification.md"
+    },
+    "calendar-reminder-notification": {
+      "slug": "calendar-reminder-notification",
+      "name": "Calendar Reminder Notification",
+      "category": "craft",
+      "description": "Calendar reminder on the iOS grid \u2014 red app tile, event name, and time until it starts.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/notifications/calendar-reminder-notification-banner.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/calendar-reminder-notification.md"
+    },
+    "payment-notification": {
+      "slug": "payment-notification",
+      "name": "Payment Notification",
+      "category": "craft",
+      "description": "Payment received on the iOS grid \u2014 emerald tile, amount, and sender name.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/notifications/payment-notification-banner.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/payment-notification.md"
+    },
+    "incoming-call-notification": {
+      "slug": "incoming-call-notification",
+      "name": "Incoming Call Notification",
+      "category": "craft",
+      "description": "Incoming call card \u2014 large avatar, caller name, FaceTime label, Accept and Decline buttons.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/notifications/incoming-call-notification-banner.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/incoming-call-notification.md"
+    },
+    "delivery-notification": {
+      "slug": "delivery-notification",
+      "name": "Delivery Notification",
+      "category": "craft",
+      "description": "Shipping update \u2014 package icon, delivery status, ETA, and order number in a compact row.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/notifications/delivery-notification-banner.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/delivery-notification.md"
+    },
+    "file-menu": {
+      "slug": "file-menu",
+      "name": "File Menu",
+      "category": "craft",
+      "description": "Folder icon you can right-click or tap to open a centered action menu \u2014 edit, duplicate, pin, move, delete. Keyboard-friendly item hints included.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/dropdowns/file-menu-dropdown.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/file-menu.md"
+    },
+    "user-menu": {
+      "slug": "user-menu",
+      "name": "User Menu",
+      "category": "craft",
+      "description": "Account pill with avatar, name, and email that opens into profile, settings, messages, and sign out. The header dropdown every SaaS app needs, with keyboard shortcut labels.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/dropdowns/user-menu-dropdown.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/user-menu.md"
+    },
+    "kebab-actions": {
+      "slug": "kebab-actions",
+      "name": "Kebab Actions",
+      "category": "craft",
+      "description": "List row that expands inline \u2014 actions open inside the same card so widths always align.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/dropdowns/kebab-actions-dropdown.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/kebab-actions.md"
+    },
+    "share-menu": {
+      "slug": "share-menu",
+      "name": "Share Menu",
+      "category": "craft",
+      "description": "Square icon trigger opens a horizontal brand rail \u2014 four social tiles in a row plus a full-width copy button.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/dropdowns/share-menu-dropdown.tsx"
+      ],
+      "util_files": [
+        "icons/brands/discord.tsx",
+        "icons/brands/github.tsx",
+        "icons/brands/linkedin.tsx",
+        "icons/brands/twitter.tsx",
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/share-menu.md"
+    },
+    "notification": {
+      "slug": "notification",
+      "name": "Notification",
+      "category": "craft",
+      "description": "Square bell trigger with a gray inset tray \u2014 each notification is a small bordered card inside the panel.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/dropdowns/notification-dropdown.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/notification.md"
+    },
+    "filter-sort": {
+      "slug": "filter-sort",
+      "name": "Filter Sort",
+      "category": "craft",
+      "description": "Native select-style box \u2014 dropdown is flush below the trigger with matching width and a left-border active state.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/dropdowns/filter-sort-dropdown.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/filter-sort.md"
+    },
+    "workspace-switcher": {
+      "slug": "workspace-switcher",
+      "name": "Workspace Switcher",
+      "category": "craft",
+      "description": "Rectangular org bar that expands inline \u2014 workspace list opens inside the same bordered box, not a floating panel.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/dropdowns/workspace-switcher-dropdown.tsx"
+      ],
+      "util_files": [
+        "icons/brands/github.tsx",
+        "icons/brands/next-js.tsx",
+        "icons/brands/vercel.tsx",
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/workspace-switcher.md"
+    },
+    "cinema-ticket": {
+      "slug": "cinema-ticket",
+      "name": "Cinema Ticket",
+      "category": "craft",
+      "description": "Split cinema ticket with film title, venue, screen, seats, show time, and a perforated stub. Dark ticket stock that feels printed, not flat.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/text/cinema-ticket-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/cinema-ticket.md"
+    },
+    "wallet-pass": {
+      "slug": "wallet-pass",
+      "name": "Wallet Pass",
+      "category": "craft",
+      "description": "Flippable membership pass \u2014 gradient front with tier and expiry, QR grid on the back. Tap or hover to flip between sides.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/wallet/wallet-pass-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/wallet-pass.md"
+    },
+    "credit-card-glass": {
+      "slug": "credit-card-glass",
+      "name": "Credit Card Glass",
+      "category": "craft",
+      "description": "Glassmorphism payment card with chip, masked number, holder name, and expiry. Glow on hover \u2014 fintech landing pages eat this up.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/users/credit-card-glass.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/credit-card-glass.md"
+    },
+    "drop-cap-editorial": {
+      "slug": "drop-cap-editorial",
+      "name": "Drop Cap Editorial",
+      "category": "craft",
+      "description": "Editorial quote block with a large drop-cap letter, body text, and author attribution. Magazine typography without opening InDesign.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/text/drop-cap-editorial-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/drop-cap-editorial.md"
+    },
+    "editorial-quote": {
+      "slug": "editorial-quote",
+      "name": "Editorial Quote",
+      "category": "craft",
+      "description": "Pull quote with issue metadata and a highlighted word inside the line \u2014 author and role at the bottom. Built for case studies and long reads.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/text/editorial-quote-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/editorial-quote.md"
+    },
+    "discord-chat": {
+      "slug": "discord-chat",
+      "name": "Discord Chat",
+      "category": "craft",
+      "description": "Dark Discord channel with server header, threaded messages, avatars, timestamps, and a send input. Community product mockups in one card.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/socials/discord-chat-card.tsx"
+      ],
+      "util_files": [
+        "icons/brands/discord.tsx",
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/discord-chat.md"
+    },
+    "linked-in-profile": {
+      "slug": "linked-in-profile",
+      "name": "Linked In Profile",
+      "category": "craft",
+      "description": "LinkedIn profile card with cover photo, avatar, headline, stats, bio, and Connect/Message buttons. Professional social, component-sized.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/socials/linked-in-profile-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/linked-in-profile.md"
+    },
+    "facebook-post": {
+      "slug": "facebook-post",
+      "name": "Facebook Post",
+      "category": "craft",
+      "description": "Facebook feed post with reactions, comments, share counts, optional image, and the full action bar. Familiar layout, your content.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/socials/facebook-post-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/facebook-post.md"
+    },
+    "twitter-profile": {
+      "slug": "twitter-profile",
+      "name": "Twitter Profile",
+      "category": "craft",
+      "description": "Twitter/X profile with cover, avatar, bio, location, website link, and follower counts. Follow button included.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/socials/twitter-profile-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/twitter-profile.md"
+    },
+    "event-ticket": {
+      "slug": "event-ticket",
+      "name": "Event Ticket",
+      "category": "craft",
+      "description": "Perforated event ticket with a cover-image date block and VIP pass details on the right. Concert, conference, or launch night \u2014 same component.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/event/event-ticket-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/event-ticket.md"
+    },
+    "flight-boarding": {
+      "slug": "flight-boarding",
+      "name": "Flight Boarding",
+      "category": "craft",
+      "description": "Airline boarding pass with tear line, route codes, seat, gate, boarding time, and passenger name. Travel mockups that feel airport-real.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/travel/flight-boarding-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/flight-boarding.md"
+    },
+    "gallery-grid": {
+      "slug": "gallery-grid",
+      "name": "Gallery Grid",
+      "category": "craft",
+      "description": "Album preview with title, subtitle, and a three-cell photo grid \u2014 last cell shows a +N overflow count. Portfolio and gallery index pages.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/gallery/gallery-grid-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/gallery-grid.md"
+    },
+    "glass-overlay-image": {
+      "slug": "glass-overlay-image",
+      "name": "Glass Overlay Image",
+      "category": "craft",
+      "description": "Full-bleed photo with frosted bottom panel \u2014 location, title, saved avatars, and Explore CTA. Like and share buttons float top-right.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/gallery/glass-overlay-image-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/glass-overlay-image.md"
+    },
+    "photo-album": {
+      "slug": "photo-album",
+      "name": "Photo Album",
+      "category": "craft",
+      "description": "Swipeable square photo carousel with place and date caption plus dot indicators. Swap in your own photos and tell a travel story.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/gallery/photo-album-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/photo-album.md"
+    },
+    "magazine-cover": {
+      "slug": "magazine-cover",
+      "name": "Magazine Cover",
+      "category": "craft",
+      "description": "Tall magazine cover with issue badge, category, title, author, and read time. Hover zoom on the cover image \u2014 editorial hero material.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/text/magazine-cover-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/magazine-cover.md"
+    },
+    "stacked-folder-card": {
+      "slug": "stacked-folder-card",
+      "name": "Stacked Folder Card",
+      "category": "craft",
+      "description": "Three stacked folder cards with thick white borders and smooth hover rotation \u2014 back and middle peeks bring any card to the front.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/files/stacked-folder-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/stacked-folder-card.md"
+    },
+    "ink-stamp-document": {
+      "slug": "ink-stamp-document",
+      "name": "Ink Stamp Document",
+      "category": "craft",
+      "description": "Paper filing card with reference metadata and a rotated approval stamp \u2014 contracts, invoices, and admin dashboards.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/files/ink-stamp-document-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/ink-stamp-document.md"
+    },
+    "folder-tab-card": {
+      "slug": "folder-tab-card",
+      "name": "Folder Tab Card",
+      "category": "craft",
+      "description": "Folder tab card with black frame, top-half image, and dark panel showing library stats. Studio App branding by default.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/folder/folder-tab-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/folder-tab-card.md"
+    },
+    "journal-writing": {
+      "slug": "journal-writing",
+      "name": "Journal Writing",
+      "category": "craft",
+      "description": "Journal card with title, date header, editable textarea, live word count, and saving status. The writing flow, not just a static textarea mockup.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/text/journal-writing-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/journal-writing.md"
+    },
+    "terminal-log": {
+      "slug": "terminal-log",
+      "name": "Terminal Log",
+      "category": "craft",
+      "description": "macOS terminal window with traffic-light dots, colored log lines, blinking cursor, and status footer. Dev tool aesthetic for changelogs or demos.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/others/terminal-log-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/terminal-log.md"
+    },
+    "keyboard-shortcuts": {
+      "slug": "keyboard-shortcuts",
+      "name": "Keyboard Shortcuts",
+      "category": "craft",
+      "description": "Shortcut reference card with rendered key caps and a \u2318K header hint. Docs pages and onboarding modals use this constantly.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/text/keyboard-shortcuts-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/keyboard-shortcuts.md"
+    },
+    "github-repo": {
+      "slug": "github-repo",
+      "name": "Github Repo",
+      "category": "craft",
+      "description": "GitHub repo card with owner, description, language dot, star/fork counts, and a toggleable Star button. Open source landing pages, simplified.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/socials/github-repo-card.tsx"
+      ],
+      "util_files": [
+        "icons/brands/github.tsx",
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/github-repo.md"
+    },
+    "museum-placard": {
+      "slug": "museum-placard",
+      "name": "Museum Placard",
+      "category": "craft",
+      "description": "Gallery exhibition label that flips to reveal curator notes and acquisition details. Art portfolios and culture sites love this interaction.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/gallery/museum-placard-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/museum-placard.md"
+    },
+    "gallery-wall": {
+      "slug": "gallery-wall",
+      "name": "Gallery Wall",
+      "category": "craft",
+      "description": "Gallery wall mat with cream matting, artwork preview, and caption block \u2014 clean exhibition styling.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/gallery/gallery-wall-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/gallery-wall.md"
+    },
+    "linked-in-post": {
+      "slug": "linked-in-post",
+      "name": "Linked In Post",
+      "category": "craft",
+      "description": "LinkedIn feed post with headline, body text, link preview card, reaction counts, and like/comment/repost/send actions.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/socials/linked-in-post-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/linked-in-post.md"
+    },
+    "transform-box-frame": {
+      "slug": "transform-box-frame",
+      "name": "Transform Box Frame",
+      "category": "craft",
+      "description": "Design-tool bounding box with separate line and handle colors \u2014 defaults to all black; pass lineColor and handleColor for dual-tone frames.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/frames/transform-box-frame.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/transform-box-frame.md"
+    },
+    "transform-plus-frame": {
+      "slug": "transform-plus-frame",
+      "name": "Transform Plus Frame",
+      "category": "craft",
+      "description": "Bounding box with plus corner handles \u2014 thicker handle strokes than border lines. Defaults to all black; pass lineColor and handleColor for dual-tone frames.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/frames/transform-plus-frame.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/transform-plus-frame.md"
+    },
+    "sticky-note-polaroid-frame": {
+      "slug": "sticky-note-polaroid-frame",
+      "name": "Sticky Note Polaroid Frame",
+      "category": "craft",
+      "description": "Polaroid-style frame with a paper-clipped sticky note overlay \u2014 pass noteHeader, noteBody, noteFooter, and any image or video as children.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/frames/sticky-note-polaroid-frame.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/sticky-note-polaroid-frame.md"
+    },
+    "hard-shadow-polaroid-frame": {
+      "slug": "hard-shadow-polaroid-frame",
+      "name": "Hard Shadow Polaroid Frame",
+      "category": "craft",
+      "description": "Polaroid frame with a crisp inner border, thick caption chin, and hard offset shadow \u2014 pass caption and any image or video as children.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/frames/hard-shadow-polaroid-frame.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/hard-shadow-polaroid-frame.md"
+    },
+    "circle-cut-frame": {
+      "slug": "circle-cut-frame",
+      "name": "Circle Cut Frame",
+      "category": "craft",
+      "description": "Ticket-style frame with circle-cut edges on all sides \u2014 defaults to white; pass width, height, frameColor, and any image, video, or content as children.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/frames/circle-cut-frame.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/circle-cut-frame.md"
+    },
+    "music-player": {
+      "slug": "music-player",
+      "name": "Music Player",
+      "category": "craft",
+      "description": "Full dark player card with cover art, album info, progress scrubber with times, and transport controls. Not a bar \u2014 the whole now-playing screen.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/audio/music-player-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/music-player.md"
+    },
+    "photo-contact-sheet": {
+      "slug": "photo-contact-sheet",
+      "name": "Photo Contact Sheet",
+      "category": "craft",
+      "description": "Film contact sheet with a 2\u00d72 numbered frame grid and roll label header. Photographer portfolio vibes, straight from the darkroom.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/gallery/photo-contact-sheet-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/photo-contact-sheet.md"
+    },
+    "music-playlist": {
+      "slug": "music-playlist",
+      "name": "Music Playlist",
+      "category": "craft",
+      "description": "Playlist card with cover, header stats, and a track list where each row toggles play independently. One component, full playlist UI.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/audio/music-playlist-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/music-playlist.md"
+    },
+    "stacked-cards-effect": {
+      "slug": "stacked-cards-effect",
+      "name": "Stacked Cards Effect",
+      "category": "craft",
+      "description": "Three skewed cards fanned behind a front hero card \u2014 hover brings subtle motion. Collection and portfolio layouts with depth, no Three.js required.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/others/stacked-cards-effect.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/stacked-cards-effect.md"
+    },
+    "retail-price-tag": {
+      "slug": "retail-price-tag",
+      "name": "Retail Price Tag",
+      "category": "craft",
+      "description": "Hanging store tag with discount badge, sale price, SKU, and barcode stripes. E-commerce editorial and product drops.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/pricing/retail-price-tag-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/retail-price-tag.md"
+    },
+    "stamp-postcard": {
+      "slug": "stamp-postcard",
+      "name": "Stamp Postcard",
+      "category": "craft",
+      "description": "Vintage postcard with landscape photo, postage stamp overlay, handwritten message, and posted-from address. Travel and lifestyle brands love this one.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/gallery/stamp-postcard-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/stamp-postcard.md"
+    },
+    "progress-ring-card": {
+      "slug": "progress-ring-card",
+      "name": "Progress Ring Card",
+      "category": "craft",
+      "description": "Animated SVG ring with percentage label and clickable stage rows below. Defaults to Design/Development/Testing \u2014 pass your own milestones.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/others/progress-ring-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/progress-ring-card.md"
+    },
+    "team-member": {
+      "slug": "team-member",
+      "name": "Team Member",
+      "category": "craft",
+      "description": "Full-bleed portrait card \u2014 hover reveals GitHub and mail buttons, role, name, and bio. About pages without the generic card grid.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/users/team-member-card.tsx"
+      ],
+      "util_files": [
+        "icons/brands/github.tsx",
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/team-member.md"
+    },
+    "testimonial": {
+      "slug": "testimonial",
+      "name": "Testimonial",
+      "category": "craft",
+      "description": "Auto-advancing testimonial carousel with stars, quote, avatar, and dot navigation. Social proof that moves on its own.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/users/testimonial-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/testimonial.md"
+    },
+    "toggle-pricing-cards": {
+      "slug": "toggle-pricing-cards",
+      "name": "Toggle Pricing Cards",
+      "category": "craft",
+      "description": "Monthly and yearly billing toggle that updates three plan cards side by side \u2014 price and feature checklist included. SaaS pricing page, one paste away.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/pricing/toggle-pricing-cards.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/toggle-pricing-cards.md"
+    },
+    "travel-postcard": {
+      "slug": "travel-postcard",
+      "name": "Travel Postcard",
+      "category": "craft",
+      "description": "Vintage sepia postcard with map badge, greeting title, location, and author signature. Wanderlust landing pages and newsletter headers.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/travel/travel-postcard-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/travel-postcard.md"
+    },
+    "slow-living-polaroid": {
+      "slug": "slow-living-polaroid",
+      "name": "Slow Living Polaroid",
+      "category": "craft",
+      "description": "Dark editorial layout with a taped, tilted polaroid and lowercase lifestyle copy. Slow living, coffee brands, quiet product launches.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/gallery/slow-living-polaroid-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/slow-living-polaroid.md"
+    },
+    "denim-product-editorial": {
+      "slug": "denim-product-editorial",
+      "name": "Denim Product Editorial",
+      "category": "craft",
+      "description": "Fashion editorial with two square photos, rotated callout labels, and uppercase product description. Lookbook energy for apparel and accessories.",
+      "dependencies": [
+        "clsx",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/text/denim-product-editorial-card.tsx"
+      ],
+      "util_files": [
+        "icons/annotations/loop-arrow.tsx",
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/denim-product-editorial.md"
+    },
+    "daily-motivation": {
+      "slug": "daily-motivation",
+      "name": "Daily Motivation",
+      "category": "craft",
+      "description": "Editorial poster with multi-line headline, flower icon, tilted polaroid, and a GOOD DAY sticker. Morning routine apps and wellness newsletters.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/text/daily-motivation-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/daily-motivation.md"
+    },
+    "cafe-menu-board": {
+      "slug": "cafe-menu-board",
+      "name": "Cafe Menu Board",
+      "category": "craft",
+      "description": "Dark chalkboard-style menu with cafe header, item notes, and amber price accents \u2014 hospitality and local brand sites.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/text/cafe-menu-board-card.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/cafe-menu-board.md"
+    },
+    "annotated-text": {
+      "slug": "annotated-text",
+      "name": "Annotated Text",
+      "category": "craft",
+      "description": "Hand-drawn text annotations \u2014 wavy underlines, highlights, arrows, brackets, and more. Pass variant and optional color to style any inline label or callout.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/underlines/annotated-text.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [
+        "components/underlines/annotated-text-showcase.tsx"
+      ],
+      "doc_path": "references/craft/annotated-text.md"
+    },
+    "otp-boxed-input": {
+      "slug": "otp-boxed-input",
+      "name": "Otp Boxed Input",
+      "category": "craft",
+      "description": "Full email verification card with icon header, destination text, animated square cells, progress dots, shake-on-error, and resend countdown.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/otp/otp-boxed-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/otp-boxed-input.md"
+    },
+    "otp-underline-input": {
+      "slug": "otp-underline-input",
+      "name": "Otp Underline Input",
+      "category": "craft",
+      "description": "Editorial underline OTP with serif heading and animated focus rules. Same edge-case handling as boxed \u2014 typing, delete, paste, and one-time-code autocomplete.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/otp/otp-underline-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/otp-underline-input.md"
+    },
+    "text-field-input": {
+      "slug": "text-field-input",
+      "name": "Text Field Input",
+      "category": "craft",
+      "description": "Standard labeled text field with hint and error states. Supports all native input types, required marker, disabled, and full a11y wiring.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/text-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/text-field-input.md"
+    },
+    "search-input": {
+      "slug": "search-input",
+      "name": "Search Input",
+      "category": "craft",
+      "description": "Search field with leading icon and clear button. Controlled or uncontrolled value, hidden native cancel, and keyboard-friendly reset.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/search-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/search-input.md"
+    },
+    "password-field-input": {
+      "slug": "password-field-input",
+      "name": "Password Field Input",
+      "category": "craft",
+      "description": "Password input with show/hide toggle, hint text, and error state. Keeps autocomplete defaults and accessible visibility control.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/password-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/password-field-input.md"
+    },
+    "textarea-field-input": {
+      "slug": "textarea-field-input",
+      "name": "Textarea Field Input",
+      "category": "craft",
+      "description": "Multiline field with live character count, max length guard, resize support, and the same label/hint/error pattern as text fields.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/textarea-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/textarea-field-input.md"
+    },
+    "input-group-field": {
+      "slug": "input-group-field",
+      "name": "Input Group Field",
+      "category": "craft",
+      "description": "Grouped input with prefix and suffix slots \u2014 URLs, currency, units. Wrapper border highlights on focus; inputs use border-only focus with ring-0.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/input-group-field.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/input-group-field.md"
+    },
+    "floating-label-field-input": {
+      "slug": "floating-label-field-input",
+      "name": "Floating Label Field Input",
+      "category": "craft",
+      "description": "Outlined floating label that rests on the border notch when focused or filled \u2014 matches Material-style fields with autofill detection.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/floating-label-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/floating-label-field-input.md"
+    },
+    "select-field-input": {
+      "slug": "select-field-input",
+      "name": "Select Field Input",
+      "category": "craft",
+      "description": "Custom listbox select with styled dropdown, keyboard navigation, click-outside close, and hidden input for native form posts.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/select-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/select-field-input.md"
+    },
+    "phone-field-input": {
+      "slug": "phone-field-input",
+      "name": "Phone Field Input",
+      "category": "craft",
+      "description": "Phone field with dial-code prefix and live US-style formatting. Returns raw digits via onChange for validation and API calls.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/phone-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/phone-field-input.md"
+    },
+    "checkbox-field-input": {
+      "slug": "checkbox-field-input",
+      "name": "Checkbox Field Input",
+      "category": "craft",
+      "description": "Accessible checkbox with custom mark, inline label, hint, and error. Controlled or uncontrolled checked state.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/checkbox-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/checkbox-field-input.md"
+    },
+    "switch-field-input": {
+      "slug": "switch-field-input",
+      "name": "Switch Field Input",
+      "category": "craft",
+      "description": "Toggle switch with role=switch, keyboard support, hidden input for forms, and label/hint/error layout.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/switch-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/switch-field-input.md"
+    },
+    "combobox-field-input": {
+      "slug": "combobox-field-input",
+      "name": "Combobox Field Input",
+      "category": "craft",
+      "description": "Searchable combobox with filtered listbox, keyboard navigation, click-outside close, and hidden field for form posts.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/combobox-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/combobox-field-input.md"
+    },
+    "radio-group-field-input": {
+      "slug": "radio-group-field-input",
+      "name": "Radio Group Field Input",
+      "category": "craft",
+      "description": "Card-style radio group for checkout and settings flows. Vertical or horizontal layout, descriptions, and arrow-key navigation.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/radio-group-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/radio-group-field-input.md"
+    },
+    "file-upload-field-input": {
+      "slug": "file-upload-field-input",
+      "name": "File Upload Field Input",
+      "category": "craft",
+      "description": "Card-style file upload with drag-and-drop zone, browse button, format/size hints, typed file rows, and remove actions.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/file-upload-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/file-upload-field-input.md"
+    },
+    "date-field-input": {
+      "slug": "date-field-input",
+      "name": "Date Field Input",
+      "category": "craft",
+      "description": "Custom calendar popover with month navigation, today shortcut, min/max limits, and styled day grid \u2014 no native browser picker.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/inputs/date-field-input.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/date-field-input.md"
+    },
+    "login-form": {
+      "slug": "login-form",
+      "name": "Login Form",
+      "category": "craft",
+      "description": "Production login form with email/password validation, remember me, show password, loading state, and forgot-password link.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/forms/login-form.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/login-form.md"
+    },
+    "craft-signup-form": {
+      "slug": "craft-signup-form",
+      "name": "Craft Signup Form",
+      "category": "craft",
+      "description": "Registration form with name, email, password strength rules, confirm password match, and required terms acceptance.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/forms/signup-form.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/craft-signup-form.md"
+    },
+    "contact-form": {
+      "slug": "contact-form",
+      "name": "Contact Form",
+      "category": "craft",
+      "description": "Contact form with honeypot spam guard, character count, field validation, loading state, and success confirmation screen.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/forms/contact-form.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/contact-form.md"
+    },
+    "newsletter-form": {
+      "slug": "newsletter-form",
+      "name": "Newsletter Form",
+      "category": "craft",
+      "description": "Email subscribe form with inline button, validation, privacy note, and inline success message \u2014 built for footers and landing pages.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/forms/newsletter-form.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/newsletter-form.md"
+    },
+    "forgot-password-form": {
+      "slug": "forgot-password-form",
+      "name": "Forgot Password Form",
+      "category": "craft",
+      "description": "Password reset request form with email validation, loading state, success screen, and back-to-login navigation.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "next",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/forms/forgot-password-form.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/forgot-password-form.md"
+    },
+    "apple-hello-loader": {
+      "slug": "apple-hello-loader",
+      "name": "Apple Hello Loader",
+      "category": "craft",
+      "description": "Apple-style greeting loader that cycles through hello, bonjour, hola, and more with a soft fade. Pass greetings, intervalMs, and fadeMs to tune the loop.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/loaders/apple-hello-loader.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/apple-hello-loader.md"
+    },
+    "spin-loader": {
+      "slug": "spin-loader",
+      "name": "Spin Loader",
+      "category": "craft",
+      "description": "Minimal spinning loader built on a lucide icon \u2014 defaults to Loader, but pass any icon prop. Sizes: sm, md, lg.",
+      "dependencies": [
+        "clsx",
+        "lucide-react",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/loaders/spin-loader.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/spin-loader.md"
+    },
+    "text-loader": {
+      "slug": "text-loader",
+      "name": "Text Loader",
+      "category": "craft",
+      "description": "Animated text loader with a spinning color orb and staggered letter pulses. Pass text, variant, and textColor to match your UI.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/loaders/text-loader.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/text-loader.md"
+    },
+    "aurora-background": {
+      "slug": "aurora-background",
+      "name": "Aurora Background",
+      "category": "craft",
+      "description": "Soft aurora wash with lime, mint, cyan, and blue blobs over a warm paper base \u2014 wrap any page section or hero and pass children on top.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/aurora-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/aurora-background.md"
+    },
+    "coral-glow-background": {
+      "slug": "coral-glow-background",
+      "name": "Coral Glow",
+      "category": "craft",
+      "description": "Warm aurora wash in rose, peach, coral, and gold over a blush paper base \u2014 beauty, lifestyle, and invitation hero sections.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/coral-glow-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/coral-glow-background.md"
+    },
+    "mint-lagoon-background": {
+      "slug": "mint-lagoon-background",
+      "name": "Mint Lagoon",
+      "category": "craft",
+      "description": "Cool aurora wash in emerald, teal, cyan, and mint over a fresh white base \u2014 wellness, spa, and clean product launches.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/mint-lagoon-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/mint-lagoon-background.md"
+    },
+    "sunset-bloom-background": {
+      "slug": "sunset-bloom-background",
+      "name": "Sunset Bloom",
+      "category": "craft",
+      "description": "Golden-hour aurora with orange, rose, amber, and sun yellow blooms \u2014 events, photography, and warm brand storytelling.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/sunset-bloom-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/sunset-bloom-background.md"
+    },
+    "honey-ember-background": {
+      "slug": "honey-ember-background",
+      "name": "Honey Ember",
+      "category": "craft",
+      "description": "Cozy aurora glow in honey, amber, ember orange, and soft rose over warm ivory \u2014 food, bakery, and autumn campaigns.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/honey-ember-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/honey-ember-background.md"
+    },
+    "tropical-tide-background": {
+      "slug": "tropical-tide-background",
+      "name": "Tropical Tide",
+      "category": "craft",
+      "description": "Vibrant aurora wash in turquoise, lime, sky blue, and sea green \u2014 travel, resorts, and summer product drops.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/tropical-tide-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/tropical-tide-background.md"
+    },
+    "sunrise-horizon-background": {
+      "slug": "sunrise-horizon-background",
+      "name": "Sunrise Horizon",
+      "category": "craft",
+      "description": "Warm dawn sky with peach horizon bands, a soft sun glow, and cool teal lift at the base \u2014 editorial hero sections and landing pages.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/sunrise-horizon-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/sunrise-horizon-background.md"
+    },
+    "linen-weave-background": {
+      "slug": "linen-weave-background",
+      "name": "Linen Weave",
+      "category": "craft",
+      "description": "Warm editorial linen with crosshatch weave, soft paper grain, and a gentle vignette \u2014 portfolios, magazines, and craft-brand pages.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/linen-weave-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/linen-weave-background.md"
+    },
+    "sand-drift-background": {
+      "slug": "sand-drift-background",
+      "name": "Sand Drift",
+      "category": "craft",
+      "description": "Layered desert dunes in stone and amber tones with fine grain \u2014 travel, hospitality, and calm wellness layouts.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/sand-drift-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/sand-drift-background.md"
+    },
+    "frost-mesh-background": {
+      "slug": "frost-mesh-background",
+      "name": "Frost Mesh",
+      "category": "craft",
+      "description": "Cool frost-white mesh with teal and emerald corner washes \u2014 SaaS dashboards, health apps, and minimal product launches.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/frost-mesh-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/frost-mesh-background.md"
+    },
+    "terrazzo-fragment-background": {
+      "slug": "terrazzo-fragment-background",
+      "name": "Terrazzo Fragment",
+      "category": "craft",
+      "description": "Stone terrazzo base with scattered rose, teal, amber, and clay fragments \u2014 interior brands, caf\u00e9s, and design studios.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/terrazzo-fragment-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/terrazzo-fragment-background.md"
+    },
+    "rain-prism-background": {
+      "slug": "rain-prism-background",
+      "name": "Rain Prism",
+      "category": "craft",
+      "description": "Moody rainfall with angled streaks and a soft prism band across the scene \u2014 music, film, and reflective editorial layouts.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/rain-prism-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/rain-prism-background.md"
+    },
+    "cherry-petal-background": {
+      "slug": "cherry-petal-background",
+      "name": "Cherry Petal",
+      "category": "craft",
+      "description": "Soft spring canvas with drifting cherry petals and a blush radial glow \u2014 weddings, florists, and seasonal campaigns.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/cherry-petal-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/cherry-petal-background.md"
+    },
+    "ink-wash-background": {
+      "slug": "ink-wash-background",
+      "name": "Ink Wash",
+      "category": "craft",
+      "description": "Minimal sumi-e ink clouds in soft stone gray on warm paper \u2014 galleries, studios, and calm editorial layouts.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/ink-wash-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/ink-wash-background.md"
+    },
+    "halftone-pop-background": {
+      "slug": "halftone-pop-background",
+      "name": "Halftone Pop",
+      "category": "craft",
+      "description": "Risograph-style halftone dots in rose, teal, and amber on cream \u2014 posters, zines, and bold creative brands.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/halftone-pop-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/halftone-pop-background.md"
+    },
+    "paper-fold-background": {
+      "slug": "paper-fold-background",
+      "name": "Paper Fold",
+      "category": "craft",
+      "description": "Tactile cardstock with a diagonal crease, soft highlight, and shadow \u2014 invitations, stationery, and craft portfolios.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/paper-fold-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/paper-fold-background.md"
+    },
+    "soft-spotlight-background": {
+      "slug": "soft-spotlight-background",
+      "name": "Soft Spotlight",
+      "category": "craft",
+      "description": "Gallery stage light from above with a gentle vignette \u2014 product reveals, keynote heroes, and museum-style layouts.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/soft-spotlight-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/soft-spotlight-background.md"
+    },
+    "arc-bands-background": {
+      "slug": "arc-bands-background",
+      "name": "Arc Bands",
+      "category": "craft",
+      "description": "Retro poster arcs with sky, teal, amber, and rose blending in soft radial gradients from the base \u2014 festivals, launches, and playful brand moments.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/arc-bands-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/arc-bands-background.md"
+    },
+    "dark-aurora-background": {
+      "slug": "dark-aurora-background",
+      "name": "Dark Aurora",
+      "category": "craft",
+      "description": "Charcoal stage with soft teal, cyan, and emerald aurora blooms \u2014 premium dark hero sections and product launches.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/dark-aurora-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dark-aurora-background.md"
+    },
+    "dark-ember-background": {
+      "slug": "dark-ember-background",
+      "name": "Dark Ember",
+      "category": "craft",
+      "description": "Warm noir base with amber, ember orange, and rose glow pools \u2014 luxury dining, nightlife, and editorial dark modes.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/dark-ember-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dark-ember-background.md"
+    },
+    "dark-teal-depth-background": {
+      "slug": "dark-teal-depth-background",
+      "name": "Dark Teal Depth",
+      "category": "craft",
+      "description": "Deep oceanic black with layered teal and cyan depth blooms \u2014 fintech, dev tools, and refined SaaS dark themes.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/dark-teal-depth-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dark-teal-depth-background.md"
+    },
+    "dark-arc-bands-background": {
+      "slug": "dark-arc-bands-background",
+      "name": "Dark Arc Bands",
+      "category": "craft",
+      "description": "Blended sky, teal, amber, and rose arcs on a midnight base \u2014 cinematic dark posters and event keynotes.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/dark-arc-bands-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dark-arc-bands-background.md"
+    },
+    "dark-carbon-spotlight-background": {
+      "slug": "dark-carbon-spotlight-background",
+      "name": "Dark Carbon Spotlight",
+      "category": "craft",
+      "description": "Carbon black stage with a soft overhead spotlight and vignette \u2014 product reveals, keynotes, and gallery dark modes.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/dark-carbon-spotlight-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dark-carbon-spotlight-background.md"
+    },
+    "dark-midnight-mesh-background": {
+      "slug": "dark-midnight-mesh-background",
+      "name": "Dark Midnight Mesh",
+      "category": "craft",
+      "description": "Midnight frost mesh with whisper-soft grid, teal and sky blooms, and a gentle vignette \u2014 dashboards, terminals, and refined dark UI.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/dark-midnight-mesh-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dark-midnight-mesh-background.md"
+    },
+    "dark-ink-field-background": {
+      "slug": "dark-ink-field-background",
+      "name": "Dark Ink Field",
+      "category": "craft",
+      "description": "Near-black canvas with soft graphite ink washes \u2014 galleries, studios, and minimal dark editorial layouts.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/dark-ink-field-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dark-ink-field-background.md"
+    },
+    "dark-rose-noir-background": {
+      "slug": "dark-rose-noir-background",
+      "name": "Dark Rose Noir",
+      "category": "craft",
+      "description": "Elegant noir with restrained rose and crimson bloom accents \u2014 fashion, beauty, and premium dark branding.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-gradient/dark-rose-noir-background.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dark-rose-noir-background.md"
+    },
+    "diagonal-box-pattern": {
+      "slug": "diagonal-box-pattern",
+      "name": "Diagonal Box",
+      "category": "craft",
+      "description": "Classic 45\u00b0 hairline hatch on white \u2014 the same quiet stage used across marketing mockups and component previews.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-pattern/diagonal-box-pattern.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/diagonal-box-pattern.md"
+    },
+    "reverse-diagonal-box-pattern": {
+      "slug": "reverse-diagonal-box-pattern",
+      "name": "Reverse Diagonal Box",
+      "category": "craft",
+      "description": "Mirrored 45\u00b0 hairline hatch \u2014 same quiet stage as Diagonal Box, rotated right to left for visual variety.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-pattern/reverse-diagonal-box-pattern.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/reverse-diagonal-box-pattern.md"
+    },
+    "dot-grid-pattern": {
+      "slug": "dot-grid-pattern",
+      "name": "Dot Grid",
+      "category": "craft",
+      "description": "Soft dotted grid on neutral paper \u2014 watch mockup stages, device demos, and minimal product sections.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-pattern/dot-grid-pattern.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/dot-grid-pattern.md"
+    },
+    "line-grid-pattern": {
+      "slug": "line-grid-pattern",
+      "name": "Line Grid",
+      "category": "craft",
+      "description": "Horizontal ruled lines with a soft paper gradient \u2014 editorial layouts, docs, and notebook-style sections.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-pattern/line-grid-pattern.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/line-grid-pattern.md"
+    },
+    "graph-paper-pattern": {
+      "slug": "graph-paper-pattern",
+      "name": "Graph Paper",
+      "category": "craft",
+      "description": "Clean square grid for sketches, wireframes, and planning boards \u2014 subtle ink lines on white.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-pattern/graph-paper-pattern.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/graph-paper-pattern.md"
+    },
+    "fine-grain-pattern": {
+      "slug": "fine-grain-pattern",
+      "name": "Fine Grain",
+      "category": "craft",
+      "description": "Micro dot grain for a film-paper feel \u2014 hero backgrounds that need texture without competing with content.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/background-pattern/fine-grain-pattern.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/fine-grain-pattern.md"
+    },
+    "ios-calendar-widget": {
+      "slug": "ios-calendar-widget",
+      "name": "Ios Calendar Widget",
+      "category": "craft",
+      "description": "Today's date in the classic iOS calendar tile \u2014 red weekday, big day number, month underneath. Updates live, no refresh needed.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/widgets/ios-calendar-widget.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/ios-calendar-widget.md"
+    },
+    "copy-email": {
+      "slug": "copy-email",
+      "name": "Copy Email Button",
+      "category": "craft",
+      "description": "One-click copy maintainer email address with inline tooltip feedback (\"Click to copy\" / \"Copied\") and zero mailbox popup.",
+      "dependencies": [
+        "clsx",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/contact/copy-email.tsx"
+      ],
+      "util_files": [
+        "lib/cn.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/craft/copy-email.md"
+    },
+    "page-loader-overlay": {
+      "slug": "page-loader-overlay",
+      "name": "Page Loader Overlay",
+      "category": "craft",
+      "description": "Full-screen page loader overlay with an ink spinner, subtle backdrop, and polite accessibility announcements.",
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "component_files": [
+        "components/system/loaders/page-loader-overlay.tsx"
+      ],
+      "util_files": [],
+      "preview_files": [],
+      "doc_path": "references/craft/page-loader-overlay.md"
     }
   },
   "styles": [

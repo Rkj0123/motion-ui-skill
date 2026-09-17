@@ -27,11 +27,13 @@ def format_row(item):
 motion_items = [c for c in comps.values() if c["category"] == "motion"]
 agents_items = [c for c in comps.values() if c["category"] == "agents"]
 blocks_items = [c for c in comps.values() if c["category"] == "blocks"]
+craft_items = [c for c in comps.values() if c["category"] == "craft"]
 
 # Sort alphabetically by name
 motion_items.sort(key=lambda x: x["name"].lower())
 agents_items.sort(key=lambda x: x["name"].lower())
 blocks_items.sort(key=lambda x: x["name"].lower())
+craft_items.sort(key=lambda x: x["name"].lower())
 
 guide_counts = {}
 for item in comps.values():
@@ -56,16 +58,23 @@ blocks_table = "\n".join([
     *[format_row(it) for it in blocks_items]
 ])
 
+craft_table = "\n".join([
+    "| Component | Slug | Description | Dependencies | Primary File | Docs |",
+    "| :--- | :--- | :--- | :--- | :--- | :--- |",
+    *[format_row(it) for it in craft_items]
+])
+
 # Generate SKILL.md
 skill_md = f"""---
 name: motion-ui
 description: >-
   Production-ready animated UI component library for React and Next.js built with Motion (Framer Motion)
-  and Tailwind CSS. Includes {total_count} interactive components across 3 categories: Motion Primitives ({len(motion_items)} components: buttons,
-  inputs, tabs, modals, bottom sheets, sliders, accordions, dock, carousels, loaders, cascader, rating, avatar group, success check, hover card, kbd, password input, spotlight card, glow button, timeline, stepper, segmented control, breadcrumb, pagination, collapsible, chip, copy button, progress ring, tree view, sortable list, date range picker, icon stack, phone input, speed dial, color picker, magnet dock, page transition, card resize, error shake, text swap, autocomplete), AI Agent Surfaces ({len(agents_items)} components:
-  message bubbles, scrollers, prompt inputs, streaming responses, diff viewers, approval cards, activity streams),
-  and Blocks & Widgets ({len(blocks_items)} components: kanban board, filter builder, action sheet, dynamic island, command palette, cross-chain swap, prediction market, availability scheduler, event calendar, gantt, resizable panel, audio player, metric card, reorder grid, frame). Supports 6 aesthetic style presets (minimal, origin, enterprise, glow, ios, brutalist).
+  and Tailwind CSS. Includes {total_count} interactive components across 4 categories: Motion Primitives ({len(motion_items)} components), AI Agent Surfaces ({len(agents_items)} components), Blocks & Widgets ({len(blocks_items)} components), and Craft & Surface Components ({len(craft_items)} components: tactile 3D buttons, neumorphic controls, device mockups, background gradients & patterns, calendar widgets, data tables, editorial typography, and interactive cards). Supports 6 aesthetic style presets (minimal, origin, enterprise, glow, ios, brutalist).
   Includes local Codex installation instructions, comprehensive design system guides, and an AI-agent install prompt.
+license: MIT
+metadata:
+  author: Rkj0123
+  version: "2.0.0"
 ---
 
 # Motion UI Skill
@@ -209,6 +218,13 @@ Complex composable animated UI widgets: kanban boards, filter builders, action s
 
 ---
 
+### Category 4: Craft & Surface Components ({len(craft_items)} Components)
+Tactile 3D buttons, neumorphic controls, high-fidelity device mockups, background gradients & patterns, calendar widgets, data tables, editorial typography, and interactive surface cards.
+
+{craft_table}
+
+---
+
 ## Motion Guides & Best Practices
 
 For in-depth animation principles, design system checklists, and accessibility rules, read:
@@ -220,6 +236,7 @@ For in-depth animation principles, design system checklists, and accessibility r
 - [`references/guides/baseline-ui-craft.md`](./references/guides/baseline-ui-craft.md): Design Engineer craft principles: optical alignment, spacing rhythm, accessible focus rings, and micro-interactions.
 - [`references/guides/interaction-transitions.md`](./references/guides/interaction-transitions.md): The 12 canonical interaction transitions from Transitions.dev with token specs and timing tables.
 - [`references/guides/universal-mobile-patterns.md`](./references/guides/universal-mobile-patterns.md): Cross-platform mobile interaction patterns, touch ergonomics (44pt/48dp rules), and semantic haptics.
+- [`references/guides/craft-surface-design-system.md`](./references/guides/craft-surface-design-system.md): Craft & Surface Design System covering neutral stages, tactile 3D elevation, typography pairing, and component patterns.
 - [`references/guides/enterprise-dashboard-patterns.md`](./references/guides/enterprise-dashboard-patterns.md): Architecture for complex enterprise surfaces, timelines, kanban task boards, faceted query builders, and data grids.
 """
 
@@ -250,11 +267,12 @@ readme_md = f"""# Motion UI Skill
 
 ## Overview
 
-**Motion UI Skill** is a production-ready, fully self-contained collection of **{total_count} interactive, animated UI components** across three distinct categories:
+**Motion UI Skill** is a production-ready, fully self-contained collection of **{total_count} interactive, animated UI components** across four distinct categories:
 
 1. **Motion Components ({len(motion_items)})**: Micro-interactions, spring-loaded buttons, morphing inputs, bouncily unfolding selects, bottom sheets, virtualized tables, 3D cylinder carousels, 17 loader variants, cascaders, ratings, avatar groups, celebration success checks, rich hover cards, keyboard keycaps, smart password fields, spotlight cards, glow buttons, chronological timelines, steppers, segmented controls, breadcrumbs, pagination, collapsibles, chips, copy buttons, progress rings, tree views, sortable lists, date range pickers, icon stacks, phone inputs, speed dials, color pickers, magnet docks, page transitions, card resizes, error shakes, text swaps, and autocompletes.
 2. **AI Agent Surfaces ({len(agents_items)})**: Complete modern conversational agent interfaces including message bubbles, viewport scrollers, expandable prompt composers, human-in-the-loop approval cards, streaming responses, diff viewers, syntax-highlighted code blocks, and adaptive activity streams.
 3. **Blocks & Widgets ({len(blocks_items)})**: Rich, composable application widgets such as drag-and-drop kanban workflow boards, faceted query filter builders, universal mobile action sheets, Apple-style dynamic islands, ⌘K command palettes, knockout tournament fixtures, weekly availability schedulers, cross-chain swaps, prediction market tickets, morphing tab views, event calendars, gantt timeline charts, resizable split panels, audio players, metric stat cards with sparklines, reorder grids, and browser frame mockups.
+4. **Craft & Surface Components ({len(craft_items)})**: Tactile 3D buttons, neumorphic soft UI controls, high-fidelity Apple device mockups (iPhone, MacBook, iPad, Watch, iPod), background gradients & geometric patterns, booking calendars, customer and transaction tables, editorial typography cards, social cards, and interactive widgets.
 
 ### 🌟 Key Highlights
 - **Local-First**: Every bundled component source file (`.tsx`), shared utility (`lib/`), and markdown guide exists directly in this repository. No remote registry is needed to discover or copy the bundled components.
@@ -387,6 +405,12 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 
 ---
 
+### 4. Craft & Surface Components ({len(craft_items)})
+
+{craft_table}
+
+---
+
 ## Comprehensive Guides Suite
 
 - [Multi-Style Presets Guide](./references/guides/style-presets.md): Architecture and token matrices for minimal, origin, enterprise, glow, ios, and brutalist styles.
@@ -397,6 +421,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 - [Baseline UI Craft & Anti-Slop](./references/guides/baseline-ui-craft.md): Design engineering principles, optical alignment, spacing rhythm, and micro-interactions.
 - [The 12 Canonical Interaction Transitions](./references/guides/interaction-transitions.md): Transitions.dev interaction patterns and token specs.
 - [Universal Mobile-First Interaction Patterns](./references/guides/universal-mobile-patterns.md): Touch ergonomics, haptic feedback semantics, and swipe gestures.
+- [Craft & Surface Design System](./references/guides/craft-surface-design-system.md): Visual language, tactile 3D elevation, typography pairing, and component patterns.
 - [Enterprise Dashboard Architecture](./references/guides/enterprise-dashboard-patterns.md): High-density data grids, kanban boards, faceted query builders, and timelines.
 
 ---
@@ -466,17 +491,21 @@ motion-ui-skill/
 ├── components/                    # Production TypeScript/React source code
 │   ├── motion/                    # {len(motion_items)} motion primitives and composed blocks
 │   ├── agents/                    # {len(agents_items)} conversational agent surfaces
-│   └── previews/                  # Component preview & demo implementations
+│   ├── previews/                  # Component preview & demo implementations
+│   └── [category]/                # {len(craft_items)} craft & surface component files across categories
+├── icons/                         # 21 custom brand and annotation icons
 ├── lib/                           # Foundation tokens, easing physics, and utility hooks
 │   ├── ease.ts                    # Easing curves and spring physics constants
 │   ├── styles.ts                  # Multi-style preset tokens (minimal, origin, enterprise, glow, ios, brutalist)
 │   ├── utils.ts                   # cn() utility
+│   ├── cn.ts                      # cn() re-export
 │   └── hooks/                     # Custom hooks (use-haptic, use-dismiss, use-measure, etc.)
 ├── references/                    # Offline-first detailed markdown component documentation
 │   ├── motion/                    # {guide_counts.get("motion", 0)} component guides with props & examples
 │   ├── agents/                    # {len(agents_items)} agent component guides
 │   ├── blocks/                    # {guide_counts.get("blocks", 0)} block guides
-│   ├── guides/                    # Complete suite of 9 motion & design system guides
+│   ├── craft/                     # {guide_counts.get("craft", 0)} craft and surface component guides
+│   ├── guides/                    # Complete suite of 10 motion & design system guides
 │   └── codex-install.md            # Codex app and CLI installation guide
 ├── prompts/
 │   └── install-motion-ui.md        # Copy-paste prompt for AI-agent installation

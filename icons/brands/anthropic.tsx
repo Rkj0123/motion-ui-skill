@@ -1,0 +1,26 @@
+import type React from "react";
+
+export type IconProps = React.SVGProps<SVGSVGElement> & {
+  size?: number | string;
+  color?: string;
+};
+
+
+export const Anthropic = ({
+  size = 24,
+  color = "currentColor",
+  className,
+  ...props
+}: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill={color}
+    className={className}
+    {...props}
+  >
+    <path d="M7.47 5.13 2 18.86h3.06l1.12-2.88h5.73l1.12 2.88h3.06L10.62 5.13H7.48Zm3.44 8.3H7.16L9.03 8.6l1.87 4.83Zm2.61-8.3L19 18.87h3L16.53 5.13z"></path>
+  </svg>
+);
