@@ -19,12 +19,12 @@ def require(condition, detail):
 def main() -> int:
     catalog = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
     components = catalog.get("components", {})
-    expected_categories = {"motion": 80, "agents": 17, "blocks": 33}
+    expected_categories = {"motion": 80, "agents": 17, "blocks": 33, "craft": 207}
     actual_categories = {
         category: sum(item.get("category") == category for item in components.values())
         for category in expected_categories
     }
-    require(len(components) == 130, len(components))
+    require(len(components) == 337, len(components))
     require(actual_categories == expected_categories, actual_categories)
     require((ROOT / "SKILL.md").is_file(), "SKILL.md")
     require((ROOT / "lib/styles.ts").is_file(), "lib/styles.ts")
@@ -47,7 +47,9 @@ def main() -> int:
     text = "\n".join(
         path.read_text(encoding="utf-8", errors="ignore")
         for path in ROOT.rglob("*")
-        if path.is_file() and not {".git", "node_modules", "__pycache__"}.intersection(path.parts)
+        if path.is_file()
+        and not {".git", "node_modules", "__pycache__", "promo"}.intersection(path.parts)
+        and path.suffix.lower() in {".md", ".json", ".ts", ".tsx", ".py", ".yaml", ".yml", ".html", ".js", ".css", ".txt"}
     ).lower()
     for name in ("README.md", "SKILL.md"):
         require(b"\r" not in (ROOT / name).read_bytes(), f"carriage return in {name}")
@@ -62,7 +64,7 @@ def main() -> int:
             content,
             re.M,
         )
-        require(len(rows) == 130, (name, len(rows)))
+        require(len(rows) == 337, (name, len(rows)))
         require({slug for _, slug, _, _ in rows} == set(listed), name)
         for _, _, primary, doc in rows:
             require((ROOT / primary).is_file(), primary)
@@ -74,7 +76,7 @@ def main() -> int:
     require((ROOT / "prompts/install-motion-ui.md").is_file(), "prompts/install-motion-ui.md")
     require((ROOT / "scripts/test_release.py").is_file(), "scripts/test_release.py")
     require((ROOT / "evals/catalog_eval.py").is_file(), "evals/catalog_eval.py")
-    print("Motion UI skill integrity: PASS (130 components, 80/17/33 categories)")
+    print("Motion UI skill integrity: PASS (337 components, 80/17/33/207 categories)")
     return 0
 
 

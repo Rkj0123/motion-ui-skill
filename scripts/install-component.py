@@ -35,7 +35,7 @@ def list_components(catalog, category=None):
             continue
         grouped.setdefault(cat, []).append(data)
 
-    for cat_slug in ["motion", "agents", "blocks"]:
+    for cat_slug in ["motion", "agents", "blocks", "craft"]:
         if cat_slug not in grouped:
             continue
         items = grouped[cat_slug]
