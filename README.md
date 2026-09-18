@@ -66,7 +66,22 @@ Read [`references/guides/style-presets.md`](./references/guides/style-presets.md
 
 ## Installation & Setup Guide
 
-### 1. Using in AI Agent Environments
+### Universal Agent Setup (Auto-Detect)
+
+The fastest way to connect and configure Motion UI for **Claude Code, Cursor, Windsurf, Codex, Antigravity, OpenCode, and GitHub Copilot**:
+
+```bash
+npx motion-ui-skill
+```
+
+The installer auto-detects supported AI harnesses and configures the skill and agent rules for you.
+
+- **Auto-Update on Activation**: Every time the skill is activated, it quickly verifies the upstream version and auto-updates in place so physics tokens and component catalogs stay current.
+- **Manual update check**: `npx motion-ui-skill update` (or `node bin/updater.mjs`)
+
+---
+
+### Manual Harness Setup
 
 #### A. Google Antigravity
 This repository is pre-configured with workspace skill discovery:

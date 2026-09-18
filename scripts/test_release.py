@@ -15,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 INSTALLER = ROOT / "scripts" / "install-component.py"
 VERIFY = ROOT / "scripts" / "verify_skill.py"
+BUILD_DOCS = ROOT / "scripts" / "build_docs.py"
 
 
 def load_installer():
@@ -97,6 +98,17 @@ def main():
         result = subprocess.run([sys.executable, *args], cwd=ROOT, capture_output=True, text=True)
         if result.returncode != 0:
             raise AssertionError(result.stderr)
+
+    generated = [ROOT / "README.md", ROOT / "SKILL.md"]
+    before = {path: path.read_bytes() for path in generated}
+    result = subprocess.run(
+        [sys.executable, "-B", str(BUILD_DOCS)], cwd=ROOT, capture_output=True, text=True
+    )
+    if result.returncode != 0:
+        raise AssertionError(result.stderr)
+    changed = [path.name for path in generated if path.read_bytes() != before[path]]
+    if changed:
+        raise AssertionError(f"generated docs are stale: {', '.join(changed)}")
 
     if b"\r" in (ROOT / "SKILL.md").read_bytes():
         raise AssertionError("SKILL.md contains carriage returns")

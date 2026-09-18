@@ -1,0 +1,49 @@
+{
+  "name": "motion-ui-skill",
+  "version": "2.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "create-motion-ui": "./bin/index.mjs",
+    "motion-ui-skill": "./bin/index.mjs"
+  },
+  "files": [
+    "bin",
+    "components",
+    "lib",
+    "references",
+    "scripts",
+    "catalog.json",
+    "SKILL.md",
+    "README.md",
+    "LICENSE",
+    "agents"
+  ],
+  "scripts": {
+    "test": "node test/test_installer.mjs",
+    "promo:setup": "npm install",
+    "promo:dev": "vite --port 5173",
+    "promo:record": "node promo/scripts/record.js",
+    "promo:build-video": "python3 promo/scripts/build_videos.py",
+    "promo:all": "node promo/scripts/run_all.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.469.0",
+    "motion": "^12.4.7",
+    "postcss": "^8.4.49",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "shiki": "^4.4.3",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.7"
+  }
+}
