@@ -1,9 +1,20 @@
 import assert from "assert";
-import { mkdtempSync, rmSync, existsSync, readFileSync, writeFileSync } from "fs";
+import {
+  mkdtempSync,
+  rmSync,
+  existsSync,
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  symlinkSync,
+} from "fs";
 import { tmpdir } from "os";
-import { join } from "path";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+import { execFileSync } from "child_process";
 import { compareSemver, getLocalVersion, readCache, writeCache } from "../bin/updater.mjs";
 import { upsertRuleContent, copySkillPackage, AI_HARNESSES } from "../bin/installer.mjs";
+import { copyComponentFiles, safePath } from "../bin/index.mjs";
 
 console.log("Running Motion UI installer & updater tests...");
 
@@ -68,6 +79,46 @@ try {
   // Second call must be a no-op
   copySkillPackage(dedupeTarget, { copiedDirs });
   assert.strictEqual(copiedDirs.size, 1);
+
+  // 8. Node component installer containment and atomic planning
+  assert.throws(() => safePath(tempDir, "../outside.tsx"), /stay relative/);
+  const incompleteDest = join(tempDir, "incomplete");
+  assert.throws(
+    () =>
+      copyComponentFiles(
+        { component_files: ["components/buttons/three-d-button.tsx", "missing.tsx"] },
+        incompleteDest
+      ),
+    /Required source file missing/
+  );
+  assert.ok(
+    !existsSync(join(incompleteDest, "components", "buttons", "three-d-button.tsx")),
+    "An invalid install plan must not copy any files"
+  );
+
+  const sentinel = join(tempDir, "sentinel.txt");
+  const linkedTarget = join(tempDir, "linked", "components", "buttons", "three-d-button.tsx");
+  mkdirSync(dirname(linkedTarget), { recursive: true });
+  writeFileSync(sentinel, "keep");
+  symlinkSync(sentinel, linkedTarget);
+  assert.throws(
+    () =>
+      copyComponentFiles(
+        { component_files: ["components/buttons/three-d-button.tsx"] },
+        join(tempDir, "linked")
+      ),
+    /Symlinks are not allowed/
+  );
+  assert.strictEqual(readFileSync(sentinel, "utf-8"), "keep");
+
+  // 9. The documented npx package must remain publishable
+  const pkg = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf-8"));
+  assert.notStrictEqual(pkg.private, true);
+  assert.strictEqual(pkg.bin["motion-ui-skill"], "./bin/index.mjs");
+
+  const cliLink = join(tempDir, "motion-ui-skill");
+  symlinkSync(fileURLToPath(new URL("../bin/index.mjs", import.meta.url)), cliLink);
+  assert.strictEqual(execFileSync(process.execPath, [cliLink, "--version"], { encoding: "utf-8" }).trim(), "v2.0.0");
 } finally {
   rmSync(tempDir, { recursive: true, force: true });
 }

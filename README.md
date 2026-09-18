@@ -71,12 +71,12 @@ Read [`references/guides/style-presets.md`](./references/guides/style-presets.md
 The fastest way to connect and configure Motion UI for **Claude Code, Cursor, Windsurf, Codex, Antigravity, OpenCode, and GitHub Copilot**:
 
 ```bash
-npx create-motion-ui
+npx motion-ui-skill
 ```
 
 The installer auto-detects supported AI harnesses and configures the skill and agent rules for you.
 
-- **Auto-Update on Activation**: Every time the skill is activated, it quickly verifies the upstream version and auto-updates in-place so physics tokens and component catalogs stay current.
+- **Auto-Update on Activation**: Every time the skill is activated, it quickly verifies the upstream version and auto-updates in place so physics tokens and component catalogs stay current.
 - **Manual update check**: `npx motion-ui-skill update` (or `node bin/updater.mjs`)
 
 ---

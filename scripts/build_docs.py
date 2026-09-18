@@ -177,6 +177,13 @@ Read [`references/guides/style-presets.md`](./references/guides/style-presets.md
 
 When the user asks for any animated component, UI widget, micro-interaction, or AI chat surface:
 
+0. **Skill Activation & Auto-Update Check**:
+   Before selecting or writing components, verify the skill is up to date:
+   ```bash
+   node bin/updater.mjs --silent
+   ```
+   *(Or from the consuming project: `node .agents/skills/motion-ui/bin/updater.mjs --silent`). If an upstream update exists, it auto-updates before proceeding.*
+
 1. **Locate the Component**: Find the matching component from the {total_count} components listed in the catalog below or in [`catalog.json`](./catalog.json).
 2. **Read Component Source & Docs**:
    - Inspect the `Primary File` path in the matching catalog entry.
@@ -188,10 +195,16 @@ When the user asks for any animated component, UI widget, micro-interaction, or 
    - Inform the user or run: `npm install motion@^13.1.0 clsx tailwind-merge` + any specific component dependency (e.g. `lucide-react`, `shiki`, `@tanstack/react-virtual`).
 5. **Alternatively, use the CLI Installer**:
    ```bash
+   node bin/index.mjs add <slug> --dest ./src
+   # or
    python scripts/install-component.py <slug> --dest ./src
    ```
 
-When the user asks to install this skill in Codex, read [`references/codex-install.md`](./references/codex-install.md). When they ask an AI agent to install it, provide [`prompts/install-motion-ui.md`](./prompts/install-motion-ui.md) verbatim.
+To auto-detect and install this skill into supported AI harnesses, run:
+```bash
+npx motion-ui-skill
+```
+When the user asks to install this skill in Codex specifically, read [`references/codex-install.md`](./references/codex-install.md). When they ask an AI agent to install it, provide [`prompts/install-motion-ui.md`](./prompts/install-motion-ui.md) verbatim.
 
 ---
 
@@ -312,7 +325,22 @@ Read [`references/guides/style-presets.md`](./references/guides/style-presets.md
 
 ## Installation & Setup Guide
 
-### 1. Using in AI Agent Environments
+### Universal Agent Setup (Auto-Detect)
+
+The fastest way to connect and configure Motion UI for **Claude Code, Cursor, Windsurf, Codex, Antigravity, OpenCode, and GitHub Copilot**:
+
+```bash
+npx motion-ui-skill
+```
+
+The installer auto-detects supported AI harnesses and configures the skill and agent rules for you.
+
+- **Auto-Update on Activation**: Every time the skill is activated, it quickly verifies the upstream version and auto-updates in place so physics tokens and component catalogs stay current.
+- **Manual update check**: `npx motion-ui-skill update` (or `node bin/updater.mjs`)
+
+---
+
+### Manual Harness Setup
 
 #### A. Google Antigravity
 This repository is pre-configured with workspace skill discovery:

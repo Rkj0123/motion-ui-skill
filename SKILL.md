@@ -133,9 +133,9 @@ When the user asks for any animated component, UI widget, micro-interaction, or 
    python scripts/install-component.py <slug> --dest ./src
    ```
 
-To install this skill into any AI harness (Claude Code, Cursor, Windsurf, Codex, Antigravity, OpenCode, Copilot), run:
+To auto-detect and install this skill into supported AI harnesses, run:
 ```bash
-npx create-motion-ui
+npx motion-ui-skill
 ```
 When the user asks to install this skill in Codex specifically, read [`references/codex-install.md`](./references/codex-install.md). When they ask an AI agent to install it, provide [`prompts/install-motion-ui.md`](./prompts/install-motion-ui.md) verbatim.
 

@@ -3,15 +3,15 @@
 /**
  * Motion UI - Unified CLI
  * Supports:
- * - npx create-motion-ui / npx motion-ui-skill (auto-detects and installs skill)
+ * - npx motion-ui-skill (auto-detects and installs skill)
  * - motion-ui-skill update (checks upstream and updates skill)
  * - motion-ui-skill search <query> (searches 339 components)
  * - motion-ui-skill list [category] (lists components)
  * - motion-ui-skill add <slug> (installs component into project)
  */
 
-import { existsSync, readFileSync, mkdirSync, writeFileSync } from "fs";
-import { join, dirname, resolve } from "path";
+import { existsSync, readFileSync, mkdirSync, writeFileSync, lstatSync, realpathSync } from "fs";
+import { join, dirname, resolve, isAbsolute, sep } from "path";
 import { fileURLToPath } from "url";
 import { runInstaller } from "./installer.mjs";
 import { checkAndAutoUpdate, getLocalVersion } from "./updater.mjs";
@@ -36,7 +36,6 @@ Motion UI Skill CLI (v${version})
 Universal animated UI component library for React and Next.js.
 
 USAGE:
-  npx create-motion-ui                Auto-detect AI tools and install skill
   npx motion-ui-skill                 Auto-detect AI tools and install skill
   motion-ui-skill <command> [options]
 
@@ -100,6 +99,55 @@ function handleList(category) {
   }
 }
 
+export function safePath(root, relative) {
+  if (typeof relative !== "string" || !relative || isAbsolute(relative)) {
+    throw new Error(`Path must stay relative to ${root}: ${relative}`);
+  }
+
+  const parts = relative.split(/[/\\]/);
+  if (parts.includes("..")) {
+    throw new Error(`Path must stay relative to ${root}: ${relative}`);
+  }
+
+  const resolvedRoot = resolve(root);
+  const target = resolve(resolvedRoot, ...parts);
+  if (target !== resolvedRoot && !target.startsWith(resolvedRoot + sep)) {
+    throw new Error(`Path escapes ${resolvedRoot}: ${relative}`);
+  }
+
+  let current = resolvedRoot;
+  for (const part of parts) {
+    current = join(current, part);
+    if (existsSync(current) && lstatSync(current).isSymbolicLink()) {
+      throw new Error(`Symlinks are not allowed in install paths: ${relative}`);
+    }
+  }
+  return target;
+}
+
+export function copyComponentFiles(comp, destDir, stylePreset = null) {
+  const files = [...(comp.component_files || []), ...(comp.util_files || [])];
+  if (stylePreset) {
+    if (!files.includes("lib/styles.ts")) files.push("lib/styles.ts");
+    if (!files.includes("lib/ease.ts")) files.push("lib/ease.ts");
+  }
+
+  const plan = files.map((rel) => {
+    const src = safePath(SKILL_ROOT, rel);
+    const dest = safePath(destDir, rel);
+    if (!existsSync(src) || !lstatSync(src).isFile()) {
+      throw new Error(`Required source file missing: ${src}`);
+    }
+    return { rel, src, dest };
+  });
+
+  for (const { src, dest } of plan) {
+    mkdirSync(dirname(dest), { recursive: true });
+    writeFileSync(dest, readFileSync(src));
+  }
+  return plan.map(({ rel }) => rel);
+}
+
 function handleAdd(slug, args) {
   if (!slug) {
     console.log("Please specify a component slug: motion-ui-skill add <slug>");
@@ -125,18 +173,7 @@ function handleAdd(slug, args) {
     process.exit(1);
   }
 
-  const files = [...(comp.component_files || []), ...(comp.util_files || [])];
-  if (stylePreset) {
-    if (!files.includes("lib/styles.ts")) files.push("lib/styles.ts");
-    if (!files.includes("lib/ease.ts")) files.push("lib/ease.ts");
-  }
-
-  for (const rel of files) {
-    const src = join(SKILL_ROOT, rel);
-    const dest = join(destDir, rel);
-    if (!existsSync(src)) continue;
-    mkdirSync(dirname(dest), { recursive: true });
-    writeFileSync(dest, readFileSync(src));
+  for (const rel of copyComponentFiles(comp, destDir, stylePreset)) {
     console.log(`  \x1b[32m✓\x1b[0m Copied ${rel}`);
   }
 
@@ -197,7 +234,9 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error("Error:", err.message);
-  process.exit(1);
-});
+if (process.argv[1] && realpathSync(process.argv[1]) === __filename) {
+  main().catch((err) => {
+    console.error("Error:", err.message);
+    process.exit(1);
+  });
+}
