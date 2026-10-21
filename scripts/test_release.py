@@ -112,6 +112,18 @@ def main():
 
     if b"\r" in (ROOT / "SKILL.md").read_bytes():
         raise AssertionError("SKILL.md contains carriage returns")
+    with tempfile.TemporaryDirectory() as cache:
+        packed = subprocess.run(
+            ["npm", "pack", "--dry-run", "--json", "--cache", cache],
+            cwd=ROOT, capture_output=True, text=True, check=True,
+        )
+        paths = {item["path"] for item in json.loads(packed.stdout)[0]["files"]}
+        if any("__pycache__" in path or path.endswith(".pyc") for path in paths):
+            raise AssertionError("npm package includes generated Python cache files")
+        for relative in ("icons/brands/producthunt.tsx", "data/styles.csv", "prompts/install-motion-ui.md", "evals/catalog_eval.py", "test/test_installer.mjs"):
+            if relative not in paths:
+                raise AssertionError(f"npm package is missing {relative}")
+
     print("Release checks: PASS")
 
 
