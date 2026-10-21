@@ -19,12 +19,12 @@ def require(condition, detail):
 def main() -> int:
     catalog = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
     components = catalog.get("components", {})
-    expected_categories = {"motion": 95, "agents": 18, "blocks": 33, "craft": 236}
+    expected_categories = {"motion": 97, "agents": 18, "blocks": 33, "craft": 236}
     actual_categories = {
         category: sum(item.get("category") == category for item in components.values())
         for category in expected_categories
     }
-    require(len(components) == 382, len(components))
+    require(len(components) == 384, len(components))
     require(actual_categories == expected_categories, actual_categories)
     require((ROOT / "SKILL.md").is_file(), "SKILL.md")
     require((ROOT / "lib/styles.ts").is_file(), "lib/styles.ts")
@@ -64,7 +64,7 @@ def main() -> int:
             content,
             re.M,
         )
-        require(len(rows) == 382, (name, len(rows)))
+        require(len(rows) == 384, (name, len(rows)))
         require({slug for _, slug, _, _ in rows} == set(listed), name)
         for _, _, primary, doc in rows:
             require((ROOT / primary).is_file(), primary)
@@ -76,7 +76,7 @@ def main() -> int:
     require((ROOT / "prompts/install-motion-ui.md").is_file(), "prompts/install-motion-ui.md")
     require((ROOT / "scripts/test_release.py").is_file(), "scripts/test_release.py")
     require((ROOT / "evals/catalog_eval.py").is_file(), "evals/catalog_eval.py")
-    print("Motion UI skill integrity: PASS (382 components, 95/18/33/236 categories)")
+    print("Motion UI skill integrity: PASS (384 components, 97/18/33/236 categories)")
     return 0
 
 

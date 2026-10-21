@@ -8946,6 +8946,48 @@
       ],
       "preview_files": [],
       "doc_path": "references/agents/thinking-states.md"
+    },
+    "text-morph": {
+      "slug": "text-morph",
+      "name": "Text Morph",
+      "category": "motion",
+      "description": "In-place text transition that pins shared character prefixes and suffixes while smoothly cross-blurring and easing changing middle letters.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/text-morph.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/text-morph.md"
+    },
+    "donut-chart": {
+      "slug": "donut-chart",
+      "name": "Donut Chart",
+      "category": "motion",
+      "description": "Animated SVG donut chart whose segments have rounded corners, consistent gaps, and smoothly tween from old values to new values when data changes.",
+      "dependencies": [
+        "clsx",
+        "motion",
+        "react",
+        "tailwind-merge"
+      ],
+      "component_files": [
+        "components/motion/donut-chart.tsx"
+      ],
+      "util_files": [
+        "lib/ease.ts",
+        "lib/utils.ts"
+      ],
+      "preview_files": [],
+      "doc_path": "references/motion/donut-chart.md"
     }
   },
   "styles": [

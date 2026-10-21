@@ -2,7 +2,7 @@
 name: motion-ui
 description: >-
   Production-ready animated UI component library for React and Next.js built with Motion (Framer Motion)
-  and Tailwind CSS. Includes 382 interactive components across 4 categories: Motion Primitives (95 components), AI Agent Surfaces (18 components), Blocks & Widgets (33 components), and Craft & Surface Components (236 components: tactile 3D buttons, neumorphic controls, device mockups, background gradients & patterns, calendar widgets, data tables, editorial typography, and interactive cards). Supports 6 aesthetic style presets (minimal, origin, enterprise, glow, ios, brutalist).
+  and Tailwind CSS. Includes 384 interactive components across 4 categories: Motion Primitives (97 components), AI Agent Surfaces (18 components), Blocks & Widgets (33 components), and Craft & Surface Components (236 components: tactile 3D buttons, neumorphic controls, device mockups, background gradients & patterns, calendar widgets, data tables, editorial typography, and interactive cards). Supports 6 aesthetic style presets (minimal, origin, enterprise, glow, ios, brutalist).
   Includes local Codex installation instructions, comprehensive design system guides, and an AI-agent install prompt.
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
 
 # Motion UI Skill
 
-> Complete offline repository of **382 production-ready animated UI components** for React and Next.js, built with **Motion** (`motion/react` / `framer-motion`) and **Tailwind CSS**.
+> Complete offline repository of **384 production-ready animated UI components** for React and Next.js, built with **Motion** (`motion/react` / `framer-motion`) and **Tailwind CSS**.
 
 This skill is **self-contained and offline-first** for the bundled components. All source code, shared animation utilities, hooks, physics tokens, component guides, and Codex setup instructions exist directly in this repository.
 
@@ -117,7 +117,7 @@ When the user asks for any animated component, UI widget, micro-interaction, or 
    ```
    *(Or from the consuming project: `node .agents/skills/motion-ui/bin/updater.mjs --silent`). If an upstream update exists, it auto-updates before proceeding.*
 
-1. **Locate the Component**: Find the matching component from the 382 components listed in the catalog below or in [`catalog.json`](./catalog.json).
+1. **Locate the Component**: Find the matching component from the 384 components listed in the catalog below or in [`catalog.json`](./catalog.json).
 2. **Read Component Source & Docs**:
    - Inspect the `Primary File` path in the matching catalog entry.
    - Read the `doc_path` file from that same catalog entry for props, variants, and examples.
@@ -141,9 +141,9 @@ When the user asks to install this skill in Codex specifically, read [`reference
 
 ---
 
-## Component Catalog (382 Components)
+## Component Catalog (384 Components)
 
-### Category 1: Motion Components (95 Components)
+### Category 1: Motion Components (97 Components)
 Interactive, animated primitives including buttons, inputs, tabs, modals, bottom sheets, sliders, accordions, sidebars, and loaders.
 
 | Component | Slug | Description | Dependencies | Primary File | Docs |
@@ -178,6 +178,7 @@ Interactive, animated primitives including buttons, inputs, tabs, modals, bottom
 | **Date Range Picker** | `date-range-picker` | Interactive calendar popover for selecting start and end date ranges with preset shortcuts, month navigation, and spring micro-interactions. | `lucide-react`, `motion` | [`components/motion/date-range-picker.tsx`](components/motion/date-range-picker.tsx) | [Guide](references/motion/date-range-picker.md) |
 | **Delete with Smoky Dissolve** | `delete-with-smoky-dissolve` | Interactive delete button trigger that disintegrates its target element into dissolving smoke particles and embers upon confirmation. | `motion` | [`components/motion/delete-with-smoky-dissolve.tsx`](components/motion/delete-with-smoky-dissolve.tsx) | [Guide](references/motion/delete-with-smoky-dissolve.md) |
 | **Dock** | `dock` | macOS-style dock with grouped actions and a gliding active pill. | `lucide-react`, `motion` | [`components/motion/dock.tsx`](components/motion/dock.tsx) | [Guide](references/motion/dock.md) |
+| **Donut Chart** | `donut-chart` | Animated SVG donut chart whose segments have rounded corners, consistent gaps, and smoothly tween from old values to new values when data changes. | `motion` | [`components/motion/donut-chart.tsx`](components/motion/donut-chart.tsx) | [Guide](references/motion/donut-chart.md) |
 | **Drag Drop with Physics** | `drag-drop-with-physics` | Physics-based drag-and-drop card surface with rotational inertia, velocity preservation, and magnetic slot snapping. | `motion` | [`components/motion/drag-drop-with-physics.tsx`](components/motion/drag-drop-with-physics.tsx) | [Guide](references/motion/drag-drop-with-physics.md) |
 | **Drawer** | `drawer` | Side panel that slides in from the left or right with a spring, backdrop blur, body scroll lock and esc-to-close. | `motion` | [`components/motion/drawer.tsx`](components/motion/drawer.tsx) | [Guide](references/motion/drawer.md) |
 | **Dropdown Menu Morph** | `dropdown-menu-morph` | Fluid navigation menu dropdown whose container geometry, background sheet, and arrow tip morph seamlessly between submenu tabs. | `motion` | [`components/motion/dropdown-menu-morph.tsx`](components/motion/dropdown-menu-morph.tsx) | [Guide](references/motion/dropdown-menu-morph.md) |
@@ -234,6 +235,7 @@ Interactive, animated primitives including buttons, inputs, tabs, modals, bottom
 | **Table** | `table` | Virtualized data table that stays smooth at 10k+ rows, with sortable headers, row selection, column resize and reorder, and a sticky header. Minimal, reduced-motion-safe motion. | `@tanstack/react-virtual`, `lucide-react`, `motion`, `react-dom` | [`components/motion/table/index.tsx`](components/motion/table/index.tsx) | [Guide](references/motion/table.md) |
 | **Tabs** | `tabs` | Pill, segment or underline tabs with a spring layoutId indicator. | `motion` | [`components/motion/tabs.tsx`](components/motion/tabs.tsx) | [Guide](references/motion/tabs.md) |
 | **Text Animation** | `text-animation` | Animated text primitives for spring reveals, chromatic sweeps, shimmer loading states, letter-cascade swaps and character scrambles. | `motion` | [`components/motion/text-reveal.tsx`](components/motion/text-reveal.tsx) | [Guide](references/motion/text-animation.md) |
+| **Text Morph** | `text-morph` | In-place text transition that pins shared character prefixes and suffixes while smoothly cross-blurring and easing changing middle letters. | `motion` | [`components/motion/text-morph.tsx`](components/motion/text-morph.tsx) | [Guide](references/motion/text-morph.md) |
 | **Text Swap** | `text-swap` | Slot-machine vertical ticker transition that rolls text or numbers with subtle blur and spring velocity handoffs. | `motion` | [`components/motion/text-swap.tsx`](components/motion/text-swap.tsx) | [Guide](references/motion/text-swap.md) |
 | **Texts Reveal** | `texts-reveal` | Typographic text reveal container staggering words and lines along spring trajectories with opacity and directional drift. | `motion` | [`components/motion/texts-reveal.tsx`](components/motion/texts-reveal.tsx) | [Guide](references/motion/texts-reveal.md) |
 | **Theme Toggle** | `theme-toggle` | Theme toggle button that repaints the whole page through the View Transition API — a rectangle or circle clip-path reveal, or slats that open across the screen like a shutter. | `lucide-react`, `motion`, `next-themes` | [`components/motion/theme-toggle.tsx`](components/motion/theme-toggle.tsx) | [Guide](references/motion/theme-toggle.md) |

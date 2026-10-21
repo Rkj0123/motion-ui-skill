@@ -39,7 +39,24 @@ python scripts/search.py "Crypto Trading Platform" --design-system
 
 ---
 
-## 2. The 67 UI Style Archetypes
+## 2. Priority Rules Matrix (1 to 10)
+
+| Priority | Category | Impact | Domain | Key Checks (Must Have) | Anti-Patterns (Avoid) |
+|:---|:---|:---|:---|:---|:---|
+| **1** | **Accessibility** | CRITICAL | `ux` | 4.5:1 text contrast, Visible focus area (3:1 contrast), Alt text, Aria labels, Tab order | Removing focus outlines, Icon-only buttons without accessible text |
+| **2** | **Touch & Interaction** | CRITICAL | `ux` | 44×44px touch targets (Apple HIG), 24×24px web min (WCAG 2.2), 8px+ touch spacing | Hover-only controls on mobile, 0ms instant jarring state snaps |
+| **3** | **Performance & CLS** | HIGH | `ux` | Reserve layout footprint (CLS &lt; 0.1), WebP/AVIF formats, Virtualize large lists | Layout thrashing, animating width/height in hot loops |
+| **4** | **Style Selection** | HIGH | `style` | Align style family with product domain, consistent corner radii, SVG icons | Randomly mixing flat and skeuomorphic styles, emoji as icons |
+| **5** | **Layout & Responsive** | HIGH | `ux` | Mobile-first breakpoints, fluid flex/grid layouts, no horizontal overflow | Horizontal scrolling, hardcoded fixed px container widths |
+| **6** | **Typography & Color** | MEDIUM | `typography`, `color` | Base 16px body, 1.5 line height, semantic token abstraction | Body text &lt; 12px, low-contrast gray-on-gray, raw hex strings |
+| **7** | **Animation & Motion** | MEDIUM | `ux` | Context-aware spring timing, spatial continuity, prefers-reduced-motion | One static duration for all transitions, floaty un-damped springs |
+| **8** | **Forms & Validation** | MEDIUM | `ux` | Persistent floating/visible labels, inline field validation, progressive disclosure | Placeholder-only labels, aggregate errors only at form top |
+| **9** | **Navigation Patterns** | HIGH | `ux` | Predictable back stack, bottom navigation items ≤ 5, deep linking support | Overcrowded navigation bars, breaking browser back button |
+| **10** | **Data Visualization** | LOW | `chart` | Explicit legends, hover tooltips, dual-encoding (color + shape/pattern) | Relying on color hue alone to differentiate chart segments |
+
+---
+
+## 3. The 67 UI Style Archetypes
 
 | Category | Primary Styles | Visual Characteristics | Best Used For |
 | :--- | :--- | :--- | :--- |
@@ -52,7 +69,7 @@ python scripts/search.py "Crypto Trading Platform" --design-system
 
 ---
 
-## 3. Industry Color Harmony Matrix
+## 4. Industry Color Harmony Matrix
 
 Every product domain demands a specific semantic color structure:
 
@@ -67,7 +84,7 @@ Every product domain demands a specific semantic color structure:
 
 ---
 
-## 4. Typography Pairing Blueprints
+## 5. Typography Pairing Blueprints
 
 1. **Modern Minimal Technical**:
    - Primary: `Geist` or `Inter` (500/600 for UI labels)
@@ -82,19 +99,19 @@ Every product domain demands a specific semantic color structure:
 
 ---
 
-## 5. Data Visualization Selection Decision Tree
+## 6. Data Visualization Selection Decision Tree
 
 When building dashboards, choose chart primitives based on data dimensionality:
 
 - **Time Series Trends (1 Metric)**: Area chart with gradient fill and smooth cubic bezier spline (`recharts` / `tremor`).
 - **Multi-Metric Comparison**: Grouped or stacked bar chart with accessible color contrast.
-- **Part-to-Whole Composition**: Donut chart with center KPI counter (avoid pie charts with > 5 slices).
+- **Part-to-Whole Composition**: Donut chart (`DonutChart`) with center KPI counter and segmented arc morphs.
 - **Correlation & Distribution**: Scatter plot with hover tooltip crosshairs or heatmaps for density.
 - **Funnel & Conversion Drop-off**: Horizontal step bar chart with delta indicators.
 
 ---
 
-## 6. High-Converting Landing Page Hierarchy
+## 7. High-Converting Landing Page Hierarchy
 
 Every high-conversion product landing page follows an 8-part sequence:
 

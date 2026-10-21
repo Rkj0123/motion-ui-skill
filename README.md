@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Motion UI Banner](https://img.shields.io/badge/Components-382%20Total-6366f1?style=for-the-badge)
+![Motion UI Banner](https://img.shields.io/badge/Components-384%20Total-6366f1?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-18%20%2F%2019-61dafb?style=for-the-badge&logo=react)
 ![Next.js](https://img.shields.io/badge/Next.js-14%20%2F%2015-000000?style=for-the-badge&logo=next.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3%20%2F%20v4-38bdf8?style=for-the-badge&logo=tailwindcss)
@@ -11,7 +11,7 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
 <p align="center">
-  <b>Comprehensive Library of 382 Animated React & Next.js UI Components</b><br/>
+  <b>Comprehensive Library of 384 Animated React & Next.js UI Components</b><br/>
   Built with Motion and Tailwind CSS. Designed as an offline-first AI Agent Skill & Developer Toolkit with 6 aesthetic style presets.
 </p>
 
@@ -21,9 +21,9 @@
 
 ## Overview
 
-**Motion UI Skill** is a production-ready, fully self-contained collection of **382 interactive, animated UI components** across four distinct categories:
+**Motion UI Skill** is a production-ready, fully self-contained collection of **384 interactive, animated UI components** across four distinct categories:
 
-1. **Motion Components (95)**: Micro-interactions, spring-loaded buttons, morphing inputs, bouncily unfolding selects, bottom sheets, virtualized tables, 3D cylinder carousels, 17 loader variants, cascaders, ratings, avatar groups, celebration success checks, rich hover cards, keyboard keycaps, smart password fields, spotlight cards, glow buttons, chronological timelines, steppers, segmented controls, breadcrumbs, pagination, collapsibles, chips, copy buttons, progress rings, tree views, sortable lists, date range pickers, icon stacks, phone inputs, speed dials, color pickers, magnet docks, page transitions, card resizes, error shakes, text swaps, and autocompletes.
+1. **Motion Components (97)**: Micro-interactions, spring-loaded buttons, morphing inputs, bouncily unfolding selects, bottom sheets, virtualized tables, 3D cylinder carousels, 17 loader variants, cascaders, ratings, avatar groups, celebration success checks, rich hover cards, keyboard keycaps, smart password fields, spotlight cards, glow buttons, chronological timelines, steppers, segmented controls, breadcrumbs, pagination, collapsibles, chips, copy buttons, progress rings, tree views, sortable lists, date range pickers, icon stacks, phone inputs, speed dials, color pickers, magnet docks, page transitions, card resizes, error shakes, text swaps, and autocompletes.
 2. **AI Agent Surfaces (18)**: Complete modern conversational agent interfaces including message bubbles, viewport scrollers, expandable prompt composers, human-in-the-loop approval cards, streaming responses, diff viewers, syntax-highlighted code blocks, and adaptive activity streams.
 3. **Blocks & Widgets (33)**: Rich, composable application widgets such as drag-and-drop kanban workflow boards, faceted query filter builders, universal mobile action sheets, Apple-style dynamic islands, ⌘K command palettes, knockout tournament fixtures, weekly availability schedulers, cross-chain swaps, prediction market tickets, morphing tab views, event calendars, gantt timeline charts, resizable split panels, audio players, metric stat cards with sparklines, reorder grids, and browser frame mockups.
 4. **Craft & Surface Components (236)**: Tactile 3D buttons, neumorphic soft UI controls, high-fidelity Apple device mockups (iPhone, MacBook, iPad, Watch, iPod), background gradients & geometric patterns, booking calendars, customer and transaction tables, editorial typography cards, social cards, and interactive widgets.
@@ -107,7 +107,7 @@ npx skills add Rkj0123/motion-ui-skill --skill motion-ui --agent codex --global 
 
 A standalone Python resolver and installer is included in `scripts/install-component.py`:
 
-#### List all 382 components:
+#### List all 384 components:
 ```bash
 python scripts/install-component.py --list
 ```
@@ -154,9 +154,9 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 
 ---
 
-## Component Catalog (382 Components)
+## Component Catalog (384 Components)
 
-### 1. Motion Components (95)
+### 1. Motion Components (97)
 
 | Component | Slug | Description | Dependencies | Primary File | Docs |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -190,6 +190,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Date Range Picker** | `date-range-picker` | Interactive calendar popover for selecting start and end date ranges with preset shortcuts, month navigation, and spring micro-interactions. | `lucide-react`, `motion` | [`components/motion/date-range-picker.tsx`](components/motion/date-range-picker.tsx) | [Guide](references/motion/date-range-picker.md) |
 | **Delete with Smoky Dissolve** | `delete-with-smoky-dissolve` | Interactive delete button trigger that disintegrates its target element into dissolving smoke particles and embers upon confirmation. | `motion` | [`components/motion/delete-with-smoky-dissolve.tsx`](components/motion/delete-with-smoky-dissolve.tsx) | [Guide](references/motion/delete-with-smoky-dissolve.md) |
 | **Dock** | `dock` | macOS-style dock with grouped actions and a gliding active pill. | `lucide-react`, `motion` | [`components/motion/dock.tsx`](components/motion/dock.tsx) | [Guide](references/motion/dock.md) |
+| **Donut Chart** | `donut-chart` | Animated SVG donut chart whose segments have rounded corners, consistent gaps, and smoothly tween from old values to new values when data changes. | `motion` | [`components/motion/donut-chart.tsx`](components/motion/donut-chart.tsx) | [Guide](references/motion/donut-chart.md) |
 | **Drag Drop with Physics** | `drag-drop-with-physics` | Physics-based drag-and-drop card surface with rotational inertia, velocity preservation, and magnetic slot snapping. | `motion` | [`components/motion/drag-drop-with-physics.tsx`](components/motion/drag-drop-with-physics.tsx) | [Guide](references/motion/drag-drop-with-physics.md) |
 | **Drawer** | `drawer` | Side panel that slides in from the left or right with a spring, backdrop blur, body scroll lock and esc-to-close. | `motion` | [`components/motion/drawer.tsx`](components/motion/drawer.tsx) | [Guide](references/motion/drawer.md) |
 | **Dropdown Menu Morph** | `dropdown-menu-morph` | Fluid navigation menu dropdown whose container geometry, background sheet, and arrow tip morph seamlessly between submenu tabs. | `motion` | [`components/motion/dropdown-menu-morph.tsx`](components/motion/dropdown-menu-morph.tsx) | [Guide](references/motion/dropdown-menu-morph.md) |
@@ -246,6 +247,7 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Table** | `table` | Virtualized data table that stays smooth at 10k+ rows, with sortable headers, row selection, column resize and reorder, and a sticky header. Minimal, reduced-motion-safe motion. | `@tanstack/react-virtual`, `lucide-react`, `motion`, `react-dom` | [`components/motion/table/index.tsx`](components/motion/table/index.tsx) | [Guide](references/motion/table.md) |
 | **Tabs** | `tabs` | Pill, segment or underline tabs with a spring layoutId indicator. | `motion` | [`components/motion/tabs.tsx`](components/motion/tabs.tsx) | [Guide](references/motion/tabs.md) |
 | **Text Animation** | `text-animation` | Animated text primitives for spring reveals, chromatic sweeps, shimmer loading states, letter-cascade swaps and character scrambles. | `motion` | [`components/motion/text-reveal.tsx`](components/motion/text-reveal.tsx) | [Guide](references/motion/text-animation.md) |
+| **Text Morph** | `text-morph` | In-place text transition that pins shared character prefixes and suffixes while smoothly cross-blurring and easing changing middle letters. | `motion` | [`components/motion/text-morph.tsx`](components/motion/text-morph.tsx) | [Guide](references/motion/text-morph.md) |
 | **Text Swap** | `text-swap` | Slot-machine vertical ticker transition that rolls text or numbers with subtle blur and spring velocity handoffs. | `motion` | [`components/motion/text-swap.tsx`](components/motion/text-swap.tsx) | [Guide](references/motion/text-swap.md) |
 | **Texts Reveal** | `texts-reveal` | Typographic text reveal container staggering words and lines along spring trajectories with opacity and directional drift. | `motion` | [`components/motion/texts-reveal.tsx`](components/motion/texts-reveal.tsx) | [Guide](references/motion/texts-reveal.md) |
 | **Theme Toggle** | `theme-toggle` | Theme toggle button that repaints the whole page through the View Transition API — a rectangle or circle clip-path reveal, or slats that open across the screen like a shutter. | `lucide-react`, `motion`, `next-themes` | [`components/motion/theme-toggle.tsx`](components/motion/theme-toggle.tsx) | [Guide](references/motion/theme-toggle.md) |
@@ -634,7 +636,7 @@ python scripts/test_release.py
 python evals/catalog_eval.py
 ```
 
-The checks cover the 382-component catalog, referenced files, installer safety, generated docs, dependency coverage, and the source-reference exclusion rule.
+The checks cover the 384-component catalog, referenced files, installer safety, generated docs, dependency coverage, and the source-reference exclusion rule.
 
 ---
 
@@ -645,9 +647,9 @@ motion-ui-skill/
 ├── README.md                      # Comprehensive guide & installation instructions
 ├── SKILL.md                       # Main agent skill definition with catalog & instructions
 ├── agents/openai.yaml             # Codex skill-list metadata and default prompt
-├── catalog.json                   # Machine-readable metadata for all 382 components
+├── catalog.json                   # Machine-readable metadata for all 384 components
 ├── components/                    # Production TypeScript/React source code
-│   ├── motion/                    # 95 motion primitives and composed blocks
+│   ├── motion/                    # 97 motion primitives and composed blocks
 │   ├── agents/                    # 18 conversational agent surfaces
 │   ├── previews/                  # Component preview & demo implementations
 │   └── [category]/                # 236 craft & surface component files across categories
@@ -660,7 +662,7 @@ motion-ui-skill/
 │   ├── cn.ts                      # cn() re-export
 │   └── hooks/                     # Custom hooks (use-haptic, use-dismiss, use-measure, etc.)
 ├── references/                    # Offline-first detailed markdown component documentation
-│   ├── motion/                    # 105 component guides with props & examples
+│   ├── motion/                    # 107 component guides with props & examples
 │   ├── agents/                    # 18 agent component guides
 │   ├── blocks/                    # 23 block guides
 │   ├── craft/                     # 236 craft and surface component guides
