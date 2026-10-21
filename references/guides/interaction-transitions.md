@@ -1,19 +1,19 @@
 ---
-title: "The 12 Canonical Interaction Transitions"
-description: "Reference catalog and implementation blueprints for the 12 essential UI transitions from Transitions.dev, including cubic-bezier tokens, spring physics, and zero-layout-shift formulas."
+title: "The Canonical Interaction Transitions Guide"
+description: "Reference catalog and implementation blueprints for all 43 UI interaction transitions from Transitions.dev, including cubic-bezier tokens, spring physics, and zero-layout-shift formulas."
 documentation: "references/guides/interaction-transitions.md"
 markdown: "references/guides/interaction-transitions.md"
 ---
 
-# The 12 Canonical Interaction Transitions
+# The Canonical Interaction Transitions Guide
 
 > Synthesized from [transitions.dev](https://github.com/Jakubantalik/transitions.dev) by Jakub Antalík.
 
-Micro-interactions make the difference between an application that feels static and one that feels responsive, continuous, and physical. Here are the 12 canonical transitions, their physics parameters, and exact implementation patterns.
+Micro-interactions make the difference between an application that feels static and one that feels responsive, continuous, and physical. Here is the comprehensive catalog of UI transitions, their physics parameters, and exact implementation patterns.
 
 ---
 
-## 1. Interaction Transition Catalog
+## 1. Complete Interaction Transition Catalog
 
 | # | Pattern Name | Interaction Description | Physics / Curve | Duration / Spring |
 |---|:---|:---|:---|:---|
@@ -29,43 +29,61 @@ Micro-interactions make the difference between an application that feels static 
 | **10** | **Success Check** | Circle halo pulses outward while checkmark draws itself along SVG path. | Multi-stage timeline | 350ms total sequence |
 | **11** | **Avatar Group Hover** | Hovered avatar springs up and scales up while neighbor avatars fan apart. | `SPRING_BOUNCE` + Falloff | Stiffness: 300, Damping: 20 |
 | **12** | **Error Shake** | Input shakes horizontally 3–4 times on validation failure then returns to neutral. | Keyframe oscillate | 350ms (`[-4px, 4px, -3px, 3px, 0]`) |
+| **13** | **Banner Stacking** | Notifications stack with scale & elevation falloff; hovering fans into list. | `SPRING_PANEL` | 320ms / stagger 30ms |
+| **14** | **Smoky Dissolve** | Destructive deletion disintegrates element into rising ash and smoke particles. | Particle physics | 600–700ms |
+| **15** | **Drag & Drop Physics** | Dragging card with angular inertia, velocity preservation, and magnetic slot snap. | `SPRING_BOUNCE` | Stiffness: 300, Damping: 18 |
+| **16** | **Dropdown Morph** | Navigation dropdown whose container bounds and caret morph fluidly across tabs. | `SPRING_LAYOUT` | Stiffness: 360, Damping: 32 |
+| **17** | **Get Pro Conic Glow** | Chromatic moving gradient border with ambient blur halo and specular sheen. | Infinite linear / sweep | 1000ms hover sweep |
+| **18** | **Image Open Tilt** | Media preview modal opens with 3D perspective pitch before settling squarely. | `SPRING_PANEL` | Transform perspective 1000px |
+| **19** | **Input Clear Dissolve** | Characters dissolve and scatter upward with particle blur when clearing text. | Staggered float | 350ms / stagger 15ms |
+| **20** | **Learn More Hover** | Action link where arrow flies out right edge and loops in from left with underline. | `EASE_OUT` | 450ms |
+| **21** | **Matrix Dot Loader** | Sci-fi dot grid whose scale and opacity oscillate in harmonic diagonal phase waves. | Sine wave / harmonic | 1200ms loop |
+| **22** | **Organic Shimmer** | Natural fluid light sheen moving across card surfaces at oblique angles. | Ease-in-out sweep | 2400ms cycle |
+| **23** | **Pro Gradient Text** | High-velocity multi-stop moving gradient typography with mask clipping. | Continuous linear | 6000ms loop |
+| **24** | **Skeleton & Reveal** | Structured bone skeleton that cross-fades directly into live UI with zero CLS. | `SPRING_PANEL` | 300ms crossfade |
+| **25** | **Spinner Check Morph** | Circular SVG arc spinner that morphs seamlessly into an animated checkmark path. | Dual-stage timeline | 500ms total |
+| **26** | **Spinning Counter** | Mechanical odometer dial with vertical digit slots and velocity spring damping. | `SPRING_SWAP` | Stiffness: 460, Damping: 30 |
+| **27** | **Texts Reveal** | Staggered word-by-word typographic entrance rising from masked overflow slots. | `EASE_OUT` | 500ms / stagger 40ms |
+| **28** | **Thinking States** | Cognitive AI status surface morphing through pulse dots and cognitive stages. | `SPRING_SWAP` | 2400ms stage interval |
+| **29** | **3D Card Tilt** | Mouse-following perspective tilt with dynamic specular glare highlight. | `SPRING_MOUSE` | Stiffness: 200, Damping: 15 |
+| **30** | **Bouncy Accordion** | Expandable panel that springs open with natural overshoot and content crossfade. | `SPRING_PANEL` | Stiffness: 420, Damping: 40 |
+| **31** | **Confetti Burst** | Celebratory radial particle explosion firing from trigger coordinates. | Gravity + velocity decay | 1200ms dissipation |
+| **32** | **Gooey Plus Menu** | Action FAB that splits into radial sub-action buttons with SVG gooey filter. | `SPRING_BOUNCE` | Stiffness: 320, Damping: 22 |
+| **33** | **Streaming Response** | Live typewriter text streaming with blinking cursor and chunk auto-scrolling. | Linear / RAF | 16–30ms per token |
+| **34** | **Sliding Tabs** | Segmented tab indicator that glides smoothly under active label via layoutId. | `SPRING_LAYOUT` | Stiffness: 360, Damping: 32 |
+| **35** | **Floating Tooltip** | Tooltip popping into view with directional origin scaling and arrow indicator. | `SPRING_SWAP` | 180ms |
+| **36** | **Like Button Pop** | Heart icon that shrinks slightly on tap then pops outward with radial star burst. | `SPRING_BOUNCE` | 350ms total |
+| **37** | **Elastic Toggle** | Switch knob that elongates horizontally while dragging before snapping to side. | Spring glide | Stiffness: 700, Damping: 50 |
+| **38** | **Checkbox Check** | Bounding box sinks on tap while checkmark SVG stroke draws diagonally. | `SPRING_PRESS` + PathLength | 280ms |
+| **39** | **Toast Notification** | Bottom/top alert rising in with blur and settling with soft spring deceleration. | `SPRING_PANEL` | Stiffness: 420, Damping: 40 |
+| **40** | **Drawer Pull** | High-velocity sheet dragging with rubber-band resistance beyond boundaries. | `EASE_DRAWER` | Stiffness: 350, Damping: 36 |
+| **41** | **Stacked Cards** | Multiple cards resting in layered deck, fanning apart smoothly on hover. | `SPRING_PANEL` | Stiffness: 360, Damping: 30 |
+| **42** | **Shimmering Text** | Ambient reflective sheen traversing text characters repeatedly. | Linear mask translation | 2000ms loop |
+| **43** | **Dynamic Island** | Floating pill container morphing width, height, and border-radius between states. | `SPRING_LAYOUT` | Stiffness: 400, Damping: 35 |
 
 ---
 
-## 2. Key Interaction Recipes
+## 2. Key Interaction Formulas
 
-### Pattern 10: Success Check Animation
-The success check is a compound celebration micro-interaction:
-1. Halo circle scales out with fading opacity.
-2. Background pill or circle pops in with `SPRING_BOUNCE`.
-3. SVG checkmark uses `pathLength: 0` to `pathLength: 1` stroke animation.
-
-```tsx
-<motion.svg viewBox="0 0 24 24" className="size-6 text-emerald-500" fill="none">
-  <motion.circle
-    cx="12"
-    cy="12"
-    r="10"
-    stroke="currentColor"
-    strokeWidth="2"
-    initial={{ pathLength: 0, opacity: 0 }}
-    animate={{ pathLength: 1, opacity: 1 }}
-    transition={{ duration: 0.3, ease: EASE_OUT }}
-  />
-  <motion.path
-    d="M8 12.5l2.5 2.5L16 9"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    initial={{ pathLength: 0 }}
-    animate={{ pathLength: 1 }}
-    transition={{ duration: 0.25, delay: 0.2, ease: EASE_OUT }}
-  />
-</motion.svg>
-```
-
-### Pattern 11: Avatar Group Distance Falloff
+### Avatar Group Distance Falloff
 When hovering over avatar $i$, calculate each neighbor's offset based on its distance $|j - i|$:
 $$\Delta x = \operatorname{sign}(j - i) \times \frac{24\text{px}}{1 + |j - i|}$$
 This produces an organic magnetic dispersal effect where immediate neighbors move substantially and distant avatars remain undisturbed.
+
+### Success Check Stroke Animation
+```tsx
+<motion.circle
+  cx="12" cy="12" r="10"
+  stroke="currentColor" strokeWidth="2" fill="none"
+  initial={{ pathLength: 0 }}
+  animate={{ pathLength: 1 }}
+  transition={{ duration: 0.3, ease: EASE_OUT }}
+/>
+<motion.path
+  d="M8 12.5l2.5 2.5L16 9"
+  stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none"
+  initial={{ pathLength: 0 }}
+  animate={{ pathLength: 1 }}
+  transition={{ duration: 0.25, delay: 0.2, ease: EASE_OUT }}
+/>
+```

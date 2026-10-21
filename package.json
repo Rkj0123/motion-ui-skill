@@ -12,6 +12,7 @@
   "files": [
     "bin",
     "components",
+    "data",
     "lib",
     "references",
     "scripts",

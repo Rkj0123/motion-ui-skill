@@ -238,6 +238,32 @@ Tactile 3D buttons, neumorphic controls, high-fidelity device mockups, backgroun
 
 ---
 
+## Design Search Engine & UI Reasoning
+
+Search across 67 UI style families, industry-mapped color palettes, font pairings, chart selectors, and stack guidelines:
+
+```bash
+# Search by style (e.g. glassmorphism, brutalism, minimal, retro, bento)
+python scripts/search.py "glassmorphism" --domain style
+
+# Search industry color palette (e.g. fintech, saas, healthcare, devtools)
+python scripts/search.py "fintech" --domain color
+
+# Search typography pairings (e.g. editorial, technical, playful, modern)
+python scripts/search.py "editorial" --domain typography
+
+# Search optimal chart type (e.g. time series, retention, distribution, comparison)
+python scripts/search.py "retention" --domain chart
+
+# Search UX best practices (e.g. modal, checkout, form, error)
+python scripts/search.py "form" --domain ux
+
+# Generate a complete cohesive design system for a product domain
+python scripts/search.py "Crypto Trading Platform" --design-system
+```
+
+---
+
 ## Motion Guides & Best Practices
 
 For in-depth animation principles, design system checklists, and accessibility rules, read:
@@ -247,7 +273,10 @@ For in-depth animation principles, design system checklists, and accessibility r
 - [`references/guides/motion-engineering.md`](./references/guides/motion-engineering.md): Deep dive into `motion/react`, physics-based springs, `layoutId`, `AnimatePresence`, gestures, and hardware acceleration.
 - [`references/guides/motion-performance.md`](./references/guides/motion-performance.md): 60/120 FPS animation performance guide covering compositor-only properties, avoiding layout thrashing, and layer budgets.
 - [`references/guides/baseline-ui-craft.md`](./references/guides/baseline-ui-craft.md): Design Engineer craft principles: optical alignment, spacing rhythm, accessible focus rings, and micro-interactions.
-- [`references/guides/interaction-transitions.md`](./references/guides/interaction-transitions.md): The 12 canonical interaction transitions from Transitions.dev with token specs and timing tables.
+- [`references/guides/interaction-transitions.md`](./references/guides/interaction-transitions.md): The canonical 43 interaction transitions from Transitions.dev with token specs and timing tables.
+- [`references/guides/motion-polish-rules.md`](./references/guides/motion-polish-rules.md): Complete micro-distance (4px, 6px, 8px, 12px, 30px) and timing rules from Transitions.dev.
+- [`references/guides/design-intelligence.md`](./references/guides/design-intelligence.md): Master design intelligence guide synthesizing 67 UI styles, industry color systems, font pairings, chart selection, and CRO landing architectures.
+- [`references/guides/stack-best-practices.md`](./references/guides/stack-best-practices.md): Framework integration guidelines covering Next.js App Router, React 19, Tailwind v3/v4, and Motion.
 - [`references/guides/universal-mobile-patterns.md`](./references/guides/universal-mobile-patterns.md): Cross-platform mobile interaction patterns, touch ergonomics (44pt/48dp rules), and semantic haptics.
 - [`references/guides/craft-surface-design-system.md`](./references/guides/craft-surface-design-system.md): Craft & Surface Design System covering neutral stages, tactile 3D elevation, typography pairing, and component patterns.
 - [`references/guides/enterprise-dashboard-patterns.md`](./references/guides/enterprise-dashboard-patterns.md): Architecture for complex enterprise surfaces, timelines, kanban task boards, faceted query builders, and data grids.
@@ -447,7 +476,10 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 - [Motion Engineering Guide](./references/guides/motion-engineering.md): Motion v12/v13+ architecture, spring formulas, shared layoutId morphs, and AnimatePresence.
 - [Motion Performance & 60/120 FPS](./references/guides/motion-performance.md): Compositor properties, avoiding layout thrashing, and layer budgets.
 - [Baseline UI Craft & Anti-Slop](./references/guides/baseline-ui-craft.md): Design engineering principles, optical alignment, spacing rhythm, and micro-interactions.
-- [The 12 Canonical Interaction Transitions](./references/guides/interaction-transitions.md): Transitions.dev interaction patterns and token specs.
+- [The Canonical Interaction Transitions Guide](./references/guides/interaction-transitions.md): Transitions.dev interaction patterns, 43 canonical transitions, and token specs.
+- [Motion Polish & Interaction Rules Guide](./references/guides/motion-polish-rules.md): Micro-distance scales (4px, 6px, 8px, 12px, 30px) and progressive UI generation.
+- [Design Intelligence & UI Reasoning Guide](./references/guides/design-intelligence.md): 67 UI style families, industry-mapped color palettes, font pairings, chart selectors, and CRO landing architectures.
+- [Modern Stack Best Practices Guide](./references/guides/stack-best-practices.md): Framework integration guidelines covering Next.js App Router, React 19, Tailwind v3/v4, and Motion.
 - [Universal Mobile-First Interaction Patterns](./references/guides/universal-mobile-patterns.md): Touch ergonomics, haptic feedback semantics, and swipe gestures.
 - [Craft & Surface Design System](./references/guides/craft-surface-design-system.md): Visual language, tactile 3D elevation, typography pairing, and component patterns.
 - [Enterprise Dashboard Architecture](./references/guides/enterprise-dashboard-patterns.md): High-density data grids, kanban boards, faceted query builders, and timelines.
@@ -521,6 +553,7 @@ motion-ui-skill/
 │   ├── agents/                    # {len(agents_items)} conversational agent surfaces
 │   ├── previews/                  # Component preview & demo implementations
 │   └── [category]/                # {len(craft_items)} craft & surface component files across categories
+├── data/                          # Design intelligence datasets (styles, colors, typography, charts, stacks)
 ├── icons/                         # 21 custom brand and annotation icons
 ├── lib/                           # Foundation tokens, easing physics, and utility hooks
 │   ├── ease.ts                    # Easing curves and spring physics constants
@@ -533,13 +566,14 @@ motion-ui-skill/
 │   ├── agents/                    # {len(agents_items)} agent component guides
 │   ├── blocks/                    # {guide_counts.get("blocks", 0)} block guides
 │   ├── craft/                     # {guide_counts.get("craft", 0)} craft and surface component guides
-│   ├── guides/                    # Complete suite of 10 motion & design system guides
+│   ├── guides/                    # Complete suite of 13 motion & design system guides
 │   └── codex-install.md            # Codex app and CLI installation guide
 ├── prompts/
 │   └── install-motion-ui.md        # Copy-paste prompt for AI-agent installation
 ├── evals/
 │   └── catalog_eval.py              # Dependency-free catalog coverage evaluation
 └── scripts/
+    ├── search.py                  # Terminal design reasoning search engine (BM25)
     ├── install-component.py       # Standalone CLI tool to install components into projects
     ├── build_docs.py              # Script to synchronize SKILL.md and README.md from catalog
     ├── verify_skill.py            # Dependency-free package integrity gate
