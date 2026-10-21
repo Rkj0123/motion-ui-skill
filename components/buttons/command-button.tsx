@@ -39,17 +39,20 @@ function parseShortcut(shortcut: string) {
     .filter(Boolean);
 }
 
-function shortcutMatches(event: KeyboardEvent, parts: string[]) {
+function shortcutMatches(event: KeyboardEvent, parts: string[], isApple: boolean) {
   const wantsMod = parts.includes("mod");
   const wantsCtrl = parts.includes("ctrl");
   const finalKey = parts.find(
     (part) => !(MODIFIERS as readonly string[]).includes(part),
   );
 
-  if (wantsMod && !(event.metaKey || event.ctrlKey)) return false;
-  if (!wantsMod && wantsCtrl !== event.ctrlKey) return false;
-  if (parts.includes("alt") !== event.altKey) return false;
-  if (parts.includes("shift") !== event.shiftKey) return false;
+  const reqMeta = wantsMod ? isApple : false;
+  const reqCtrl = wantsCtrl || (wantsMod && !isApple);
+
+  if (event.metaKey !== reqMeta) return false;
+  if (event.ctrlKey !== reqCtrl) return false;
+  if (event.altKey !== parts.includes("alt")) return false;
+  if (event.shiftKey !== parts.includes("shift")) return false;
   return finalKey ? normalizeKey(event.key) === finalKey : false;
 }
 
@@ -141,7 +144,7 @@ export const CommandButton = React.forwardRef<
 
       const handleKeyDown = (event: KeyboardEvent) => {
         syncModifiers(event);
-        if (event.repeat || !shortcutMatches(event, parts)) return;
+        if (event.repeat || !shortcutMatches(event, parts, isApple)) return;
         if (preventDefault) event.preventDefault();
         fire();
         onCommandRef.current?.();

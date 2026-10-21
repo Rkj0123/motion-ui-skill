@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { SPRING_SWAP, SPRING_PANEL } from "@/lib/ease";
 
@@ -61,6 +61,7 @@ export function ThinkingStates({
   className,
 }: ThinkingStatesProps) {
   const [internalStageIndex, setInternalStageIndex] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     if (!autoCycle || controlledStage !== undefined) return;
@@ -84,12 +85,14 @@ export function ThinkingStates({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="relative flex size-3">
-            <span
-              className={cn(
-                "animate-ping absolute inline-flex h-full w-full rounded-full opacity-75",
-                info.color
-              )}
-            />
+            {!shouldReduceMotion && (
+              <span
+                className={cn(
+                  "animate-ping absolute inline-flex h-full w-full rounded-full opacity-75",
+                  info.color
+                )}
+              />
+            )}
             <span
               className={cn("relative inline-flex rounded-full size-3", info.color)}
             />
@@ -97,10 +100,10 @@ export function ThinkingStates({
           <AnimatePresence mode="wait">
             <motion.span
               key={currentStage}
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 6 }}
-              transition={SPRING_SWAP}
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -6 }}
+              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+              exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 6 }}
+              transition={shouldReduceMotion ? { duration: 0.15 } : SPRING_SWAP}
               className="text-xs font-bold uppercase tracking-wider text-neutral-800 dark:text-neutral-200"
             >
               {info.label}
@@ -112,16 +115,24 @@ export function ThinkingStates({
           {[0, 1, 2].map((i) => (
             <motion.div
               key={i}
-              animate={{
-                scale: [0.7, 1.2, 0.7],
-                opacity: [0.3, 1, 0.3],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                delay: i * 0.2,
-                ease: "easeInOut",
-              }}
+              animate={
+                shouldReduceMotion
+                  ? { opacity: 0.6 }
+                  : {
+                      scale: [0.7, 1.2, 0.7],
+                      opacity: [0.3, 1, 0.3],
+                    }
+              }
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : {
+                      duration: 1,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: "easeInOut",
+                    }
+              }
               className="size-1.5 rounded-full bg-neutral-400 dark:bg-neutral-500"
             />
           ))}
@@ -131,9 +142,9 @@ export function ThinkingStates({
       <AnimatePresence mode="wait">
         <motion.p
           key={currentStage}
-          initial={{ opacity: 0, filter: "blur(2px)" }}
-          animate={{ opacity: 1, filter: "blur(0px)" }}
-          exit={{ opacity: 0, filter: "blur(2px)" }}
+          initial={{ opacity: 0, filter: shouldReduceMotion ? "none" : "blur(2px)" }}
+          animate={{ opacity: 1, filter: "none" }}
+          exit={{ opacity: 0, filter: shouldReduceMotion ? "none" : "blur(2px)" }}
           transition={{ duration: 0.2 }}
           className="text-xs text-neutral-500 dark:text-neutral-400 pl-5 leading-relaxed"
         >
