@@ -7,7 +7,7 @@ description: >-
 license: MIT
 metadata:
   author: Rkj0123
-  version: "2.0.0"
+  version: "2.1.1"
 ---
 
 # Motion UI Skill

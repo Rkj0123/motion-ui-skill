@@ -25,9 +25,10 @@ assert.strictEqual(compareSemver("1.0.0", "1.0.0"), 0);
 assert.strictEqual(compareSemver("2.0.0", "1.9.9"), 1);
 assert.strictEqual(compareSemver("v2.1.0", "2.0.5"), 1);
 
-// 2. Local version detection: must match v2.0.0
+// 2. Local and CLI versions must match the package manifest.
 const ver = getLocalVersion();
-assert.strictEqual(ver, "2.0.0", "Version should match package.json and SKILL.md v2.0.0");
+const packageVersion = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf-8")).version;
+assert.strictEqual(ver, packageVersion);
 
 // 3. Cache read/write
 const tempDir = mkdtempSync(join(tmpdir(), "motion-ui-test-"));
@@ -70,6 +71,12 @@ try {
   assert.ok(existsSync(join(targetSkill, "catalog.json")), "catalog.json must be copied");
   assert.ok(existsSync(join(targetSkill, "lib", "styles.ts")), "lib/styles.ts must be copied");
   assert.ok(!existsSync(join(targetSkill, "node_modules")), "node_modules must not be copied");
+
+  // Installed skills must retain their offline design data and validation tools.
+  for (const relative of ["data/styles.csv", "prompts/install-motion-ui.md", "evals/catalog_eval.py", "test/test_installer.mjs", "README.md"]) {
+    assert.ok(existsSync(join(targetSkill, relative)), `Missing installed package file: ${relative}`);
+  }
+  execFileSync("python3", [join(targetSkill, "scripts/verify_skill.py")], { stdio: "pipe" });
 
   // 7. Deduplication test
   const dedupeTarget = join(tempDir, "dedupe-skill");
@@ -118,7 +125,7 @@ try {
 
   const cliLink = join(tempDir, "motion-ui-skill");
   symlinkSync(fileURLToPath(new URL("../bin/index.mjs", import.meta.url)), cliLink);
-  assert.strictEqual(execFileSync(process.execPath, [cliLink, "--version"], { encoding: "utf-8" }).trim(), "v2.0.0");
+  assert.strictEqual(execFileSync(process.execPath, [cliLink, "--version"], { encoding: "utf-8" }).trim(), `v${packageVersion}`);
 } finally {
   rmSync(tempDir, { recursive: true, force: true });
 }
