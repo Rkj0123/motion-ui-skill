@@ -1,6 +1,6 @@
 {
   "name": "motion-ui-skill",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "type": "module",
   "engines": {
     "node": ">=18"
@@ -20,7 +20,11 @@
     "SKILL.md",
     "README.md",
     "LICENSE",
-    "agents"
+    "agents",
+    "prompts",
+    "evals",
+    "test",
+    "icons"
   ],
   "scripts": {
     "test": "node test/test_installer.mjs",

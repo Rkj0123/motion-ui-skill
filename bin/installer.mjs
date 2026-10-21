@@ -34,6 +34,12 @@ const c = (color, text) => `${COLORS[color]}${text}${COLORS.reset}`;
 // Files and directories to copy when installing the skill
 const SKILL_COPY_ITEMS = [
   "SKILL.md",
+  "README.md",
+  "data",
+  "icons",
+  "prompts",
+  "evals",
+  "test",
   "catalog.json",
   "package.json",
   "agents",

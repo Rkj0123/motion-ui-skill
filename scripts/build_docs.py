@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 catalog = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
+version = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))["version"]
 comps = catalog["components"]
 total_count = len(comps)
 
@@ -74,7 +75,7 @@ description: >-
 license: MIT
 metadata:
   author: Rkj0123
-  version: "2.0.0"
+  version: "{version}"
 ---
 
 # Motion UI Skill
