@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
-import "@/components/block/hover-img.css";
+import "./hover-img.css";
 
 interface ProjectItem {
     title: string;
