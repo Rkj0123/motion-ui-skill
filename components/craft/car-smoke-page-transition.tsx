@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { motion, animate, useMotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
-import { useTheme } from '../../lib/theme/useTheme';
+import { useTheme } from "@/lib/theme/useTheme";
 
 /**
  * Cinematic Drift & Transition Constants

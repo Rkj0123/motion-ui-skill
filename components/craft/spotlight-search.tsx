@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Search } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { motionTransitions } from "@/lib/motion-tokens";
-import { GITHUB_URL } from '../../lib/constants';
+const GITHUB_URL = "https://github.com";
 import { CATALOG_INDEX } from '../registry/catalog-index';
 
 export interface SpotlightSearchItem {
