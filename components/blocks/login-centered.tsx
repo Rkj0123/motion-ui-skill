@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type FormEvent, type PointerEvent } from "react";
 import { AnimatePresence, animate, motion, useMotionValue, useReducedMotion, useSpring, useTransform, type MotionStyle, type Transition, type Variants } from "motion/react";
-import { Check, FingerprintPattern, Mail } from "lucide-react";
+import { Check, Fingerprint, Mail } from "lucide-react";
 import { Button } from "@/components/motion/button";
 import { Input } from "@/components/motion/input";
 import { OtpInput } from "@/components/motion/otp-input";
@@ -87,7 +87,7 @@ function RollingTime({ seconds, reduce }: { seconds: number; reduce: boolean }) 
 function PasskeyPulse({ reduce }: { reduce: boolean }) {
   return <span className={styles.pulse}>
     {!reduce && [0, 1].map(index => <motion.span key={index} className={styles.pulseRing} initial={{ scale: .7, opacity: 0 }} animate={{ scale: [.7, 2.1], opacity: [.6, 0] }} transition={{ duration: 1.2, ease: [...motionTokens.ease.standard], delay: index * .6 }} />)}
-    <FingerprintPattern size={16} strokeWidth={1.75} aria-hidden="true" />
+    <Fingerprint size={16} strokeWidth={1.75} aria-hidden="true" />
   </span>;
 }
 
@@ -350,7 +350,7 @@ export function LoginCentered({ demoCode = "482913", fullScreen = false, demoEma
     };
   }
 
-  const passkeyLabel = passkey === "waiting" ? <><PasskeyPulse reduce={reduce} />Waiting for your device</> : passkey === "verified" ? <><Check size={16} strokeWidth={2} aria-hidden="true" />Passkey verified</> : <><FingerprintPattern size={16} strokeWidth={1.75} aria-hidden="true" />Sign in with passkey</>;
+  const passkeyLabel = passkey === "waiting" ? <><PasskeyPulse reduce={reduce} />Waiting for your device</> : passkey === "verified" ? <><Check size={16} strokeWidth={2} aria-hidden="true" />Passkey verified</> : <><Fingerprint size={16} strokeWidth={1.75} aria-hidden="true" />Sign in with passkey</>;
 
   return (
     <section className={[styles.screen, fullScreen ? styles.fullScreen : "", className].filter(Boolean).join(" ")} aria-label={signingUp ? "Create an account" : "Sign in"} onPointerMove={drift.onPointerMove} onPointerLeave={drift.onPointerLeave}>
@@ -365,7 +365,7 @@ export function LoginCentered({ demoCode = "482913", fullScreen = false, demoEma
       </motion.div>
 
       <header className={styles.bar}>
-        <span className={styles.mark}><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 15a7 7 0 0 1 14 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /><circle cx="10" cy="15" r="1.75" fill="currentColor" /></svg>Arc</span>
+        <span className={styles.mark}><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 15a7 7 0 0 1 14 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /><circle cx="10" cy="15" r="1.75" fill="currentColor" /></svg>Motion</span>
         <p className={styles.switch}>
           <span className={styles.switchPrompt}>{(["sign-in", "sign-up"] as const).map(option => <motion.span key={option} aria-hidden={option !== mode || undefined} initial={false} animate={labelState(option === mode, reduce)} transition={labelTransition(reduce)}>{option === "sign-up" ? "Have an account?" : "No account?"}</motion.span>)}</span>
           <button type="button" className={styles.switchButton} aria-label={signingUp ? "Sign in" : "Sign up"} onClick={switchMode}>{(["sign-in", "sign-up"] as const).map(option => <motion.span key={option} aria-hidden="true" initial={false} animate={labelState(option === mode, reduce)} transition={labelTransition(reduce)}>{option === "sign-up" ? "Sign in" : "Sign up"}</motion.span>)}</button>
@@ -378,7 +378,7 @@ export function LoginCentered({ demoCode = "482913", fullScreen = false, demoEma
             <div ref={track} className={styles.track}>
               <AnimatePresence mode="popLayout" initial={false} custom={custom}>
                 {step === "passkey" && <motion.div key="passkey" className={styles.step} custom={custom} variants={stepMotion} initial="enter" animate="center" exit="exit">
-                  <div className={styles.heading}><h2>Sign in to Arc</h2><p>Use the passkey saved on this device. No password needed.</p></div>
+                  <div className={styles.heading}><h2>Sign in</h2><p>Use the passkey saved on this device. No password needed.</p></div>
                   <div className={styles.actions}>
                     <Button ref={passkeyRef} type="button" className={styles.wide} aria-busy={passkey === "waiting" || undefined} aria-disabled={passkey !== "idle" || !!busy || undefined} onClick={startPasskey}>{passkeyLabel}</Button>
                     <Button type="button" variant="secondary" className={styles.wide} aria-disabled={passkey === "verified" || !!busy || undefined} onClick={passkey === "waiting" ? cancelPasskey : switchToEmail}>{passkey === "waiting" ? "Cancel" : <><Mail size={16} strokeWidth={1.75} aria-hidden="true" />Use email instead</>}</Button>
@@ -395,7 +395,7 @@ export function LoginCentered({ demoCode = "482913", fullScreen = false, demoEma
                     <Input ref={emailRef} label={signingUp ? "Work email" : "Email"} type="email" name="email" inputMode="email" autoComplete="email" autoCapitalize="none" spellCheck={false} placeholder="name@example.com" value={email} readOnly={busy === "email"} error={emailError} onChange={event => setEmail(event.target.value)} onBlur={() => { if (email.trim()) setTouched(true); }} />
                     <Button type="submit" className={styles.wide} loading={busy === "email"}>{signingUp ? "Create account" : "Send code"}</Button>
                   </form>
-                  {!signingUp && <button type="button" className={styles.textButton} onClick={switchToPasskey}><FingerprintPattern size={14} strokeWidth={1.75} aria-hidden="true" />Use a passkey instead</button>}
+                  {!signingUp && <button type="button" className={styles.textButton} onClick={switchToPasskey}><Fingerprint size={14} strokeWidth={1.75} aria-hidden="true" />Use a passkey instead</button>}
                 </motion.div>}
 
                 {step === "code" && <motion.div key="code" className={styles.step} custom={custom} variants={stepMotion} initial="enter" animate="center" exit="exit">
