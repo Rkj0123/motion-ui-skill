@@ -3,7 +3,7 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { useTheme } from '../../lib/theme/useTheme';
+import { useTheme } from "@/lib/theme/useTheme";
 
 /* =========================================================================
  * MorphingShapeLoader

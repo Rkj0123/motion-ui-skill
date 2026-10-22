@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import Draggable from "gsap/Draggable";
-import "@/lib/effects/draggable-marquee/styles.css";
+import "./draggable-marquee.css";
 
 if (typeof window !== "undefined") gsap.registerPlugin(Draggable);
 
@@ -316,7 +316,7 @@ const DraggableMarquee = ({
             tabIndex={0}
             role="region"
             aria-label={label}
-            className={`obsidian-draggable-marquee relative w-full overflow-hidden cursor-grab outline-offset-4 focus-visible:outline-2 focus-visible:outline-ring active:cursor-grabbing ${className}`}
+            className={`motion-draggable-marquee relative w-full overflow-hidden cursor-grab outline-offset-4 focus-visible:outline-2 focus-visible:outline-ring active:cursor-grabbing ${className}`}
         >
             <div
                 ref={trackRef}
@@ -348,3 +348,5 @@ const DraggableMarquee = ({
 };
 
 export { DraggableMarquee };
+
+export default DraggableMarquee;

@@ -1,0 +1,10 @@
+Most component libraries were designed before LLM agents existed.
+
+Motion UI Skill includes 17 dedicated AI-agent surfaces:
+- Streaming markdown with citations
+- Human-in-the-loop tool approvals
+- Live reasoning activity streams
+- Dynamic prompt composers
+
+Build modern agentic apps faster:
+https://github.com/Rkj0123/motion-ui-skill

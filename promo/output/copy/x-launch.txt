@@ -1,0 +1,13 @@
+AI coding agents are great at writing React.
+Their UI taste can be another story.
+
+Stop giving coding agents better prompts.
+Give them better skills.
+
+Motion UI Skill adds 130 production-ready animated components, 6 aesthetic presets, and AI-agent surfaces directly into your workspace:
+
+Dynamic Island, Morphing Search, Tool Approval Gates, Streaming Tokens & physics-calibrated springs.
+
+Works offline in Codex & Google Antigravity.
+
+https://github.com/Rkj0123/motion-ui-skill

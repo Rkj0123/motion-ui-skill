@@ -1,0 +1,5 @@
+@media (prefers-reduced-motion: reduce) {
+  .motion-draggable-marquee { overflow-x: auto; }
+  .motion-draggable-marquee > div { transform: none !important; }
+  .motion-draggable-marquee [data-marquee-copy="duplicate"] { display: none; }
+}

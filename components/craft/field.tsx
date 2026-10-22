@@ -246,3 +246,5 @@ export {
   FieldContent,
   FieldTitle,
 }
+
+export default Field;

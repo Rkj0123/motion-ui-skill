@@ -1,0 +1,16 @@
+[Show / Experiment] I gave my coding agent an offline UI skill instead of writing 500-word design prompts (130 components, 6 styles)
+
+Hey everyone,
+
+Like many of you, I have been using Codex and Google Antigravity to build full-stack apps. The agents write solid TypeScript logic, but every dashboard ends up looking like the exact same generic AI template: rigid borders, static cards, and zero tactile feedback.
+
+I tried an experiment: instead of stuffing my prompts with complex CSS design instructions, what if we gave the agent a localized, offline Agent Skill with curated components, physics curves, and design tokens?
+
+The result is Motion UI Skill:
+- 130 production-ready components (80 motion primitives, 17 AI-agent surfaces, 33 blocks)
+- 6 visual style presets: Minimal (shadcn), Origin (Cal.com), Enterprise (ReUI), Glow (ibelick), iOS (Expo), Brutalist
+- Calibrated spring tokens in `lib/ease.ts` (SPRING_PRESS, SPRING_BOUNCE, SPRING_LAYOUT)
+- Offline-first: zero remote registry calls needed, 100% copy-paste or CLI installable
+
+Check out the before vs after comparison and let me know your thoughts on agent skill architectures:
+GitHub: https://github.com/Rkj0123/motion-ui-skill

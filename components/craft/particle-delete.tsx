@@ -15,7 +15,7 @@ import {
   particleDelete,
   useParticleDelete,
   type ParticleDeleteOptions,
-} from '../../lib/particle-delete';
+} from "@/lib/particle-delete";
 
 export interface ParticleDeleteItem {
   id: string;
