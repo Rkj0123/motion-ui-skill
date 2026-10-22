@@ -281,6 +281,17 @@ For in-depth animation principles, design system checklists, and accessibility r
 - [`references/guides/universal-mobile-patterns.md`](./references/guides/universal-mobile-patterns.md): Cross-platform mobile interaction patterns, touch ergonomics (44pt/48dp rules), and semantic haptics.
 - [`references/guides/craft-surface-design-system.md`](./references/guides/craft-surface-design-system.md): Craft & Surface Design System covering neutral stages, tactile 3D elevation, typography pairing, and component patterns.
 - [`references/guides/enterprise-dashboard-patterns.md`](./references/guides/enterprise-dashboard-patterns.md): Architecture for complex enterprise surfaces, timelines, kanban task boards, faceted query builders, and data grids.
+- [`references/guides/better-accessibility.md`](./references/guides/better-accessibility.md): Accessibility engineering covering WCAG 2.2 AAA, focus rings, keyboard navigation, tab order, screen readers, and ARIA live regions.
+- [`references/guides/better-colors.md`](./references/guides/better-colors.md): Color systems from OKLCH scales and APCA contrast to brand/neutral ramps, semantic tokens, and dark mode elevation.
+- [`references/guides/better-interface.md`](./references/guides/better-interface.md): Holistic multi-domain interface review rubric consolidating accessibility, color, layout, typography, UI polish, and copy.
+- [`references/guides/better-layout.md`](./references/guides/better-layout.md): Layout structure, spacing scales, visual hierarchy, progressive disclosure, safe areas, and container queries.
+- [`references/guides/better-typography.md`](./references/guides/better-typography.md): Typography engineering: OpenType features, variable fonts, tabular numerals, text hierarchy, line lengths, and font pairing.
+- [`references/guides/better-ui.md`](./references/guides/better-ui.md): UI polish details: optical alignment, box shadows, border radiuses, image outlines, and motion restraint.
+- [`references/guides/better-writing.md`](./references/guides/better-writing.md): UX microcopy, action labels, error handling copy, voice and tone, sentence case vs title case.
+- [`references/guides/interface-review.md`](./references/guides/interface-review.md): Interface review workflow and quality audit protocol for pull requests and components.
+- [`references/guides/easyui-design-system.md`](./references/guides/easyui-design-system.md): Full EasyUI Design System Specification featuring the exact #151515 dark neutral palette, elevation layers, and tokens.
+- [`references/guides/arc-motion-system.md`](./references/guides/arc-motion-system.md): Arc Foundation and motion tokens system covering spring curves, durations, and CSS variables.
+- [`references/guides/rare-ui-conventions.md`](./references/guides/rare-ui-conventions.md): Rare UI micro-interaction conventions, gooey metaballs, and fluid WebGL physics.
 """
 
 (ROOT / "SKILL.md").write_text(skill_md, encoding="utf-8")
@@ -289,7 +300,7 @@ print("Wrote SKILL.md")
 # Generate README.md
 readme_md = f"""# Motion UI
 
-384 animated React and Next.js components, shipped as source you own.
+{total_count} animated React and Next.js components, shipped as source you own.
 
 | Category | Count | What is in it |
 | :--- | ---: | :--- |

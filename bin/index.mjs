@@ -5,7 +5,7 @@
  * Supports:
  * - npx motion-ui-skill (auto-detects and installs skill)
  * - motion-ui-skill update (checks upstream and updates skill)
- * - motion-ui-skill search <query> (searches 384 components)
+ * - motion-ui-skill search <query> (searches 617 components)
  * - motion-ui-skill list [category] (lists components)
  * - motion-ui-skill add <slug> (installs component into project)
  */
@@ -44,7 +44,7 @@ COMMANDS:
                         Flags: --all / -y, --global, --dry-run, --list
   update                Check upstream for updates and auto-update
                         Flags: --force, --silent
-  search <query>        Search 384 components by name, tag, or description
+  search <query>        Search 617 components by name, tag, or description
   list [category]       List components (motion, agents, blocks, craft)
   add <slug>            Install component files into your project
                         Flags: --dest <dir> (default: ./src), --style <preset>

@@ -1,0 +1,52 @@
+.obsidian-active-sessions {
+  --obsidian-active-sessions-success: oklch(0.52 0.13 152);
+  --obsidian-active-sessions-warning: oklch(0.52 0.12 65);
+  --obsidian-active-sessions-danger: oklch(0.55 0.2 27);
+  --obsidian-active-sessions-danger-solid: oklch(0.577 0.215 27);
+}
+
+.dark .obsidian-active-sessions {
+  --obsidian-active-sessions-success: oklch(0.76 0.15 152);
+  --obsidian-active-sessions-warning: oklch(0.82 0.13 80);
+  --obsidian-active-sessions-danger: oklch(0.72 0.17 25);
+  --obsidian-active-sessions-danger-solid: oklch(0.6 0.21 27);
+}
+
+.obsidian-active-sessions__ping {
+  animation: obsidian-active-sessions-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.obsidian-active-sessions__pulse {
+  animation: obsidian-active-sessions-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes obsidian-active-sessions-ping {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+
+@keyframes obsidian-active-sessions-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .obsidian-active-sessions__ping,
+  .obsidian-active-sessions__pulse {
+    animation: none;
+  }
+}

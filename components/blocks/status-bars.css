@@ -1,0 +1,52 @@
+.obsidian-status-bars {
+  --obsidian-status-up: oklch(0.7 0.16 152);
+  --obsidian-status-degraded: oklch(0.8 0.15 78);
+  --obsidian-status-down: oklch(0.63 0.21 25);
+  --obsidian-status-empty: color-mix(in oklab, currentColor 9%, transparent);
+}
+
+.dark .obsidian-status-bars {
+  --obsidian-status-up: oklch(0.72 0.15 152);
+  --obsidian-status-degraded: oklch(0.82 0.14 80);
+  --obsidian-status-down: oklch(0.66 0.2 25);
+  --obsidian-status-empty: color-mix(in oklab, currentColor 11%, transparent);
+}
+
+.obsidian-status-bars__ping {
+  animation: obsidian-status-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.obsidian-status-bars__pulse {
+  animation: obsidian-status-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes obsidian-status-ping {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+}
+
+@keyframes obsidian-status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .obsidian-status-bars__ping,
+  .obsidian-status-bars__pulse {
+    animation: none;
+  }
+}
