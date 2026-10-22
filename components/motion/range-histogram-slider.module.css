@@ -1,0 +1,27 @@
+/* Set --histogram-height, --histogram-thumb, and --histogram-track to resize. Chart and track share an inset of half a thumb, so every bar sits over the values it counts. */
+.root { --histogram-height: 76px; --histogram-thumb: 22px; --histogram-track: 4px; display: grid; width: 100%; min-width: 0; gap: var(--space-3); color: var(--foreground); font-size: var(--text-sm); line-height: var(--leading-body); letter-spacing: var(--tracking-body); user-select: none; -webkit-user-select: none; }
+.header { display: flex; min-width: 0; align-items: baseline; justify-content: space-between; gap: var(--space-4); }
+.label { min-width: 0; font-weight: 500; }
+.readout { display: inline-flex; flex: none; align-items: baseline; gap: .3em; color: var(--text-secondary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dash { color: var(--text-muted); }
+/* The chart and the track are one hit area; vertical pans still scroll the page on touch. */
+.control { position: relative; display: grid; cursor: pointer; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
+.chart { position: relative; height: var(--histogram-height); margin: 0 calc(var(--histogram-thumb) / 2); }
+.bars { position: absolute; inset: 0; display: flex; align-items: flex-end; gap: 2px; }
+.bar { flex: 1 1 0; min-width: 0; border-radius: 3px 3px 1px 1px; background: color-mix(in oklab, var(--foreground) 11%, transparent); }
+/* The lit copy sits on top and is revealed between the thumbs, so a bar a thumb stops in is cut exactly there. */
+.lit .bar { background: var(--control-fill); }
+.row { position: relative; height: var(--control-height-sm); }
+.track { position: absolute; top: 50%; right: calc(var(--histogram-thumb) / 2); left: calc(var(--histogram-thumb) / 2); height: var(--histogram-track); margin-top: calc(var(--histogram-track) / -2); border-radius: var(--radius-pill); background: var(--control-track); }
+.fill { position: absolute; inset: 0; border-radius: inherit; background: var(--control-fill); }
+.thumbs { position: absolute; inset: 0 calc(var(--histogram-thumb) / 2); pointer-events: none; }
+.layer { position: absolute; inset: 0; }
+/* While a thumb is held, a hairline rises from it through the chart to show exactly where the range cuts. */
+.guide { position: absolute; right: 0; bottom: 50%; width: 1px; height: calc(var(--histogram-height) + 50% + 2px); translate: 50% 0; background: color-mix(in oklab, var(--foreground) 40%, transparent); opacity: 0; transform: scaleY(.6); transform-origin: 50% 100%; transition: opacity var(--duration-fast) var(--ease-standard), transform var(--duration-standard) var(--ease-enter); }
+.guide[data-on] { opacity: 1; transform: none; }
+.thumb { position: absolute; top: 50%; right: 0; box-sizing: border-box; width: var(--histogram-thumb); height: var(--histogram-thumb); translate: 50% -50%; border: 0; border-radius: var(--radius-pill); background: var(--control-thumb); box-shadow: var(--control-thumb-shadow); pointer-events: auto; cursor: grab; }
+.thumb::after { content: ""; position: absolute; inset: -11px; border-radius: inherit; }
+.root[data-dragging], .root[data-dragging] .control, .root[data-dragging] .thumb { cursor: grabbing; }
+.root[data-disabled] { opacity: .5; }
+.root[data-disabled] .control, .root[data-disabled] .thumb { cursor: not-allowed; }
+@media (prefers-reduced-motion: reduce) { .guide { transition: none; } .guide { transform: none; } }
