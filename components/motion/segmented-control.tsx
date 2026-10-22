@@ -128,3 +128,5 @@ export function SegmentedControl({
     </motion.div>
   );
 }
+
+export default SegmentedControl;

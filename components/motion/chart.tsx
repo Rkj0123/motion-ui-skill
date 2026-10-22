@@ -355,3 +355,5 @@ export {
   ChartLegendContent,
   ChartStyle,
 }
+
+export default LineChart;

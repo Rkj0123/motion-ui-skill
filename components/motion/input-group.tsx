@@ -168,3 +168,5 @@ export {
   InputGroupInput,
   InputGroupTextarea,
 }
+
+export default InputGroup;

@@ -104,3 +104,5 @@ const RaisedButton = ({
 RaisedButton.displayName = "RaisedButton";
 
 export { buttonVariants, RaisedButton };
+
+export default Button;
