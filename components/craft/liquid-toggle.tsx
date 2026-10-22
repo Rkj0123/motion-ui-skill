@@ -9,7 +9,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 import { cn } from "@/lib/utils";
-import { useTheme } from '../../lib/theme/useTheme';
+import { useTheme } from "@/lib/theme/useTheme";
 
 /* =========================================================================
  * LiquidToggle

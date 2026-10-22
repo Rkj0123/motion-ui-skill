@@ -390,3 +390,6 @@ function toSlots(raw: string, length: number) {
   const digits = sanitize(raw, length);
   return Array.from({ length }, (_, i) => digits[i] ?? "");
 }
+
+export { OTPInput as OtpInput };
+export default OTPInput;

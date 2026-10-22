@@ -104,3 +104,5 @@ export {
   EmptyContent,
   EmptyMedia,
 }
+
+export default Empty;

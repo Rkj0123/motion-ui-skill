@@ -26,7 +26,6 @@ python scripts/install-component.py story-card --dest ./src
 - `motion`
 - `react`
 - `tailwind-merge`
-- `this should be easy`
 
 ## Usage
 

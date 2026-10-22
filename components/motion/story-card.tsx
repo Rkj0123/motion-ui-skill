@@ -61,7 +61,7 @@ const defaultCards: StoryCard[] = [
     id: 3,
     title: 'Inside the journey',
     description:
-      "One person's inspiring journey from 'this should be easy' to 47 browser tabs and a Stack Overflow account.",
+      'One person\'s inspiring journey beginning with "this should be easy" to 47 browser tabs and a Stack Overflow account.',
     image:
       'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85',
     imageAlt: 'Person exploring a landscape',

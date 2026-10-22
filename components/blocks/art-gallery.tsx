@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { WebGLSurface, useEffectReducedMotion } from "@/lib/effects/shared/webgl-surface";
 import { cn } from "@/lib/utils";
-import { LoaderGooeyBlobs } from "@/components/ui/loaders-gooey-blobs";
+import { LoaderGooeyBlobs } from "@/components/craft/loaders-gooey-blobs";
 
 const defaultConfig = {
   cellSize: 0.75,

@@ -5,8 +5,12 @@ import { motion, AnimatePresence } from "motion/react";
 import { Search } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { motionTransitions } from "@/lib/motion-tokens";
-import { GITHUB_URL } from '../../lib/constants';
-import { CATALOG_INDEX } from '../registry/catalog-index';
+const GITHUB_URL = "https://github.com";
+const CATALOG_INDEX = [
+  { id: 'fluid-tabs', name: 'Fluid Tabs', category: 'Motion' },
+  { id: 'dock-lens', name: 'Dock Lens', category: 'Motion' },
+  { id: 'spotlight-search', name: 'Spotlight Search', category: 'Craft' },
+];
 
 export interface SpotlightSearchItem {
   id: string;

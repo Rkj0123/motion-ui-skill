@@ -193,3 +193,5 @@ export {
   ItemHeader,
   ItemFooter,
 }
+
+export default Item;

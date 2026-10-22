@@ -1,0 +1,11 @@
+One component library. 6 calibrated design aesthetics:
+
+1. Minimal (shadcn / Vercel monochrome)
+2. Origin (Coss / Cal.com high-craft)
+3. Enterprise (KeenThemes ReUI dense hierarchy)
+4. Glow (ibelick luminous radial beams)
+5. iOS (Apple liquid glass & squircle bounce)
+6. Brutalist (Neo-brutalist high contrast)
+
+Switch aesthetics with a single token:
+https://github.com/Rkj0123/motion-ui-skill

@@ -1,0 +1,13 @@
+Same agent.
+Same prompt.
+Better UI.
+
+Here is what happens when you give an AI coding agent Motion UI Skill instead of generic Tailwind defaults.
+
+Notice the difference in interaction design:
+- Dynamic Island status
+- Calibrated spring cards
+- Stateful tool approvals
+- Smooth layout morphing
+
+Repo: https://github.com/Rkj0123/motion-ui-skill
