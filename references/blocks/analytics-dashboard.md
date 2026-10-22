@@ -1,6 +1,6 @@
 ---
 title: "Analytics Dashboard"
-description: "Component from ObsidianUI: analytics-dashboard"
+description: "Component from Motion UI: analytics-dashboard"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Analytics Dashboard
 
-> Component from ObsidianUI: analytics-dashboard
+> Component from Motion UI: analytics-dashboard
 
 ## Install
 

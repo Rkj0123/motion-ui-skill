@@ -1,25 +1,25 @@
 /*
  * The 404 is a single screen: exactly the viewport, less any fixed chrome given in
- * --obsidianui-404-offset, with no page scroll.
+ * --motion-ui-404-offset, with no page scroll.
  */
-html:has(.obsidianui-404),
-body:has(.obsidianui-404) {
+html:has(.motion-ui-404),
+body:has(.motion-ui-404) {
   overflow: hidden;
   overscroll-behavior: none;
 }
 
-.obsidianui-404 {
+.motion-ui-404 {
   --nf-haze: #f8f8f6;
   --nf-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  height: calc(100vh - var(--obsidianui-404-offset, 0px));
-  height: calc(100dvh - var(--obsidianui-404-offset, 0px));
+  height: calc(100vh - var(--motion-ui-404-offset, 0px));
+  height: calc(100dvh - var(--motion-ui-404-offset, 0px));
   padding: 10px;
   overflow: hidden;
   background: var(--background);
   color: var(--foreground);
 }
 
-.dark .obsidianui-404 { --nf-haze: #050505; }
+.dark .motion-ui-404 { --nf-haze: #050505; }
 
 @keyframes nf-rise {
   from { opacity: 0; translate: 0 14px; }
@@ -30,7 +30,7 @@ body:has(.obsidianui-404) {
   to { translate: -33.333% 0; }
 }
 
-.obsidianui-404-card {
+.motion-ui-404-card {
   position: relative;
   height: 100%;
   overflow: hidden;
@@ -40,9 +40,9 @@ body:has(.obsidianui-404) {
   isolation: isolate;
 }
 
-.dark .obsidianui-404-card { box-shadow: 0 8px 30px rgb(0 0 0 / 0.3); }
+.dark .motion-ui-404-card { box-shadow: 0 8px 30px rgb(0 0 0 / 0.3); }
 
-.obsidianui-404-card::after {
+.motion-ui-404-card::after {
   position: absolute;
   z-index: 3;
   inset: 0;
@@ -52,15 +52,15 @@ body:has(.obsidianui-404) {
   pointer-events: none;
 }
 
-.dark .obsidianui-404-card::after { box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08); }
+.dark .motion-ui-404-card::after { box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08); }
 
-.obsidianui-404-card > .obsidianui-404-scene {
+.motion-ui-404-card > .motion-ui-404-scene {
   position: absolute;
   inset: 0;
 }
 
 /* Fog rolls in where the copy sits, so the text reads against still air instead of steel. */
-.obsidianui-404-haze {
+.motion-ui-404-haze {
   --nf-fade: linear-gradient(
     to top,
     var(--nf-haze) 0%,
@@ -78,7 +78,7 @@ body:has(.obsidianui-404) {
 }
 
 /* Fog banks: every tile width divides the one-third drift, so the loop has no seam. */
-.obsidianui-404-haze::before {
+.motion-ui-404-haze::before {
   position: absolute;
   bottom: 14%;
   left: 0;
@@ -93,7 +93,7 @@ body:has(.obsidianui-404) {
   animation: nf-drift 90s linear infinite;
 }
 
-.obsidianui-404-copy {
+.motion-ui-404-copy {
   position: absolute;
   z-index: 2;
   right: 0;
@@ -107,14 +107,14 @@ body:has(.obsidianui-404) {
   pointer-events: none;
 }
 
-.obsidianui-404-copy > * {
+.motion-ui-404-copy > * {
   pointer-events: auto;
   animation: nf-rise 700ms var(--nf-ease) backwards;
 }
 
-.obsidianui-404-copy > :nth-child(1) { animation-delay: 120ms; }
-.obsidianui-404-copy > :nth-child(2) { animation-delay: 200ms; }
-.obsidianui-404-copy > :nth-child(3) { animation-delay: 280ms; }
+.motion-ui-404-copy > :nth-child(1) { animation-delay: 120ms; }
+.motion-ui-404-copy > :nth-child(2) { animation-delay: 200ms; }
+.motion-ui-404-copy > :nth-child(3) { animation-delay: 280ms; }
 
 @keyframes nf-focus {
   from { opacity: 0; filter: blur(16px); }
@@ -125,7 +125,7 @@ body:has(.obsidianui-404) {
  * the digits stay legible. The heading is isolated so the copy always sits behind the digits,
  * including while the entrance animation runs.
  */
-.obsidianui-404 h1 {
+.motion-ui-404 h1 {
   --nf-404: linear-gradient(170deg, #3f3f46 0%, #0a0a0a 45%, #000 100%);
   --nf-bloom: 0.2;
   position: relative;
@@ -139,22 +139,22 @@ body:has(.obsidianui-404) {
   line-height: 0.85;
 }
 
-.dark .obsidianui-404 h1 {
+.dark .motion-ui-404 h1 {
   --nf-404: linear-gradient(170deg, #fff 0%, #f4f4f5 50%, #a1a1aa 100%);
   --nf-bloom: 0.3;
 }
 
-.obsidianui-404-code,
-.obsidianui-404 h1::before {
+.motion-ui-404-code,
+.motion-ui-404 h1::before {
   background: var(--nf-404);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.obsidianui-404-code { animation: nf-focus 1100ms var(--nf-ease) 120ms backwards; }
+.motion-ui-404-code { animation: nf-focus 1100ms var(--nf-ease) 120ms backwards; }
 
-.obsidianui-404 h1::before {
+.motion-ui-404 h1::before {
   position: absolute;
   z-index: -1;
   inset: 0;
@@ -165,15 +165,15 @@ body:has(.obsidianui-404) {
 }
 
 @media (forced-colors: active) {
-  .obsidianui-404-code {
+  .motion-ui-404-code {
     background: none;
     color: CanvasText;
   }
 
-  .obsidianui-404 h1::before { display: none; }
+  .motion-ui-404 h1::before { display: none; }
 }
 
-.obsidianui-404-lede {
+.motion-ui-404-lede {
   max-width: 22rem;
   margin: 1rem 0 0;
   color: var(--muted-foreground);
@@ -182,41 +182,41 @@ body:has(.obsidianui-404) {
   text-wrap: pretty;
 }
 
-.obsidianui-404-home {
+.motion-ui-404-home {
   margin-top: 1.75rem;
   justify-content: center;
 }
 
-.obsidianui-404-home svg {
+.motion-ui-404-home svg {
   width: 1rem;
   height: 1rem;
 }
 
 /* RaisedButton sets its colours inline; the dark theme needs a light fill to stand off the night scene. */
-.dark .obsidianui-404-home {
+.dark .motion-ui-404-home {
   border-color: rgb(255 255 255 / 0.6) !important;
   background-color: #f4f4f5 !important;
   color: #09090b !important;
   box-shadow: 0 4px 14px -4px rgb(255 255 255 / 0.18) !important;
 }
 
-.dark .obsidianui-404-home:hover { background-color: #fff !important; }
+.dark .motion-ui-404-home:hover { background-color: #fff !important; }
 
 /* Short screens, such as phones held sideways: tighter spacing so the copy leaves room for the tower. */
 @media (max-height: 640px) {
-  .obsidianui-404-copy { padding-bottom: 1.5rem; }
+  .motion-ui-404-copy { padding-bottom: 1.5rem; }
 
-  .obsidianui-404-lede {
+  .motion-ui-404-lede {
     margin-top: 0.625rem;
     font-size: 0.875rem;
   }
 
-  .obsidianui-404-home { margin-top: 1rem; }
+  .motion-ui-404-home { margin-top: 1rem; }
 }
 
 /* Wide screens and landscape phones: copy beside the tower, over open water. Matches BESIDE_QUERY in framing.ts. */
 @media (min-width: 1024px) and (min-aspect-ratio: 23/20), (min-width: 640px) and (min-aspect-ratio: 3/2) {
-  .obsidianui-404-haze {
+  .motion-ui-404-haze {
     --nf-fade: linear-gradient(
       to left,
       var(--nf-haze) 0%,
@@ -230,13 +230,13 @@ body:has(.obsidianui-404) {
     -webkit-mask-image: linear-gradient(to left, black 30%, transparent 62%);
   }
 
-  .obsidianui-404-haze::before {
+  .motion-ui-404-haze::before {
     top: 10%;
     bottom: auto;
     height: 80%;
   }
 
-  .obsidianui-404-copy {
+  .motion-ui-404-copy {
     top: 0;
     right: clamp(3rem, 7vw, 8rem);
     left: auto;
@@ -247,25 +247,25 @@ body:has(.obsidianui-404) {
     text-align: left;
   }
 
-  .obsidianui-404 h1 {
+  .motion-ui-404 h1 {
     font-size: clamp(4.5rem, min(12vw, 21vh), 11rem);
     font-size: clamp(4.5rem, min(12vw, 21dvh), 11rem);
   }
 
-  .obsidianui-404-lede {
+  .motion-ui-404-lede {
     margin-top: clamp(0.625rem, 2.2dvh, 1.25rem);
     font-size: 1rem;
   }
 
-  .obsidianui-404-home { margin-top: clamp(1rem, 3.5dvh, 2rem); }
+  .motion-ui-404-home { margin-top: clamp(1rem, 3.5dvh, 2rem); }
 }
 
 @media (max-width: 767px) {
-  .obsidianui-404-card { border-radius: 24px; }
+  .motion-ui-404-card { border-radius: 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .obsidianui-404-haze::before,
-  .obsidianui-404-copy > *,
-  .obsidianui-404-code { animation: none; }
+  .motion-ui-404-haze::before,
+  .motion-ui-404-copy > *,
+  .motion-ui-404-code { animation: none; }
 }

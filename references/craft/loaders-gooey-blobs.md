@@ -1,6 +1,6 @@
 ---
 title: "Loaders Gooey Blobs"
-description: "Component from ObsidianUI: loaders-gooey-blobs"
+description: "Component from Motion UI: loaders-gooey-blobs"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Loaders Gooey Blobs
 
-> Component from ObsidianUI: loaders-gooey-blobs
+> Component from Motion UI: loaders-gooey-blobs
 
 ## Install
 

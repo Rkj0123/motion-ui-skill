@@ -1,6 +1,6 @@
 ---
 title: "Toggle"
-description: "Component from ObsidianUI: toggle"
+description: "Component from Motion UI: toggle"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Toggle
 
-> Component from ObsidianUI: toggle
+> Component from Motion UI: toggle
 
 ## Install
 

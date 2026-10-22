@@ -32,22 +32,22 @@ export const OrbitalLoadingRing: React.FC<OrbitalLoadingRingProps> = ({
       {...props}
     >
       <style>{`
-        @keyframes easyui-orbit-cw {
+        @keyframes motion-ui-orbit-cw {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
         }
-        @keyframes easyui-orbit-ccw {
+        @keyframes motion-ui-orbit-ccw {
           from { transform: rotate(360deg); }
           to { transform: rotate(0deg); }
         }
-        @keyframes easyui-orbit-glow-pulse {
+        @keyframes motion-ui-orbit-glow-pulse {
           0%, 100% { opacity: 0.6; transform: scale(0.96); }
           50% { opacity: 1; transform: scale(1.04); }
         }
         @media (prefers-reduced-motion: reduce) {
-          .easyui-orbit-spin-cw,
-          .easyui-orbit-spin-ccw,
-          .easyui-orbit-core-pulse { animation: none !important; }
+          .motion-ui-orbit-spin-cw,
+          .motion-ui-orbit-spin-ccw,
+          .motion-ui-orbit-core-pulse { animation: none !important; }
         }
       `}</style>
       <span className="sr-only">{label}</span>
@@ -65,8 +65,8 @@ export const OrbitalLoadingRing: React.FC<OrbitalLoadingRingProps> = ({
 
       {/* Outer Orbit Track & Glowing Satellite */}
       <div
-        className="easyui-orbit-spin-cw pointer-events-none absolute inset-0 flex items-center justify-center"
-        style={{ animation: `easyui-orbit-cw ${durationOuter} linear infinite` }}
+        className="motion-ui-orbit-spin-cw pointer-events-none absolute inset-0 flex items-center justify-center"
+        style={{ animation: `motion-ui-orbit-cw ${durationOuter} linear infinite` }}
       >
         <span
           className="absolute -top-1 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-white shadow-[0_0_10px_2px_rgba(255,255,255,0.6)]"
@@ -80,8 +80,8 @@ export const OrbitalLoadingRing: React.FC<OrbitalLoadingRingProps> = ({
 
       {/* Inner Counter-Rotating Orbit */}
       <div
-        className="easyui-orbit-spin-ccw pointer-events-none absolute inset-[18%] flex items-center justify-center"
-        style={{ animation: `easyui-orbit-ccw ${durationInner} cubic-bezier(0.4, 0, 0.2, 1) infinite` }}
+        className="motion-ui-orbit-spin-ccw pointer-events-none absolute inset-[18%] flex items-center justify-center"
+        style={{ animation: `motion-ui-orbit-ccw ${durationInner} cubic-bezier(0.4, 0, 0.2, 1) infinite` }}
       >
         <span
           className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-zinc-300 shadow-[0_0_8px_rgba(255,255,255,0.4)]"
@@ -95,8 +95,8 @@ export const OrbitalLoadingRing: React.FC<OrbitalLoadingRingProps> = ({
 
       {/* Central Pulsing Core */}
       <div
-        className="easyui-orbit-core-pulse h-3 w-3 rounded-full bg-white shadow-[0_0_12px_rgba(255,255,255,0.5)]"
-        style={{ animation: `easyui-orbit-glow-pulse ${durationCenter} ease-in-out infinite` }}
+        className="motion-ui-orbit-core-pulse h-3 w-3 rounded-full bg-white shadow-[0_0_12px_rgba(255,255,255,0.5)]"
+        style={{ animation: `motion-ui-orbit-glow-pulse ${durationCenter} ease-in-out infinite` }}
       />
     </div>
   );

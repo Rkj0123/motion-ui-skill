@@ -1,6 +1,6 @@
 ---
 title: "Menubar"
-description: "Component from ObsidianUI: menubar"
+description: "Component from Motion UI: menubar"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Menubar
 
-> Component from ObsidianUI: menubar
+> Component from Motion UI: menubar
 
 ## Install
 

@@ -1,6 +1,6 @@
 ---
 title: "Text Stream"
-description: "Component from ObsidianUI: text-stream"
+description: "Component from Motion UI: text-stream"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Text Stream
 
-> Component from ObsidianUI: text-stream
+> Component from Motion UI: text-stream
 
 ## Install
 

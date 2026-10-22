@@ -1,6 +1,6 @@
 ---
 title: "Resizable"
-description: "Component from ObsidianUI: resizable"
+description: "Component from Motion UI: resizable"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Resizable
 
-> Component from ObsidianUI: resizable
+> Component from Motion UI: resizable
 
 ## Install
 

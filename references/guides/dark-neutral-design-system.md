@@ -1,6 +1,6 @@
-# EasyUI Design System Specification
+# motion-ui Design System Specification
 
-> **Source of Truth:** Every value in this document was extracted directly from the actual EasyUI codebase.
+> **Source of Truth:** Every value in this document was extracted directly from the actual motion-ui codebase.
 > No generic Tailwind defaults, no guesses, and no invented colors.
 > File locations and lines are cited for every token and pattern.
 
@@ -30,7 +30,7 @@
 
 # 1. EXACT COLOR SYSTEM
 
-EasyUI uses a refined **dark neutral palette** matching the Claude interface aesthetic. Grayscale and dark charcoal surface steps establish surface elevation, visual hierarchy, and calm contrast without deep pitch blacks.
+motion-ui uses a refined **dark neutral palette** matching the Claude interface aesthetic. Grayscale and dark charcoal surface steps establish surface elevation, visual hierarchy, and calm contrast without deep pitch blacks.
 
 ### 1.1 Backgrounds & Surfaces
 
@@ -189,7 +189,7 @@ EasyUI uses a refined **dark neutral palette** matching the Claude interface aes
 - **Tailwind class:** `text-accent-blue` or `bg-[#3B82F6]`
 - **Where it is used:** Optional telemetry indicators and live charts
 - **Source:** `src/styles/tokens.css` (line 34), `tailwind.config.js` (line 32)
-- **CRITICAL NOTE:** This is the *only* chromatic hue used in EasyUI, reserved strictly for accessibility focus states and subtle sensor illumination.
+- **CRITICAL NOTE:** This is the *only* chromatic hue used in motion-ui, reserved strictly for accessibility focus states and subtle sensor illumination.
 - **Source:** `src/styles/index.css` (line 79), `src/components/ui/SpotlightCard.tsx` (line 14), `index.html` (line 37)
 
 ---
@@ -446,7 +446,7 @@ EasyUI uses a refined **dark neutral palette** matching the Claude interface aes
 
 # 8. ANIMATION SYSTEM
 
-EasyUI's animation philosophy is **Soft + Physical + Immediate + Controlled**.
+motion-ui's animation philosophy is **Soft + Physical + Immediate + Controlled**.
 Every motion transition is strictly defined in `src/lib/motion-tokens.ts`.
 
 ### 8.1 Framer Motion Spring Presets
@@ -558,7 +558,7 @@ Every motion transition is strictly defined in `src/lib/motion-tokens.ts`.
 
 # 10. FOCUS STATES
 
-EasyUI uses an accessible, restrained focus ring system.
+motion-ui uses an accessible, restrained focus ring system.
 
 ### Focus Ring Specification (`src/styles/index.css` lines 75–81)
 ```css
@@ -580,7 +580,7 @@ EasyUI uses an accessible, restrained focus ring system.
 
 # 11. RESPONSIVE SYSTEM
 
-EasyUI adheres to Tailwind's mobile-first responsive breakpoints:
+motion-ui adheres to Tailwind's mobile-first responsive breakpoints:
 * **Mobile (`< 640px`):** Default styles, stacked single-column grids (`grid-cols-1`), hidden labels (`hidden sm:inline`), full-width controls
 * **Tablet (`sm:` `>= 640px`):** 2-column grids (`sm:grid-cols-2`), increased vertical padding (`sm:pt-24 sm:pb-20`), enlarged title sizes (`sm:text-6xl`)
 * **Desktop (`md:` `>= 768px`):** Horizontal flex alignment (`md:flex-row md:items-center`), desktop navigation menu visible (`hidden md:flex`), hamburger menu hidden (`md:hidden`)
@@ -680,7 +680,7 @@ EasyUI adheres to Tailwind's mobile-first responsive breakpoints:
 # 16. MACHINE-READABLE TOKEN TABLE
 
 ```text
-EASYUI DESIGN TOKENS (CLAUDE DARK NEUTRAL SYSTEM)
+motion-ui DESIGN TOKENS (CLAUDE DARK NEUTRAL SYSTEM)
 
 Background & Surfaces:
 - main-canvas (bg): #151515

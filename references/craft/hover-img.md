@@ -1,6 +1,6 @@
 ---
 title: "Hover Img"
-description: "Component from ObsidianUI: hover-img"
+description: "Component from Motion UI: hover-img"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Hover Img
 
-> Component from ObsidianUI: hover-img
+> Component from Motion UI: hover-img
 
 ## Install
 

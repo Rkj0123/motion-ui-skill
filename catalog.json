@@ -12649,7 +12649,7 @@
       "slug": "login",
       "name": "Login",
       "category": "craft",
-      "description": "A production-ready authentication card built with the EasyUI form system, featuring password show/hide, remember me, validation states, and social logins.",
+      "description": "Centered authentication card with password visibility toggle, passkey flow, and social login.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -13108,7 +13108,7 @@
       "slug": "pricing",
       "name": "Pricing",
       "category": "blocks",
-      "description": "A minimal two-tier pricing component for EasyUI. Native to the existing design system, fully theme-aware, with a quiet Free tier and a slightly more attractive Pro tier \u2014 without resorting to SaaS marketing tropes.",
+      "description": "Minimal two-tier pricing component with monthly and annual billing toggle and tier highlights.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -13660,7 +13660,7 @@
       "slug": "input-group",
       "name": "Input Group",
       "category": "motion",
-      "description": "Component from ObsidianUI: input-group",
+      "description": "Input group wrapper with prefix and suffix addons, buttons, and status icons.",
       "dependencies": [
         "class-variance-authority",
         "clsx",
@@ -13682,7 +13682,7 @@
       "slug": "raised-button",
       "name": "Raised Button",
       "category": "motion",
-      "description": "Component from ObsidianUI: raised-button",
+      "description": "Tactile raised button with specular highlight and physical depth press.",
       "dependencies": [
         "@radix-ui/react-slot",
         "class-variance-authority",
@@ -13705,7 +13705,7 @@
       "slug": "input-otp",
       "name": "Input Otp",
       "category": "craft",
-      "description": "Component from ObsidianUI: input-otp",
+      "description": "Segmented one-time password input with slot carets and automatic focus advance.",
       "dependencies": [
         "clsx",
         "input-otp",
@@ -13728,7 +13728,7 @@
       "slug": "chart",
       "name": "Chart",
       "category": "motion",
-      "description": "Component from ObsidianUI: chart",
+      "description": "Responsive animated chart primitive with tooltips, grid lines, and interactive legends.",
       "dependencies": [
         "clsx",
         "react",
@@ -13750,7 +13750,7 @@
       "slug": "field",
       "name": "Field",
       "category": "craft",
-      "description": "Component from ObsidianUI: field",
+      "description": "Form field container uniting label, input control, and error validation message.",
       "dependencies": [
         "class-variance-authority",
         "clsx",
@@ -13772,7 +13772,7 @@
       "slug": "resizable",
       "name": "Resizable",
       "category": "motion",
-      "description": "Component from ObsidianUI: resizable",
+      "description": "Draggable resizable layout panels with smooth divider drag and collapse.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -13795,7 +13795,7 @@
       "slug": "label",
       "name": "Label",
       "category": "motion",
-      "description": "Component from ObsidianUI: label",
+      "description": "Accessible form label with required indicator, tooltip popover, and focus sync.",
       "dependencies": [
         "@radix-ui/react-label",
         "clsx",
@@ -13817,7 +13817,7 @@
       "slug": "sonner",
       "name": "Sonner",
       "category": "motion",
-      "description": "Component from ObsidianUI: sonner",
+      "description": "Toast notification system with stacked queue, promise states, and action buttons.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -13841,7 +13841,7 @@
       "slug": "navigation-menu",
       "name": "Navigation Menu",
       "category": "motion",
-      "description": "Component from ObsidianUI: navigation-menu",
+      "description": "Multi-column navigation menu with animated indicator and content panels.",
       "dependencies": [
         "@radix-ui/react-navigation-menu",
         "class-variance-authority",
@@ -13865,7 +13865,7 @@
       "slug": "empty",
       "name": "Empty",
       "category": "craft",
-      "description": "Component from ObsidianUI: empty",
+      "description": "Empty state placeholder container with illustration, message, and call to action.",
       "dependencies": [
         "class-variance-authority",
         "clsx",
@@ -13887,7 +13887,7 @@
       "slug": "command",
       "name": "Command",
       "category": "craft",
-      "description": "Component from ObsidianUI: command",
+      "description": "Fast keyboard-driven command palette with fuzzy search and item grouping.",
       "dependencies": [
         "clsx",
         "cmdk",
@@ -13910,7 +13910,7 @@
       "slug": "item",
       "name": "Item",
       "category": "motion",
-      "description": "Component from ObsidianUI: item",
+      "description": "Interactive list item container with leading icons, labels, and action slots.",
       "dependencies": [
         "@radix-ui/react-slot",
         "class-variance-authority",
@@ -13933,7 +13933,7 @@
       "slug": "menubar",
       "name": "Menubar",
       "category": "motion",
-      "description": "Component from ObsidianUI: menubar",
+      "description": "Desktop-style menu bar with nested dropdowns, shortcuts, and keyboard navigation.",
       "dependencies": [
         "@radix-ui/react-menubar",
         "clsx",
@@ -13956,7 +13956,7 @@
       "slug": "loaders-gooey-blobs",
       "name": "Loaders Gooey Blobs",
       "category": "craft",
-      "description": "Component from ObsidianUI: loaders-gooey-blobs",
+      "description": "Organic liquid gooey blobs loading animation with SVG metaball filter.",
       "dependencies": [
         "clsx",
         "motion",
@@ -13978,7 +13978,7 @@
       "slug": "separator",
       "name": "Separator",
       "category": "motion",
-      "description": "Component from ObsidianUI: separator",
+      "description": "Accessible horizontal and vertical divider with visual accents.",
       "dependencies": [
         "@radix-ui/react-separator",
         "clsx",
@@ -14000,7 +14000,7 @@
       "slug": "toggle",
       "name": "Toggle",
       "category": "craft",
-      "description": "Component from ObsidianUI: toggle",
+      "description": "Two-state toggle button with pressed state animation.",
       "dependencies": [
         "@radix-ui/react-toggle",
         "class-variance-authority",
@@ -14023,7 +14023,7 @@
       "slug": "spinner",
       "name": "Spinner",
       "category": "motion",
-      "description": "Component from ObsidianUI: spinner",
+      "description": "Smooth SVG loading spinner with calibrated rotation physics.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -14045,7 +14045,7 @@
       "slug": "status-bars",
       "name": "Status Bars",
       "category": "blocks",
-      "description": "Component from ObsidianUI: status-bars",
+      "description": "System health and infrastructure status monitoring panel with latency indicators.",
       "dependencies": [
         "@number-flow/react",
         "clsx",
@@ -14069,7 +14069,7 @@
       "slug": "file-input",
       "name": "File Input",
       "category": "craft",
-      "description": "Component from ObsidianUI: file-input",
+      "description": "Accessible file input with drag-and-drop target, file size badge, and clear trigger.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -14093,7 +14093,7 @@
       "slug": "text-stream",
       "name": "Text Stream",
       "category": "agents",
-      "description": "Component from ObsidianUI: text-stream",
+      "description": "Simulated LLM streaming token reveal with cursor and typing velocity.",
       "dependencies": [
         "clsx",
         "gsap",
@@ -14116,7 +14116,7 @@
       "slug": "analytics-dashboard",
       "name": "Analytics Dashboard",
       "category": "blocks",
-      "description": "Component from ObsidianUI: analytics-dashboard",
+      "description": "Application analytics dashboard with KPI metrics, area charts, and filters.",
       "dependencies": [
         "clsx",
         "react",
@@ -14138,7 +14138,7 @@
       "slug": "skeumorphic-music-card",
       "name": "Skeumorphic Music Card",
       "category": "craft",
-      "description": "Component from ObsidianUI: skeumorphic-music-card",
+      "description": "Tactile music player card with rotary volume dial and physical buttons.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -14161,7 +14161,7 @@
       "slug": "split-showcase",
       "name": "Split Showcase",
       "category": "craft",
-      "description": "Component from ObsidianUI: split-showcase",
+      "description": "Split-screen before-and-after comparison block with interactive slider.",
       "dependencies": [
         "clsx",
         "motion",
@@ -14183,7 +14183,7 @@
       "slug": "smooth-scroll",
       "name": "Smooth Scroll",
       "category": "craft",
-      "description": "Component from ObsidianUI: smooth-scroll",
+      "description": "Smooth inertial scrolling wrapper with frame-rate sync.",
       "dependencies": [
         "clsx",
         "lenis",
@@ -14205,7 +14205,7 @@
       "slug": "hover-img",
       "name": "Hover Img",
       "category": "craft",
-      "description": "Component from ObsidianUI: hover-img",
+      "description": "Floating image preview that tracks cursor position on link hover.",
       "dependencies": [
         "clsx",
         "gsap",
@@ -14228,7 +14228,7 @@
       "slug": "golden-gate-404",
       "name": "Golden Gate 404",
       "category": "craft",
-      "description": "Component from ObsidianUI: golden-gate-404",
+      "description": "Interactive 404 page with physics-driven bridge elements.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -14242,7 +14242,6 @@
         "components/craft/model.json",
         "components/craft/golden-gate-404.css",
         "components/craft/projection.ts",
-        "components/craft/golden-gate-404.mdx",
         "components/craft/framing.ts",
         "components/craft/live.ts",
         "components/craft/golden-gate-scene.tsx",
@@ -14260,7 +14259,7 @@
       "slug": "v-prism",
       "name": "V Prism",
       "category": "craft",
-      "description": "Component from ObsidianUI: v-prism",
+      "description": "Interactive 3D glass prism dispersion effect with refraction highlights.",
       "dependencies": [
         "clsx",
         "next-themes",
@@ -14284,7 +14283,7 @@
       "slug": "footer",
       "name": "Footer",
       "category": "blocks",
-      "description": "Component from ObsidianUI: footer",
+      "description": "Website footer layout with brand mark, link navigation columns, and copyright.",
       "dependencies": [
         "clsx",
         "react",
@@ -14305,7 +14304,7 @@
       "slug": "flip-text",
       "name": "Flip Text",
       "category": "craft",
-      "description": "Component from ObsidianUI: flip-text",
+      "description": "3D character flip animation with staggered letter rotation.",
       "dependencies": [
         "clsx",
         "react",
@@ -14326,7 +14325,7 @@
       "slug": "art-gallery",
       "name": "Art Gallery",
       "category": "blocks",
-      "description": "Component from ObsidianUI: art-gallery",
+      "description": "Interactive masonry art gallery with animated lightbox modal and caption zoom.",
       "dependencies": [
         "clsx",
         "react",
@@ -14348,7 +14347,7 @@
       "slug": "liquid-metal",
       "name": "Liquid Metal",
       "category": "craft",
-      "description": "Component from ObsidianUI: liquid-metal",
+      "description": "Interactive fluid liquid metal shader surface reacting to mouse velocity.",
       "dependencies": [
         "@paper-design/shaders-react",
         "clsx",
@@ -14371,7 +14370,7 @@
       "slug": "sidebar-stackbits",
       "name": "Sidebar Stackbits",
       "category": "blocks",
-      "description": "Component from ObsidianUI: sidebar-stackbits",
+      "description": "Hierarchical multi-level tree navigation sidebar with animated disclosure.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -14394,7 +14393,7 @@
       "slug": "discover-button",
       "name": "Discover Button",
       "category": "craft",
-      "description": "Component from ObsidianUI: discover-button",
+      "description": "Discovery pill button with animated gradient border and radar sweep.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -14417,7 +14416,7 @@
       "slug": "active-sessions",
       "name": "Active Sessions",
       "category": "blocks",
-      "description": "Component from ObsidianUI: active-sessions",
+      "description": "Security and session management panel with device icons and revoke controls.",
       "dependencies": [
         "clsx",
         "lucide-react",
@@ -14441,7 +14440,7 @@
       "slug": "dashboard-shell",
       "name": "Dashboard Shell",
       "category": "blocks",
-      "description": "Component from ObsidianUI: dashboard-shell",
+      "description": "Application shell layout with collapsible sidebar, top bar, and responsive drawer.",
       "dependencies": [
         "@radix-ui/react-alert-dialog",
         "@radix-ui/react-dropdown-menu",
@@ -14470,7 +14469,7 @@
       "slug": "click-spark",
       "name": "Click Spark",
       "category": "craft",
-      "description": "Component from ObsidianUI: click-spark",
+      "description": "Cursor particle spark effect that emits directional sparks on click.",
       "dependencies": [
         "clsx",
         "motion",
@@ -14493,7 +14492,7 @@
       "slug": "draggable-marquee",
       "name": "Draggable Marquee",
       "category": "craft",
-      "description": "Component from ObsidianUI: draggable-marquee",
+      "description": "Draggable multi-row logo and card marquee with momentum inertia.",
       "dependencies": [
         "clsx",
         "gsap",

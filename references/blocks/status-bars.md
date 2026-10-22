@@ -1,6 +1,6 @@
 ---
 title: "Status Bars"
-description: "Component from ObsidianUI: status-bars"
+description: "Component from Motion UI: status-bars"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Status Bars
 
-> Component from ObsidianUI: status-bars
+> Component from Motion UI: status-bars
 
 ## Install
 

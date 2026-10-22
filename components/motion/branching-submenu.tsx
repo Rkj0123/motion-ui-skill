@@ -134,7 +134,7 @@ export const BranchingSubmenu: React.FC<BranchingSubmenuProps> = ({
                 {/* Smooth sliding selection pill indicator */}
                 {selected && !reducedMotion && (
                   <motion.span
-                    layoutId="easyui-branching-active-pill"
+                    layoutId="motion-ui-branching-active-pill"
                     transition={motionTransitions.springMorph}
                     className="absolute inset-0 rounded-xl bg-[#050505] border border-[#1F1F1F] shadow-sm"
                   />

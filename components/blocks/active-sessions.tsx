@@ -12,7 +12,7 @@ export type ActiveSessionDevice = "desktop" | "laptop" | "phone" | "tablet";
 export type ActiveSession = {
   id: string;
   device: ActiveSessionDevice;
-  /** "Chrome", "Safari", "ObsidianUI for iOS". */
+  /** "Chrome", "Safari", "Motion UI for iOS". */
   browser?: string;
   /** "macOS", "Windows 11", "iOS 19". */
   os?: string;

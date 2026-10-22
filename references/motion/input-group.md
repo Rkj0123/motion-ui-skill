@@ -1,6 +1,6 @@
 ---
 title: "Input Group"
-description: "Component from ObsidianUI: input-group"
+description: "Component from Motion UI: input-group"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Input Group
 
-> Component from ObsidianUI: input-group
+> Component from Motion UI: input-group
 
 ## Install
 

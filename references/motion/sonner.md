@@ -1,6 +1,6 @@
 ---
 title: "Sonner"
-description: "Component from ObsidianUI: sonner"
+description: "Component from Motion UI: sonner"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Sonner
 
-> Component from ObsidianUI: sonner
+> Component from Motion UI: sonner
 
 ## Install
 

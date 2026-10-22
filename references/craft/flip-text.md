@@ -1,6 +1,6 @@
 ---
 title: "Flip Text"
-description: "Component from ObsidianUI: flip-text"
+description: "Component from Motion UI: flip-text"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Flip Text
 
-> Component from ObsidianUI: flip-text
+> Component from Motion UI: flip-text
 
 ## Install
 

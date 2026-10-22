@@ -30,7 +30,7 @@ export type GoldenGate404Props = {
 
 /**
  * A full-screen not-found page: the Golden Gate's north tower with live traffic, boats and fog,
- * in light and dark themes. Fills the viewport less `--obsidianui-404-offset` and stops page scroll.
+ * in light and dark themes. Fills the viewport less `--motion-ui-404-offset` and stops page scroll.
  */
 export function GoldenGate404({
   code = "404",
@@ -41,18 +41,18 @@ export function GoldenGate404({
   className,
 }: GoldenGate404Props) {
   return (
-    <div className={cn("obsidianui-404", display.variable, className)}>
-      <section className="obsidianui-404-card" aria-labelledby={TITLE_ID}>
-        <GoldenGateScene className="obsidianui-404-scene" />
-        <div className="obsidianui-404-haze" aria-hidden="true" />
+    <div className={cn("motion-ui-404", display.variable, className)}>
+      <section className="motion-ui-404-card" aria-labelledby={TITLE_ID}>
+        <GoldenGateScene className="motion-ui-404-scene" />
+        <div className="motion-ui-404-haze" aria-hidden="true" />
 
-        <div className="obsidianui-404-copy">
+        <div className="motion-ui-404-copy">
           <h1 id={TITLE_ID} data-text={code}>
-            <span className="obsidianui-404-code">{code}</span>
+            <span className="motion-ui-404-code">{code}</span>
             <span className="sr-only">: {title}</span>
           </h1>
-          <p className="obsidianui-404-lede">{message}</p>
-          <RaisedButton asChild color="#000000" size="lg" className="obsidianui-404-home no-underline rounded-xl before:rounded-xl">
+          <p className="motion-ui-404-lede">{message}</p>
+          <RaisedButton asChild color="#000000" size="lg" className="motion-ui-404-home no-underline rounded-xl before:rounded-xl">
             <Link href={href}>
               <ArrowLeft aria-hidden="true" />
               {linkLabel}

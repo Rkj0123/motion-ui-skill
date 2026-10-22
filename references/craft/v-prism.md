@@ -1,6 +1,6 @@
 ---
 title: "V Prism"
-description: "Component from ObsidianUI: v-prism"
+description: "Component from Motion UI: v-prism"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # V Prism
 
-> Component from ObsidianUI: v-prism
+> Component from Motion UI: v-prism
 
 ## Install
 

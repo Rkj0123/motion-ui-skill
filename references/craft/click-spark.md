@@ -1,6 +1,6 @@
 ---
 title: "Click Spark"
-description: "Component from ObsidianUI: click-spark"
+description: "Component from Motion UI: click-spark"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Click Spark
 
-> Component from ObsidianUI: click-spark
+> Component from Motion UI: click-spark
 
 ## Install
 

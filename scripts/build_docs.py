@@ -289,9 +289,9 @@ For in-depth animation principles, design system checklists, and accessibility r
 - [`references/guides/better-ui.md`](./references/guides/better-ui.md): UI polish details: optical alignment, box shadows, border radiuses, image outlines, and motion restraint.
 - [`references/guides/better-writing.md`](./references/guides/better-writing.md): UX microcopy, action labels, error handling copy, voice and tone, sentence case vs title case.
 - [`references/guides/interface-review.md`](./references/guides/interface-review.md): Interface review workflow and quality audit protocol for pull requests and components.
-- [`references/guides/easyui-design-system.md`](./references/guides/easyui-design-system.md): Full EasyUI Design System Specification featuring the exact #151515 dark neutral palette, elevation layers, and tokens.
-- [`references/guides/arc-motion-system.md`](./references/guides/arc-motion-system.md): Arc Foundation and motion tokens system covering spring curves, durations, and CSS variables.
-- [`references/guides/rare-ui-conventions.md`](./references/guides/rare-ui-conventions.md): Rare UI micro-interaction conventions, gooey metaballs, and fluid WebGL physics.
+- [`references/guides/dark-neutral-design-system.md`](./references/guides/dark-neutral-design-system.md): Dark Neutral Design System Specification featuring the exact #151515 dark neutral palette, elevation layers, and tokens.
+- [`references/guides/spring-motion-system.md`](./references/guides/spring-motion-system.md): Motion tokens and spring physics curves system covering durations, easings, and CSS variables.
+- [`references/guides/fluid-interaction-conventions.md`](./references/guides/fluid-interaction-conventions.md): Fluid micro-interaction conventions, gooey metaballs, and WebGL physics.
 """
 
 (ROOT / "SKILL.md").write_text(skill_md, encoding="utf-8")

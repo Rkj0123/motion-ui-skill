@@ -1,6 +1,6 @@
 ---
 title: "Label"
-description: "Component from ObsidianUI: label"
+description: "Component from Motion UI: label"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Label
 
-> Component from ObsidianUI: label
+> Component from Motion UI: label
 
 ## Install
 

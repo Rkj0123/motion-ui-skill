@@ -1,6 +1,6 @@
 ---
 title: "Empty"
-description: "Component from ObsidianUI: empty"
+description: "Component from Motion UI: empty"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Empty
 
-> Component from ObsidianUI: empty
+> Component from Motion UI: empty
 
 ## Install
 

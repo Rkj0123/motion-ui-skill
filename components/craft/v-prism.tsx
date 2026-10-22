@@ -359,11 +359,11 @@ export function VPrism({ settings, className = '' }: VPrismProps) {
 
     // Load assets
     Promise.all([
-      textureLoader.loadAsync('https://cdn-new.obsidianui.dev/effects/v-prism/lensflare2.png'),
-      textureLoader.loadAsync('https://cdn-new.obsidianui.dev/effects/v-prism/lensflare0_bw.jpg'),
-      textureLoader.loadAsync('https://cdn-new.obsidianui.dev/effects/v-prism/lensflare3.png'),
-      textureLoader.loadAsync('https://cdn-new.obsidianui.dev/effects/v-prism/lensflare0_bw.png'),
-      new GLTFLoader().loadAsync('https://cdn-new.obsidianui.dev/effects/v-prism/prism.glb'),
+      textureLoader.loadAsync('https://cdn-new.motion-ui.dev/effects/v-prism/lensflare2.png'),
+      textureLoader.loadAsync('https://cdn-new.motion-ui.dev/effects/v-prism/lensflare0_bw.jpg'),
+      textureLoader.loadAsync('https://cdn-new.motion-ui.dev/effects/v-prism/lensflare3.png'),
+      textureLoader.loadAsync('https://cdn-new.motion-ui.dev/effects/v-prism/lensflare0_bw.png'),
+      new GLTFLoader().loadAsync('https://cdn-new.motion-ui.dev/effects/v-prism/prism.glb'),
     ]).then(([sTex, gTex, dotTex, fGlowTex, gltf]) => {
       if (isDisposed) return;
 

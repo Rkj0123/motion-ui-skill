@@ -63,7 +63,7 @@ const PAGES: Record<AnalyticsDashboardPage, () => ReactNode> = {
 
 const DEFAULT_USER: AnalyticsDashboardUser = {
   name: "atharv",
-  email: "atharv@obsidianui.dev",
+  email: "atharv@motion-ui.dev",
   avatar: "/analytics-dashboard/avatars/atharv.webp",
   role: "CLI & tooling · Admin",
 };

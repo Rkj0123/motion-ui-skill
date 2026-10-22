@@ -138,11 +138,11 @@ const CoverArtwork: React.FC = () => (
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({
   name = 'Suraj',
-  username = '@surajmaurya_m',
-  description = 'Building EasyUI. Engineer.',
+  username = '@developer_m',
+  description = 'Building motion-ui. Engineer.',
   followers = '200K',
   posts = '72',
-  website = 'easyui.site',
+  website = 'motion-ui.site',
   actionLabel = 'Follow',
   onAction,
   className,

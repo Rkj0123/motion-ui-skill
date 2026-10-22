@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
 
           <div className="mb-8">
             <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-900 text-zinc-400 text-[10px] font-medium tracking-[0.2em] uppercase">
-              Obsidian UI
+              Motion UI
             </span>
           </div>
 
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
           </h2>
 
           <p className="mt-6 text-zinc-400 text-sm leading-relaxed max-w-md">
-            ObsidianUI helps you build stunning landing pages using beautifully
+            Motion UI helps you build stunning landing pages using beautifully
             animated, copy-paste ready components — crafted to be subtle,
             tasteful, and production-ready.
           </p>
@@ -85,13 +85,13 @@ const Footer: React.FC = () => {
 
       <div className="absolute bottom-0 left-0 w-full pointer-events-none select-none flex justify-center overflow-hidden">
         <h1 className="text-[18vw] font-serif-elegant leading-none translate-y-[0%] tracking-tighter whitespace-nowrap wordmark-gradient">
-          Obsidian UI
+          Motion UI
         </h1>
       </div>
 
       <div className="mt-auto pb-8 z-10 text-center w-full relative">
         <p className="text-[10px] tracking-[0.2em] text-zinc-700 font-medium uppercase">
-          © 2025 Obsidian UI — Crafted for modern web builders
+          © 2025 Motion UI — Crafted for modern web builders
         </p>
       </div>
     </footer>

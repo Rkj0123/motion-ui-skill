@@ -1,6 +1,6 @@
 ---
 title: "Raised Button"
-description: "Component from ObsidianUI: raised-button"
+description: "Component from Motion UI: raised-button"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Raised Button
 
-> Component from ObsidianUI: raised-button
+> Component from Motion UI: raised-button
 
 ## Install
 

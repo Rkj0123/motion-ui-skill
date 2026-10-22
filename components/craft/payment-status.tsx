@@ -75,10 +75,10 @@ export const PaymentStatus: React.FC<PaymentStatusProps> = ({
   errorMessage = "Payment couldn't be completed. Your card issuer declined the request.",
   refundReason = 'Refunded to original payment method within 3–5 business days.',
   items = [
-    { name: 'EasyUI Pro Team Plan', quantity: 1, price: '$129.00' },
+    { name: 'motion-ui Pro Team Plan', quantity: 1, price: '$129.00' },
     { name: 'Priority Support Add-on', quantity: 1, price: '$20.00' },
   ],
-  merchantName = 'EasyUI Cloud',
+  merchantName = 'motion-ui Cloud',
   onRetry,
   onChangePaymentMethod,
   onDownloadReceipt,

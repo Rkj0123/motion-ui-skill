@@ -1,6 +1,6 @@
 ---
 title: "File Input"
-description: "Component from ObsidianUI: file-input"
+description: "Component from Motion UI: file-input"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # File Input
 
-> Component from ObsidianUI: file-input
+> Component from Motion UI: file-input
 
 ## Install
 

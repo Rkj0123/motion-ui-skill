@@ -1,6 +1,6 @@
 ---
 title: "Chart"
-description: "Component from ObsidianUI: chart"
+description: "Component from Motion UI: chart"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Chart
 
-> Component from ObsidianUI: chart
+> Component from Motion UI: chart
 
 ## Install
 

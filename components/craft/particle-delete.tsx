@@ -111,7 +111,7 @@ const DEFAULT_SAMPLE_ITEMS: ParticleDeleteItem[] = [
 ];
 
 /**
- * EasyUI ParticleDelete Interactive Component
+ * motion-ui ParticleDelete Interactive Component
  *
  * Minimal, refined card deck demonstrating particle dissolution on deletion.
  */

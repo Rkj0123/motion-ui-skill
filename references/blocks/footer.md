@@ -1,6 +1,6 @@
 ---
 title: "Footer"
-description: "Component from ObsidianUI: footer"
+description: "Component from Motion UI: footer"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Footer
 
-> Component from ObsidianUI: footer
+> Component from Motion UI: footer
 
 ## Install
 

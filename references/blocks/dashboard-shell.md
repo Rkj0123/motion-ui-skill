@@ -1,6 +1,6 @@
 ---
 title: "Dashboard Shell"
-description: "Component from ObsidianUI: dashboard-shell"
+description: "Component from Motion UI: dashboard-shell"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Dashboard Shell
 
-> Component from ObsidianUI: dashboard-shell
+> Component from Motion UI: dashboard-shell
 
 ## Install
 

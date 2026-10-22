@@ -1,6 +1,6 @@
 ---
 title: "Login"
-description: "A production-ready authentication card built with the EasyUI form system, featuring password show/hide, remember me, validation states, and social logins."
+description: "A production-ready authentication card built with the motion-ui form system, featuring password show/hide, remember me, validation states, and social logins."
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Login
 
-> A production-ready authentication card built with the EasyUI form system, featuring password show/hide, remember me, validation states, and social logins.
+> A production-ready authentication card built with the motion-ui form system, featuring password show/hide, remember me, validation states, and social logins.
 
 ## Install
 

@@ -1,4 +1,4 @@
-/** Motion presets are shared by the gallery and future registry consumers. */
+/** Motion presets shared by the library and components. */
 export const motionTokens = {
   duration: { instant: 0.12, fast: 0.16, exit: 0.18, standard: 0.24, considered: 0.48 },
   ease: {

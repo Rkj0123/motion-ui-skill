@@ -1,6 +1,6 @@
 ---
 title: "Separator"
-description: "Component from ObsidianUI: separator"
+description: "Component from Motion UI: separator"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Separator
 
-> Component from ObsidianUI: separator
+> Component from Motion UI: separator
 
 ## Install
 

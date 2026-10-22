@@ -1,6 +1,6 @@
 ---
 title: "Draggable Marquee"
-description: "Component from ObsidianUI: draggable-marquee"
+description: "Component from Motion UI: draggable-marquee"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Draggable Marquee
 
-> Component from ObsidianUI: draggable-marquee
+> Component from Motion UI: draggable-marquee
 
 ## Install
 

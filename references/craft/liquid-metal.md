@@ -1,6 +1,6 @@
 ---
 title: "Liquid Metal"
-description: "Component from ObsidianUI: liquid-metal"
+description: "Component from Motion UI: liquid-metal"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Liquid Metal
 
-> Component from ObsidianUI: liquid-metal
+> Component from Motion UI: liquid-metal
 
 ## Install
 

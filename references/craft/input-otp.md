@@ -1,6 +1,6 @@
 ---
 title: "Input Otp"
-description: "Component from ObsidianUI: input-otp"
+description: "Component from Motion UI: input-otp"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Input Otp
 
-> Component from ObsidianUI: input-otp
+> Component from Motion UI: input-otp
 
 ## Install
 

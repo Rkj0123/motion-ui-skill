@@ -1,6 +1,6 @@
 ---
 title: "Skeumorphic Music Card"
-description: "Component from ObsidianUI: skeumorphic-music-card"
+description: "Component from Motion UI: skeumorphic-music-card"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Skeumorphic Music Card
 
-> Component from ObsidianUI: skeumorphic-music-card
+> Component from Motion UI: skeumorphic-music-card
 
 ## Install
 

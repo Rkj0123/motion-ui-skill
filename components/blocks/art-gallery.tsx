@@ -45,31 +45,31 @@ const defaultItems = [
 ];
 
 const defaultImages = [
-  "https://cdn-new.obsidianui.dev/imagess/1.png",
-  "https://cdn-new.obsidianui.dev/imagess/2.png",
-  "https://cdn-new.obsidianui.dev/imagess/3.png",
-  "https://cdn-new.obsidianui.dev/imagess/4.png",
-  "https://cdn-new.obsidianui.dev/imagess/5.png",
-  "https://cdn-new.obsidianui.dev/imagess/6.png",
-  "https://cdn-new.obsidianui.dev/imagess/7.png",
-  "https://cdn-new.obsidianui.dev/imagess/8.png",
-  "https://cdn-new.obsidianui.dev/imagess/9.png",
-  "https://cdn-new.obsidianui.dev/imagess/10.png",
-  "https://cdn-new.obsidianui.dev/imagess/11.png",
-  "https://cdn-new.obsidianui.dev/imagess/12.png",
-  "https://cdn-new.obsidianui.dev/imagess/13.png",
-  "https://cdn-new.obsidianui.dev/imagess/14.png",
-  "https://cdn-new.obsidianui.dev/imagess/15.png",
-  "https://cdn-new.obsidianui.dev/imagess/16.png",
-  "https://cdn-new.obsidianui.dev/imagess/17.png",
-  "https://cdn-new.obsidianui.dev/imagess/18.png",
-  "https://cdn-new.obsidianui.dev/imagess/19.png",
-  "https://cdn-new.obsidianui.dev/imagess/20.jpg",
-  "https://cdn-new.obsidianui.dev/imagess/21.jpg",
-  "https://cdn-new.obsidianui.dev/imagess/22.jpg",
-  "https://cdn-new.obsidianui.dev/imagess/23.jpg",
-  "https://cdn-new.obsidianui.dev/imagess/24.jpg",
-  "https://cdn-new.obsidianui.dev/imagess/25.jpg",
+  "https://cdn-new.motion-ui.dev/imagess/1.png",
+  "https://cdn-new.motion-ui.dev/imagess/2.png",
+  "https://cdn-new.motion-ui.dev/imagess/3.png",
+  "https://cdn-new.motion-ui.dev/imagess/4.png",
+  "https://cdn-new.motion-ui.dev/imagess/5.png",
+  "https://cdn-new.motion-ui.dev/imagess/6.png",
+  "https://cdn-new.motion-ui.dev/imagess/7.png",
+  "https://cdn-new.motion-ui.dev/imagess/8.png",
+  "https://cdn-new.motion-ui.dev/imagess/9.png",
+  "https://cdn-new.motion-ui.dev/imagess/10.png",
+  "https://cdn-new.motion-ui.dev/imagess/11.png",
+  "https://cdn-new.motion-ui.dev/imagess/12.png",
+  "https://cdn-new.motion-ui.dev/imagess/13.png",
+  "https://cdn-new.motion-ui.dev/imagess/14.png",
+  "https://cdn-new.motion-ui.dev/imagess/15.png",
+  "https://cdn-new.motion-ui.dev/imagess/16.png",
+  "https://cdn-new.motion-ui.dev/imagess/17.png",
+  "https://cdn-new.motion-ui.dev/imagess/18.png",
+  "https://cdn-new.motion-ui.dev/imagess/19.png",
+  "https://cdn-new.motion-ui.dev/imagess/20.jpg",
+  "https://cdn-new.motion-ui.dev/imagess/21.jpg",
+  "https://cdn-new.motion-ui.dev/imagess/22.jpg",
+  "https://cdn-new.motion-ui.dev/imagess/23.jpg",
+  "https://cdn-new.motion-ui.dev/imagess/24.jpg",
+  "https://cdn-new.motion-ui.dev/imagess/25.jpg",
 ];
 
 const vertexShader = `
@@ -494,7 +494,7 @@ export function ArtGallery({
   const captions = tiles.map((_, index) => items[index % items.length] ?? { title: `Study ${index + 1}`, year: "2024" });
 
   return (
-    <WebGLSurface className={cn("bg-black", className)} style={style} label="ObsidianUI Art Gallery">
+    <WebGLSurface className={cn("bg-black", className)} style={style} label="Motion UI Art Gallery">
       <ArtGalleryScene
         images={tiles}
         items={captions}

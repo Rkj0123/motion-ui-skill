@@ -63,11 +63,11 @@ export const LiquidRippleButton: React.FC<LiquidRippleButtonProps> = ({
       {...(props as any)}
     >
       <style>{`
-        @keyframes easyui-wave-flow-1 {
+        @keyframes motion-ui-wave-flow-1 {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
-        @keyframes easyui-wave-flow-2 {
+        @keyframes motion-ui-wave-flow-2 {
           0% { transform: translateX(-50%); }
           100% { transform: translateX(0); }
         }
@@ -90,7 +90,7 @@ export const LiquidRippleButton: React.FC<LiquidRippleButtonProps> = ({
               isPrimary ? 'opacity-20' : 'opacity-35'
             )}
             style={{
-              animation: 'easyui-wave-flow-2 6s linear infinite',
+              animation: 'motion-ui-wave-flow-2 6s linear infinite',
             }}
           >
             <svg
@@ -109,7 +109,7 @@ export const LiquidRippleButton: React.FC<LiquidRippleButtonProps> = ({
               isPrimary ? 'opacity-30' : 'opacity-55'
             )}
             style={{
-              animation: 'easyui-wave-flow-1 4s linear infinite',
+              animation: 'motion-ui-wave-flow-1 4s linear infinite',
             }}
           >
             <svg

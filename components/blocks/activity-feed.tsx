@@ -94,7 +94,7 @@ export const ActivityFeed: React.FC<ActivityFeedProps> = ({
           description: 'Production branch merged into main. SSL cert auto-renewed.',
           duration: '412ms',
           traceId: `trc_${Math.random().toString(36).slice(2, 8)}`,
-          actor: { name: 'Bot Pipeline', email: 'ci@easyui.dev' },
+          actor: { name: 'Bot Pipeline', email: 'ci@motion-ui.dev' },
           payload: { commit: '7a29e1f', region: 'iad1', buildTimeMs: 1420 },
         };
       } else if (randomType === 'api') {

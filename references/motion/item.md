@@ -1,6 +1,6 @@
 ---
 title: "Item"
-description: "Component from ObsidianUI: item"
+description: "Component from Motion UI: item"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Item
 
-> Component from ObsidianUI: item
+> Component from Motion UI: item
 
 ## Install
 

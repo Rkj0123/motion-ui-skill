@@ -1,6 +1,6 @@
 ---
 title: "Art Gallery"
-description: "Component from ObsidianUI: art-gallery"
+description: "Component from Motion UI: art-gallery"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Art Gallery
 
-> Component from ObsidianUI: art-gallery
+> Component from Motion UI: art-gallery
 
 ## Install
 

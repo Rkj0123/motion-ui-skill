@@ -1,6 +1,6 @@
 ---
 title: "Spinner"
-description: "Component from ObsidianUI: spinner"
+description: "Component from Motion UI: spinner"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Spinner
 
-> Component from ObsidianUI: spinner
+> Component from Motion UI: spinner
 
 ## Install
 

@@ -114,7 +114,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({
         icon: <Terminal className="w-4 h-4 text-[#A1A1A1]" />,
         shortcut: '⌘C',
         onSelect: () => {
-          copyToClipboard('npx shadcn@latest add Surajmaurya1/easyui/magnetic-button');
+          copyToClipboard('npx shadcn@latest add motion-ui/magnetic-button');
           onClose();
         },
       },
@@ -273,7 +273,7 @@ export const CommandMenu: React.FC<CommandMenuProps> = ({
                   <span className="font-mono bg-[#0E0E0E] border border-[#1F1F1F] px-1 rounded text-[10px] text-[#A1A1A1]">↵</span> select
                 </span>
               </div>
-              <span className="text-[#6B6B6B]">EasyUI</span>
+              <span className="text-[#6B6B6B]">motion-ui</span>
             </div>
           </motion.div>
         </div>

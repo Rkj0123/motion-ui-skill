@@ -1,6 +1,5 @@
 /**
- * Motion Tokens Bridge
- * Unified access to Arc motion tokens and EasyUI motion transitions.
+ * Unified Motion Design Tokens
  */
-export * from "./arc-tokens";
-export * from "./easyui-tokens";
+export * from "./spring-tokens";
+export * from "./transition-tokens";

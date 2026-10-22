@@ -1,6 +1,6 @@
 ---
 title: "Command"
-description: "Component from ObsidianUI: command"
+description: "Component from Motion UI: command"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Command
 
-> Component from ObsidianUI: command
+> Component from Motion UI: command
 
 ## Install
 

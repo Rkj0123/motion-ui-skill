@@ -1,10 +1,10 @@
-import type { Transition } from "framer-motion";
+import type { Transition } from "motion/react";
 
 /**
- * EasyUI Motion Design Tokens
+ * Motion Design Tokens
  * Philosophy: Soft + physical + immediate + controlled
  *
- * Tuning philosophy (Apple HIG-inspired):
+ * Tuning philosophy:
  *  - Critical-damping ratio around 0.85-1.0 for buttery, never-bouncy motion.
  *  - Stiffness chosen so the spring reaches ~95% of the target in 350-450ms.
  *  - Mass kept low (0.4-0.8) so motion feels light and immediate.
@@ -39,43 +39,37 @@ export const motionTransitions = {
     mass: 0.5,
   } as Transition,
 
-  // Morphing shared layout (for layoutId dialogs, expanding search, tabs background)
-  // Tuned to feel continuous — long settle, no overshoot, like a fluid surface.
-  springMorph: {
+  // Bouncy micro-pops (for celebration badges, stars, success checks)
+  // Underdamped (~0.65) — gives a crisp pop before settling.
+  springBouncy: {
     type: "spring",
-    stiffness: 220,
-    damping: 32,
-    mass: 1.0,
+    stiffness: 420,
+    damping: 18,
+    mass: 0.6,
   } as Transition,
 
-  // Responsive bounce physics (for magnetic pull return, toasts stack)
-  // Slightly underdamped for that tiny satisfying overshoot.
-  springResponsive: {
+  // Stiff immediate tracking (for cursor followers, drag-handles, magnetic buttons)
+  // Very high stiffness, low damping — tracks pointer without lag.
+  springImmediate: {
     type: "spring",
-    stiffness: 320,
-    damping: 24,
-    mass: 0.7,
+    stiffness: 550,
+    damping: 35,
+    mass: 0.4,
   } as Transition,
 
-  // Soft spring for natural-feeling follow / smoothing
-  // (used as a default in useSpring when the caller didn't specify)
-  springSoft: {
-    type: "spring",
-    stiffness: 150,
-    damping: 22,
-    mass: 0.9,
+  // Timed layout transitions (for list reordering, width/height shifts)
+  timingStandard: {
+    duration: 0.35,
+    ease: [0.16, 1, 0.3, 1], // Apple-style ease-out curve
   } as Transition,
 
-  // Subtle ease for standard property transitions (color, opacity)
-  // Custom cubic-bezier similar to Apple's "emphasized" curve.
-  easeSoft: {
-    duration: 0.32,
-    ease: [0.22, 1, 0.36, 1],
+  timingFast: {
+    duration: 0.18,
+    ease: [0.16, 1, 0.3, 1],
   } as Transition,
 
-  // Snappy ease for fast property transitions
-  easeFast: {
-    duration: 0.2,
-    ease: [0.2, 0, 0, 1],
+  timingSlow: {
+    duration: 0.55,
+    ease: [0.16, 1, 0.3, 1],
   } as Transition,
 };

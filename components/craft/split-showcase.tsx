@@ -67,14 +67,14 @@ const defaultItems: [SplitShowcaseItem, SplitShowcaseItem] = [
     id: "vercel",
     title: <VercelLogo />,
     tag: "Hosting Sponsor",
-    href: "http://vercel.com?utm_source=obsidianui.dev&utm_medium=web&utm_campaign=obsidianui-sponsor",
+    href: "http://vercel.com?utm_source=motion-ui.dev&utm_medium=web&utm_campaign=motion-ui-sponsor",
     ariaLabel: "Vercel — Hosting Sponsor",
   },
   {
     id: "tracwell",
     title: <TracwellLogo />,
     tag: "Analytics Sponsor",
-    href: "https://tracwell.app?utm_source=obsidianui.dev&utm_medium=web&utm_campaign=obsidianui-sponsor",
+    href: "https://tracwell.app?utm_source=motion-ui.dev&utm_medium=web&utm_campaign=motion-ui-sponsor",
     ariaLabel: "Tracwell — Analytics Sponsor",
   },
 ];

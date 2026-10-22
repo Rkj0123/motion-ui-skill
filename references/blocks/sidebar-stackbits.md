@@ -1,6 +1,6 @@
 ---
 title: "Sidebar Stackbits"
-description: "Component from ObsidianUI: sidebar-stackbits"
+description: "Component from Motion UI: sidebar-stackbits"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Sidebar Stackbits
 
-> Component from ObsidianUI: sidebar-stackbits
+> Component from Motion UI: sidebar-stackbits
 
 ## Install
 

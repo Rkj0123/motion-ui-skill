@@ -1,6 +1,6 @@
 ---
 title: "Navigation Menu"
-description: "Component from ObsidianUI: navigation-menu"
+description: "Component from Motion UI: navigation-menu"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Navigation Menu
 
-> Component from ObsidianUI: navigation-menu
+> Component from Motion UI: navigation-menu
 
 ## Install
 

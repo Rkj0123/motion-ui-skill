@@ -1,6 +1,6 @@
 ---
 title: "Golden Gate 404"
-description: "Component from ObsidianUI: golden-gate-404"
+description: "Component from Motion UI: golden-gate-404"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Golden Gate 404
 
-> Component from ObsidianUI: golden-gate-404
+> Component from Motion UI: golden-gate-404
 
 ## Install
 

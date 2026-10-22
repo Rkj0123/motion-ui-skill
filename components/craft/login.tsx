@@ -43,7 +43,7 @@ export interface LoginProps {
 
 export const Login: React.FC<LoginProps> = ({
   title = 'Welcome back',
-  description = 'Sign in to access your EasyUI workspace',
+  description = 'Sign in to access your motion-ui workspace',
   logo = (
     <div className="w-10 h-10 rounded-xl bg-[#141414] border border-[#1F1F1F] flex items-center justify-center text-[#FAFAFA] shadow-xs">
       <Sparkles className="w-5 h-5 text-[#FAFAFA]" />

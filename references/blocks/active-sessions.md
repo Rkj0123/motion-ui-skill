@@ -1,6 +1,6 @@
 ---
 title: "Active Sessions"
-description: "Component from ObsidianUI: active-sessions"
+description: "Component from Motion UI: active-sessions"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Active Sessions
 
-> Component from ObsidianUI: active-sessions
+> Component from Motion UI: active-sessions
 
 ## Install
 

@@ -1,6 +1,6 @@
 ---
 title: "Split Showcase"
-description: "Component from ObsidianUI: split-showcase"
+description: "Component from Motion UI: split-showcase"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Split Showcase
 
-> Component from ObsidianUI: split-showcase
+> Component from Motion UI: split-showcase
 
 ## Install
 

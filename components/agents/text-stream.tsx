@@ -15,7 +15,7 @@ import "./text-stream.css";
  */
 export function TextStream({
   items = [],
-  prefix = "ObsidianUI",
+  prefix = "Motion UI",
   fontSize = "clamp(2rem, 6vw, 4rem)",
   fontWeight = 700,
   height = "100vh",

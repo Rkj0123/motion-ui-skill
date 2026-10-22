@@ -1,6 +1,6 @@
 ---
 title: "Field"
-description: "Component from ObsidianUI: field"
+description: "Component from Motion UI: field"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Field
 
-> Component from ObsidianUI: field
+> Component from Motion UI: field
 
 ## Install
 

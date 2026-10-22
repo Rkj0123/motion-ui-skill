@@ -1,6 +1,6 @@
-# Arc Design & Motion System
+# Spring Motion System Specification
 
-> Extracted from arc-library (`uiarc.dev`). Includes shared motion tokens, spring curves, durations, and CSS design tokens.
+> Extracted from motion-ui (`motion-ui`). Includes shared motion tokens, spring curves, durations, and CSS design tokens.
 
 ## Shared Motion Tokens
 

@@ -6,9 +6,9 @@ import { Check } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { motionTransitions } from "@/lib/motion-tokens";
 
-// Pro CTA — a quiet, premium EasyUI surface.
+// Pro CTA — a quiet, premium motion-ui surface.
 //
-// The Pro button is a solid EasyUI monochrome surface with a
+// The Pro button is a solid motion-ui monochrome surface with a
 // *very* subtle inner gradient that gives it a polished-metal feel,
 // plus a one-pass shimmer on hover that mirrors the existing
 // Button.tsx "gradient" variant.  No blue, no neon, no rainbow —
@@ -75,7 +75,7 @@ const PRO_SHIMMER_STYLES = `
   /* ---------------------------------------------------------------- */
   /* Keyframes                                                        */
   /* ---------------------------------------------------------------- */
-  @keyframes easyui-pro-shimmer {
+  @keyframes motion-ui-pro-shimmer {
     0%   { transform: translateX(-110%); }
     100% { transform: translateX(110%); }
   }
@@ -85,7 +85,7 @@ const PRO_SHIMMER_STYLES = `
   /* always-on, so the "polished metal" surface reads at rest too.    */
   /* ---------------------------------------------------------------- */
   .group\\/cta:hover [data-pro-shimmer] {
-    animation: easyui-pro-shimmer 1600ms ease-out forwards;
+    animation: motion-ui-pro-shimmer 1600ms ease-out forwards;
     opacity: 1;
   }
 
@@ -93,7 +93,7 @@ const PRO_SHIMMER_STYLES = `
   /* Reduced motion: disable all motion but keep the static sheen.    */
   /* ---------------------------------------------------------------- */
   @media (prefers-reduced-motion: reduce) {
-    @keyframes easyui-pro-shimmer {
+    @keyframes motion-ui-pro-shimmer {
       0%, 100% { transform: translateX(-110%); opacity: 0; }
     }
     [data-pro-shimmer] {
@@ -145,7 +145,7 @@ export interface PricingProps extends Omit<React.HTMLAttributes<HTMLElement>, 'c
   className?: string;
 }
 
-// Default tier data — matches the EasyUI pricing story so the component
+// Default tier data — matches the motion-ui pricing story so the component
 // renders meaningful content out of the box.
 const DEFAULT_FREE_TIER: PricingTier = {
   name: 'Free',
@@ -292,7 +292,7 @@ function PricingCard({
         })}
       </ul>
 
-      {/* CTA — reuses the existing EasyUI button system via button element
+      {/* CTA — reuses the existing motion-ui button system via button element
           styled to match Button.tsx "default" / "secondary" appearance. */}
       <button
         type="button"
@@ -305,7 +305,7 @@ function PricingCard({
           'active:scale-[0.98]',
           'hover:scale-[1.015]',
           featured
-            ? // Pro CTA — solid EasyUI monochrome surface in the
+            ? // Pro CTA — solid motion-ui monochrome surface in the
               // gradient Button variant style, with a subtle
               // always-on inner sheen (Layer 1) and a one-pass
               // white shimmer on hover (Layer 2).  The sheen and

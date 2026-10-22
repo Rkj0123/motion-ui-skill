@@ -1,6 +1,6 @@
 ---
 title: "Smooth Scroll"
-description: "Component from ObsidianUI: smooth-scroll"
+description: "Component from Motion UI: smooth-scroll"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Smooth Scroll
 
-> Component from ObsidianUI: smooth-scroll
+> Component from Motion UI: smooth-scroll
 
 ## Install
 

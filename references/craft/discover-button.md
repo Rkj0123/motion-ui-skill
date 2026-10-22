@@ -1,6 +1,6 @@
 ---
 title: "Discover Button"
-description: "Component from ObsidianUI: discover-button"
+description: "Component from Motion UI: discover-button"
 category: "Components"
 publishedAt: "2026-10-22"
 updatedAt: "2026-10-22"
@@ -11,7 +11,7 @@ license: "MIT"
 
 # Discover Button
 
-> Component from ObsidianUI: discover-button
+> Component from Motion UI: discover-button
 
 ## Install
 

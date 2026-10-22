@@ -124,7 +124,7 @@ export const RainbowButton = forwardRef<HTMLButtonElement, RainbowButtonProps>(
     return (
       <>
         <style>{`
-          @keyframes easyui-rainbow-pan {
+          @keyframes motion-ui-rainbow-pan {
             0% {
               background-position: 0% 50%;
             }
@@ -132,10 +132,10 @@ export const RainbowButton = forwardRef<HTMLButtonElement, RainbowButtonProps>(
               background-position: 200% 50%;
             }
           }
-          .easyui-rainbow-active {
-            animation: easyui-rainbow-pan var(--rainbow-speed, 3s) linear infinite;
+          .motion-ui-rainbow-active {
+            animation: motion-ui-rainbow-pan var(--rainbow-speed, 3s) linear infinite;
           }
-          .easyui-rainbow-glow::before {
+          .motion-ui-rainbow-glow::before {
             content: '';
             position: absolute;
             bottom: -22%;
@@ -144,20 +144,20 @@ export const RainbowButton = forwardRef<HTMLButtonElement, RainbowButtonProps>(
             height: 30%;
             width: 75%;
             transform: translateX(-50%);
-            animation: easyui-rainbow-pan var(--rainbow-speed, 3s) linear infinite;
+            animation: motion-ui-rainbow-pan var(--rainbow-speed, 3s) linear infinite;
             background: linear-gradient(90deg, var(--color-1), var(--color-5), var(--color-3), var(--color-4), var(--color-2));
             background-size: 200%;
             filter: blur(12px);
             opacity: 0.85;
             transition: opacity 0.3s ease, filter 0.3s ease;
           }
-          .easyui-rainbow-glow:hover::before {
+          .motion-ui-rainbow-glow:hover::before {
             opacity: 1;
             filter: blur(16px);
           }
           @media (prefers-reduced-motion: reduce) {
-            .easyui-rainbow-active,
-            .easyui-rainbow-glow::before {
+            .motion-ui-rainbow-active,
+            .motion-ui-rainbow-glow::before {
               animation: none !important;
             }
           }
@@ -167,8 +167,8 @@ export const RainbowButton = forwardRef<HTMLButtonElement, RainbowButtonProps>(
           data-slot="button"
           ref={ref as any}
           className={cn(
-            "easyui-rainbow-active",
-            glow && "easyui-rainbow-glow",
+            "motion-ui-rainbow-active",
+            glow && "motion-ui-rainbow-glow",
             rainbowButtonVariants({ variant, size, className })
           )}
           style={customCssVars}
