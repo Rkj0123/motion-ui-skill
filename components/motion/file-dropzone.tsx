@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import type { DragEvent, KeyboardEvent } from "react";
-import { ArrowUp, CircleAlert, File as FileIcon, FileArchive, FileImage, FilePlay, FileText, RotateCw, X } from "lucide-react";
+import { ArrowUp, CircleAlert, File as FileIcon, FileArchive, FileImage, FileVideo, FileText, RotateCw, X } from "lucide-react";
 import { AnimatePresence, animate, motion, useIsPresent, useMotionTemplate, useMotionValue, useMotionValueEvent, useReducedMotion, useSpring, useTransform } from "motion/react";
 import type { HTMLMotionProps, TargetAndTransition, Transition } from "motion/react";
 import { motionTokens } from "@/lib/motion-tokens";
@@ -62,7 +62,7 @@ function TypeIcon({ name }: { name: string }) {
   const props = { size: 20, strokeWidth: 1.75, "aria-hidden": true } as const;
   const extension = name.toLowerCase().split(".").pop() ?? "";
   if (["png", "jpg", "jpeg", "gif", "webp", "svg", "avif", "heic"].includes(extension)) return <FileImage {...props} />;
-  if (["mov", "mp4", "webm", "m4v", "avi"].includes(extension)) return <FilePlay {...props} />;
+  if (["mov", "mp4", "webm", "m4v", "avi"].includes(extension)) return <FileVideo {...props} />;
   if (["zip", "gz", "tar", "rar", "7z"].includes(extension)) return <FileArchive {...props} />;
   if (["pdf", "md", "txt", "doc", "docx", "rtf"].includes(extension)) return <FileText {...props} />;
   return <FileIcon {...props} />;
