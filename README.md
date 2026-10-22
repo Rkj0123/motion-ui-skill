@@ -1,162 +1,184 @@
-# Motion UI Skill
+# Motion UI
 
-<div align="center">
+384 animated React and Next.js components, shipped as source you own.
 
-![Motion UI Banner](https://img.shields.io/badge/Components-384%20Total-6366f1?style=for-the-badge)
-![React](https://img.shields.io/badge/React-18%20%2F%2019-61dafb?style=for-the-badge&logo=react)
-![Next.js](https://img.shields.io/badge/Next.js-14%20%2F%2015-000000?style=for-the-badge&logo=next.js)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3%20%2F%20v4-38bdf8?style=for-the-badge&logo=tailwindcss)
-![Motion](https://img.shields.io/badge/Motion-Framer%20Motion-f43f5e?style=for-the-badge)
-![Local](https://img.shields.io/badge/Skill-Local--First-10b981?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+| Category | Count | What is in it |
+| :--- | ---: | :--- |
+| Motion | 97 | Buttons, inputs, overlays, navigation, loaders |
+| Agent surfaces | 18 | Messages, prompt composers, approvals, streaming responses |
+| Blocks | 33 | Command palettes, boards, calendars, swaps, schedulers |
+| Craft | 236 | 3D controls, device mockups, backgrounds, tables, widgets |
 
-<p align="center">
-  <b>Comprehensive Library of 384 Animated React & Next.js UI Components</b><br/>
-  Built with Motion and Tailwind CSS. Designed as an offline-first AI Agent Skill & Developer Toolkit with 6 aesthetic style presets.
-</p>
+**Live gallery:** https://blacknest.dev/motion/
 
-</div>
+Every component is a `.tsx` file in this repository with a markdown guide
+beside it. Nothing is fetched at runtime and there is no package to depend
+on: you copy the files you want into your project and they are yours to edit.
 
 ---
 
-## Overview
+## Install
 
-**Motion UI Skill** is a production-ready, fully self-contained collection of **384 interactive, animated UI components** across four distinct categories:
-
-1. **Motion Components (97)**: Micro-interactions, spring-loaded buttons, morphing inputs, bouncily unfolding selects, bottom sheets, virtualized tables, 3D cylinder carousels, 17 loader variants, cascaders, ratings, avatar groups, celebration success checks, rich hover cards, keyboard keycaps, smart password fields, spotlight cards, glow buttons, chronological timelines, steppers, segmented controls, breadcrumbs, pagination, collapsibles, chips, copy buttons, progress rings, tree views, sortable lists, date range pickers, icon stacks, phone inputs, speed dials, color pickers, magnet docks, page transitions, card resizes, error shakes, text swaps, and autocompletes.
-2. **AI Agent Surfaces (18)**: Complete modern conversational agent interfaces including message bubbles, viewport scrollers, expandable prompt composers, human-in-the-loop approval cards, streaming responses, diff viewers, syntax-highlighted code blocks, and adaptive activity streams.
-3. **Blocks & Widgets (33)**: Rich, composable application widgets such as drag-and-drop kanban workflow boards, faceted query filter builders, universal mobile action sheets, Apple-style dynamic islands, ⌘K command palettes, knockout tournament fixtures, weekly availability schedulers, cross-chain swaps, prediction market tickets, morphing tab views, event calendars, gantt timeline charts, resizable split panels, audio players, metric stat cards with sparklines, reorder grids, and browser frame mockups.
-4. **Craft & Surface Components (236)**: Tactile 3D buttons, neumorphic soft UI controls, high-fidelity Apple device mockups (iPhone, MacBook, iPad, Watch, iPod), background gradients & geometric patterns, booking calendars, customer and transaction tables, editorial typography cards, social cards, and interactive widgets.
-
-### 🌟 Key Highlights
-- **Local-First**: Every bundled component source file (`.tsx`), shared utility (`lib/`), and markdown guide exists directly in this repository. No remote registry is needed to discover or copy the bundled components.
-- **6 Aesthetic Style Presets**: Built-in support for `minimal` (shadcn), `origin` (Coss / Cal.com), `enterprise` (ReUI), `glow` (ibelick), `ios` (Expo), and `brutalist` (neo-brutalist) styles.
-- **Physics-Based Animation**: Powered by Motion (`motion/react` or `framer-motion`) using calibrated spring configurations (`SPRING_PRESS`, `SPRING_PANEL`, `SPRING_LAYOUT`, `SPRING_BOUNCE`, `SPRING_GENTLE`, `SPRING_SNAPPY`, `SPRING_FLOAT`, `SPRING_MOUSE`, `SPRING_GLIDE`).
-- **Accessible & Reduced-Motion Safe**: Every component natively respects `prefers-reduced-motion` and suppresses phantom touch `:hover` states on mobile via pointer capability detection.
-- **Ecosystem Integration**: Enriched with patterns and standards from KeenThemes ReUI, Design System Checklist, Motion, Expo, Transitions.dev, shadcn/ui, Coss (Origin UI), and ibelick/ui-skills.
-- **Copy-Paste & Drop-In Ready**: Drop files directly into your project's `components/` and `lib/` folders, or use the included CLI installer.
-
----
-
-## Multi-Style Selection for AI Agents & Developers
-
-Shared tokens support 6 distinct design aesthetics. `MetricCard` accepts `stylePreset` directly; other components can use `getStylePreset` for custom wrappers:
-
-| Style Preset | Border & Geometry | Surface & Lighting | Target Aesthetic |
-| :--- | :--- | :--- | :--- |
-| **`minimal`** | `border-border`, `rounded-xl` | Flat monochrome, subtle transitions | shadcn/ui, Linear clean |
-| **`origin`** | `border-border/70`, `rounded-2xl`, inner specular | Subtle gradient cards, micro-shadows | Cal.com, Coss high-craft |
-| **`enterprise`** | `border-border`, `rounded-md`, compact | High data density, structured hierarchy | KeenThemes ReUI, admin ERP |
-| **`glow`** | `border-border/60`, `rounded-2xl` | Radial gradient spotlights, halo beams | ibelick, Web3, AI platforms |
-| **`ios`** | `border-white/10`, `rounded-3xl` | Translucent glass, fluid squircle bounce | Expo mobile, Apple iOS |
-| **`brutalist`** | `border-2 border-foreground`, `rounded-none` | High contrast flat fills, 4px drop shadows | Neo-brutalist, retro bold |
-
-```bash
-# List available style presets:
-python scripts/install-component.py --list-styles
-
-# Install component and include the shared style tokens:
-python scripts/install-component.py metric-card --style origin --dest ./src
-# The flag copies lib/styles.ts; it does not rewrite component class names.
-```
-
-Read [`references/guides/style-presets.md`](./references/guides/style-presets.md) for complete token documentation.
-
----
-
-## Installation & Setup Guide
-
-### Universal Agent Setup (Auto-Detect)
-
-The fastest way to connect and configure Motion UI for **Claude Code, Cursor, Windsurf, Codex, Antigravity, OpenCode, and GitHub Copilot**:
+### As a skill, for coding agents
 
 ```bash
 npx motion-ui-skill
 ```
 
-The installer auto-detects supported AI harnesses and configures the skill and agent rules for you.
+Detects the agent harness, copies the skill into place, and checks the
+upstream version each time the skill activates.
 
-- **Auto-Update on Activation**: Every time the skill is activated, it quickly verifies the upstream version and auto-updates in place so physics tokens and component catalogs stay current.
-- **Manual update check**: `npx motion-ui-skill update` (or `node bin/updater.mjs`)
+Works with Claude Code, Cursor, Windsurf, Codex, Antigravity, OpenCode and
+GitHub Copilot. For Codex:
 
----
-
-### Manual Harness Setup
-
-#### A. Google Antigravity
-This repository is pre-configured with workspace skill discovery:
-- Clone or copy into your workspace's `.agents/skills/motion-ui`:
-  ```bash
-  git clone https://github.com/Rkj0123/motion-ui-skill.git .agents/skills/motion-ui
-  ```
-- Antigravity automatically detects the skill and activates it whenever you ask for UI components, animations, or agent interfaces.
-
-#### B. Codex app or Codex CLI
-Recommended project-scoped install:
 ```bash
 npx skills add Rkj0123/motion-ui-skill --skill motion-ui --agent codex --copy -y
 ```
-This creates `.agents/skills/motion-ui` in the current project. For a global install visible in every project:
+
+Or copy the repository into a harness that scans for skills:
+
 ```bash
-npx skills add Rkj0123/motion-ui-skill --skill motion-ui --agent codex --global --copy -y
+git clone https://github.com/Rkj0123/motion-ui-skill.git .agents/skills/motion-ui
 ```
 
----
+Update an installed skill:
 
-## CLI Component Installer
-
-A standalone Python resolver and installer is included in `scripts/install-component.py`:
-
-#### List all 384 components:
 ```bash
-python scripts/install-component.py --list
+npx motion-ui-skill update
 ```
 
-#### List available aesthetic styles:
-```bash
-python scripts/install-component.py --list-styles
-```
-
-#### Search components by keyword:
-```bash
-python scripts/install-component.py --search "kanban"
-python scripts/install-component.py --search "agent"
-```
-
-#### Inspect component files & dependencies:
-```bash
-python scripts/install-component.py spotlight-card --info
-```
-
-#### Install a component into your project:
-```bash
-python scripts/install-component.py spotlight-card --style glow --dest ./src
-```
-This automatically:
-1. Copies the component file to `./src/components/motion/spotlight-card.tsx`.
-2. Copies all required utilities (`lib/ease.ts`, `lib/utils.ts`, `lib/hooks/...`) to `./src/lib/`.
-3. With `--style`, also copies `lib/styles.ts` and its `lib/ease.ts` dependency.
-4. Outputs the exact `npm install` command for any missing dependencies.
-
----
-
-## Prerequisites for Projects
-
-Ensure your target React or Next.js project has the base dependencies installed:
+### As components, in your project
 
 ```bash
 npm install motion@^13.1.0 clsx tailwind-merge lucide-react
-# or: pnpm add motion@^13.1.0 clsx tailwind-merge lucide-react
 ```
 
-### Tailwind Configuration
-Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (`background`, `foreground`, `muted`, `border`, etc.). The canonical `cn` helper is provided in [`lib/utils.ts`](./lib/utils.ts).
+Then copy the components you need:
+
+```bash
+python scripts/install-component.py spotlight-card --dest ./src
+```
+
+The installer copies the component, the utilities it imports, and prints the
+`npm install` command for any dependency you are missing. A few components
+need more: `react-dom`, `shiki`, `lenis`, `matter-js`, `canvas-confetti`,
+`next-themes`, `@tanstack/react-virtual` or `@paper-design/shaders-react`.
+The catalogue lists the dependencies for every component.
+
+The Node CLI does the same thing and works without Python:
+
+```bash
+npx motion-ui-skill list                    # every component
+npx motion-ui-skill search "kanban"         # search by name or description
+npx motion-ui-skill add spotlight-card --dest ./src
+```
+
+### Installer options
+
+| Flag | Effect |
+| :--- | :--- |
+| `--dest <dir>` | Target directory (default `./src`) |
+| `--list` | List every component |
+| `--category <name>` | Filter the listing by `motion`, `agents` or `blocks` |
+| `--search <term>` | Search names and descriptions |
+| `--info` | Show a component's files and dependencies |
+| `--with-previews` | Also copy the preview and demo files |
+| `--style <preset>` | Also copy the shared style tokens |
+| `--list-styles` | List the style presets |
 
 ---
 
-## Component Catalog (384 Components)
+## Using a component
 
-### 1. Motion Components (97)
+Components import from `@/components/...` and `@/lib/...`, so the alias has
+to point at your project root:
+
+```ts
+// vite.config.ts
+export default defineConfig({
+  resolve: { alias: { "@": path.resolve(__dirname, "./") } },
+})
+```
+
+They are styled with Tailwind colour tokens: `background`, `foreground`,
+`card`, `muted`, `primary`, `border` and `ring`. Define them once in your
+global stylesheet. The minimal preset in
+[`lib/styles.ts`](./lib/styles.ts) is a working set of values.
+
+```tsx
+import { TiltCard } from "@/components/motion/tilt-card";
+
+export function Example() {
+  return (
+    <TiltCard className="w-[280px] border border-border bg-card p-8">
+      <h3 className="text-2xl font-semibold text-foreground">Tilt me</h3>
+    </TiltCard>
+  );
+}
+```
+
+Every component honours `prefers-reduced-motion` and drops hover-only
+transforms on touch devices.
+
+---
+
+## Style presets
+
+Six presets share one set of token names, so you can restyle the catalogue
+without touching component source.
+
+| Preset | Geometry | Surface | Fits |
+| :--- | :--- | :--- | :--- |
+| `minimal` | `rounded-xl`, hairline border | Flat, monochrome | shadcn/ui, Linear |
+| `origin` | `rounded-2xl`, specular edge | Gradient cards, micro-shadow | Cal.com, high-craft |
+| `enterprise` | `rounded-md`, compact | Dense, structured | Admin panels, ERP |
+| `glow` | `rounded-2xl`, soft border | Radial highlights, halo beams | Web3, AI platforms |
+| `ios` | `rounded-3xl`, translucent | Glass, squircle bounce | Expo, iOS |
+| `brutalist` | `border-2`, square | Flat fills, hard shadows | Retro, bold |
+
+```bash
+python scripts/install-component.py --list-styles
+python scripts/install-component.py metric-card --style origin --dest ./src
+```
+
+`--style` copies `lib/styles.ts`. It does not rewrite class names.
+
+The full token matrix is in
+[`references/guides/style-presets.md`](./references/guides/style-presets.md).
+
+---
+
+## Motion tokens
+
+Springs and curves are defined once in
+[`lib/ease.ts`](./lib/ease.ts) so animations across the catalogue share the
+same feel.
+
+| Constant | Curve | Use |
+| :--- | :--- | :--- |
+| `EASE_OUT` | `[0.16, 1, 0.3, 1]` | Entrances that settle fast |
+| `EASE_IN_OUT` | `[0.77, 0, 0.175, 1]` | Movement between two positions |
+| `EASE_EMPHASIZED` | `[0.2, 0, 0, 1]` | Spatial navigation |
+| `SPRING_PRESS` | 500 / 30 / 0.6 | Button and trigger feedback |
+| `SPRING_BOUNCE` | 300 / 18 / 0.8 | Celebrations, micro-pops |
+| `SPRING_LAYOUT` | 360 / 32 / 0.6 | Layout morphs |
+| `SPRING_PANEL` | 420 / 40 / 0.5 | Modals, drawers, popovers |
+| `SPRING_GENTLE` | 180 / 24 / 1.0 | Slow, calm reveals |
+| `SPRING_SNAPPY` | 600 / 35 / 0.5 | Toggles, segmented controls |
+| `SPRING_FLOAT` | 120 / 14 / 0.8 | Tooltips, hover cards |
+| `SPRING_MOUSE` | 200 / 15 / 0.3 | Cursor tracking, magnetic effects |
+| `SPRING_GLIDE` | 700 / 50 / 0.5 | Sliders, no overshoot |
+
+Values are stiffness, damping and mass.
+
+---
+
+## Catalogue
+
+### Motion (97)
+
+<details>
+<summary>Show the table</summary>
 
 | Component | Slug | Description | Dependencies | Primary File | Docs |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -258,9 +280,12 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Tree View** | `tree-view` | Hierarchical nested folder tree with animated node collapse/expand, file type icons, selection highlights, and keyboard navigation. | `lucide-react`, `motion` | [`components/motion/tree-view.tsx`](components/motion/tree-view.tsx) | [Guide](references/motion/tree-view.md) |
 | **Wheel Picker** | `wheel-picker` | iOS-style picker wheel: a 3D drum on native momentum scroll that snaps to the nearest notch, with wheel, drag and keyboard control. Composes side by side for date and time pickers, reduced-motion safe. | `motion` | [`components/motion/wheel-picker.tsx`](components/motion/wheel-picker.tsx) | [Guide](references/motion/wheel-picker.md) |
 
----
+</details>
 
-### 2. AI Agent Surfaces (18)
+### Agent surfaces (18)
+
+<details>
+<summary>Show the table</summary>
 
 | Component | Slug | Description | Dependencies | Primary File | Docs |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -283,9 +308,12 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Tool Approval** | `tool-approval` | A human-in-the-loop permission card for reviewing tool details, allowing once, remembering access, or denying execution. | `lucide-react`, `motion`, `shiki` | [`components/agents/tool-approval.tsx`](components/agents/tool-approval.tsx) | [Guide](references/agents/tool-approval.md) |
 | **Tool Result** | `tool-result` | A lightweight execution disclosure for syntax-highlighted terminal output and request responses that collapses into a compact completed state. | `lucide-react`, `motion`, `shiki` | [`components/agents/tool-result.tsx`](components/agents/tool-result.tsx) | [Guide](references/agents/tool-result.md) |
 
----
+</details>
 
-### 3. Blocks & Widgets (33)
+### Blocks (33)
+
+<details>
+<summary>Show the table</summary>
 
 | Component | Slug | Description | Dependencies | Primary File | Docs |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -323,9 +351,12 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Swipeable List** | `swipeable-list` | Mobile-style list rows that swipe left or right to reveal contextual action buttons. | `lucide-react`, `motion` | [`components/motion/swipeable-list.tsx`](components/motion/swipeable-list.tsx) | [Guide](references/blocks/swipeable-list.md) |
 | **Wallet Card** | `wallet-card` | Wallet overview card with an account switcher and search that morph open from their triggers, a cascading balance with a live change pill and privacy toggle, copy-address, and Send / Deposit / Swap / Buy actions. | `lucide-react`, `motion` | [`components/motion/wallet-card/index.tsx`](components/motion/wallet-card/index.tsx) | [Guide](references/blocks/wallet-card.md) |
 
----
+</details>
 
-### 4. Craft & Surface Components (236)
+### Craft (236)
+
+<details>
+<summary>Show the table</summary>
 
 | Component | Slug | Description | Dependencies | Primary File | Docs |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -566,122 +597,84 @@ Ensure your `tailwind.config.js` or `globals.css` supports CSS variable colors (
 | **Wifi Toggle** | `wifi-toggle` | The toggle you'd expect on an iPhone — network name, on/off switch, that familiar iOS weight. Drop it into any control panel or settings screen. | `lucide-react` | [`components/widgets/wifi-toggle-widget.tsx`](components/widgets/wifi-toggle-widget.tsx) | [Guide](references/craft/wifi-toggle.md) |
 | **Workspace Switcher** | `workspace-switcher` | Rectangular org bar that expands inline — workspace list opens inside the same bordered box, not a floating panel. | `lucide-react` | [`components/dropdowns/workspace-switcher-dropdown.tsx`](components/dropdowns/workspace-switcher-dropdown.tsx) | [Guide](references/craft/workspace-switcher.md) |
 
----
+</details>
 
-## Comprehensive Guides Suite
-
-- [Multi-Style Presets Guide](./references/guides/style-presets.md): Architecture and token matrices for minimal, origin, enterprise, glow, ios, and brutalist styles.
-- [Motion Guides & Principles](./references/guides/motion-patterns.md): Decision framework, physics tokens, timing tables, recipes, and accessibility rules.
-- [Design System Architecture & Checklist](./references/guides/design-system-checklist.md): Standards for color contrast (WCAG 2.1 AA/AAA), typography scales, spacing grids, and component health.
-- [Motion Engineering Guide](./references/guides/motion-engineering.md): Motion v12/v13+ architecture, spring formulas, shared layoutId morphs, and AnimatePresence.
-- [Motion Performance & 60/120 FPS](./references/guides/motion-performance.md): Compositor properties, avoiding layout thrashing, and layer budgets.
-- [Baseline UI Craft & Anti-Slop](./references/guides/baseline-ui-craft.md): Design engineering principles, optical alignment, spacing rhythm, and micro-interactions.
-- [The Canonical Interaction Transitions Guide](./references/guides/interaction-transitions.md): Transitions.dev interaction patterns, 43 canonical transitions, and token specs.
-- [Motion Polish & Interaction Rules Guide](./references/guides/motion-polish-rules.md): Micro-distance scales (4px, 6px, 8px, 12px, 30px) and progressive UI generation.
-- [Design Intelligence & UI Reasoning Guide](./references/guides/design-intelligence.md): 67 UI style families, industry-mapped color palettes, font pairings, chart selectors, and CRO landing architectures.
-- [Modern Stack Best Practices Guide](./references/guides/stack-best-practices.md): Framework integration guidelines covering Next.js App Router, React 19, Tailwind v3/v4, and Motion.
-- [Universal Mobile-First Interaction Patterns](./references/guides/universal-mobile-patterns.md): Touch ergonomics, haptic feedback semantics, and swipe gestures.
-- [Craft & Surface Design System](./references/guides/craft-surface-design-system.md): Visual language, tactile 3D elevation, typography pairing, and component patterns.
-- [Enterprise Dashboard Architecture](./references/guides/enterprise-dashboard-patterns.md): High-density data grids, kanban boards, faceted query builders, and timelines.
+`catalog.json` holds the same data in a machine-readable form, including
+every component's file list, dependencies and guide path.
 
 ---
 
-## Animation Physics & Motion Tokens
+## Guides
 
-Components use standardized spring and easing constants defined in [`lib/ease.ts`](./lib/ease.ts):
+Thirteen references cover the parts that are not a component you can copy.
 
-```typescript
-export const EASE_OUT = [0.16, 1, 0.3, 1] as const;
-export const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const;
-export const EASE_EMPHASIZED = [0.2, 0, 0, 1] as const;
-
-export const SPRING_PRESS = {
-  type: "spring",
-  stiffness: 500,
-  damping: 30,
-  mass: 0.6,
-} as const;
-
-export const SPRING_BOUNCE = {
-  type: "spring",
-  stiffness: 300,
-  damping: 18,
-  mass: 0.8,
-} as const;
-
-export const SPRING_LAYOUT = {
-  type: "spring",
-  stiffness: 360,
-  damping: 32,
-  mass: 0.6,
-} as const;
-
-export const SPRING_PANEL = {
-  type: "spring",
-  stiffness: 420,
-  damping: 40,
-  mass: 0.5,
-} as const;
-```
+| Guide | Covers |
+| :--- | :--- |
+| [`style-presets.md`](./references/guides/style-presets.md) | Token matrices for the six presets |
+| [`motion-patterns.md`](./references/guides/motion-patterns.md) | When to use which transition, with timing tables |
+| [`motion-engineering.md`](./references/guides/motion-engineering.md) | Spring maths, shared layout morphs, `AnimatePresence` |
+| [`motion-performance.md`](./references/guides/motion-performance.md) | Compositor-only properties, layer budgets, 60 and 120 FPS |
+| [`motion-polish-rules.md`](./references/guides/motion-polish-rules.md) | Micro-distance scales and progressive disclosure |
+| [`interaction-transitions.md`](./references/guides/interaction-transitions.md) | Canonical interaction patterns and their tokens |
+| [`design-system-checklist.md`](./references/guides/design-system-checklist.md) | Contrast, type scale, spacing, component health |
+| [`baseline-ui-craft.md`](./references/guides/baseline-ui-craft.md) | Optical alignment, spacing rhythm, micro-interactions |
+| [`design-intelligence.md`](./references/guides/design-intelligence.md) | Style families, palettes, type pairings, chart choice |
+| [`craft-surface-design-system.md`](./references/guides/craft-surface-design-system.md) | Tactile elevation and craft surface patterns |
+| [`enterprise-dashboard-patterns.md`](./references/guides/enterprise-dashboard-patterns.md) | Data grids, boards, timelines, filter builders |
+| [`stack-best-practices.md`](./references/guides/stack-best-practices.md) | Next.js App Router, React 19, Tailwind v3 and v4 |
+| [`universal-mobile-patterns.md`](./references/guides/universal-mobile-patterns.md) | Touch ergonomics, haptics, swipe gestures |
 
 ---
 
-## Validate the package
+## Checks
 
-Run the dependency-free integrity gate, release checks, and catalog evaluation before publishing a change:
+Run these before publishing a change:
 
 ```bash
-python scripts/verify_skill.py
-python scripts/test_release.py
-python evals/catalog_eval.py
+python scripts/verify_skill.py      # package integrity and catalogue coverage
+python scripts/test_release.py      # installer and release regressions
+python evals/catalog_eval.py        # catalogue evaluation
 ```
 
-The checks cover the 384-component catalog, referenced files, installer safety, generated docs, dependency coverage, and the source-reference exclusion rule.
+They check the 384-component catalogue, that every referenced file
+exists, installer safety, generated documentation, dependency coverage and
+the rule that upstream source is not referenced from the package.
 
 ---
 
-## Directory Structure
+## Layout
 
 ```text
 motion-ui-skill/
-├── README.md                      # Comprehensive guide & installation instructions
-├── SKILL.md                       # Main agent skill definition with catalog & instructions
-├── agents/openai.yaml             # Codex skill-list metadata and default prompt
-├── catalog.json                   # Machine-readable metadata for all 384 components
-├── components/                    # Production TypeScript/React source code
+├── README.md                      # this file
+├── SKILL.md                       # agent-facing skill definition
+├── catalog.json                   # machine-readable metadata for all 384 components
+├── components/                    # component source
 │   ├── motion/                    # 97 motion primitives and composed blocks
 │   ├── agents/                    # 18 conversational agent surfaces
-│   ├── previews/                  # Component preview & demo implementations
-│   └── [category]/                # 236 craft & surface component files across categories
-├── data/                          # Design intelligence datasets (styles, colors, typography, charts, stacks)
-├── icons/                         # 21 custom brand and annotation icons
-├── lib/                           # Foundation tokens, easing physics, and utility hooks
-│   ├── ease.ts                    # Easing curves and spring physics constants
-│   ├── styles.ts                  # Multi-style preset tokens (minimal, origin, enterprise, glow, ios, brutalist)
+│   ├── previews/                  # preview and demo implementations
+│   └── [category]/                # 236 craft and surface components
+├── data/                          # style, colour, type and chart datasets
+├── icons/                         # brand and annotation icons
+├── lib/                           # tokens, easing physics, hooks
+│   ├── ease.ts                    # easing curves and spring constants
+│   ├── styles.ts                  # style preset tokens
 │   ├── utils.ts                   # cn() utility
-│   ├── cn.ts                      # cn() re-export
-│   └── hooks/                     # Custom hooks (use-haptic, use-dismiss, use-measure, etc.)
-├── references/                    # Offline-first detailed markdown component documentation
-│   ├── motion/                    # 107 component guides with props & examples
-│   ├── agents/                    # 18 agent component guides
-│   ├── blocks/                    # 23 block guides
-│   ├── craft/                     # 236 craft and surface component guides
-│   ├── guides/                    # Complete suite of 13 motion & design system guides
-│   └── codex-install.md            # Codex app and CLI installation guide
-├── prompts/
-│   └── install-motion-ui.md        # Copy-paste prompt for AI-agent installation
-├── evals/
-│   └── catalog_eval.py              # Dependency-free catalog coverage evaluation
-└── scripts/
-    ├── search.py                  # Terminal design reasoning search engine (BM25)
-    ├── install-component.py       # Standalone CLI tool to install components into projects
-    ├── build_docs.py              # Script to synchronize SKILL.md and README.md from catalog
-    ├── verify_skill.py            # Dependency-free package integrity gate
-    └── test_release.py            # Installer and release regression checks
+│   └── hooks/                     # use-haptic, use-dismiss, use-measure and friends
+├── references/                    # component guides
+│   ├── motion/                    # 107 guides
+│   ├── agents/                    # 18 guides
+│   ├── blocks/                    # 23 guides
+│   ├── craft/                     # 236 guides
+│   └── guides/                    # 13 design and motion guides
+├── prompts/                       # copy-paste agent install prompt
+├── evals/                         # catalogue evaluation
+├── scripts/                       # installer, docs generator, checks
+└── agents/openai.yaml             # Codex skill metadata
 ```
 
 ---
 
 ## License
 
-This project is licensed under the [MIT License](./LICENSE).
+[MIT](./LICENSE)
