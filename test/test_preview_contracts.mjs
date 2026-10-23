@@ -5,9 +5,14 @@ import { fileURLToPath } from "node:url";
 import ts from "typescript";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const previews = readdirSync(resolve(root, "components/previews"), { recursive: true })
-  .filter(file => file.endsWith(".tsx"))
-  .map(file => resolve(root, "components/previews", file));
+function previewFiles(dir) {
+  return readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
+    const file = resolve(dir, entry.name);
+    return entry.isDirectory() ? previewFiles(file) : entry.name.endsWith(".tsx") ? [file] : [];
+  });
+}
+const previews = previewFiles(resolve(root, "components/previews"));
+assert.ok(previews.length, "No preview contracts found");
 const composedCallsites = new Map([
   ["components/blocks/plan-comparison.tsx", ["SegmentedControl"]],
   ["components/blocks/page-header.tsx", ["AvatarGroup", "Button"]],
