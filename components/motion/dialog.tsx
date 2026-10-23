@@ -1,5 +1,7 @@
 "use client";
 
+import { usePortalTheme } from "@/lib/portal";
+
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { createContext, useCallback, useContext, useLayoutEffect, useRef, useState } from "react";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
@@ -40,6 +42,7 @@ function SwapText({ text }: { text: string }) {
 }
 
 export function DialogContent({ title, description, children, className, onPointerDownOutside, ...props }: DialogContentProps) {
+  const portalTheme = usePortalTheme();
   const open = useContext(OpenContext);
   const reduced = useReducedMotion();
   // When the open state last changed. Radix waits for the click before treating a press as outside, and a press on the trigger
@@ -57,14 +60,14 @@ export function DialogContent({ title, description, children, className, onPoint
   </>;
   // Under a bare Radix root the open state is unknown here, so CSS keyframes keyed off data-state animate the layers instead.
   if (open === null) return <DialogPrimitive.Portal>
-    <DialogPrimitive.Overlay className={`${styles.overlay} ${styles.keyframes}`}/>
-    <DialogPrimitive.Content {...props} onPointerDownOutside={pressOutside} className={`${classes} ${styles.keyframes}`}>{inner}</DialogPrimitive.Content>
+    <DialogPrimitive.Overlay className={[`${styles.overlay} ${styles.keyframes}`, portalTheme].filter(Boolean).join(" ")}/>
+    <DialogPrimitive.Content {...props} onPointerDownOutside={pressOutside} className={[`${classes} ${styles.keyframes}`, portalTheme].filter(Boolean).join(" ")}>{inner}</DialogPrimitive.Content>
   </DialogPrimitive.Portal>;
   // The overlay fades while the dialog rises 8px and scales up on a spring. Closing is shorter and quieter, and starts from wherever the entrance is.
   return <AnimatePresence>
     {open && <DialogPrimitive.Portal key="dialog" forceMount>
-      <DialogPrimitive.Overlay asChild forceMount><motion.div className={styles.overlay} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: reduced ? fade : leave }} transition={reduced ? fade : { duration: motionTokens.duration.standard, ease: [...motionTokens.ease.enter] }}/></DialogPrimitive.Overlay>
-      <DialogPrimitive.Content {...props} onPointerDownOutside={pressOutside} asChild forceMount>
+      <DialogPrimitive.Overlay className={portalTheme} asChild forceMount><motion.div className={styles.overlay} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: reduced ? fade : leave }} transition={reduced ? fade : { duration: motionTokens.duration.standard, ease: [...motionTokens.ease.enter] }}/></DialogPrimitive.Overlay>
+      <DialogPrimitive.Content className={portalTheme} {...props} onPointerDownOutside={pressOutside} asChild forceMount>
         <motion.div className={classes} initial={reduced ? { opacity: 0 } : { opacity: 0, y: 8, scale: .96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={reduced ? { opacity: 0, transition: fade } : { opacity: 0, y: 4, scale: .98, transition: leave }} transition={reduced ? fade : { default: motionTokens.spring.smooth, opacity: { duration: motionTokens.duration.fast, ease: [...motionTokens.ease.enter] } }}>{inner}</motion.div>
       </DialogPrimitive.Content>
     </DialogPrimitive.Portal>}

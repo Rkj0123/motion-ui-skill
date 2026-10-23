@@ -1,5 +1,7 @@
 "use client";
 
+import { usePortalTheme } from "@/lib/portal";
+
 import * as Dialog from "@radix-ui/react-dialog";
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties, HTMLAttributes, ReactNode } from "react";
@@ -75,6 +77,7 @@ function px(node: Element, value: string) {
 }
 
 export function Card({ title, description, media, action, avatar, meta, status, details, open: openProp, defaultOpen = false, onOpenChange, children, className, style, ...props }: CardProps) {
+  const portalTheme = usePortalTheme();
   const reduced = useReducedMotion() ?? false;
   const group = useId();
   const cardRef = useRef<HTMLElement>(null);
@@ -164,8 +167,8 @@ export function Card({ title, description, media, action, avatar, meta, status, 
       {card}
       <AnimatePresence>
         {(open || returning) && <Dialog.Portal key="quick-look" forceMount>
-          <AnimatePresence>{open && <Dialog.Overlay key="overlay" asChild forceMount><motion.div className={styles.overlay} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: reduced ? fade : { duration: duration.exit, ease: [...ease.standard] } }} transition={reduced ? fade : { duration: duration.standard, ease: [...ease.enter] }} /></Dialog.Overlay>}</AnimatePresence>
-          <Dialog.Content asChild forceMount {...(description ? {} : { "aria-describedby": undefined })}>
+          <AnimatePresence>{open && <Dialog.Overlay className={portalTheme} key="overlay" asChild forceMount><motion.div className={styles.overlay} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, transition: reduced ? fade : { duration: duration.exit, ease: [...ease.standard] } }} transition={reduced ? fade : { duration: duration.standard, ease: [...ease.enter] }} /></Dialog.Overlay>}</AnimatePresence>
+          <Dialog.Content className={portalTheme} asChild forceMount {...(description ? {} : { "aria-describedby": undefined })}>
             <motion.div
               className={styles.panel}
               data-framer-portal-id={group}

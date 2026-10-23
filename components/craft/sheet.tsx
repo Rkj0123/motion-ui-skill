@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { AnimatePresence, motion, useDragControls, type PanInfo } from "motion/react";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";

@@ -383,7 +383,7 @@ function VoiceNote({
       data-loading={loading || undefined}
       data-error={failed || undefined}
       className={cn(
-        "relative isolate inline-flex select-none items-center",
+        "relative isolate inline-flex w-full max-w-full min-w-0 select-none items-center",
         className,
       )}
       style={{
@@ -432,7 +432,7 @@ function VoiceNote({
         onPointerCancel={() => (scrubbing.current = false)}
         onKeyDown={handleKeyDown}
         className={cn(
-          "relative h-full flex-1 touch-none rounded-sm outline-none transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#868593]",
+          "relative h-full min-w-0 flex-1 touch-none rounded-sm outline-none transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#868593]",
           seekable && !blocked && "cursor-pointer",
           blocked && "opacity-40",
         )}
@@ -710,14 +710,14 @@ const Bars = memo(function Bars({
   return (
     <div
       className="flex h-full w-full items-center"
-      style={{ gap: metrics.barGap }}
+      style={{ gap: `min(${metrics.barGap}px, 0.8%)` }}
     >
       {amplitudes.map((amplitude, i) => (
         <span
           key={i}
           className={cn("flex-1 rounded-full", className)}
           style={{
-            minWidth: metrics.bar,
+            minWidth: 0,
             height: `${(amplitude * PEAK_RATIO * 100).toFixed(2)}%`,
           }}
         />

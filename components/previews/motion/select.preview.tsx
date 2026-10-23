@@ -12,7 +12,7 @@ import {
 export function SelectPreview() {
   const [value, setValue] = useState("next");
   return (
-    <div className="w-56">
+    <div className="w-full max-w-56">
       <Select value={value} onValueChange={setValue}>
         <SelectTrigger>
           <SelectValue placeholder="Pick a framework" />

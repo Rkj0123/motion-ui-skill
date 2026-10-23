@@ -214,7 +214,7 @@ const BookCallPillLayers: React.FC<{
         </div>
         <span
           className={cn(
-            'whitespace-nowrap pl-[8px] font-normal leading-none tracking-[-0.045em] text-[30px]',
+            'whitespace-nowrap pl-[8px] font-normal leading-none tracking-[-0.045em] text-2xl',
             'sm:text-[31px]'
           )}
           style={{ color: FOREGROUND }}
@@ -294,7 +294,7 @@ export const BookCallButton: React.FC<BookCallButtonProps> = ({
       // surface palette.
       'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:ring-[#82ff22]',
       // Default geometry — overridable via className.
-      'h-24 w-[306px]',
+      'h-24 w-[306px] max-w-full',
       className
     ),
     // Inline `style` is reserved for dynamic values (Rule 70).

@@ -1,5 +1,7 @@
 "use client";
 
+import { usePortalTheme } from "@/lib/portal";
+
 import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { AnimatePresence, animate, motion, useIsPresent, useMotionValue, useReducedMotion, type AnimationPlaybackControls, type HTMLMotionProps, type TargetAndTransition, type Transition, type Variants } from "motion/react";
 import { Bell, Check, CheckCheck, CircleCheck, CircleDot, MessageCircle, TriangleAlert, X } from "lucide-react";
@@ -107,6 +109,7 @@ function NotificationVisual({ item }: { item: NotificationItem }) {
 }
 
 export function NotificationCenter({ notifications: initial, label = "Notifications", onReadChange, onDismiss, open, onOpenChange, avoidCollisions = true }: NotificationCenterProps) {
+  const portalTheme = usePortalTheme();
   const reduce = useReducedMotion();
   const layoutId = useId();
   const [internalOpen, setInternalOpen] = useState(false);
@@ -177,7 +180,7 @@ export function NotificationCenter({ notifications: initial, label = "Notificati
       </button>
     </PopoverPrimitive.Trigger>
     <PopoverPrimitive.Portal>
-      <PopoverPrimitive.Content className={styles.panel} align="center" side="bottom" sideOffset={12} collisionPadding={12} avoidCollisions={avoidCollisions} aria-label={label}>
+      <PopoverPrimitive.Content className={[styles.panel, portalTheme].filter(Boolean).join(" ")} align="center" side="bottom" sideOffset={12} collisionPadding={12} avoidCollisions={avoidCollisions} aria-label={label}>
         <div className={styles.header}>
           <div><div className={styles.heading}><h2>{label}</h2><span className={styles.count}><RollingCount value={unreadCount} reduce={reduce} /></span></div><p aria-live="polite"><SwapText reduce={reduce}>{summary}</SwapText></p></div>
           <PopoverPrimitive.Close className={styles.close} aria-label="Close notifications"><X size={17} strokeWidth={1.75} aria-hidden="true" /></PopoverPrimitive.Close>

@@ -79,6 +79,7 @@
   .step { padding: var(--space-6); }
 }
 @container login-centered (max-width: 400px) {
+  .switchPrompt { display: none; }
   .stage { padding-inline: var(--space-3); }
   .step { padding-inline: var(--space-5); }
   .heading h2 { font-size: var(--text-2xl); }

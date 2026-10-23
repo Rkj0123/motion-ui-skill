@@ -10,8 +10,8 @@ export function OTPInputPreview() {
   const [status, setStatus] = useState<OTPStatus>("idle");
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <OTPInput
+    <div className="flex flex-col items-center gap-4 min-w-0 max-w-full w-full">
+      <OTPInput className="min-w-0 max-w-full"
         label="Verification code"
         hint={`Enter ${CODE} to verify.`}
         successMessage="Verified."

@@ -19,7 +19,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { EASE_OUT } from "@/lib/ease";
 import { useDismiss } from "@/lib/hooks/use-dismiss";
 import { useHoverGesture } from "@/lib/hooks/use-hover-gesture";

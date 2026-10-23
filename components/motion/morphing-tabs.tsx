@@ -22,7 +22,7 @@ import {
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { EASE_OUT, SPRING_GLIDE, SPRING_PRESS } from "@/lib/ease";
 import { TOUCH_GESTURE_CLASS, capturePointer } from "@/lib/touch";
 import { cn } from "@/lib/utils";

@@ -70,7 +70,7 @@ export function HeroLumen({ primaryAction = { label: "Start free trial", doneLab
       const width = node.clientWidth - parseFloat(css.paddingLeft) - parseFloat(css.paddingRight);
       const design = width < 720 ? NARROW : WIDE;
       // On a phone the window keeps a legible size and crops evenly at both edges instead of shrinking to fit.
-      setBox({ width: design, scale: design === NARROW ? Math.max(.6, Math.min(1, width / design)) : Math.min(1, width / design) });
+      setBox({ width: design, scale: Math.min(1, width / design) });
     };
     measure();
     const observer = new ResizeObserver(measure);

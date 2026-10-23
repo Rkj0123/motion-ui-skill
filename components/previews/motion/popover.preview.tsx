@@ -14,7 +14,7 @@ export function PopoverPreview() {
         <PopoverTrigger>
           <Button variant="secondary">Edit profile</Button>
         </PopoverTrigger>
-        <PopoverContent className="w-72">
+        <PopoverContent className="w-72 max-w-[calc(100vw-2rem)]">
           <p className="text-sm font-medium text-foreground">Dimensions</p>
           <p className="mt-1 text-xs text-muted-foreground">
             Set the width and height for the layer.

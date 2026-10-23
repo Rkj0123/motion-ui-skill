@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { usePopoverPortalPosition } from "@/components/motion/popover-position";
 import { cn } from "@/lib/utils";
 import { useMultiSelectContext } from "./context";

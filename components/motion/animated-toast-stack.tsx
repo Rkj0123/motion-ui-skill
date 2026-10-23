@@ -24,7 +24,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { EASE_OUT } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 

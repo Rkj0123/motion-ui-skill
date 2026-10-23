@@ -17,6 +17,10 @@ on: you copy the files you want into your project and they are yours to edit.
 
 ---
 
+## Contributing components
+
+Read [the component and preview contract](references/component-preview-contract.md) before adding a catalogue entry. It covers container sizing, mobile overlays, themes and the checks required before the showcase syncs the change.
+
 ## Install
 
 ### As a skill, for coding agents

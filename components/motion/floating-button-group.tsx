@@ -1,5 +1,7 @@
 "use client";
 
+import { usePortalTheme } from "@/lib/portal";
+
 import { Fragment, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties, FocusEvent, KeyboardEvent, ReactElement, ReactNode } from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
@@ -98,10 +100,11 @@ function TipContent({ label, shortcut }: { label: string; shortcut?: string }) {
 
 /** Side tooltips for a column. The library Tooltip opens above or below, which would cover the neighbouring button. */
 function SideTip({ side, content, children }: { side: "left" | "right"; content: ReactNode; children: ReactElement }) {
+  const portalTheme = usePortalTheme();
   return <TooltipPrimitive.Root>
     <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
     <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Content className={styles.sideTip} side={side} sideOffset={10} collisionPadding={12}>{content}</TooltipPrimitive.Content>
+      <TooltipPrimitive.Content className={[styles.sideTip, portalTheme].filter(Boolean).join(" ")} side={side} sideOffset={10} collisionPadding={12}>{content}</TooltipPrimitive.Content>
     </TooltipPrimitive.Portal>
   </TooltipPrimitive.Root>;
 }

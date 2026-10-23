@@ -23,7 +23,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { SharedLayoutBg } from "@/components/motion/shared-layout-bg";
 import {
   EASE_DRAWER,

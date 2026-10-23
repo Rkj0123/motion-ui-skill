@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { cn } from "@/lib/utils";
 
 /** One texture pixel, in CSS pixels. Everything snaps to this grid. */

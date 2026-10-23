@@ -2,7 +2,7 @@
 
 import { ArrowDownToLine, ArrowUpToLine, MoreVertical, Trash2 } from "lucide-react";
 import { useEffect } from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { TableMenu } from "./table-menu";
 
 /** The row handle, portaled so it can sit on the row's left border without the

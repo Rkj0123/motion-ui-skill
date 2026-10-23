@@ -1,5 +1,7 @@
 "use client";
 
+import { usePortalTheme } from "@/lib/portal";
+
 import { createContext, useContext, useEffect, useEffectEvent, useId, useMemo, useRef, useState } from "react";
 import type { CSSProperties, Dispatch, MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent, ReactNode, SetStateAction } from "react";
 import * as Menu from "@radix-ui/react-dropdown-menu";
@@ -88,6 +90,7 @@ function velocityOf(samples: [number, number][]) {
 }
 
 export function SwipeActionsRow({ label, leading = [], trailing = [], fullSwipe = true, children, className }: SwipeActionsRowProps) {
+  const portalTheme = usePortalTheme();
   const { openId, setOpenId, rows } = useContext(GroupContext);
   const id = useId();
   const reduced = useReducedMotion() ?? false;
@@ -302,7 +305,7 @@ export function SwipeActionsRow({ label, leading = [], trailing = [], fullSwipe 
           <MoreHorizontal size={18} strokeWidth={1.75} aria-hidden="true" />
         </Menu.Trigger>
         <Menu.Portal>
-          <Menu.Content className={styles.menu} align="end" sideOffset={6} collisionPadding={12} loop onCloseAutoFocus={event => { if (!focusNeighbour.current) return; focusNeighbour.current = false; event.preventDefault(); moveFocusToNeighbour(); }}>
+          <Menu.Content className={[styles.menu, portalTheme].filter(Boolean).join(" ")} align="end" sideOffset={6} collisionPadding={12} loop onCloseAutoFocus={event => { if (!focusNeighbour.current) return; focusNeighbour.current = false; event.preventDefault(); moveFocusToNeighbour(); }}>
             {menuItems.map(({ action, side, index }, order) => <Menu.Item key={`${side}-${index}`} className={styles.item} data-tone={action.tone} style={{ "--i": order } as CSSProperties} onSelect={() => { focusNeighbour.current = !action.keepRow; commit(side, index); }}>
               <span className={styles.itemIcon} aria-hidden="true">{action.icon}</span>{action.label}
             </Menu.Item>)}

@@ -6,7 +6,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 import React, { useEffect, useId, useRef, type ReactNode } from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { EASE_OUT, SPRING_PANEL, SPRING_PRESS } from "@/lib/ease";
 import { useDismiss } from "@/lib/hooks/use-dismiss";
 import { useHaptic } from "@/lib/hooks/use-haptic";
