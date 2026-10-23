@@ -27,11 +27,11 @@ export type ContactProfileCardProps = Readonly<
 
 function ContactFieldRow({ label, value, href }: ContactField) {
   const valueClassName =
-    "text-right text-sm text-neutral-800 transition-colors group-hover:text-neutral-950";
+    "min-w-0 break-words text-right text-sm text-foreground transition-colors";
 
   return (
-    <div className="group grid grid-cols-[5.5rem_1fr] items-baseline gap-3 py-1.5">
-      <span className="font-mono text-[9px] tracking-[0.18em] text-neutral-400 uppercase">
+    <div className="group grid grid-cols-[4rem_minmax(0,1fr)] items-baseline gap-3 py-1.5">
+      <span className="font-mono text-[9px] tracking-[0.18em] text-muted-foreground uppercase">
         {label}
       </span>
       {href && href !== "#" ? (
@@ -69,21 +69,21 @@ export const ContactProfileCard = forwardRef<
       ref={ref}
       data-slot="contact-profile-card"
       className={cn(
-        "w-80 rounded-sm border border-neutral-200 bg-[#faf8f5] px-5 py-4 font-sans shadow-sm",
+        "w-full max-w-80 rounded-sm border border-border bg-card px-5 py-4 font-sans shadow-sm",
         className,
       )}
       {...props}
     >
-      <p className="font-mono text-[9px] tracking-[0.22em] text-neutral-400 uppercase">
+      <p className="font-mono text-[9px] tracking-[0.22em] text-muted-foreground uppercase">
         {catalogRef}
       </p>
 
-      <h3 className="mt-3 font-serif text-xl leading-snug text-neutral-900">
+      <h3 className="mt-3 font-serif text-xl leading-snug text-foreground">
         {name}
       </h3>
-      <p className="mt-1 text-xs text-neutral-500">{title}</p>
+      <p className="mt-1 text-xs text-muted-foreground">{title}</p>
 
-      <div className="mt-4 space-y-0.5 border-t border-neutral-200 pt-3">
+      <div className="mt-4 space-y-0.5 border-t border-border pt-3">
         <ContactFieldRow label="Email" value={email} href={`mailto:${email}`} />
         <ContactFieldRow
           label="Phone"

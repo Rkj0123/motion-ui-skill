@@ -1,0 +1,11 @@
+"use client";
+
+import { MacDock } from "@/components/docks/mac-dock";
+
+export function MacDockDemo() {
+  return (
+    <div className="flex items-center justify-center p-2 sm:p-6 min-w-0 max-w-full w-full">
+      <MacDock className="min-w-0 max-w-full" />
+    </div>
+  );
+}

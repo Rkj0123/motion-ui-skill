@@ -1,0 +1,11 @@
+"use client";
+
+import { OtpUnderlineInput } from "@/components/otp/otp-underline-input";
+
+export function OtpUnderlineInputDemo() {
+  return (
+    <div className="flex items-center justify-center p-2 sm:p-6 min-w-0 max-w-full w-full">
+      <OtpUnderlineInput className="min-w-0 max-w-full" />
+    </div>
+  );
+}

@@ -177,7 +177,7 @@ export const UndoToast: React.FC<UndoToastProps> = ({
               remainingTimeRef.current = (progress / 100) * duration;
             }}
             className={cn(
-              'pointer-events-auto relative overflow-hidden rounded-xl border border-[#1F1F1F] bg-[#0E0E0E] text-[#FAFAFA] shadow-[0_12px_32px_rgba(0,0,0,0.6)] p-3.5 sm:p-4 min-w-[280px] sm:min-w-[340px] max-w-md font-sans select-none',
+              'pointer-events-auto relative overflow-hidden rounded-xl border border-[#1F1F1F] bg-[#0E0E0E] text-[#FAFAFA] shadow-[0_12px_32px_rgba(0,0,0,0.6)] p-3.5 sm:p-4 w-[min(28rem,calc(100vw-2rem))] min-w-0 max-w-full font-sans select-none',
               className
             )}
             role="status"

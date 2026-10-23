@@ -1,5 +1,7 @@
 "use client";
 
+import { usePortalTheme } from "@/lib/portal";
+
 import { Fragment, useEffect, useId, useRef, useState } from "react";
 import type { FocusEvent, ReactNode, UIEvent } from "react";
 import * as DropdownPrimitive from "@radix-ui/react-dropdown-menu";
@@ -115,6 +117,7 @@ function StatusDot() {
 
 /** The overflow button never scales: it anchors the menu. A shared highlight glides between items under the pointer. */
 function OverflowMenu({ actions, reduce }: { actions: MenuAction[]; reduce: boolean }) {
+  const portalTheme = usePortalTheme();
   const [highlight, setHighlight] = useState<{ top: number; height: number; glide: boolean } | null>(null);
   const pointer = useRef(false);
   const clearTimer = useRef(0);
@@ -129,7 +132,7 @@ function OverflowMenu({ actions, reduce }: { actions: MenuAction[]; reduce: bool
   return <DropdownPrimitive.Root onOpenChange={open => { if (open) { window.clearTimeout(clearTimer.current); setHighlight(null); } }}>
     <DropdownPrimitive.Trigger asChild><Button variant="secondary" size="sm" className={styles.iconButton} aria-label="More actions"><Ellipsis size={17} strokeWidth={1.75} aria-hidden="true" /></Button></DropdownPrimitive.Trigger>
     <DropdownPrimitive.Portal>
-      <DropdownPrimitive.Content className={styles.menu} align="end" sideOffset={6} collisionPadding={12} loop onFocus={onFocus} onPointerMoveCapture={() => { pointer.current = true; }} onKeyDownCapture={() => { pointer.current = false; }}>
+      <DropdownPrimitive.Content className={[styles.menu, portalTheme].filter(Boolean).join(" ")} align="end" sideOffset={6} collisionPadding={12} loop onFocus={onFocus} onPointerMoveCapture={() => { pointer.current = true; }} onKeyDownCapture={() => { pointer.current = false; }}>
         <motion.span className={styles.highlight} aria-hidden="true" initial={false} animate={highlight ? { y: highlight.top, height: highlight.height, opacity: 1 } : { opacity: 0 }} transition={{ default: highlight?.glide && !reduce ? motionTokens.spring.snappy : still, opacity: { duration: reduce ? 0 : .08 } }} />
         {actions.map(action => <Fragment key={action.key}>
           {action.separatorBefore && <DropdownPrimitive.Separator className={styles.separator} />}

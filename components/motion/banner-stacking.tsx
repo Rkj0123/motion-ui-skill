@@ -71,8 +71,8 @@ export function BannerStacking({
                 }}
               >
                 <div className="flex items-start justify-between gap-3">
-                  <div className="space-y-1 pr-2">
-                    <div className="flex items-center gap-2">
+                  <div className="min-w-0 flex-1 space-y-1 pr-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <span className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
                         {banner.title}
                       </span>
@@ -95,7 +95,7 @@ export function BannerStacking({
                         e.stopPropagation();
                         onDismiss(banner.id);
                       }}
-                      className="rounded-full p-1 text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                      className="shrink-0 rounded-full p-1 text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
                       aria-label="Dismiss banner"
                     >
                       <svg

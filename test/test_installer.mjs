@@ -78,6 +78,22 @@ try {
   }
   execFileSync("python3", [join(targetSkill, "scripts/verify_skill.py")], { stdio: "pipe" });
 
+  // Shared portal theme support must survive individual component installation.
+  const sourceRoot = dirname(fileURLToPath(new URL("../package.json", import.meta.url)));
+  const catalogue = JSON.parse(readFileSync(join(sourceRoot, "catalog.json"), "utf8"));
+  for (const [slug, entry] of Object.entries(catalogue.components)) {
+    const files = [...(entry.component_files || []), ...(entry.util_files || [])];
+    if (!files.some(file => /@\/lib\/portal["']/.test(readFileSync(join(sourceRoot, file), "utf8")))) continue;
+    assert.ok(entry.util_files.includes("lib/portal.tsx"), `${slug} must install its portal helper`);
+    assert.ok(entry.dependencies.includes("react-dom"), `${slug} must declare react-dom`);
+  }
+  for (const slug of ["popover", "combobox", "multi-select", "center-morph-modal", "dialog", "dropdown-menu", "dashboard-shell"]) {
+    const componentDest = join(tempDir, `portal-${slug}`);
+    copyComponentFiles(catalogue.components[slug], componentDest);
+    assert.strictEqual(readFileSync(join(componentDest, "lib/portal.tsx"), "utf8"),
+      readFileSync(join(sourceRoot, "lib/portal.tsx"), "utf8"), `${slug} portal helper must be copied verbatim`);
+  }
+
   // 7. Deduplication test
   const dedupeTarget = join(tempDir, "dedupe-skill");
   const copiedDirs = new Set();

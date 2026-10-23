@@ -104,7 +104,7 @@ const SkeumorphicMusicCard = ({ title, artist, cover, className }: SkeumorphicMu
             'inset 2px 2px 5px rgba(255,255,255,0.7), inset -2px -2px 5px rgba(0,0,0,0.1), 5px 5px 15px rgba(0,0,0,0.1)',
           background: 'linear-gradient(135deg, #e6f0fa 0%, #c2d9f0 100%)'
         }}
-        className="relative w-80 p-6 rounded-[20px] flex flex-col items-center border-[1px] border-black/5"
+        className="relative w-full max-w-80 p-3 sm:p-6 rounded-[20px] flex flex-col items-center border-[1px] border-black/5"
       >
         {/* Album Cover */}
         <div
@@ -133,7 +133,7 @@ const SkeumorphicMusicCard = ({ title, artist, cover, className }: SkeumorphicMu
         </div>
 
         {/* Controls */}
-        <div className="flex items-center justify-center gap-5 w-full px-2 mt-3">
+        <div className="flex items-center justify-center gap-2 sm:gap-5 w-full px-2 mt-3">
           <ControlButton
             isPressed={isBackButtonPressed}
             onMouseDown={() => setIsBackButtonPressed(true)}

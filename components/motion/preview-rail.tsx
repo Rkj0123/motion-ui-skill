@@ -164,7 +164,7 @@ export function PreviewRail({
         className={cn(
           "relative z-10 grid shrink-0",
           isHorizontal
-            ? "h-12 w-fit max-w-full self-center justify-center"
+            ? "h-12 w-fit max-w-full self-center overflow-x-auto justify-start"
             : "w-12 content-center",
           railClassName,
         )}

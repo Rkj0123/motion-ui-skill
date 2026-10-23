@@ -124,7 +124,7 @@ export const MacDock = forwardRef<HTMLDivElement, MacDockProps>(
       <nav
         aria-label="Application dock"
         className={cn(
-          "relative mx-auto inline-flex items-end gap-2.5 p-3",
+          "relative mx-auto inline-flex max-w-full flex-wrap justify-center items-end gap-2.5 p-3",
           desktopClassName,
         )}
       >

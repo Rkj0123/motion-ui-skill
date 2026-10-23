@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { SPRING_PANEL } from "@/lib/ease";
 import { cn } from "@/lib/utils";
 

@@ -198,7 +198,7 @@ export function OTPInput({
       : hint;
 
   return (
-    <div className={cn("inline-flex flex-col gap-2", className)}>
+    <div className={cn("inline-flex w-full max-w-sm min-w-0 flex-col gap-2", className)}>
       {label ? (
         <label
           htmlFor={`${uid}-input`}
@@ -208,7 +208,7 @@ export function OTPInput({
         </label>
       ) : null}
       <fieldset
-        className="relative m-0 inline-flex w-max border-0 p-0"
+        className="relative m-0 inline-flex w-full min-w-0 border-0 p-0"
         onMouseDown={(e) => {
           if (disabled) return;
           // Suppress the native click-caret; we drive the active slot ourselves.
@@ -243,7 +243,7 @@ export function OTPInput({
           className="absolute inset-0 z-20 h-full w-full cursor-text bg-transparent text-transparent caret-transparent opacity-0 outline-none disabled:cursor-not-allowed"
         />
 
-        <div ref={slotsRef} className="flex items-center gap-2">
+        <div ref={slotsRef} className="flex w-full items-center gap-1 sm:gap-2">
           {Array.from({ length }, (_, i) => {
             const char = slots[i] ?? "";
             const isActive = i === activeIndex;
@@ -254,7 +254,7 @@ export function OTPInput({
                 data-active={isActive}
                 data-filled={char !== ""}
                 className={cn(
-                  "relative grid h-14 w-12 place-items-center overflow-hidden rounded-xl border text-xl font-semibold tabular-nums transition-colors duration-200",
+                  "relative grid h-14 min-w-0 flex-1 place-items-center overflow-hidden rounded-xl border text-xl font-semibold tabular-nums transition-colors duration-200",
                   showSuccess
                     ? "border-emerald-500/60 text-foreground"
                     : status === "error"

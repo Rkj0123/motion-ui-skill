@@ -1,5 +1,7 @@
 "use client";
 
+import { usePortalTheme } from "@/lib/portal";
+
 import { useEffect, useId, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { KeyboardEvent as ReactKeyboardEvent, RefObject } from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
@@ -178,6 +180,7 @@ function Picker({ options, reacted, reduced, onPick }: { options: ReactionOption
 }
 
 export function Reactions({ options, value, defaultValue = [], onValueChange, label = "Reactions", className }: ReactionsProps) {
+  const portalTheme = usePortalTheme();
   const reduced = useReduced();
   const groupId = useId();
   const [own, setOwn] = useState(defaultValue);
@@ -263,7 +266,7 @@ export function Reactions({ options, value, defaultValue = [], onValueChange, la
           <AnimatePresence>
             {open && <PopoverPrimitive.Portal forceMount>
               {/* Focus returns by hand: at once after a pick or Escape, and not at all when people click away. */}
-              <PopoverPrimitive.Content forceMount asChild side="top" align="center" sideOffset={8} collisionPadding={12} aria-label="Add a reaction"
+              <PopoverPrimitive.Content className={portalTheme} forceMount asChild side="top" align="center" sideOffset={8} collisionPadding={12} aria-label="Add a reaction"
                 onEscapeKeyDown={() => trigger.current?.focus()} onCloseAutoFocus={event => event.preventDefault()}>
                 <motion.div className={styles.picker} initial={reduced ? fadeIn : { opacity: 0, scale: .5, filter: blur(motionTokens.blur.soft) }} animate={rest}
                   exit={reduced ? fadeOut : { opacity: 0, scale: .9, filter: blur(motionTokens.blur.subtle), transition: { duration: motionTokens.duration.fast, ease: standard } }}

@@ -79,7 +79,7 @@ export function ComboboxPreview() {
           />
         </ComboboxTrigger>
 
-        <ComboboxContent className="w-72 rounded-2xl">
+        <ComboboxContent className="w-72 max-w-[calc(100vw-2rem)] rounded-2xl">
           <ComboboxList ariaLabel="Workspaces" className="p-2">
             <ComboboxEmpty>No workspaces found.</ComboboxEmpty>
             {(["Recent", "Workspaces"] as const).map((group, groupIndex) => (

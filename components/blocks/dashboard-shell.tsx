@@ -1,5 +1,7 @@
 "use client";
 
+import { usePortalTheme } from "@/lib/portal";
+
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
@@ -117,6 +119,7 @@ export const DashboardMenuTrigger = DropdownMenuPrimitive.Trigger;
 export type DashboardMenuContentProps = Omit<ComponentProps<typeof DropdownMenuPrimitive.Content>, "asChild" | "forceMount">;
 
 export function DashboardMenuContent({ className, children, sideOffset = 6, ...props }: DashboardMenuContentProps) {
+  const portalTheme = usePortalTheme();
   const isOpen = useContext(LayerOpenContext);
   const isDark = useContext(ShellDarkContext);
   const reduceMotion = !!useReducedMotion();
@@ -125,7 +128,7 @@ export function DashboardMenuContent({ className, children, sideOffset = 6, ...p
     <AnimatePresence>
       {isOpen && (
         <DropdownMenuPrimitive.Portal forceMount>
-          <DropdownMenuPrimitive.Content forceMount asChild sideOffset={sideOffset} {...props}>
+          <DropdownMenuPrimitive.Content className={portalTheme} forceMount asChild sideOffset={sideOffset} {...props}>
             <motion.div
               {...layerMotion(reduceMotion)}
               className={cn(
@@ -214,6 +217,7 @@ export const DashboardPopoverTrigger = PopoverPrimitive.Trigger;
 export type DashboardPopoverContentProps = Omit<ComponentProps<typeof PopoverPrimitive.Content>, "asChild" | "forceMount">;
 
 export function DashboardPopoverContent({ className, children, align = "center", sideOffset = 6, ...props }: DashboardPopoverContentProps) {
+  const portalTheme = usePortalTheme();
   const isOpen = useContext(LayerOpenContext);
   const isDark = useContext(ShellDarkContext);
   const reduceMotion = !!useReducedMotion();
@@ -222,7 +226,7 @@ export function DashboardPopoverContent({ className, children, align = "center",
     <AnimatePresence>
       {isOpen && (
         <PopoverPrimitive.Portal forceMount>
-          <PopoverPrimitive.Content forceMount asChild align={align} sideOffset={sideOffset} {...props}>
+          <PopoverPrimitive.Content className={portalTheme} forceMount asChild align={align} sideOffset={sideOffset} {...props}>
             <motion.div
               {...layerMotion(reduceMotion)}
               className={cn(layerClassName, isDark && "dark", "w-72 origin-(--radix-popover-content-transform-origin)", className)}
@@ -258,6 +262,7 @@ export function DashboardConfirmDialog({
   tone = "default",
   onConfirm,
 }: DashboardConfirmDialogProps) {
+  const portalTheme = usePortalTheme();
   const isDark = useContext(ShellDarkContext);
   const reduceMotion = !!useReducedMotion();
 
@@ -266,7 +271,7 @@ export function DashboardConfirmDialog({
       <AnimatePresence>
         {open && (
           <AlertDialogPrimitive.Portal forceMount>
-            <AlertDialogPrimitive.Overlay forceMount asChild>
+            <AlertDialogPrimitive.Overlay className={portalTheme} forceMount asChild>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -276,7 +281,7 @@ export function DashboardConfirmDialog({
               />
             </AlertDialogPrimitive.Overlay>
             <div className="pointer-events-none fixed inset-0 z-50 grid place-items-center p-4">
-              <AlertDialogPrimitive.Content forceMount asChild>
+              <AlertDialogPrimitive.Content className={portalTheme} forceMount asChild>
                 <motion.div
                   initial={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.94, y: 6, filter: "blur(6px)" }}
                   animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)", transition: reduceMotion ? { duration: 0 } : { ...LAYER_SPRING, opacity: { duration: 0.16, ease: EASE_OUT }, filter: { duration: 0.2, ease: EASE_OUT } } }}

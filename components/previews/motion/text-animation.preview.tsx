@@ -24,7 +24,7 @@ export function TextAnimationPreview() {
   }, []);
 
   return (
-    <div className="@container relative flex min-h-20 w-full items-center justify-center text-center">
+    <div className="[container-type:inline-size] relative flex min-h-20 w-full items-center justify-center text-center">
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={variant}
@@ -49,7 +49,7 @@ export function TextAnimationPreview() {
               prefix="Motion that feels"
               words={["natural.", "intentional.", "alive."]}
               startOnView={false}
-              className="font-semibold tracking-tight [font-size:clamp(1.125rem,7.8cqw,1.875rem)]"
+              className="font-semibold tracking-tight [font-size:clamp(1.125rem,7.4cqw,1.875rem)]"
             />
           ) : (
             <TextShimmer duration={1.8} className="text-xl font-semibold">

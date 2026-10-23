@@ -1,5 +1,7 @@
 "use client";
 
+import { usePortalTheme } from "@/lib/portal";
+
 import { isValidElement, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties, FocusEvent, KeyboardEvent, PointerEvent, ReactNode, RefObject } from "react";
 import * as DropdownPrimitive from "@radix-ui/react-dropdown-menu";
@@ -152,6 +154,7 @@ const inert = (node: HTMLElement) => (node as HTMLButtonElement).disabled || nod
  * segment opens more actions in a menu aligned to the group's edge.
  */
 export function ButtonGroup({ items, menu, label, variant = "outline", size = "md", orientation = "horizontal", collapseLabels = true, disabled = false, className, style }: ButtonGroupProps) {
+  const portalTheme = usePortalTheme();
   const reduced = useReducedMotion() ?? false;
   const root = useRef<HTMLDivElement>(null);
   const vertical = orientation === "vertical";
@@ -327,7 +330,7 @@ export function ButtonGroup({ items, menu, label, variant = "outline", size = "m
   return <DropdownPrimitive.Root open={menuOpen} onOpenChange={setMenuOpen} modal={false}>
     {group}
     <DropdownPrimitive.Portal>
-      <DropdownPrimitive.Content className={styles.menu} side="bottom" align={vertical ? "start" : "end"} alignOffset={-1} sideOffset={6} collisionPadding={12} loop>
+      <DropdownPrimitive.Content className={[styles.menu, portalTheme].filter(Boolean).join(" ")} side="bottom" align={vertical ? "start" : "end"} alignOffset={-1} sideOffset={6} collisionPadding={12} loop>
         {menu.items.map((action, index) => {
           const classes = [styles.item, action.destructive ? styles.destructive : ""].filter(Boolean).join(" ");
           const body = <>{action.icon ? <span className={styles.itemIcon} aria-hidden="true">{action.icon}</span> : null}<span className={styles.itemLabel}>{action.label}</span></>;

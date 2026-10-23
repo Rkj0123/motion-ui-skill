@@ -327,7 +327,7 @@ export const OtpBoxedInput = forwardRef<HTMLDivElement, OtpBoxedInputProps>(
         data-slot="otp-boxed-input"
         data-error={error || undefined}
         data-complete={isComplete || undefined}
-        className={cn("w-full max-w-md px-6 py-7 font-sans", className)}
+        className={cn("w-full max-w-md px-2 py-7 sm:px-6 font-sans", className)}
         {...props}
       >
         <div className="mb-6 flex flex-col items-center text-center">
@@ -338,7 +338,7 @@ export const OtpBoxedInput = forwardRef<HTMLDivElement, OtpBoxedInputProps>(
                 ? "text-rose-500"
                 : isComplete
                   ? "text-emerald-600"
-                  : "text-neutral-700",
+                  : "text-foreground",
             )}
           >
             <Mail size={20} strokeWidth={1.75} aria-hidden />
@@ -346,18 +346,18 @@ export const OtpBoxedInput = forwardRef<HTMLDivElement, OtpBoxedInputProps>(
 
           <p
             id={`${otp.groupId}-label`}
-            className="font-serif text-2xl text-neutral-900"
+            className="font-serif text-2xl text-foreground"
           >
             {label}
           </p>
           <p
             id={`${otp.groupId}-hint`}
-            className="mt-2 max-w-xs text-sm leading-relaxed text-neutral-500"
+            className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground"
           >
             {hint ?? (
               <>
                 We sent a {otp.length}-digit code to{" "}
-                <span className="font-medium text-neutral-700">
+                <span className="font-medium text-foreground">
                   {destination}
                 </span>
               </>
@@ -370,7 +370,7 @@ export const OtpBoxedInput = forwardRef<HTMLDivElement, OtpBoxedInputProps>(
           aria-labelledby={`${otp.groupId}-label`}
           aria-describedby={`${otp.groupId}-hint${error ? ` ${otp.groupId}-error` : ""}`}
           className={cn(
-            "flex justify-center gap-2 md:gap-2.5",
+            "flex w-full justify-center gap-1 sm:gap-2",
             error && "rounded-xl border border-rose-200 px-1 py-1",
           )}
         >
@@ -378,7 +378,7 @@ export const OtpBoxedInput = forwardRef<HTMLDivElement, OtpBoxedInputProps>(
             <div
               key={`${otp.groupId}-${index}`}
               className={cn(
-                "relative transition-transform duration-200 ease-out",
+                "relative min-w-0 flex-1 transition-transform duration-200 ease-out",
                 activeIndex === index && "z-10 scale-105",
               )}
             >
@@ -403,19 +403,19 @@ export const OtpBoxedInput = forwardRef<HTMLDivElement, OtpBoxedInputProps>(
                 }}
                 onBlur={() => setActiveIndex(null)}
                 className={cn(
-                  "size-12 rounded-xl border-2 bg-neutral-50/30 text-center font-mono text-2xl font-semibold text-neutral-900 ring-0 transition-[border-color,background-color,transform,color] duration-200 outline-none focus:ring-0 md:size-14",
+                  "h-12 min-w-0 w-full rounded-xl border-2 bg-muted/30 text-center font-mono text-2xl font-semibold text-foreground ring-0 transition-[border-color,background-color,transform,color] duration-200 outline-none focus:ring-0 md:h-14",
                   error
                     ? "border-rose-200 bg-rose-50/40 focus:border-rose-400"
-                    : "border-neutral-100 focus:border-neutral-900 focus:bg-white",
-                  digit && !error && "border-neutral-900 bg-white",
+                    : "border-border focus:border-foreground focus:bg-card",
+                  digit && !error && "border-foreground bg-card",
                   disabled &&
-                    "cursor-not-allowed bg-neutral-50 text-neutral-400",
+                    "cursor-not-allowed bg-muted text-muted-foreground",
                 )}
               />
               {activeIndex === index && !digit ? (
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute inset-x-0 top-1/2 mx-auto h-6 w-0.5 -translate-y-1/2 animate-pulse bg-neutral-400"
+                  className="pointer-events-none absolute inset-x-0 top-1/2 mx-auto h-6 w-0.5 -translate-y-1/2 animate-pulse bg-muted-foreground"
                 />
               ) : null}
             </div>
@@ -428,8 +428,8 @@ export const OtpBoxedInput = forwardRef<HTMLDivElement, OtpBoxedInputProps>(
               key={`${otp.groupId}-dot-${index}`}
               className={cn(
                 "size-1.5 rounded-full transition-all duration-300",
-                digit ? "scale-125 bg-neutral-900" : "bg-neutral-200",
-                activeIndex === index && "scale-150 bg-neutral-900",
+                digit ? "scale-125 bg-foreground" : "bg-muted",
+                activeIndex === index && "scale-150 bg-foreground",
                 error && digit && "bg-rose-400",
                 isComplete && "bg-emerald-500",
               )}
@@ -451,24 +451,24 @@ export const OtpBoxedInput = forwardRef<HTMLDivElement, OtpBoxedInputProps>(
               Code entered — verifying…
             </p>
           ) : (
-            <p className="text-sm text-neutral-500">
+            <p className="text-sm text-muted-foreground">
               Paste from clipboard or type each digit
             </p>
           )}
 
-          <p className="text-sm text-neutral-500">
+          <p className="text-sm text-muted-foreground">
             Didn&apos;t receive it?{" "}
             {resend.canResend ? (
               <button
                 type="button"
                 disabled={disabled}
                 onClick={resend.resend}
-                className="font-medium text-neutral-900 underline-offset-2 transition-opacity hover:underline disabled:cursor-not-allowed disabled:opacity-50"
+                className="font-medium text-foreground underline-offset-2 transition-opacity hover:underline disabled:cursor-not-allowed disabled:opacity-50"
               >
                 Resend code
               </button>
             ) : (
-              <span className="text-neutral-400 tabular-nums">
+              <span className="text-muted-foreground tabular-nums">
                 Resend in {resend.remaining}s
               </span>
             )}

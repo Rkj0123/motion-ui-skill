@@ -22,7 +22,7 @@ const DEFAULT_TABS: NavTabItem[] = [
     id: "products",
     label: "Products",
     content: (
-      <div className="w-80 p-4 space-y-3">
+      <div className="w-80 max-w-full p-4 space-y-3">
         <h4 className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
           Core Platform
         </h4>
@@ -82,7 +82,7 @@ const DEFAULT_TABS: NavTabItem[] = [
     id: "company",
     label: "Company",
     content: (
-      <div className="w-64 p-4 space-y-2">
+      <div className="w-64 max-w-full p-4 space-y-2">
         <h4 className="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">
           About
         </h4>
@@ -107,7 +107,7 @@ export function DropdownMenuMorph({
       className={cn("relative flex flex-col items-center", className)}
       onMouseLeave={() => setActiveTab(null)}
     >
-      <nav className="flex items-center gap-1 p-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-sm">
+      <nav className="flex max-w-full flex-wrap justify-center items-center gap-1 p-1 rounded-full border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md shadow-sm">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
           return (
@@ -144,7 +144,7 @@ export function DropdownMenuMorph({
             animate={{ opacity: 1, y: 12, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={SPRING_PANEL}
-            className="absolute top-full z-50 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl overflow-hidden backdrop-blur-xl"
+            className="absolute top-full z-50 max-w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl overflow-hidden backdrop-blur-xl"
           >
             <motion.div layout="position" transition={SPRING_LAYOUT}>
               {activeContent}

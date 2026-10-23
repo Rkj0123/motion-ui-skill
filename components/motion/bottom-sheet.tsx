@@ -8,7 +8,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 import { type ReactNode, useEffect, useId, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { createPortal } from "@/lib/portal";
 import { EASE_DRAWER } from "@/lib/ease";
 import { PresenceGate } from "@/lib/presence-gate";
 import { TOUCH_GESTURE_CONTENT_CLASS } from "@/lib/touch";

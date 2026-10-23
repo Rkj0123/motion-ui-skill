@@ -1,5 +1,7 @@
 "use client";
 
+import { usePortalTheme } from "@/lib/portal";
+
 import { useMemo, useRef, useState, type ReactNode } from "react";
 
 type SetView = (view: string) => void;
@@ -10,6 +12,7 @@ import clsx from "clsx";
 
 
 export default function FamilyDrawer() {
+  const portalTheme = usePortalTheme();
     const [isOpen, setIsOpen] = useState(false);
     const [view, setView] = useState("default");
     const [elementRef, bounds] = useMeasure();
@@ -62,12 +65,12 @@ export default function FamilyDrawer() {
             <Drawer.Root open={isOpen} onOpenChange={setIsOpen}>
                 <Drawer.Portal>
                     <Drawer.Overlay
-                        className="fixed inset-0 z-[60] bg-black/30 backdrop-blur-xs"
+                        className={["fixed inset-0 z-[60] bg-black/30 backdrop-blur-xs", portalTheme].filter(Boolean).join(" ")}
                         onClick={() => setIsOpen(false)}
                     />
                     <Drawer.Content
                         asChild
-                        className="fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-[361px] overflow-hidden rounded-[36px] bg-[#FEFFFE] outline-hidden md:mx-auto md:w-full dark:bg-popover"
+                        className={["fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-[361px] overflow-hidden rounded-[36px] bg-popover outline-hidden md:mx-auto md:w-full", portalTheme].filter(Boolean).join(" ")}
                     >
                         <motion.div animate={{ height: bounds.height }}>
                             <Drawer.Close asChild>

@@ -500,7 +500,7 @@ const FileInput = ({
   };
 
   return (
-    <div className="w-[300px] h-[200px] relative overflow-hidden">
+    <div className="w-full max-w-[300px] h-[200px] relative overflow-hidden">
       <input
         type="file"
         hidden
