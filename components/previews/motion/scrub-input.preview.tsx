@@ -7,7 +7,7 @@ export function ScrubInputPreview() {
   return (
     <div className="flex min-h-[160px] w-full items-center justify-center p-6 bg-background text-foreground">
       <div className="w-full max-w-md">
-        <ScrubInput />
+        <ScrubInput label="Width" defaultValue={240} unit="px" />
       </div>
     </div>
   );

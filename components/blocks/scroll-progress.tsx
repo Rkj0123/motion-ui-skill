@@ -13,6 +13,8 @@ import { cn } from "@/lib/utils"
 
 export type ScrollProgressSection = { id: string; label: string }
 
+const EMPTY_SECTIONS: ScrollProgressSection[] = []
+
 const EASE_IN_OUT = [0.65, 0, 0.35, 1] as const
 const EASE_OUT = [0.22, 1, 0.36, 1] as const
 const SIZE_SPRING = { type: "spring", bounce: 0.16, duration: 0.5 } as const
@@ -32,7 +34,7 @@ export type ScrollProgressProps = React.ComponentProps<"div"> & {
 
 const ScrollProgress = ({
   className,
-  sections = [],
+  sections = EMPTY_SECTIONS,
   containerRef,
   offset = 120,
   ...props

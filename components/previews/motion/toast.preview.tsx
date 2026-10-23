@@ -7,7 +7,7 @@ export function ToastPreview() {
   return (
     <div className="flex min-h-[160px] w-full items-center justify-center p-6 bg-background text-foreground">
       <div className="w-full max-w-md">
-        <Toast />
+        <Toast title="Changes saved" description="Your project is up to date." />
       </div>
     </div>
   );

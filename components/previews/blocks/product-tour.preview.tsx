@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ProductTour as ProductTour } from "@/components/blocks/product-tour";
+import { ProductTourDemo as ProductTour } from "@/components/blocks/product-tour";
 
 export function ProductTourPreview() {
   return (

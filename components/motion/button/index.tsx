@@ -5,7 +5,7 @@ export type {
   ButtonVariant,
 } from "./base";
 export { Button, ButtonLink } from "./base";
-export default Button;
+export { Button as default } from "./base";
 export type { MagneticButtonProps } from "./magnetic";
 export { MagneticButton } from "./magnetic";
 export type { MetallicButtonProps } from "./metallic";

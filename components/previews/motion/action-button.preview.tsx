@@ -7,7 +7,7 @@ export function ActionButtonPreview() {
   return (
     <div className="flex min-h-[160px] w-full items-center justify-center p-6 bg-background text-foreground">
       <div className="w-full max-w-md">
-        <ActionButton />
+        <ActionButton label="Save changes" onAction={() => new Promise(resolve => setTimeout(resolve, 600))} />
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ export function TextRevealPreview() {
   return (
     <div className="flex min-h-[160px] w-full items-center justify-center p-6 bg-background text-foreground">
       <div className="w-full max-w-md">
-        <TextReveal />
+        <TextReveal text="Create interfaces that feel alive." />
       </div>
     </div>
   );

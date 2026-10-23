@@ -7,7 +7,7 @@ export function PeekCardPreview() {
   return (
     <div className="flex min-h-[160px] w-full items-center justify-center p-6 bg-background text-foreground">
       <div className="w-full max-w-md">
-        <PeekCard />
+        <PeekCard children={<div className="rounded border bg-background p-6">Peek at the project details</div>} />
       </div>
     </div>
   );

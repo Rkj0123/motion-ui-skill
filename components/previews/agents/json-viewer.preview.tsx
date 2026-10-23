@@ -7,7 +7,7 @@ export function JsonViewerPreview() {
   return (
     <div className="flex min-h-[160px] w-full items-center justify-center p-6 bg-background text-foreground">
       <div className="w-full max-w-md">
-        <JsonViewer />
+        <JsonViewer data={{ name: "Motion UI", version: 2, features: ["accessible", "animated"], ready: true }} />
       </div>
     </div>
   );
