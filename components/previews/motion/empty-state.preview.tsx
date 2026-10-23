@@ -7,7 +7,7 @@ export function EmptyStatePreview() {
   return (
     <div className="flex min-h-[160px] w-full items-center justify-center p-6 bg-background text-foreground">
       <div className="w-full max-w-md">
-        <EmptyState />
+        <EmptyState title="No projects yet" description="Create a project to get started." />
       </div>
     </div>
   );

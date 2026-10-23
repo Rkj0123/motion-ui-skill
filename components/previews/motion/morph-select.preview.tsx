@@ -7,7 +7,7 @@ export function MorphSelectPreview() {
   return (
     <div className="flex min-h-[160px] w-full items-center justify-center p-6 bg-background text-foreground">
       <div className="w-full max-w-md">
-        <MorphSelect />
+        <MorphSelect label="Framework" items={[{ value: "react", label: "React" }, { value: "next", label: "Next.js" }]} />
       </div>
     </div>
   );

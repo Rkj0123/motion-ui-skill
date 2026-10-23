@@ -32,7 +32,7 @@ const people: Record<PersonId, { name: string; src: string }> = {
   sofia: { name: "Sofia Ramirez", src: "/media/people/sofia-ramirez.jpg" },
   jasmine: { name: "Jasmine Brooks", src: "/media/people/jasmine-brooks.jpg" },
 };
-const members = (["emma", "marcus", "ava", "sofia", "jasmine"] as const).map(key => people[key]);
+const members = (["emma", "marcus", "ava", "sofia", "jasmine"] as const).map(key => ({ id: key, ...people[key] }));
 
 type Section = "overview" | "issues" | "updates" | "files";
 const sections: { value: Section; label: string }[] = [{ value: "overview", label: "Overview" }, { value: "issues", label: "Issues" }, { value: "updates", label: "Updates" }, { value: "files", label: "Files" }];
@@ -419,7 +419,7 @@ export function PageHeader() {
               <motion.div className={styles.secondary} inert={layout.collapsed} initial={false} animate={layout.collapsed ? { width: 0, opacity: 0 } : { width: "auto", opacity: 1 }} transition={layout.animate && !reduce ? { width: motionTokens.spring.smooth, opacity: { duration: layout.collapsed ? motionTokens.duration.fast : motionTokens.duration.standard, ease: [...motionTokens.ease.standard], delay: layout.collapsed ? .04 : .08 } } : still}>
                 <div ref={secondary} className={styles.secondaryInner}>
                   <Button variant="secondary" size="sm" onClick={toggleFollow}>{following ? <><BellRing {...icon} /> Following</> : <><Bell {...icon} /> Follow</>}</Button>
-                  <Button variant="secondary" size="sm" loading={sharing === "sending"} disabled={archived} onClick={shareUpdate}>{sharing === "sent" ? <><Check {...icon} /> Shared</> : <><Megaphone {...icon} /> Share update</>}</Button>
+                  <Button variant="secondary" size="sm" aria-busy={sharing === "sending"} disabled={archived || sharing === "sending"} onClick={shareUpdate}>{sharing === "sent" ? <><Check {...icon} /> Shared</> : <><Megaphone {...icon} /> {sharing === "sending" ? "Sharing…" : "Share update"}</>}</Button>
                 </div>
               </motion.div>
               <div ref={trailing} className={styles.trailing}>
@@ -438,7 +438,7 @@ export function PageHeader() {
               <motion.div className={styles.details} initial={false} animate={condensed ? { opacity: 0, y: -6 } : { opacity: 1, y: 0 }} transition={swap(!condensed)}>
                 <p className={styles.description}>Rebuilding mobile checkout around saved payment methods and a single review step, then rolling it out in stages from October 14.</p>
                 <div className={styles.meta}>
-                  <AvatarGroup members={members} max={4} size="sm" label="Project members" />
+                  <AvatarGroup avatars={members} max={4} size="sm" aria-label="Project members" />
                   <span>Led by <strong>Emma Collins</strong></span>
                   <span className={styles.metaIcon}><CalendarDays size={14} strokeWidth={1.75} aria-hidden="true" />Target Oct 14</span>
                 </div>

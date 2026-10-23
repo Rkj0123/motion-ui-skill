@@ -356,4 +356,4 @@ export {
   ChartStyle,
 }
 
-export default LineChart;
+export default ChartContainer;

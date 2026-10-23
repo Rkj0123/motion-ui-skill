@@ -81,7 +81,7 @@ export function PlanComparison() {
     <section ref={rootRef} className={styles.comparison} data-size={size} aria-labelledby={`${id}-title`}>
       <div className={styles.intro}>
         <div><h2 id={`${id}-title`}>Room for the way you work</h2><p>Only the details that change between plans. Switch billing to see what you would pay.</p></div>
-        <div className={styles.billing}><SegmentedControl label="Billing period" value={billing} onValueChange={(value) => setBilling(value as Billing)} options={[{ value: "monthly", label: "Monthly" }, { value: "yearly", label: "Yearly" }]} /><small>{billing === "yearly" ? "Billed yearly, save up to 23%" : "Billed month to month"}</small></div>
+        <div className={styles.billing}><SegmentedControl aria-label="Billing period" value={billing} onChange={(value) => setBilling(value as Billing)} items={[{ value: "monthly", label: "Monthly" }, { value: "yearly", label: "Yearly" }]} /><small>{billing === "yearly" ? "Billed yearly, save up to 23%" : "Billed month to month"}</small></div>
       </div>
 
       <div className={styles.filter}><div><h3>Compare plans</h3><span className={styles.featureCount}><AnimatedNumber value={visibleFeatures.length} /> of {features.length} features</span></div><Switch checked={differencesOnly} onCheckedChange={setDifferencesOnly} label="Show differences only" /></div>
