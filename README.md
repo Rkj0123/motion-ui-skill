@@ -79,7 +79,7 @@ npx motion-ui-skill add spotlight-card --dest ./src
 | :--- | :--- |
 | `--dest <dir>` | Target directory (default `./src`) |
 | `--list` | List every component |
-| `--category <name>` | Filter the listing by `motion`, `agents` or `blocks` |
+| `--category <name>` | Filter the listing by `motion`, `agents`, `blocks` or `craft` |
 | `--search <term>` | Search names and descriptions |
 | `--info` | Show a component's files and dependencies |
 | `--with-previews` | Also copy the preview and demo files |
@@ -123,6 +123,8 @@ transforms on touch devices. Shared springs and curves live in [`lib/ease.ts`](.
 ## Catalogue
 
 The full component list is in [SKILL.md](./SKILL.md#component-catalog-617-components) and [catalog.json](./catalog.json). `catalog.json` holds the same entries in machine-readable form, including every component's file list, dependencies and guide path.
+
+Design and motion guides are in [`references/guides/`](./references/guides/).
 
 ## Contributing
 

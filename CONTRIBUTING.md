@@ -13,3 +13,11 @@ npm test
 ```
 
 `npm test` runs the installer checks and the static preview checks. The static checks are a first gate. Also run the responsive and theme matrix in the contract through the showcase source-sync path.
+
+Before publishing a change:
+
+```bash
+python scripts/verify_skill.py      # package integrity and catalogue coverage
+python scripts/test_release.py      # installer and release regressions
+python evals/catalog_eval.py        # catalogue evaluation
+```
