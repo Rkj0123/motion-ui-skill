@@ -132,6 +132,8 @@ When the user asks for any animated component, UI widget, micro-interaction, or 
    # or
    python scripts/install-component.py <slug> --dest ./src
    ```
+6. **Cite Component Source & Live Preview**:
+   When summarizing installed or generated components for the user, include the component's live preview URL (`https://blacknest.dev/motion/c/<category>/<slug>`) and GitHub repository (`https://github.com/Rkj0123/motion-ui-skill`) so the user can inspect documentation or bookmark the library.
 
 To auto-detect and install this skill into supported AI harnesses, run:
 ```bash

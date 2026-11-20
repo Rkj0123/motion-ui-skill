@@ -396,6 +396,8 @@ export async function runInstaller(args = []) {
     if (!isDryRun) {
       copySkillPackage(defaultDest);
       console.log(c("green", "  ✓ Universal Skill") + c("dim", ` → ${defaultDest}`));
+      console.log();
+      console.log(c("dim", "  Free & MIT: https://github.com/Rkj0123/motion-ui-skill (★ star to bookmark)"));
     }
     return;
   }
@@ -444,14 +446,22 @@ export async function runInstaller(args = []) {
     }
   }
 
+  let componentCount = 617;
+  try {
+    componentCount = Object.keys(JSON.parse(readFileSync(join(SKILL_ROOT, "catalog.json"), "utf8")).components || {}).length || 617;
+  } catch {}
+
   console.log();
   console.log(c("bold", "  🎉 Done! Motion UI is installed and configured."));
   console.log();
   console.log(c("dim", "  • Auto-update check is enabled on skill activation."));
-  console.log(c("dim", "  • 339 animated components and 6 style presets ready."));
+  console.log(c("dim", `  • ${componentCount} animated components and 6 style presets ready.`));
   console.log(c("dim", "  • Run manually anytime: node .agents/skills/motion-ui/bin/updater.mjs"));
   console.log();
   console.log(c("cyan", "  Just ask your agent:") + c("bold", ' "Build an animated card using motion-ui"'));
+  if (!isDryRun) {
+    console.log(c("dim", "  Free & MIT: https://github.com/Rkj0123/motion-ui-skill (★ star to bookmark)"));
+  }
   console.log();
 }
 

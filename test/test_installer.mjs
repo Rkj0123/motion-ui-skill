@@ -134,14 +134,28 @@ try {
   );
   assert.strictEqual(readFileSync(sentinel, "utf-8"), "keep");
 
-  // 9. The documented npx package must remain publishable
+  // 9. The documented npx package must remain publishable with clean registry metadata
   const pkg = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf-8"));
   assert.notStrictEqual(pkg.private, true);
   assert.strictEqual(pkg.bin["motion-ui-skill"], "./bin/index.mjs");
+  assert.ok(pkg.description && !pkg.description.startsWith("<"), "package.json description must be plain text");
+  assert.strictEqual(pkg.homepage, "https://blacknest.dev/motion/");
+  assert.strictEqual(pkg.license, "MIT");
+  assert.ok(pkg.repository?.url?.includes("Rkj0123/motion-ui-skill"), "package.json repository must reference Rkj0123/motion-ui-skill");
+  assert.ok(Array.isArray(pkg.keywords) && pkg.keywords.length >= 5, "package.json must include keywords");
 
   const cliLink = join(tempDir, "motion-ui-skill");
   symlinkSync(fileURLToPath(new URL("../bin/index.mjs", import.meta.url)), cliLink);
   assert.strictEqual(execFileSync(process.execPath, [cliLink, "--version"], { encoding: "utf-8" }).trim(), `v${packageVersion}`);
+
+  const addDest = join(tempDir, "added-components");
+  const addOut = execFileSync(process.execPath, [cliLink, "add", "tilt-card", "--dest", addDest], { encoding: "utf-8" });
+  assert.ok(existsSync(join(addDest, "components", "motion", "tilt-card.tsx")), "CLI add must copy component");
+  assert.ok(addOut.includes("https://github.com/Rkj0123/motion-ui-skill"), "CLI add must print repository URL");
+
+  const skillDoc = readFileSync(new URL("../SKILL.md", import.meta.url), "utf-8");
+  assert.ok(skillDoc.includes("https://blacknest.dev/motion/c/"), "SKILL.md must include live preview attribution URL");
+  assert.ok(!skillDoc.includes("user/starred") && !/gh\s+api[^\n]*star/i.test(skillDoc), "SKILL.md must not tell agents to star GitHub accounts");
 } finally {
   rmSync(tempDir, { recursive: true, force: true });
 }

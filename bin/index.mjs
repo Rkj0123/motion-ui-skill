@@ -185,7 +185,8 @@ function handleAdd(slug, args) {
     console.log(`\n📦 Required dependencies:`);
     console.log(`  npm install ${comp.dependencies.join(" ")}\n`);
   }
-  console.log(`✨ Component '${slug}' installed successfully!\n`);
+  console.log(`✨ Component '${slug}' installed successfully!`);
+  console.log(`Free & MIT: https://github.com/Rkj0123/motion-ui-skill (★ star to bookmark)\n`);
 }
 
 async function main() {

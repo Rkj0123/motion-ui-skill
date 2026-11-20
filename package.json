@@ -1,6 +1,32 @@
 {
   "name": "motion-ui-skill",
   "version": "2.2.0",
+  "description": "Open-source AI agent skill and CLI with 617 animated React/Next.js UI components powered by Motion and Tailwind CSS.",
+  "license": "MIT",
+  "author": "Rkj0123",
+  "homepage": "https://blacknest.dev/motion/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rkj0123/motion-ui-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rkj0123/motion-ui-skill/issues"
+  },
+  "keywords": [
+    "react",
+    "nextjs",
+    "motion",
+    "framer-motion",
+    "tailwindcss",
+    "ui-components",
+    "animated-components",
+    "shadcn",
+    "claude-code",
+    "cursor",
+    "codex",
+    "ai-agent-skill",
+    "agent-skills"
+  ],
   "type": "module",
   "engines": {
     "node": ">=18"
