@@ -36,11 +36,6 @@ agents_items.sort(key=lambda x: x["name"].lower())
 blocks_items.sort(key=lambda x: x["name"].lower())
 craft_items.sort(key=lambda x: x["name"].lower())
 
-guide_counts = {}
-for item in comps.values():
-    guide_dir = Path(item["doc_path"]).parts[1]
-    guide_counts[guide_dir] = guide_counts.get(guide_dir, 0) + 1
-
 motion_table = "\n".join([
     "| Component | Slug | Description | Dependencies | Primary File | Docs |",
     "| :--- | :--- | :--- | :--- | :--- | :--- |",
@@ -200,6 +195,8 @@ When the user asks for any animated component, UI widget, micro-interaction, or 
    # or
    python scripts/install-component.py <slug> --dest ./src
    ```
+6. **Cite Component Source & Live Preview**:
+   When summarizing installed or generated components for the user, include the component's live preview URL (`https://blacknest.dev/motion/c/<category>/<slug>`) and GitHub repository (`https://github.com/Rkj0123/motion-ui-skill`) so the user can inspect documentation or bookmark the library.
 
 To auto-detect and install this skill into supported AI harnesses, run:
 ```bash
@@ -300,7 +297,11 @@ print("Wrote SKILL.md")
 # Generate README.md
 readme_md = f"""# Motion UI
 
-{total_count} animated React and Next.js components, shipped as source you own.
+{total_count} animated React and Next.js components, built with Motion and Tailwind CSS, MIT licensed. Copy the source, or run `npx motion-ui-skill`.
+
+**Live site:** https://blacknest.dev/motion/
+
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE) [![npm version](https://img.shields.io/npm/v/motion-ui-skill)](https://www.npmjs.com/package/motion-ui-skill) [![GitHub stars](https://img.shields.io/github/stars/Rkj0123/motion-ui-skill)](https://github.com/Rkj0123/motion-ui-skill)
 
 | Category | Count | What is in it |
 | :--- | ---: | :--- |
@@ -309,13 +310,9 @@ readme_md = f"""# Motion UI
 | Blocks | {len(blocks_items)} | Command palettes, boards, calendars, swaps, schedulers |
 | Craft | {len(craft_items)} | 3D controls, device mockups, backgrounds, tables, widgets |
 
-**Live gallery:** https://blacknest.dev/motion/
-
 Every component is a `.tsx` file in this repository with a markdown guide
 beside it. Nothing is fetched at runtime and there is no package to depend
 on: you copy the files you want into your project and they are yours to edit.
-
----
 
 ## Install
 
@@ -386,7 +383,7 @@ npx motion-ui-skill add spotlight-card --dest ./src
 | `--style <preset>` | Also copy the shared style tokens |
 | `--list-styles` | List the style presets |
 
----
+Six presets share one set of token names: `minimal`, `origin`, `enterprise`, `glow`, `ios`, and `brutalist`. `--style` copies [`lib/styles.ts`](./lib/styles.ts). It does not rewrite class names. The token matrix is in [`references/guides/style-presets.md`](./references/guides/style-presets.md).
 
 ## Using a component
 
@@ -418,174 +415,15 @@ export function Example() {{
 ```
 
 Every component honours `prefers-reduced-motion` and drops hover-only
-transforms on touch devices.
-
----
-
-## Style presets
-
-Six presets share one set of token names, so you can restyle the catalogue
-without touching component source.
-
-| Preset | Geometry | Surface | Fits |
-| :--- | :--- | :--- | :--- |
-| `minimal` | `rounded-xl`, hairline border | Flat, monochrome | shadcn/ui, Linear |
-| `origin` | `rounded-2xl`, specular edge | Gradient cards, micro-shadow | Cal.com, high-craft |
-| `enterprise` | `rounded-md`, compact | Dense, structured | Admin panels, ERP |
-| `glow` | `rounded-2xl`, soft border | Radial highlights, halo beams | Web3, AI platforms |
-| `ios` | `rounded-3xl`, translucent | Glass, squircle bounce | Expo, iOS |
-| `brutalist` | `border-2`, square | Flat fills, hard shadows | Retro, bold |
-
-```bash
-python scripts/install-component.py --list-styles
-python scripts/install-component.py metric-card --style origin --dest ./src
-```
-
-`--style` copies `lib/styles.ts`. It does not rewrite class names.
-
-The full token matrix is in
-[`references/guides/style-presets.md`](./references/guides/style-presets.md).
-
----
-
-## Motion tokens
-
-Springs and curves are defined once in
-[`lib/ease.ts`](./lib/ease.ts) so animations across the catalogue share the
-same feel.
-
-| Constant | Curve | Use |
-| :--- | :--- | :--- |
-| `EASE_OUT` | `[0.16, 1, 0.3, 1]` | Entrances that settle fast |
-| `EASE_IN_OUT` | `[0.77, 0, 0.175, 1]` | Movement between two positions |
-| `EASE_EMPHASIZED` | `[0.2, 0, 0, 1]` | Spatial navigation |
-| `SPRING_PRESS` | 500 / 30 / 0.6 | Button and trigger feedback |
-| `SPRING_BOUNCE` | 300 / 18 / 0.8 | Celebrations, micro-pops |
-| `SPRING_LAYOUT` | 360 / 32 / 0.6 | Layout morphs |
-| `SPRING_PANEL` | 420 / 40 / 0.5 | Modals, drawers, popovers |
-| `SPRING_GENTLE` | 180 / 24 / 1.0 | Slow, calm reveals |
-| `SPRING_SNAPPY` | 600 / 35 / 0.5 | Toggles, segmented controls |
-| `SPRING_FLOAT` | 120 / 14 / 0.8 | Tooltips, hover cards |
-| `SPRING_MOUSE` | 200 / 15 / 0.3 | Cursor tracking, magnetic effects |
-| `SPRING_GLIDE` | 700 / 50 / 0.5 | Sliders, no overshoot |
-
-Values are stiffness, damping and mass.
-
----
+transforms on touch devices. Shared springs and curves live in [`lib/ease.ts`](./lib/ease.ts).
 
 ## Catalogue
 
-### Motion ({len(motion_items)})
+The full component list is in [SKILL.md](./SKILL.md#component-catalog-{total_count}-components) and [catalog.json](./catalog.json). `catalog.json` holds the same entries in machine-readable form, including every component's file list, dependencies and guide path.
 
-<details>
-<summary>Show the table</summary>
+## Contributing
 
-{motion_table}
-
-</details>
-
-### Agent surfaces ({len(agents_items)})
-
-<details>
-<summary>Show the table</summary>
-
-{agents_table}
-
-</details>
-
-### Blocks ({len(blocks_items)})
-
-<details>
-<summary>Show the table</summary>
-
-{blocks_table}
-
-</details>
-
-### Craft ({len(craft_items)})
-
-<details>
-<summary>Show the table</summary>
-
-{craft_table}
-
-</details>
-
-`catalog.json` holds the same data in a machine-readable form, including
-every component's file list, dependencies and guide path.
-
----
-
-## Guides
-
-Thirteen references cover the parts that are not a component you can copy.
-
-| Guide | Covers |
-| :--- | :--- |
-| [`style-presets.md`](./references/guides/style-presets.md) | Token matrices for the six presets |
-| [`motion-patterns.md`](./references/guides/motion-patterns.md) | When to use which transition, with timing tables |
-| [`motion-engineering.md`](./references/guides/motion-engineering.md) | Spring maths, shared layout morphs, `AnimatePresence` |
-| [`motion-performance.md`](./references/guides/motion-performance.md) | Compositor-only properties, layer budgets, 60 and 120 FPS |
-| [`motion-polish-rules.md`](./references/guides/motion-polish-rules.md) | Micro-distance scales and progressive disclosure |
-| [`interaction-transitions.md`](./references/guides/interaction-transitions.md) | Canonical interaction patterns and their tokens |
-| [`design-system-checklist.md`](./references/guides/design-system-checklist.md) | Contrast, type scale, spacing, component health |
-| [`baseline-ui-craft.md`](./references/guides/baseline-ui-craft.md) | Optical alignment, spacing rhythm, micro-interactions |
-| [`design-intelligence.md`](./references/guides/design-intelligence.md) | Style families, palettes, type pairings, chart choice |
-| [`craft-surface-design-system.md`](./references/guides/craft-surface-design-system.md) | Tactile elevation and craft surface patterns |
-| [`enterprise-dashboard-patterns.md`](./references/guides/enterprise-dashboard-patterns.md) | Data grids, boards, timelines, filter builders |
-| [`stack-best-practices.md`](./references/guides/stack-best-practices.md) | Next.js App Router, React 19, Tailwind v3 and v4 |
-| [`universal-mobile-patterns.md`](./references/guides/universal-mobile-patterns.md) | Touch ergonomics, haptics, swipe gestures |
-
----
-
-## Checks
-
-Run these before publishing a change:
-
-```bash
-python scripts/verify_skill.py      # package integrity and catalogue coverage
-python scripts/test_release.py      # installer and release regressions
-python evals/catalog_eval.py        # catalogue evaluation
-```
-
-They check the {total_count}-component catalogue, that every referenced file
-exists, installer safety, generated documentation, dependency coverage and
-the rule that upstream source is not referenced from the package.
-
----
-
-## Layout
-
-```text
-motion-ui-skill/
-├── README.md                      # this file
-├── SKILL.md                       # agent-facing skill definition
-├── catalog.json                   # machine-readable metadata for all {total_count} components
-├── components/                    # component source
-│   ├── motion/                    # {len(motion_items)} motion primitives and composed blocks
-│   ├── agents/                    # {len(agents_items)} conversational agent surfaces
-│   ├── previews/                  # preview and demo implementations
-│   └── [category]/                # {len(craft_items)} craft and surface components
-├── data/                          # style, colour, type and chart datasets
-├── icons/                         # brand and annotation icons
-├── lib/                           # tokens, easing physics, hooks
-│   ├── ease.ts                    # easing curves and spring constants
-│   ├── styles.ts                  # style preset tokens
-│   ├── utils.ts                   # cn() utility
-│   └── hooks/                     # use-haptic, use-dismiss, use-measure and friends
-├── references/                    # component guides
-│   ├── motion/                    # {guide_counts.get("motion", 0)} guides
-│   ├── agents/                    # {len(agents_items)} guides
-│   ├── blocks/                    # {guide_counts.get("blocks", 0)} guides
-│   ├── craft/                     # {guide_counts.get("craft", 0)} guides
-│   └── guides/                    # {len(list((ROOT / "references/guides").glob("*.md")))} design and motion guides
-├── prompts/                       # copy-paste agent install prompt
-├── evals/                         # catalogue evaluation
-├── scripts/                       # installer, docs generator, checks
-└── agents/openai.yaml             # Codex skill metadata
-```
-
----
+See [CONTRIBUTING.md](./CONTRIBUTING.md). Read [the component and preview contract](references/component-preview-contract.md) before adding a catalogue entry.
 
 ## License
 
