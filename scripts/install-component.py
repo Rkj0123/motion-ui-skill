@@ -196,7 +196,7 @@ def main():
     parser.add_argument("slug", nargs="?", help="Component slug to inspect or install")
     parser.add_argument("--dest", "-d", default=".", help="Target destination directory (default: current directory)")
     parser.add_argument("--list", "-l", action="store_true", help="List all available components")
-    parser.add_argument("--category", "-c", choices=["motion", "agents", "blocks"], help="Filter listing by category")
+    parser.add_argument("--category", "-c", choices=["motion", "agents", "blocks", "craft"], help="Filter listing by category")
     parser.add_argument("--search", "-s", help="Search components by keyword")
     parser.add_argument("--info", "-i", action="store_true", help="Show detailed information about a component")
     parser.add_argument("--with-previews", action="store_true", help="Also copy preview and demo files")

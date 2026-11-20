@@ -56,21 +56,26 @@ def main() -> int:
     for forbidden in FORBIDDEN:
         require(forbidden not in text, forbidden)
 
-    row_sets = []
-    for name in ("README.md", "SKILL.md"):
-        content = (ROOT / name).read_text(encoding="utf-8")
-        rows = re.findall(
-            r"^\| \*\*(.+?)\*\* \| `([^`]+)` \| .*? \| \[`[^`]+`\]\(([^)]+)\) \| \[Guide\]\(([^)]+)\) \|",
-            content,
-            re.M,
-        )
-        require(len(rows) == 617, (name, len(rows)))
-        require({slug for _, slug, _, _ in rows} == set(listed), name)
-        for _, _, primary, doc in rows:
-            require((ROOT / primary).is_file(), primary)
-            require((ROOT / doc).is_file(), doc)
-        row_sets.append(rows)
-    require(row_sets[0] == row_sets[1], "README and SKILL tables differ")
+    content = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+    rows = re.findall(
+        r"^\| \*\*(.+?)\*\* \| `([^`]+)` \| .*? \| \[`[^`]+`\]\(([^)]+)\) \| \[Guide\]\(([^)]+)\) \|",
+        content,
+        re.M,
+    )
+    require(len(rows) == 617, ("SKILL.md", len(rows)))
+    require({slug for _, slug, _, _ in rows} == set(listed), "SKILL.md")
+    for _, _, primary, doc in rows:
+        require((ROOT / primary).is_file(), primary)
+        require((ROOT / doc).is_file(), doc)
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    require("https://blacknest.dev/motion/" in readme, "README live site")
+    require("SKILL.md" in readme and "catalog.json" in readme, "README catalogue links")
+    require(not re.search(r"\.(?:gif|mp4|webm|png)\b", readme, re.I), "README media embed")
+    require(not re.search(r"<(?:img|video|source)\b", readme, re.I), "README media embed")
+    motion_pin = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))["devDependencies"]["motion"]
+    require(motion_pin == "^13.1.0", motion_pin)
+    require(f"motion@{motion_pin}" in readme, "README motion pin")
     require((ROOT / "agents/openai.yaml").is_file(), "agents/openai.yaml")
     require((ROOT / "references/codex-install.md").is_file(), "references/codex-install.md")
     require((ROOT / "prompts/install-motion-ui.md").is_file(), "prompts/install-motion-ui.md")
